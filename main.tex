@@ -1,0 +1,100 @@
+\documentclass[oneside]{modern}
+\title{Produktentwicklung 1}
+\author{
+\begin{tabular}{ l l l}
+  \textbf{Gruppe 5} && \\
+  Furrer Gian & <gian.furrer@stud.hslu.ch> & Informatik \\
+  Furrer Gian & <gian.furrer@stud.hslu.ch> & Informatik \\
+  Furrer Gian & <gian.furrer@stud.hslu.ch> & Informatik \\
+  Furrer Gian & <gian.furrer@stud.hslu.ch> & Informatik \\
+  Furrer Gian & <gian.furrer@stud.hslu.ch> & Informatik \\
+  \\
+  \textbf{Betreuender Dozent} && \\
+  Thalmann Markus & <markus.thalmann@hslu.ch> & Elektrotechnik \\
+  \\
+  \\
+  \\
+  TA.BA\_PREN1.H2401 &&\\
+\end{tabular}
+}
+
+
+\newcommand{\sectionnumbering}[1]{%
+  \setcounter{section}{0}%
+   \renewcommand{\thesection}{\csname #1\endcsname{section}}}
+
+\usepackage{etoc}
+\etocsettocstyle
+    {\section *{\contentsname
+%                \@mkboth {\MakeUppercase \contentsname}
+%                         {\MakeUppercase \contentsname}
+         }
+         }
+    {}   
+    
+\begin{document}
+
+   % magic * chapter starts at 1 :) 
+   \renewcommand{\thesection}{\arabic{section}}
+   % also break urls
+   \makeatletter
+   \g@addto@macro{\UrlBreaks}{\UrlOrds}
+   \makeatother
+   
+   %\textcolor{light-gray}{\rule{\linewidth}{1pt}}
+
+   %\PassOptionsToPackage{hyphens}{url}\usepackage{hyperref}
+
+  % Print whole bibliographie
+  \nocite{*}
+
+  \firstpage
+    {Pfadfinder}
+    {Hochschule Luzern - Technik und Architektur}
+    {\theauthor}
+
+  %\subfile{parts/Redlichkeiterklärung.tex}
+  %\subfile{parts/management_summary.tex}
+  
+  \newpage
+  \etocdepthtag.toc{mtchapter}
+  \etocsettagdepth{mtchapter}{subsection}
+  \etocsettagdepth{mtappendix}{none}
+  \addtableofcontents
+  
+  \newpage
+  \listoffigures
+  
+  \newpage
+  \listoftables
+
+  \newpage
+  
+  \subfile{glossary.tex}
+
+  % ------------------------------------------------------------------------------
+  % Assemble the document with the multiple parts
+  
+  \subfile{parts/0-doc-info}
+
+  \newpage
+  \addglossary
+
+  % Literaturverzeichnis
+  \newpage
+  \addcontentsline{toc}
+    {section}
+    {Literatur}
+
+  \printbibliography[
+    heading=subbibliography
+  ]
+
+  % Anhang
+  \addcontentsline{toc}
+    {section}
+    {Anhang}
+    
+  %\subfile{parts/anhang}
+
+\end{document}

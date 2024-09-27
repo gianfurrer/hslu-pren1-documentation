@@ -1,0 +1,63 @@
+\section{Anforderungsliste}
+
+\begin{items}
+  \item {\bf F} = Festanforderung
+  \item {\bf M} = Mindestanforderung
+  \item {\bf W} = Wunschanforderung
+\end{items}
+
+\begin{longtable}{l@{\extracolsep{\fill}}p{2cm}p{2cm}p{4cm}p{3cm}lll}
+\centering
+   % \begin{tabular}{|l|l|l|l|l|}
+Nr. & Anforderung & Beschreibung & F = Festanforderung, \\
+M = Mindestanforderungen, \\
+W = Wunsch & Verantwortlichkeit: \\
+Informatiker = INF \\
+Maschinentechnik = MT \\
+Elektrorechnik = ET \\
+Dozenten = DOZ \\
+MT,INF,ET = ALL \\ \hline
+        1.  & Allgemeine Anforderungen & ~ & ~ & ~ \\ \hline
+        1.1 & Projektziel & Entwicklung eines autonomen Fahrzeugs, das den Weg durch ein Wegenetzwerk findet. & F & ALL \\ \hline
+        1.2 & Wegfindung & Das Fahrzeug findet den Optimalen Weg durch das Wegnetzwerk & W & INF \\ \hline
+        1.3 & Autonomie & Fahrzeug muss nach dem Start autonom agieren, ohne externe Eingriffe. & F & INF \\ \hline
+        1.4 & Kernfunktionalität & Erkennen und Umfahren von Hindernissen und gesperrten Wegpunkten. & F & ALL \\ \hline
+        2. & Technische Anforderungen & ~ & ~ & ~ \\ \hline
+        2.1 & Dimensionen & Fahrzeug muss am Anfang auf eine Startfläche von 30 x 30 x 80 cm passen (Das beinhaltet Anbauteile). Anschliessend ist das Fahrzeug frei von jeglichen Dimensionen. & F   & ALL \\ \hline
+        2.2 & Maximalgewicht & Fahrzeug darf maximal 2 kg wiegen. & F & ALL \\ \hline
+        2.3 & Hardware Integration & Alle Sensoren, Aktoren und Steuergeräte müssen im Fahrzeug integriert sein. & F   & ET \\ \hline
+        2.7 & Zielerreichungssignal & Fahrzeug muss visuell oder akustisch anzeigen, wenn es das Ziel erreicht. & F & ET \\ \hline
+        2.8 & Erreichen des Ziels & Das Fahrzeug muss in einem Kreis mit einem Durchmesser von 30 cm um diesen Wegpunkt zum Stehen kommen. & F & ALL \\ \hline
+        2.9 & Minimale Fahrgeschwindigkeit & Das Fahrzeug soll min. 20cm/s fahren auf einer geraden Strecke ohne Hindernisse  & W & ALL \\ \hline
+        3. & Erkennung des Weges und Wegpunkte & ~ & ~ & ~ \\ \hline
+        3.1 & Befahren vom Weg & Mindestens ein Teil des Fahrzeugs muss immer auf der Linie bleiben. & F & INF, ET \\ \hline
+        3.2 & Linienlänge & Eine Linie ist zwischen 0.5 und 2 Meter lang & F & DOZ \\ \hline
+        3.3 & Linienbreite & Eine Linie ist zwischen 15 - 25 Millimeter breit & F & DOZ \\ \hline
+        3.4 & Linienfarbe & Die Linien sind aus hellem Klebeband & F   & DOZ \\ \hline
+        3.5 & Wegpunkte & Ein Wegpunkt hat einen Durchmesser von 7-12cm & F & DOZ \\ \hline
+        3.6 & Erkennung gesperrter Wegpunkte & Gesperrte Wegpunkte müssen erkannt und umfahren werden (markiert durch Pylonen). & F & INF \\ \hline
+        4. & Hindernisse & ~ & ~ & ~ \\ \hline
+        4.1 & Erkennung und Handling von Hindernissen & Hindernisse müssen erkannt, aufgenommen und an der ursprünglichen Position zurückgestellt werden. (Toleranzzone 20 mm umlaufend).  & F & ALL \\ \hline
+        4.2 & Hindernis Anzahl pro Linie & maximal 1 Hindernis pro Linie. & F & DOZ \\ \hline
+        4.3 & Hindernis Dimension & (135mm x 38mm x 60mm ) (LxBxH ) +/- 15mm & F & DOZ \\ \hline
+        4.4 & Hindernis Gewicht & 50g-300g & F & DOZ \\ \hline
+        4.5 & Hindernis Orientierung & Befindet sich vor dem aufheben orthogonal und zentriert auf der Linie.(+- 15° und 2cm) & F & DOZ \\ \hline
+        4.6 & Hindernis Position auf Linie & Minimalabstand der Hindernisse zum nächsten Punkt ist 20cm & F & DOZ \\ \hline
+        5. & Steuerung \& Bedienung & ~ & ~ & ~ \\ \hline
+        5.1 & Startmethode & Start des Fahrzeugs durch physischen Schalter. & F & ALL \\ \hline
+        5.2 & Zielauswahl & Ziel wird über einen Wahlschalter (A, B oder C) vor dem Start ausgewählt. & F & INF, ET \\ \hline
+        5.3 & Notabschaltung & Fahrzeug muss über einen jederzeit zugänglichen Not-Aus-Schalter verfügen. & F & INF, ET \\ \hline
+        5. & Softwareanforderungen & ~ & ~ & ~ \\ \hline
+        5.1 & Simulator & Testen des Verhaltens des Fahrzeuges auf Hindernisse, gesperrte Wegpunkte und fehlenden Linen in einem "Simulator"  & F & INF \\ \hline
+        6. & Nachhaltigkeit & ~ & ~ & ~ \\ \hline
+        6.1 & Umsetzung & Das Produkt soll möglichst Nachhaltig entwickelt werden. & F & ALL \\ \hline
+        7. & Kostenrahmen & ~ & ~ & ~ \\ \hline
+        ~ & Budget & Maximal CHF 500,- für das gesamte Projekt, davon maximal CHF 200,- in Konzeptphase & F & ALL \\ \hline
+        8. & Zeit & ~ & ~ & ~ \\ \hline
+        8.1 & Maximale Dauer des Tests & Der Testlauf (ohne Vorbereitung) darf maximal 4 Minuten dauern. & F & ALL \\ \hline
+        8.2 & Schnelligkeit des Fahrzeugs & Das Fahrzeug erreicht das Ziel innerhalb 2 Minuten ohne Hinderniss. & W & ALL \\ \hline
+        ~ & ~ & ~ & ~ & ~ \\ \hline
+        Version & Datum & Änderung & Verantwortlich & ~ \\ \hline
+        1.0 & 27.09.2024 & Erstellung & Silvan Rölli \\ \hline
+   % \end{tabular}
+\end{longtable}

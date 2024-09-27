@@ -41,7 +41,6 @@
 
 \RequirePackage{titling}  % Get the document title for the header and footer
 \RequirePackage[
-  usenames,
   dvipsnames,
   svgnames,
   table
@@ -50,6 +49,7 @@
 \RequirePackage{caption}
 \RequirePackage[german]
   {babel}
+\RequirePackage{csquotes}
 
 \RequirePackage{minted}   % Syntax highlighting
   \usemintedstyle{pastie} % Set the minted style

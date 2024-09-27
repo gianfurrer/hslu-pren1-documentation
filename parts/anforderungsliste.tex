@@ -6,17 +6,26 @@
   \item {\bf W} = Wunschanforderung
 \end{items}
 
-\begin{longtable}{l@{\extracolsep{\fill}}p{2cm}p{2cm}p{4cm}p{3cm}lll}
-\centering
-   % \begin{tabular}{|l|l|l|l|l|}
-Nr. & Anforderung & Beschreibung & F = Festanforderung, \\
-M = Mindestanforderungen, \\
-W = Wunsch & Verantwortlichkeit: \\
-Informatiker = INF \\
-Maschinentechnik = MT \\
-Elektrorechnik = ET \\
-Dozenten = DOZ \\
-MT,INF,ET = ALL \\ \hline
+\begin{items}
+  \item {\bf INF} = Informatik
+  \item {\bf MT} = Maschinentechnik
+  \item {\bf ET} = Elektrotechnik
+  \item {\bf DOZ} = Dozenten
+  \item {\bf ALL} = MT,INF,ET
+\end{items}
+
+\scriptsize
+%\begin{longtable}{|p{0.5cm}|p{4cm}|p{8cm}|p{0.4cm}|p{1.5cm}|}
+\begin{longtable}[]{@{}lp{4cm}}
+\toprule
+  \textbf{Nr.}
+& \textbf{Anforderung}
+& \textbf{Beschreibung}
+& \textbf{Kat.}
+& \textbf{Verantwortlich} 
+\tabularnewline
+%\midrule
+\endhead
         1.  & Allgemeine Anforderungen & ~ & ~ & ~ \\ \hline
         1.1 & Projektziel & Entwicklung eines autonomen Fahrzeugs, das den Weg durch ein Wegenetzwerk findet. & F & ALL \\ \hline
         1.2 & Wegfindung & Das Fahrzeug findet den Optimalen Weg durch das Wegnetzwerk & W & INF \\ \hline

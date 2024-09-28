@@ -1,7 +1,5 @@
 # use -shell-escape for syntax highlight
-$lualatex = 'lualatex -interaction=nonstopmode -synctex=1 -shell-escape -output-directory=. -aux-directory=.';
-#$xelatex = 'xelatex -interaction=nonstopmode -shell-escape -synctex=1 -output-directory=. -aux-directory=.';
-#$pdflatex = 'pdflatex -shell-escape -synctex=1 -interaction=nonstopmode -file-line-error -output-directory=. -aux-directory=.'
+$lualatex = 'lualatex -interaction=nonstopmode -synctex=1 -shell-escape';
 
 # build the glossaries
 #add_cus_dep('glo', 'gls', 0, 'makeglo2gls');

@@ -544,10 +544,11 @@ PREN 1}
   \renewcommand{\thesection}{\hspace{-5mm}}
   \renewcommand{\thesubsection}{\hspace{-5mm}}
   \renewcommand{\thesubsubsection}{\hspace{-5mm}}
+  \renewcommand{\thesubsubsubsection}{\hspace{-5mm}}
 }
 
 % Also number subsubsections
-\setcounter{secnumdepth}{3}
+\setcounter{secnumdepth}{4}
 
 \titleformat{\section}
   {\LARGE\sf}               % font style
@@ -610,6 +611,7 @@ PREN 1}
     \titlerule*[0mm]{}
     \contentspage
   }
+\titleformat{\paragraph}[hang]{\normalfont\normalsize\sf}{\theparagraph}{5mm}{}
 
 % ------------------------------------------------------------------------------
 % GLOSSARY

@@ -66,12 +66,17 @@ E & Orientierung & Sensorik & Encoder & 7 & \href{https://www.arrow.de/research-
 E & Orientierung & Sensorik & Optischer Sensor & 5 & \href{https://global.sharp/products/device/lineup/data/pdf/datasheet/gp2y0e02a_e.pdf}{Link} & 01.10.2024 & Joel
 \tabularnewline
 
-I &  Objekterkennung &  Deep Learning & Deep Learning Frameworks & 7 &  \href{https://www.simplilearn.com/tutorials/deep-learning-tutorial/deep-learning-frameworks} {Link}&  27.09.2024 & Gian
+I & Objekterkennung & Deep Learning & Deep Learning Frameworks & 7 &  \href{https://www.simplilearn.com/tutorials/deep-learning-tutorial/deep-learning-frameworks} {Link}&  27.09.2024 & Gian
 \tabularnewline
 I & Objekterkennung & Deep Learning & TensorFlow in 100 seconds & 10 &
 \href{https://www.youtube.com/watch?v=i8NETqtGHms}{Link} & 29.09.2024 & Gian
 \tabularnewline
-
+I & Objekterkennung & Deep Learning & What is Object Detection? & 9 &
+\href{https://www.ibm.com/topics/object-detection#:~:text=Object%20detection%20is%20a%20technique,imaging%20to%20self%2Ddriving%20cars.}{Link}
+& 02.10.2024 & Gian
+\tabularnewline
+I & Objekterkennung & Deep Learning & Region Based CNN - Wikipedia & 6
+& 02.10.2024 & Gian
 
 I & Wegfindung & Algorithmus & Informationen über Wegfindung & \href{https://de.wikipedia.org/wiki/Pathfinding}{Link} & 8 & 02.10.2024 & Gian
 \tabularnewline
@@ -127,81 +132,81 @@ Somit kann anhand eines Wegfindungsalgorithmus der schnellste Weg berechnet werd
 
 Findet den kürzesten Weg von einem gegebenen Startknoten zu allen anderen Knoten in einem Graphen mit nicht-negativen Gewichten.
 
-\begin{multicols}{2}
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
   \item Optimierter Greedy-Algorithmus, der immer die optimale Lösung findet.
   \item Funktioniert gut in dichten Graphen, wo die Anzahl der Kanten hoch ist.
 \end{items}
-
-\columnbreak
-
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Nachteile]
   \item Nicht zielgerichtet, kann zu Zeitverschwendung führen.
   \item Erfordert die Speicherung aller Knoten im Speicher, zu hohem Speicherbedarf führen kann.
 \end{items}
-\end{multicols}
+\end{minipage}
 \paragraph{A*-Algorithmus}
 
 Ein heuristischer Algorithmus, der den kürzesten Pfad von einem Startknoten zu einem Zielknoten findet. Er kombiniert Dijkstra mit einer Heuristik, um effizientere Entscheidungen zu treffen.
 
-\begin{multicols}{2}
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
   \item Findet optimale Lösungen und ist oft schneller als Dijkstra, besonders bei großen Graphen.
   \item Anpassbar durch Wahl der Heuristik.
 \end{items}
-
-\columnbreak
-
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Nachteile]
   \item Die Effizienz hängt stark von der Wahl der Heuristik ab.
   \item Kann in bestimmten Fällen langsamer sein als Dijkstra, wenn die Heuristik schlecht gewählt ist.
 \end{items}
-\end{multicols}
+\end{minipage}
 
 \paragraph{Rapidly-exploring Random Tree (RRT)}
 
 Ein probabilistischer Algorithmus, der vor allem in der Robotik eingesetzt wird,
 um schnell einen Pfad in einem komplexen Raum zu finden.
 
-\begin{multicols}{2}
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
   \item Sehr effektiv in hochdimensionalen Räumen.
   \item Flexibel, da er dynamisch auf neue Hindernisse reagieren kann.
 \end{items}
-
-\columnbreak
-
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Nachteile]
   \item Kann suboptimale Lösungen liefern, da der Pfad eher zufällig als deterministisch erzeugt wird.
   \item Benötigt oft zusätzliche Post-Processing-Schritte zur Glättung des Pfades.
 \end{items}
-\end{multicols}
+\end{minipage}
 
 \paragraph{Dynamic A* (D* Lite)}
 
 Eine Erweiterung des A*-Algorithmus, die speziell für dynamische Umgebungen entwickelt wurde, in denen sich Hindernisse während der Laufzeit ändern können.
 
-\begin{multicols}{2}
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
   \item Effiziente Anpassung des Pfades bei Änderungen der Umgebung.
   \item Minimiert die Berechnungen, indem nur die betroffenen Teile des Pfades neu berechnet werden.
 \end{items}
-
-\columnbreak
-
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Nachteile]
   \item Kann in sehr dynamischen Umgebungen langsamer sein, wenn viele Änderungen gleichzeitig auftreten.
   \item Komplexität der Implementierung im Vergleich zu einfacheren Algorithmen.
 \end{items}
-\end{multicols}
+\end{minipage}
 
 \subsubsection{Objekterkennung}
 
@@ -211,82 +216,81 @@ Der Weg, die Hindernisse sowie die Pylonen müssen anhand von Software erkannt u
 
 Ein tiefes Lernverfahren, das besonders für die Bildverarbeitung und Objekterkennung geeignet ist. CNNs nutzen Faltungsschichten, um Merkmale aus Bildern zu extrahieren.
 
-\begin{multicols}{2}
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
   \item Hohe Genauigkeit bei der Objekterkennung, besonders bei komplexen Szenen.
   \item Automatische Merkmalserkennung ohne manuelle Feature-Engineering.
 \end{items}
-
-\columnbreak
-
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Nachteile]
   \item Hoher Rechenaufwand und benötigte Datenmengen für das Training.
   \item Empfindlich gegenüber Veränderungen in der Beleuchtung und Bildqualität.
 \end{items}
-\end{multicols}
+\end{minipage}
 
 \paragraph{YOLO (You Only Look Once)}
 
 Ein Echtzeit-Objekterkennungsalgorithmus, der in der Lage ist, mehrere Objekte in einem Bild in einem einzigen Durchgang zu erkennen.
 
-\begin{multicols}{2}
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
   \item Sehr schnell und effizient, ideal für Echtzeitanwendungen.
   \item Kann mehrere Klassen in einem Bild gleichzeitig erkennen.
 \end{items}
-
-\columnbreak
-
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Nachteile]
   \item Geringere Genauigkeit bei kleineren Objekten im Vergleich zu anderen Methoden.
   \item Schwierigkeiten bei der Erkennung von überlappenden Objekten.
 \end{items}
-\end{multicols}
+\end{minipage}
 
 \paragraph{Haar-Cascade-Klassifikatoren}
 
 Ein Algorithmus zur schnellen Objekterkennung, der häufig in Echtzeitanwendungen verwendet wird.
 
-\begin{multicols}{2}
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
   \item Schnell und effizient für die Erkennung bestimmter Objekte wie Gesichter oder Pylonen.
   \item Relativ einfach zu implementieren und zu trainieren.
 \end{items}
-
-\columnbreak
-
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Nachteile]
   \item Nicht so robust gegen Variationen in Beleuchtung und Hintergrund.
   \item Begrenzte Genauigkeit und Flexibilität im Vergleich zu tiefen Lernansätzen.
 \end{items}
-\end{multicols}
+\end{minipage}
 
 \paragraph{Region-based CNN (R-CNN)}
 
 Ein Ansatz, der die Genauigkeit der Objekterkennung verbessert, indem er Regionenvorschläge nutzt und diese dann mit einem CNN klassifiziert.
 
-\begin{multicols}{2}
-\begin{items}
-  \item [Vorteile]
-  \item Hohe Genauigkeit bei der Erkennung von Objekten in Bildern.
-  \item Gut geeignet für die Erkennung in komplexen Szenen.
-\end{items}
-
-\columnbreak
-
-\begin{items}
-  \item [Nachteile]
-  \item Hoher Rechenaufwand, was die Echtzeitfähigkeit einschränkt.
-  \item Erfordert eine sorgfältige Abstimmung der Hyperparameter und Regionenvorschläge.
-\end{items}
-\end{multicols}
-
+\begin{minipage}[t]{0.48\textwidth}
+    \begin{items}
+      \item [Vorteile]
+      \item Hohe Genauigkeit bei der Erkennung von Objekten in Bildern.
+      \item Gut geeignet für die Erkennung in komplexen Szenen.
+    \end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+    \begin{items}
+      \item [Nachteile]
+      \item Hoher Rechenaufwand, was die Echtzeitfähigkeit einschränkt.
+      \item Erfordert eine sorgfältige Abstimmung der Hyperparameter und Regionenvorschläge.
+    \end{items}
+\end{minipage}
 
 \subsubsection{Simulation}
 

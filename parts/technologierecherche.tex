@@ -141,6 +141,67 @@ Findet den kürzesten Weg von einem gegebenen Startknoten zu allen anderen Knote
 \end{items}
 \end{multicols}
 
+\paragraph{A*-Algorithmus}
+
+Ein heuristischer Algorithmus, der den kürzesten Pfad von einem Startknoten zu einem Zielknoten findet. Er kombiniert Dijkstra mit einer Heuristik, um effizientere Entscheidungen zu treffen.
+
+\begin{multicols}{2}
+\begin{items}
+  \item [Vorteile]
+  \item Findet optimale Lösungen und ist oft schneller als Dijkstra, besonders bei großen Graphen.
+  \item Anpassbar durch Wahl der Heuristik.
+\end{items}
+
+\columnbreak
+
+\begin{items}
+  \item [Nachteile]
+  \item Die Effizienz hängt stark von der Wahl der Heuristik ab.
+  \item Kann in bestimmten Fällen langsamer sein als Dijkstra, wenn die Heuristik schlecht gewählt ist.
+\end{items}
+\end{multicols}
+
+\paragraph{Rapidly-exploring Random Tree (RRT)}
+
+Ein probabilistischer Algorithmus, der vor allem in der Robotik eingesetzt wird,
+um schnell einen Pfad in einem komplexen Raum zu finden.
+
+\begin{multicols}{2}
+\begin{items}
+  \item [Vorteile]
+  \item Sehr effektiv in hochdimensionalen Räumen.
+  \item Flexibel, da er dynamisch auf neue Hindernisse reagieren kann.
+\end{items}
+
+\columnbreak
+
+\begin{items}
+  \item [Nachteile]
+  \item Kann suboptimale Lösungen liefern, da der Pfad eher zufällig als deterministisch erzeugt wird.
+  \item Benötigt oft zusätzliche Post-Processing-Schritte zur Glättung des Pfades.
+\end{items}
+\end{multicols}
+
+\paragraph{Dynamic A* (D* Lite)}
+
+Eine Erweiterung des A*-Algorithmus, die speziell für dynamische Umgebungen entwickelt wurde, in denen sich Hindernisse während der Laufzeit ändern können.
+
+\begin{multicols}{2}
+\begin{items}
+  \item [Vorteile]
+  \item Effiziente Anpassung des Pfades bei Änderungen der Umgebung.
+  \item Minimiert die Berechnungen, indem nur die betroffenen Teile des Pfades neu berechnet werden.
+\end{items}
+
+\columnbreak
+
+\begin{items}
+  \item [Nachteile]
+  \item Kann in sehr dynamischen Umgebungen langsamer sein, wenn viele Änderungen gleichzeitig auftreten.
+  \item Komplexität der Implementierung im Vergleich zu einfacheren Algorithmen.
+\end{items}
+\end{multicols}
+
 \subsubsection{Linienerkennung}
 
 Der anhand von Linien eingezeichnete Weg muss erkannt werden.

@@ -131,16 +131,17 @@ Findet den kürzesten Weg von einem gegebenen Startknoten zu allen anderen Knote
 \begin{items}
   \item [Vorteile]
   \item Optimierter Greedy-Algorithmus, der immer die optimale Lösung findet.
+  \item Funktioniert gut in dichten Graphen, wo die Anzahl der Kanten hoch ist.
 \end{items}
 
 \columnbreak
 
 \begin{items}
   \item [Nachteile]
-  \item Nicht zielgerichtet, kann zu Zeitverschwendung führen
+  \item Nicht zielgerichtet, kann zu Zeitverschwendung führen.
+  \item Erfordert die Speicherung aller Knoten im Speicher, zu hohem Speicherbedarf führen kann.
 \end{items}
 \end{multicols}
-
 \paragraph{A*-Algorithmus}
 
 Ein heuristischer Algorithmus, der den kürzesten Pfad von einem Startknoten zu einem Zielknoten findet. Er kombiniert Dijkstra mit einer Heuristik, um effizientere Entscheidungen zu treffen.

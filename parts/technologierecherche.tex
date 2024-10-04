@@ -56,6 +56,7 @@ I & Steuerung & Hardware & Tiny & 8 & HSLU & 01.10.2024 & Joel
 I & Steuerung & Hardware & ESP32 & 7 & \href{https://www.espressif.com/en/products/devkits/esp32-devkitc}{Link} & 03.10.2024 & Thomas
 \tabularnewline
 
+E & Orientierung & Sensorik & Linienfolger & 5 & \href{https://www.elektronik-kompendium.de/sites/raspberry-pi/2802011.htm}{Link} & 27.09.2024 & Joel
 E & Orientierung & Sensorik & Infrarot & 5 & \href{https://www.elektronik-kompendium.de/sites/raspberry-pi/2802011.htm}{Link} & 27.09.2024 & Thomas
 \tabularnewline
 E & Orientierung & Sensorik & Ultraschall & 5 & \href{https://elektro.turanis.de/html/prj121/index.html}{Link} & 27.09.2024 & Thomas 
@@ -102,7 +103,7 @@ I & Wegfindung & Algorithmus & Floyd Warshall shortest path algorithm & 8 &
 I & Wegfindung & Algorithmus & Depth First Search (DFS) & 7 &
 \href{https://en.wikipedia.org/wiki/Depth-first_search}{Link} & 04.10.2024 & Patrick
 \tabularnewline
-I & Wegfindung & Algorithmus & A decremental approach with the A∗ algorithm & 4 &
+I & Wegfindung & Algorithmus & A decremental approach with the \* algorithm & 4 &
 \href{https://doi.org/10.1016/j.measurement.2014.10.014}{Link} & 04.10.2024 & Patrick
 \tabularnewline
 
@@ -234,6 +235,41 @@ Eine Erweiterung des A*-Algorithmus, die speziell für dynamische Umgebungen ent
 \end{items}
 \end{minipage}
 
+
+\paragraph{Goal directed shortest path queries using precomputed cluster distances}
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Vorgenerierte kürzeste Pfade erlauben schnelle Wechsel bei Graph-Anpassungen
+  \item Schnell bei kleinen Graphen
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Relativ grosser Speicheraufwand für die vorberechneten kürzesten Pfade.
+\end{items}
+\end{minipage}
+
+\paragraph{Floyd Warshall shortest path algorithm}
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Effizient für kleine Graphen
+  \item 
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Kann langsamer sein als Dijkstra oder A* 
+\end{items}
+\end{minipage}
+
 \subsubsection{Objekterkennung}
 
 Der Weg, die Hindernisse sowie die Pylonen müssen anhand von Software erkannt und kategorisiert werden. Um die beiden Objekte voneinander zu unterscheiden, müssen die Objekte anhand von Bildern erkannt werden.
@@ -317,6 +353,8 @@ Ein Ansatz, der die Genauigkeit der Objekterkennung verbessert, indem er Regione
       \item Erfordert eine sorgfältige Abstimmung der Hyperparameter und Regionenvorschläge.
     \end{items}
 \end{minipage}
+
+
 
 \subsubsection{Simulation}
 

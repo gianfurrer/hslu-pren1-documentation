@@ -93,6 +93,15 @@ I & Wegfindung & Algorithmus & Rapidly exploring random tree & 4 &
 I & Wegfindung & Algorithmus & D\* & 9 &
 \href{https://en.wikipedia.org/wiki/D*}{Link} & 03.10.2024 & Gian
 \tabularnewline
+I & Wegfindung & Algorithmus & Goal directed shortest path queries using precomputed cluster distances & 8 &
+\href{https://publikationen.bibliothek.kit.edu/1000009512}{Link} & 04.10.2024 & Patrick
+\tabularnewline
+I & Wegfindung & Algorithmus & Floyd Warshall shortest path algorithm & 8 &
+\href{https://en.wikipedia.org/wiki/Floyd%E2%80%93Warshall_algorithm}{Link} & 04.10.2024 & Patrick
+\tabularnewline
+I & Wegfindung & Algorithmus & Depth First Search (DFS) & 7 &
+\href{https://en.wikipedia.org/wiki/Depth-first_search}{Link} & 04.10.2024 & Patrick
+\tabularnewline
 
 E & Sicherheit & Not-Aus & Implementierung eines Not-Aus & 6 & \href{https://www.eaton.com/ie/en-gb/markets/machine-building/service-and-support-machine-building-moem-service-eaton/blogs/emergency-stop-circuit---blogs---eaton.html}{Link} & 27.09.2024 & Thomas
 \tabularnewline
@@ -120,8 +129,12 @@ M & Hindernissbewältigung & Transport & über Fahrzeug hinweg mit Ausleger & 6 
 \tabularnewline
 M & Hindernissbewältigung & Transport & über Fahrzeug hinweg mit Förderband & 3 &  & 03.10.2024 & Silas
 \tabularnewline
-
-
+M & Hindernissbewältigung & Aufnahme & Vakuumgreifer & 8 & \href{https://www.youtube.com/shorts/alxwWgzSVss}{Link}& 03.10.2024 & Silvan
+\tabularnewline
+M & Hindernisbewältigung & Rotation & Kran & 9 & \href{https://www.youtube.com/watch?v=VZRFHJfUkq4&feature=youtu.be}{Link}& 03.10.2024 & Silvan
+\tabularnewline
+M & Hindernisbewältigung & Rotation & Kran von oben & 8 & \href{https://www.youtube.com/watch?v=J7LGSNhFTU4}{Link}& 03.10.2024 & Silvan
+\tabularnewline
 \caption{Technologierecherche Übersicht}
 \label{tab:technologierecherche}
 \end{longtable}
@@ -130,7 +143,7 @@ M & Hindernissbewältigung & Transport & über Fahrzeug hinweg mit Förderband &
 \newpage
 \subsection{Informatik}
 
-Dieser Abschnitt enthält detaillierte Rechercheergebnise über die Bereiche der Informatik.
+Dieser Abschnitt enthält detaillierte Rechercheergebnisse über die Bereiche der Informatik.
 
 \subsubsection{Wegfindung}
 
@@ -385,14 +398,14 @@ Folgendes sind Ideen für die Hindernisbewältigung, jeweils mit einer Skizze od
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/technologierecherche/Rotation/ueberkopf_griff_gelagert.jpg}
-        \caption{}
+        \caption{Rotation am arm selber, damit das Hindernis wieder aufrecht steht.}
         \label{img:tech_ueberkopf_griff_gelagert}
     \end{minipage}
     \hfill
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/technologierecherche/Rotation/ueberkopf_objekt_gelagert.jpg}
-        \caption{} 
+        \caption{Lagerung am Hindernis } 
         \label{img:tech_ueberkopf_objekt_gelagert}
     \end{minipage}
 \end{figure}
@@ -402,16 +415,10 @@ Folgendes sind Ideen für die Hindernisbewältigung, jeweils mit einer Skizze od
     \begin{minipage}{0.45\textwidth}
         \centering
         \includegraphics[width=\textwidth]{img/technologierecherche/Rotation/waescheanlage.jpg}
-        \caption{}
+        \caption{Beförderung des Objektes unter dem Fahrzeug}
         \label{img:tech_waescheanlage}
     \end{minipage}
     \hfill
-    \begin{minipage}{0.45\textwidth}
-        \centering
-        \includegraphics[width=\textwidth]{img/technologierecherche/Aufnahme/Breiterweg_Griff.jpg}
-        \caption{} 
-        \label{img:tech_nichts}
-    \end{minipage}
 \end{figure}
 
 
@@ -423,7 +430,7 @@ Folgendes sind Ideen für die Hindernisbewältigung, jeweils mit einer Skizze od
 Im folgenden Text sind die verschiedenen Varianten der Elektrotechnischen Bauteilen aufgelistet.
 
 \subsubsection{Antrieb}
-Als Antrieb würde sich hier ein einfacher DC Motor anbringen. Dieser hat den Vorteil einfach in der Ansteuerung zu sein. Jedoch müsste man für die Auswertung des gefahrenen Weges, eventuell benötigt für die Hindernissbewältigung, ein Encoder anbringen und diesen auswerten. Der Schrittmotor kann dagegen präzise angesteuert werden und weiss daher immer seine Winkelposition. Ein Schrittmotor benötigt ein Treiber, ist jedoch in der Ansteuerung mit Positionserkennung einfacher. Der Brushless Motor ist wie ein kleiner Asynchronmotor. Dieser benötigt auch ein Treiber, jedoch muss dieser für die Positionserkennung auch ein Geber haben.
+Als Antrieb würde sich hier ein einfacher DC Motor eignen. Dieser hat den Vorteil einfach in der Ansteuerung zu sein. Jedoch müsste man für die Auswertung des gefahrenen Weges, eventuell benötigt für die Hindernissbewältigung, ein Encoder anbringen und diesen auswerten. Der Schrittmotor kann dagegen präzise angesteuert werden und weiss daher immer seine Winkelposition. Ein Schrittmotor benötigt ein Treiber, ist jedoch in der Ansteuerung mit Positionserkennung einfacher. Der Brushless Motor ist wie ein kleiner Asynchronmotor. Dieser benötigt auch ein Treiber, jedoch muss dieser für die Positionserkennung auch ein Geber haben.
 
 \subsubsection{Orientierung}
 Bei der Orientierung geht es vor allem um das erkennen eines blockierten Weges. Der Infrarot Sensor sendet ein Optisches Signal und detektiert wie stark es reflektiert wurde. Damit kann er ein Objekt vor sich erkennen. So könnte man zwei Sensoren auf unterschiedlichen Höhen montieren und so zwischen Pylonen und Hindernissen unterscheiden. Infrarot funktioniert bei Partikel in der Luft ungenauer, da das in diesem Projekt nicht vorkommt, ist dies eine Möglichkeit. Auf dem gleichen Prinzip könnte man für die Erkennung auch ein Ultraschallsensor einsetzen. Der sendet ein Schallwellensignal aus und wertet das Echo aus. In windigen Umgebungen kann es zu Messfehlern führen, auch dies trifft in der Projektumgebung nicht auf. Um das Hindernis präzise zurückzustellen, wenn das Fahrzeug ein Weg zurücklegt, benötigt es ein Encoder. Ein absoluter Encoder kann gegenüber eines inkrementellen auch die Winkelposition des Motors zurückgeben. Demgegenüber liefert der inkrementelle für jede Umdrehung eine bestimmte Zahl an Impulsen. Für unsere Anwendung würde ein Inkrementeller genügen. 

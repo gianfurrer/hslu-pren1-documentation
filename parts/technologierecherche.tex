@@ -413,3 +413,21 @@ Folgendes sind Ideen für die Hindernisbewältigung, jeweils mit einer Skizze od
         \label{img:tech_nichts}
     \end{minipage}
 \end{figure}
+
+
+
+
+
+\newpage
+\subsection{Elektrotechnik}
+Im folgenden Text sind die verschiedenen Varianten der Elektrotechnischen Bauteilen aufgelistet.
+
+\subsubsection{Antrieb}
+Als Antrieb würde sich hier ein einfacher DC Motor anbringen. Dieser hat den Vorteil einfach in der Ansteuerung zu sein. Jedoch müsste man für die Auswertung des gefahrenen Weges, eventuell benötigt für die Hindernissbewältigung, ein Encoder anbringen und diesen auswerten. Der Schrittmotor kann präzise angesteuert werden und weiss daher immer seine Winkelposition. Ein Schrittmotor benötigt ein Treiber, ist jedoch in der Ansteuerung mit Postionserkennung einfacher. Der Brushless Motor ist wie ein kleiner Asynchronmotor. Dieser benötigt auch ein Treiber, jedoch muss dieser für die Positionserkennung auch ein Geber haben.
+
+\subsubsection{Orientierung}
+Bei der Orientierung geht es vor allem um das erkennen eines blockierten Weges. Der Infrarot Sensor sendet ein Optisches Signal und detektiert wie stark es reflektiert wurde. Damit kann er ein Objekt vor sich erkennen. So könnte man zwei Sensoren auf unterschiedlichen Höhen montieren und so zwischen Pylone und Hindernis unterscheiden. Infrarot funktioniert bei Partikel in der Luft ungenauer, da das in diesem Projekt nicht vorkommt, ist dies eine Möglichkeit. Auf dem gleichen Prinzip könnte man für die Erkennung auch ein Ultraschallsensor einsetzen. Der sendet ein Schallwellensignal aus und wertet das Echo aus. In windigen Umgebungen kann es zu Messfehlern führen, auch dies trifft in der Projektumgebung nicht auf. Um das Hindernis präzise zurückzustellen, wenn das Fahrzeug ein Weg zurücklegt, benötigt es ein Encoder. Ein absoluter Encoder kann gegenüber eines inkrementellen auch die Winkelposition des Motors zurückgeben. Demgegenüber liefert der inkrementelle für jede Umdrehung eine bestimmte Zahl an Impulsen. Für unsere Anwendung würde ein Inkrementeller genügen. 
+
+\subsubsection{Energiequelle}
+Bei der Energiequelle bietet sich ein Akkumulator am besten an. Eine Technologie davon ist der Lithium-Polymer Akku
+

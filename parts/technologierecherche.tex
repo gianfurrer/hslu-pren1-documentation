@@ -55,8 +55,10 @@ I & Steuerung & Hardware & Tiny & 8 & HSLU & 01.10.2024 & Joel
 \tabularnewline
 I & Steuerung & Hardware & ESP32 & 7 & \href{https://www.espressif.com/en/products/devkits/esp32-devkitc}{Link} & 03.10.2024 & Thomas
 \tabularnewline
-
-E & Orientierung & Sensorik & Linienfolger & 5 & \href{https://www.elektronik-kompendium.de/sites/raspberry-pi/2802011.htm}{Link} & 27.09.2024 & Joel
+E & Orientierung & Sensorik & Linienfolger & 5 & \href{https://pglu.ch/3-mit-fahrroboter-linie-folgen/?srsltid=AfmBOor3qIbdXGD1WYtV-YadIVjE2Urm7U3QGtes_IjcCzCVViC2yody}{Link} & 04.10.2024 & Joel
+\tabularnewline
+E & Orientierung & Sensorik & Linienfolger & 5 & \href{https://spacehal.github.io/docs/robotik/edgeFollower}{Link} & 04.10.2024 & Joel
+\tabularnewline
 E & Orientierung & Sensorik & Infrarot & 5 & \href{https://www.elektronik-kompendium.de/sites/raspberry-pi/2802011.htm}{Link} & 27.09.2024 & Thomas
 \tabularnewline
 E & Orientierung & Sensorik & Ultraschall & 5 & \href{https://elektro.turanis.de/html/prj121/index.html}{Link} & 27.09.2024 & Thomas 
@@ -237,6 +239,7 @@ Eine Erweiterung des A*-Algorithmus, die speziell für dynamische Umgebungen ent
 
 
 \paragraph{Goal directed shortest path queries using precomputed cluster distances}
+Beschleunigte Version von Dijkstra's Algorithmus, wobei für Graphen-Cluster-Distanzen vorberechnet werden.
 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
@@ -254,19 +257,36 @@ Eine Erweiterung des A*-Algorithmus, die speziell für dynamische Umgebungen ent
 \end{minipage}
 
 \paragraph{Floyd Warshall shortest path algorithm}
+Findet den kürzesten Weg von allen Knoten zu allen anderen Knoten in einem Graphen.
 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
-  \item Effizient für kleine Graphen
-  \item 
+  \item Effizient für kleine und dichte Graphen
 \end{items}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Nachteile]
-  \item Kann langsamer sein als Dijkstra oder A* 
+  \item Langsamer bei grossen Graphen als Dijkstra oder A* 
+\end{items}
+\end{minipage}
+
+\paragraph{Tiefensuche DFS}
+Sucht den Graphen nach einem Objekt ab. Dabei werden neu gefundene Wege weiterverfolgt, bevor weitere Nachbarn von Knoten besucht werden.
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Effiziente Suche, wenn Graph nicht von Beginn an bekannt ist
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Kann sich in Sackgassen des Graphen lange aufhalten.
 \end{items}
 \end{minipage}
 

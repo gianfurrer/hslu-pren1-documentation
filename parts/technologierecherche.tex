@@ -501,7 +501,7 @@ Folgendes sind Ideen für die Hindernisbewältigung, jeweils mit einer Skizze od
 
 \newpage
 \subsection{Elektrotechnik}
-Im folgenden Abschnitt werden über die einzelnen elektrischen Varianten und deren Komponenten verglichen. Indem zu jeder Variante die Vor- und Nachteile aufgelistet werden. Dies vereinfacht später beim morphologischen Kasten, die möglichen Lösungswege.
+Im folgenden Abschnitt werden die einzelnen elektrischen Varianten verglichen. Indem zu jeder Variante die Vor- und Nachteile aufgelistet wird. Dies vereinfacht später, beim morphologischen Kasten, die möglichen Lösungswege.
 
 \subsubsection{Antrieb}
 
@@ -531,7 +531,76 @@ Der DC-Motor ist ein Gleichstrom-Motor, der mit Bürsten am Kommutator arbeitet.
 
 \paragraph{Brushless DC-Motor}
 
-Brushless DC Motoren(BLDC) werden häufig im Modellbau oder Drohnen eingesetzt. Diese haben gegnüber normalen DC-Motoren keine Bürsten. Sie besitzen drei Wicklungen auf dem Stator und haben Im Rotor einen permanent Magneten. Die Spulen werden nun so angesteuert, dass es ein wechselndes Magnetfeld gibt. Dieses Drehfeld bringt den Rotor zur Dreh
+Brushless DC Motoren(BLDC) werden häufig im Modellbau oder Drohnen eingesetzt. Diese haben gegnüber normalen DC-Motoren keine Bürsten. Sie besitzen drei Wicklungen auf dem Stator und haben Im Rotor einen permanent Magneten. Die Spulen werden nun so angesteuert, dass es ein wechselndes Magnetfeld gibt. Dieses Drehfeld bringt den Rotor zur Drehung. 
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Hohe Effizienz
+  \item Präzise Ansteuerung
+  \item Hohe Lebensdauer
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Komplexe Ansteuerung
+  \item Hohe Kosten
+\end{items}
+\end{minipage}
+
+
+\paragraph{Schrittmotor}
+
+Der Schrittmotor wird vor allem bei genauen Positioniersystem wie Roboter, CNC oder auch 3D-Drucker eingesetzt. Diese Motoren haben viel mehr Wicklungen als ein BLDC. Dadurch können Sie kleinere Winkel anfahren und sind somit präzise Positionierungsantriebe. 
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Präzise Ansteuerung
+  \item Hohe Drehmoment bei tiefen Drehzahlen
+  \item Kein Encoder nötig
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Reduzierte Leistung hoher Geschwindigkeit
+  \item Hohen Stromverbrauch
+  \item Erzeugen Vibrationen bei hoher Drehzahl
+\end{items}
+\end{minipage}
+
+\subsubsection{Orientierung / Sensorik}
+
+Es wird darauf eingegangen, wie das Fahrzeug seine Umgebung wahrnehmen kann. Dabei werden wieder die einzelnen Vor- und Nachteile aufgelistet.
+
+\paragraph{Linienfolger}
+Ein Liniensensor funktioniert mit mehreren Fotodioden und LEDs. Die LEDs beleuchten den Boden und die in einer Reihe angeordneten Fotodioden nehmen mehr oder weniger von diesem reflektiertem Licht auf. Je nach Untergrund wird es mehr oder weniger reflektiert. So kann man die Linie erkennen und dieser folgen.
+ 
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item schnelle Reaktion
+  \item einfacher Aufbau
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Hoher Kontrast nötig
+  \item Störungsanfällig auf Fremdlicht
+  \item Kalibrierung notwendig
+\end{items}
+\end{minipage}
+
+\paragraph{DC-Motor}
+
+Der DC-Motor ist ein Gleichstrom-Motor, der mit Bürsten am Kommutator arbeitet. 
 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
@@ -550,9 +619,6 @@ Brushless DC Motoren(BLDC) werden häufig im Modellbau oder Drohnen eingesetzt. 
   \item Schlechte Wärmeabführung
 \end{items}
 \end{minipage}
-
-
-
 
 
 

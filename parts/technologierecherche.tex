@@ -501,7 +501,7 @@ Folgendes sind Ideen für die Hindernisbewältigung, jeweils mit einer Skizze od
 
 \newpage
 \subsection{Elektrotechnik}
-Im folgenden Abschnitt werden die einzelnen elektrischen Varianten verglichen. Indem zu jeder Variante die Vor- und Nachteile aufgelistet wird. Dies vereinfacht später, beim morphologischen Kasten, die möglichen Lösungswege.
+Im folgenden Abschnitt werden die einzelnen elektrischen Varianten verglichen. Indem zu jeder Variante die Vor- und Nachteile aufgelistet werden. Dies vereinfacht später, beim morphologischen Kasten, die möglichen Lösungswege.
 
 \subsubsection{Antrieb}
 
@@ -663,7 +663,7 @@ Ein Encoder detektiert die Umdrehungen eines Motors und wandelt dies in ein digi
 
 \subsubsection{Energiequelle}
 
-In diesem Teil werden die verschiedenen elektrische Antriebe aufgelistet. 
+Im unteren Teil werden die verschiedenen Energiequellen untersucht.
 
 \paragraph{Lithium-Polymer}
 Der Lithium-Polymer (LiPo) Akku ist ein formbarer Akku, der vor allem im Modellbau und bei Drohnen eingesetzt wird.
@@ -690,7 +690,7 @@ Der Lithium-Polymer (LiPo) Akku ist ein formbarer Akku, der vor allem im Modellb
 
 \paragraph{Lithium-Ionen}
 
-Der Lithium-Ionen (Li-Ion) Akku ist ein robuster Akku der in Laptop und Smartphones eingesetzt wird. Da dieser kein Memory Effekt besitzt. Der Memory Effekt beschreibt, wenn der Akku nicht ganz entladen wurde und dann wieder aufgeladen wird, das er diesen Punkt als tiefesten "merkt"
+Der Lithium-Ionen (Li-Ion) Akku ist ein robuster Akku der in Laptop und Smartphones eingesetzt wird. Da dieser kein Memory Effekt besitzt. Der Memory Effekt beschreibt, wenn der Akku nicht ganz entladen wurde und dann wieder aufgeladen wird, das er diesen Punkt als tiefesten Zustand "merkt".
 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
@@ -704,22 +704,32 @@ Der Lithium-Ionen (Li-Ion) Akku ist ein robuster Akku der in Laptop und Smartpho
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Nachteile]
-  \item Verschleiss der Bürsten
-  \item EMV Störung durch Funkenbildung
-  \item Schlechte Wärmeabführung
+  \item Temperaturempfindlich
+  \item Hohe Kosten
+  \item Sicherheit Feuergefahr
 \end{items}
 \end{minipage}
+ 
 
+\paragraph{Nickel-Metallhydrid}
 
-\subsubsection{Antrieb}
-Als Antrieb würde sich hier ein einfacher DC Motor eignen. Dieser hat den Vorteil einfach in der Ansteuerung zu sein. Jedoch müsste man für die Auswertung des gefahrenen Weges, eventuell benötigt für die Hindernissbewältigung, ein Encoder anbringen und diesen auswerten. Der Schrittmotor kann dagegen präzise angesteuert werden und weiss daher immer seine Winkelposition. Ein Schrittmotor benötigt ein Treiber, ist jedoch in der Ansteuerung mit Positionserkennung einfacher. Der Brushless Motor ist wie ein kleiner Asynchronmotor. Dieser benötigt auch ein Treiber, jedoch muss dieser für die Positionserkennung auch ein Geber haben.
+Nickel-Metallhydrid (NiMH) Akkus sind in vielen Haushaltsgeräten, Digitalkameras oder Taschenlampen zu finden. 
 
-\subsubsection{Orientierung}
-Bei der Orientierung geht es vor allem um das erkennen eines blockierten Weges. Der Infrarot Sensor sendet ein Optisches Signal und detektiert wie stark es reflektiert wurde. Damit kann er ein Objekt vor sich erkennen. So könnte man zwei Sensoren auf unterschiedlichen Höhen montieren und so zwischen Pylonen und Hindernissen unterscheiden. Infrarot funktioniert bei Partikel in der Luft ungenauer, da das in diesem Projekt nicht vorkommt, ist dies eine Möglichkeit. Auf dem gleichen Prinzip könnte man für die Erkennung auch ein Ultraschallsensor einsetzen. Der sendet ein Schallwellensignal aus und wertet das Echo aus. In windigen Umgebungen kann es zu Messfehlern führen, auch dies trifft in der Projektumgebung nicht auf. Um das Hindernis präzise zurückzustellen, wenn das Fahrzeug ein Weg zurücklegt, benötigt es ein Encoder. Ein absoluter Encoder kann gegenüber eines inkrementellen auch die Winkelposition des Motors zurückgeben. Demgegenüber liefert der inkrementelle für jede Umdrehung eine bestimmte Zahl an Impulsen. Für unsere Anwendung würde ein Inkrementeller genügen. 
-
-\subsubsection{Sicherheit}
-Als Sicherheit wird auf dem Fahrzeug ein gut zugänglicher Not-Aus Pilz Taster angebracht. Dieser muss das Fahrzeug stoppen und in einen sicheren Zustand bringen. Ausserdem muss Software technisch mögliche undefinierte Zustände abgefangen werden. Zum Beispiel wenn das Fahrzeug die Linie verlässt, wie es reagiert. Schaltet es den Antrieb aus oder irrt es ohne Orientierung weiter.
-
-\subsubsection{Energiequelle}
-Bei der Energiequelle bietet sich ein Akkumulator am besten an. Eine Technologie davon ist der Lithium-Polymer (LiPo) Akku. Diese haben eine hohe Leistungsdichte und können auch hohe Ströme liefern. Dafür sind sie empfindliche gegen Überladung, Tiefenentladung und Schlägen. Lithium-Ionen (Li-Ion) Akkus sind robuster im Bezug auf den Ladevorgang und haben auch die höhere Energiedichte. Dafür liefern sie die kleineren Ströme, haben dafür eine länger Lebensdauer. Nickel-Metallhydrid (NiMh) Akkus sind gegenüber der Lithium Technologien Umweltfreundlicher und sicherer im Umgang. Dafür ist ihre Energiedichte kleiner wie auch ihre maximale Stromabgabe. Eine autarke Lösung, wäre mittels Solarpanel. Damit ein solches System funktioniert, benötigt es trotz allem immer noch ein Akku um die Energie zwischen zu speichern. Daher ist das Solarpanel, besser als ein Feature zu verstehen.
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Moderate Energiedichte
+  \item Geringer Memory Effekt
+  \item Sicher
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Selbstentladung
+  \item Kapazitätsverlust
+  \item Temperaturempfindlich
+\end{items}
+\end{minipage}
 

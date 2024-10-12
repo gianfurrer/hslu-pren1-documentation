@@ -598,16 +598,106 @@ Ein Liniensensor funktioniert mit mehreren Fotodioden und LEDs. Die LEDs beleuch
 \end{items}
 \end{minipage}
 
-\paragraph{DC-Motor}
-
-Der DC-Motor ist ein Gleichstrom-Motor, der mit Bürsten am Kommutator arbeitet. 
+\paragraph{Infrarot}
+Mit Infrarot (IR) Sensoren können Objekte vor einem erkannt und ebenso die Distanz dazu ermittelt werden.
 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
-  \item Einfache Drehzahlsteuerung
-  \item Hohe Drehzahlen
-  \item Hohes Drehmoment
+  \item Schnelle Reaktionszeit
+  \item Hohe Empfindlichkeit
+  \item Robust und langlebig
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Begrenzte Reichweite
+  \item Abhängigkeit Oberflächenbeschaffenheit
+  \item Störungen durch andere IR-Quellen
+\end{items}
+\end{minipage}
+
+\paragraph{Ultraschall}
+Ein Ultraschallsensor sendet Schallwellen aus und kann mit deren Reflexion von Objekten, diese erkennen und die Distanz zu Ihnen ermitteln.
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Material unabhängig
+  \item Hohe Präzision
+  \item Robust gegenüber Umwelteinflüssen
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Tote Zone in der Nähe des Sensors
+  \item Unpräzise bei komplexer Umgebung
+  \item Kleine Objekte schwer zu detektieren
+\end{items}
+\end{minipage}
+
+\paragraph{Encoder}
+Ein Encoder detektiert die Umdrehungen eines Motors und wandelt dies in ein digitales Signal um. Mit diesem Signal kann die Steuerung den Motor präzise ansteuern.
+ 
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Hohe Präzision
+  \item Schnelle Reaktionszeit
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Hohe Kosten
+  \item Anfällig durch Schmutz oder EMV
+\end{items}
+\end{minipage}
+
+
+\subsubsection{Energiequelle}
+
+In diesem Teil werden die verschiedenen elektrische Antriebe aufgelistet. 
+
+\paragraph{Lithium-Polymer}
+Der Lithium-Polymer (LiPo) Akku ist ein formbarer Akku, der vor allem im Modellbau und bei Drohnen eingesetzt wird.
+ 
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Leicht und flexibel in der Formgebung
+  \item Hohe Leistungsdichte
+  \item Hohe Entladerate
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Empfindliche Über- und Tiefenentladung
+  \item Empfindlich Beschädigungen
+  \item Sicherheit Feuergefahr
+\end{items}
+\end{minipage}
+
+
+\paragraph{Lithium-Ionen}
+
+Der Lithium-Ionen (Li-Ion) Akku ist ein robuster Akku der in Laptop und Smartphones eingesetzt wird. Da dieser kein Memory Effekt besitzt. Der Memory Effekt beschreibt, wenn der Akku nicht ganz entladen wurde und dann wieder aufgeladen wird, das er diesen Punkt als tiefesten "merkt"
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Lange Lebensdauer
+  \item Hohe Energiedichte
+  \item Kein Memory-Effekt
 \end{items}
 \end{minipage}
 \hfill
@@ -619,7 +709,6 @@ Der DC-Motor ist ein Gleichstrom-Motor, der mit Bürsten am Kommutator arbeitet.
   \item Schlechte Wärmeabführung
 \end{items}
 \end{minipage}
-
 
 
 \subsubsection{Antrieb}

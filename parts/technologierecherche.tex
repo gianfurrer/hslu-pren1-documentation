@@ -1,7 +1,7 @@
 \newpage
 \section{Technologierecherche}
 
-Im folgenden Kapitel wird zuerst ein grober Überblick über die Technologierecherche geworfen. Im Anschluss folgt zu jedem Spezialgebiet, (Informatik, Maschinenbau, Elektrotechnik), eine kurze Zusammenfassung über die Resultate der Recherche. Das Projekt wird in kleinere Teilfunktionen gespalten. Diese sind im folgenden Aufgelistet:
+Im folgenden Kapitel wird zuerst ein grober Überblick über die Technologierecherche gegeben. Im Anschluss folgt zu jedem Spezialgebiet, (Informatik, Maschinenbau, Elektrotechnik), eine kurze Zusammenfassung über die Resultate der Recherche. Das Projekt wird in kleinere Teilfunktionen gespalten. Diese sind im folgenden Aufgelistet:
 \begin{itemize}
     \item Fortbewegung
     \item Antrieb
@@ -15,8 +15,8 @@ Im folgenden Kapitel wird zuerst ein grober Überblick über die Technologierech
 \end{itemize}
 
 
-\subsection*{Überblick}
-In der folgenden Tabelle 
+\subsection{Überblick}
+In der folgenden Tabelle sind zu jeder Teilfunktion verschiede Themen aufgelistet, die eine Bewertung und Link besitzen. Die Bewertung ist dazu da, wie relevant das Thema für die Teilfunktion ist.
 
 \scriptsize
 \begin{longtable}{l@{\extracolsep{\fill}}p{2cm}p{2cm}p{4cm}p{1.5cm}lll}
@@ -44,7 +44,7 @@ M & Fortbewegung & Beweglichkeit & Fahrzeug abbocken und an Stelle auf Drehkranz
 
 E & Antrieb & Motor & Schrittmotor & 8 & \href{https://wiki.bu.ost.ch/infoportal/_media/hardware/sysp/bauteile/schrittmotor_kurz_erklaert_d.pdf}{Link} & 27.09.2024 & Thomas
 \tabularnewline
-E & Antrieb & Motor & DC Motor & 7 & \href{https://www.elektronikpraxis.de/dc-motoren-empirisch-und-theoretisch-berechnen-a-04bb230e718c01ace9dd584576d618a3/}{Link} & 27.09.2024 & Thomas
+E & Antrieb & Motor & DC Motor & 7 & \href{https://www.arrow.de/research-and-events/articles/which-dc-motor-is-best-for-your-application}{Link} & 27.09.2024 & Thomas
 \tabularnewline
 E & Antrieb & Motor & Brushless & 7 & \href{https://www.renesas.com/en/support/engineer-school/brushless-dc-motor-01-overview}{Link} & 27.09.2024 & Thomas
 \tabularnewline
@@ -151,7 +151,7 @@ M & Hindernisbewältigung & Rotation & Kran von oben & 8 & \href{https://www.you
 \newpage
 \subsection{Informatik}
 
-Dieser Abschnitt enthält detaillierte Rechercheergebnisse über die Bereiche der Informatik.
+Dieser Abschnitt enthält detaillierte Rechercheergebnisse über die Bereiche der Informatik. Dabei werden Vor- und Nachteile aufgezeigt und die einzelnen Algorithmen erklärt.
 
 \subsubsection{Wegfindung}
 
@@ -501,7 +501,60 @@ Folgendes sind Ideen für die Hindernisbewältigung, jeweils mit einer Skizze od
 
 \newpage
 \subsection{Elektrotechnik}
-Im folgenden Text sind die verschiedenen Varianten der Elektrotechnischen Bauteilen aufgelistet.
+Im folgenden Abschnitt werden über die einzelnen elektrischen Varianten und deren Komponenten verglichen. Indem zu jeder Variante die Vor- und Nachteile aufgelistet werden. Dies vereinfacht später beim morphologischen Kasten, die möglichen Lösungswege.
+
+\subsubsection{Antrieb}
+
+In diesem Teil werden die verschiedenen elektrische Antriebe aufgelistet. 
+
+\paragraph{DC-Motor}
+
+Der DC-Motor ist ein Gleichstrom-Motor, der mit Bürsten am Kommutator arbeitet. 
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Einfache Drehzahlsteuerung
+  \item Hohe Drehzahlen
+  \item Hohes Drehmoment
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Verschleiss der Bürsten
+  \item EMV Störung durch Funkenbildung
+  \item Schlechte Wärmeabführung
+\end{items}
+\end{minipage}
+
+\paragraph{Brushless DC-Motor}
+
+Brushless DC Motoren(BLDC) werden häufig im Modellbau oder Drohnen eingesetzt. Diese haben gegnüber normalen DC-Motoren keine Bürsten. Sie besitzen drei Wicklungen auf dem Stator und haben Im Rotor einen permanent Magneten. Die Spulen werden nun so angesteuert, dass es ein wechselndes Magnetfeld gibt. Dieses Drehfeld bringt den Rotor zur Dreh
+
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Vorteile]
+  \item Einfache Drehzahlsteuerung
+  \item Hohe Drehzahlen
+  \item Hohes Drehmoment
+\end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+\begin{items}
+  \item [Nachteile]
+  \item Verschleiss der Bürsten
+  \item EMV Störung durch Funkenbildung
+  \item Schlechte Wärmeabführung
+\end{items}
+\end{minipage}
+
+
+
+
+
 
 \subsubsection{Antrieb}
 Als Antrieb würde sich hier ein einfacher DC Motor eignen. Dieser hat den Vorteil einfach in der Ansteuerung zu sein. Jedoch müsste man für die Auswertung des gefahrenen Weges, eventuell benötigt für die Hindernissbewältigung, ein Encoder anbringen und diesen auswerten. Der Schrittmotor kann dagegen präzise angesteuert werden und weiss daher immer seine Winkelposition. Ein Schrittmotor benötigt ein Treiber, ist jedoch in der Ansteuerung mit Positionserkennung einfacher. Der Brushless Motor ist wie ein kleiner Asynchronmotor. Dieser benötigt auch ein Treiber, jedoch muss dieser für die Positionserkennung auch ein Geber haben.

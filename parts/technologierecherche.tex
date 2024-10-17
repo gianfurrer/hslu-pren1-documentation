@@ -413,6 +413,7 @@ In Abhängigkeit von, wie die einzelnen Räder nun angetrieben werden, kann das 
       \item [Nachteile]
       \item Vier einzeln ansteuerbare Motoren nötig.
       \item Hoher Programmier- und Rechenaufwand.
+      \item kleine Rollen an Rad (Plattenfugen)
     \end{items}
 \end{minipage}
 
@@ -433,6 +434,7 @@ Omniwheels sind ähnlich aufgebaut wie Mecanum-Räder, jedoch sind die Rollen in
       \item [Nachteile]
       \item Drei einzeln ansteuerbare Motoren nötig.
       \item Hoher Programmier- und Rechenaufwand.
+      \item kleine Rollen an Rad (Plattenfugen)
     \end{items}
 \end{minipage}
 
@@ -444,19 +446,64 @@ Dieses Lenksystem wird umgangssprachlich auch "Panzersteuerung" genannt. Gemeint
     \begin{items}
         \item[Vorteile]
         \item Stabiler Stand des Fahrzeuges.
-      \item Rotation um eigene Achse an Ort und Stelle.
-      \item Keine mechanischen Teile für die Lenkung nötig.
-      \item Nur zwei Motoren nötig.
-      \item Geringer Programmier- und Rechenaufwand.
+        \item Rotation um eigene Achse an Ort und Stelle.
+        \item Keine mechanischen Teile für die Lenkung nötig.
+        \item Nur zwei Motoren nötig.
+        \item Geringer Programmier- und Rechenaufwand.
     \end{items}
 \end{minipage}
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
       \item [Nachteile]
-      \item Gefahr von Aufschaukeln des Fahrzeuges bei Drehungen um die eigene Achse.
-      \item Gefahr von Schieben der 
+       \item Gefahr von Aufschaukeln des Fahrzeuges bei Drehungen um die eigene Achse.
+      \item Gefahr von Schieben der langsameren Räder bei Kurvenfahrt aufgrund fehlendem Grip.
     \end{items}
 \end{minipage}
+
+\paragraph{2-Rad gegensinnig mit Stützrad}
+Der Antrieb erfolgt über zwei Räder, welche fix am Fahrzeug befestigt sind und einzeln angetrieben werden. Das dritte Rad ist ein frei drehbares Schwenkrad. Dieses System ist allgemein bekannt von Staubsaugerrobotern.
+
+\begin{minipage}[t]{0.48\textwidth}
+    \begin{items}
+        \item[Vorteile]
+        \item Rotation um eigene Achse an Ort und Stelle.
+        \item Keine Gefahr von Aufschaukeln bei Drehungen um die eigene Achse.
+        \item Keine mechanischen Teile für die Lenkung nötig.
+        \item Nur zwei Motoren nötig.
+         \item Geringer Programmier- und Rechenaufwand.
+    \end{items}
+\end{minipage}
+\begin{minipage}[t]{0.48\textwidth}
+    \begin{items}
+      \item [Nachteile]
+      \item Gefahr von Verfangen des kleinen Stützrades in Bodenfugen.
+      \item 3-Punkt Auflage (Kippen mit Hindernis)
+    \end{items}
+\end{minipage}
+
+\paragraph{Knicklenkung}
+
+Bei einer Knicklenkung besteht das Fahrzeug aus einem Vorder- und einem Hinterwagen, welche mit einem Gelenk in der Mitte verbunden sind. Die Lenkung erfolgt lediglich über dieses Gelenk.
+
+\begin{minipage}[t]{0.48\textwidth}
+    \begin{items}
+      \item [Vorteile]
+      \item Robuste Bauweise.
+ \end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+    \begin{items}
+      \item [Nachteile]
+      \item Grosser Wendekreis.
+      \item Lenkzylinder oder ähnliches nötig.
+    \end{items}
+\end{minipage}
+
+\paragraph{Achsschenkellenkung}
+
+Gängigstes Lenksystem bei Autos, bestehend aus zwei starren Rädern und zwei gelenkten Rädern.
+
 
 
 \newpage

@@ -7,15 +7,32 @@ Unser Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, wel
     \subsubsection{Fortbewegung}
         Da das Fahrzeug in der Lage sein muss, sich an Ort und Stelle um die eigene Achse zu wenden, sind die Optionen Knicklenkung, Achsschenkellenkung und Drehschemellenkung nicht geeignet.
         Das Prinzip <<Fahrzeug ab bocken und drehen>> ist als alleiniges Lenksystem ungeeignet, weil es zu viel Zeit benötigt für das Lenkmanöver. Es wird als optionalen Plan-B beibehalten für den Fall, dass das Fahrzeug beim Wenden während dem Hindernishandling verrutscht. Falls dieses Problem beim Testen auftritt, würde das System nachgerüstet werden.
-    
+    \newpage
     \subsubsection{Hindernis Bewältigung}
         \paragraph{Aufnahme}
-            Da das Konzept möglichst einfach und zuverlässig gestaltet werden soll, scheiden die Ideen "Gabelstapler" und "Vakuumgreifer" aus der Vorauswahl aus. Der Gabelstapler erfordert eine äusserst präzise und aufwendige Sensorik, um die Löcher für die Aufnahme genau zu treffen. Der Vakuumgreifer wiederum zeigt im Vergleich zu den "Klemmen" eine geringere Zuverlässigkeit. Um eine vergleichbare Zuverlässigkeit zu erreichen, wären umfangreiche Tests erforderlich, ohne dass der Vakuumgreifer dabei signifikante Vorteile gegenüber den 'Klemmen' bieten würde.
+            Da das Konzept möglichst einfach und zuverlässig gestaltet werden soll, scheiden die Ideen 'Gabelstapler' und 'Vakuumgreifer' aus der Vorauswahl aus. Der Gabelstapler erfordert eine äusserst präzise und aufwendige Sensorik, um die Löcher für die Aufnahme genau zu treffen. Der Vakuumgreifer wiederum zeigt im Vergleich zu den 'Klemmen' eine geringere Zuverlässigkeit. Um eine vergleichbare Zuverlässigkeit zu erreichen, wären umfangreiche Tests erforderlich, ohne dass der Vakuumgreifer dabei signifikante Vorteile gegenüber den 'Klemmen' bieten würde.
 
-        \paragraph{}
-            
+        \subparagraph{Nutzwertanalyse Aufnahme}
+        \begin{table}[h!]
+        \resizebox{\textwidth}{!}{
+    \centering
+    \renewcommand{\arraystretch}{1.5}
+    \begin{tabular}{|c|p{3cm}|c|c|c|p{3}|c|c|p{3}|}
+        \hline
+        \multicolumn{3}{|c|}{} & \multicolumn{3}{c|}{\textbf{Klemme Breitenweg}} & \multicolumn{3}{c|}{\textbf{Klemme Längsweg}} \\ \hline
+        \textbf{Kriterium} & \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} \\ \hline
+        Sicherer Halt & Wie gut hält das Hindernis in der Halterung & 35 & 7 & 245 & Relativ starke Punktlast, aber dennoch sehr guter Halt & 8 & 280 & Große Fläche zur Kraftübertragung, stabil und sehr guter Halt \\ \hline
+        Präzision & Wie präzise ist die Vorrichtung, auch wenn das Fahrzeug nicht genau zentriert vor dem Hindernis steht & 30 & 7 & 210 & Siehe Kapitel Präzision, detaillierte Erklärung & 4 & 120 & Siehe Kapitel Präzision, detaillierte Erklärung \\ \hline
+        Komplexität & Wie aufwendig ist die Konstruktion & 20 & 5 & 100 & Nicht sehr komplex & 5 & 100 & Nicht sehr komplex \\ \hline
+        Kosten & Wie viel kostet die Vorrichtung & 15 & 4 & 60 & 3D-Druck möglich & 4 & 60 & 3D-Druck möglich \\ \hline
+        \multicolumn{2}{|r|}{\textbf{Nutzwert:}} & 100 & & 615 & & & 560 & \\ \hline
+    \end{tabular}
+    }
+    \caption{Nutzwertanalyse der Klemmen Breitenweg und Längsweg}
+\end{table}
+   \newpage         
         \paragraph{Rotation und Translation}
-        Weil ein beweglicher arm die Komplexität automatisch nicht nur mechniasch 
+        Da ein beweglicher Arm die Komplexität nicht nur mechanisch, sondern auch in den Bereichen Sensorik und Software erheblich erhöht, wird diese Option aus der Vorauswahl ausgeschlossen. Die Einführung eines Arms fügt zusätzliche Komplexität hinzu, ohne die Möglichkeit, in anderen Bereichen Vereinfachungen zu erzielen. Dies widerspricht unserer Grundidee, eine möglichst einfache und zuverlässige Lösung zu entwickeln.
 
 \subsubsection{Elektrotechnik}
     \paragraph{}

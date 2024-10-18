@@ -13,6 +13,7 @@ Unser Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, wel
             Da das Konzept möglichst einfach und zuverlässig gestaltet werden soll, scheiden die Ideen 'Gabelstapler' und 'Vakuumgreifer' aus der Vorauswahl aus. Der Gabelstapler erfordert eine äusserst präzise und aufwendige Sensorik, um die Löcher für die Aufnahme genau zu treffen. Der Vakuumgreifer wiederum zeigt im Vergleich zu den 'Klemmen' eine geringere Zuverlässigkeit. Um eine vergleichbare Zuverlässigkeit zu erreichen, wären umfangreiche Tests erforderlich, ohne dass der Vakuumgreifer dabei signifikante Vorteile gegenüber den 'Klemmen' bieten würde.
 
         \subparagraph{Nutzwertanalyse Aufnahme}
+        Damit eine genauere Analyse zwischen Klemme Breitenweg und Klemme Längsweg durchgeführt werden konnte, wurde eine Nutzwertanalyse durchgeführt. Der Gewinner war Klemme Breitenweg, was auch in Tabelle \ref{tab:konzept_nutzwertanalyse_aufnahme} ersichtlich ist.
         
         \begin{table}[H]
         \resizebox{\textwidth}{!}{
@@ -29,14 +30,43 @@ Unser Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, wel
                 \multicolumn{2}{|r|}{\textbf{Nutzwert:}} & 100 & & 615 & & & 560 & \\ \hline
             \end{tabular}
          }
-            \caption{Nutzwertanalyse der Klemmen Breitenweg und Längsweg}
+            \caption{Nutzwertanalyse der Klemmen Breitenweg und Längsweg, Der gewinner ist Klemme Breitenweg}
+            \label{tab:konzept_nutzwertanalyse_aufnahme}
         \end{table}
-            \subparagraph{Präzision}
-            In der Nutzweranalyse erwähnt benötigt das Kriterium Prätision eine genauere erklärung.
-            Die Präzision der Klemme Breitenweg kann besser erreicht werden als bei der Klemme Längsweg.\newline
-            Einerseits weil wie in der Abbildung \ref{} und \ref{} gezeigt eine Zentrierung bei Klemme Breitenweg eingebaut werden kann.\newline
-            Diese Zentrierung fällt bei der Klemme Längsweg und weil das Ziel ist, das Hindernis möglichst zentriert wieder auf dem Klebeband abzustellen, wird diese Korrektur hier vernachlässigt. In Abbildung \ref ist dargestellt, wenn das Fahrzeug nicht perfekt mittig auf das Hindernis zufährt, diese Korrektur auf diese Art nicht durchgeführt wird.
+
+        \newpage
             
+            \subparagraph{Präzision}
+
+            In der Nutzwertanalyse wird erwähnt, dass das Kriterium Präzision eine genauere Erklärung benötigt. Die Präzision der Klemme Breitenweg kann besser erreicht werden als bei der Klemme Längsweg. Einerseits kann, wie in den Abbildungen \ref{img:konzept_zentrierung_1} und \ref{img:konzept_zentrierung_2} gezeigt, eine Zentrierung bei der Klemme Breitenweg eingebaut werden. Diese Zentrierung fehlt bei der Klemme Längsweg. Da unter anderem das Ziel ist, das Hindernis möglichst zentriert wieder auf dem Klebeband abzustellen, verliert hier die Klemme Längsweg an Punkten. In Abbildung \ref{img:konzept_zentrierung_3} wird dargestellt, dass, wenn das Fahrzeug nicht perfekt mittig auf das Hindernis zufährt, automatisch ein Fehler generiert wird, weil das 'Offset' nicht, ohne komplexere Sensorik, miteinbezogen werden kann.
+
+
+            \begin{figure}[h!]
+                \centering
+                \begin{minipage}{0.48\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{img/konzeptfindung/klemme_breitenweg_zentrierung_1.jpeg}
+                    \caption{Darstellung Zentrierung bei Klemme Breitenweg - Bild 1}
+                    \label{img:konzept_zentrierung_1}
+                \end{minipage}
+                \hfill
+                \begin{minipage}{0.48\textwidth}
+                    \centering
+                    \includegraphics[width=\linewidth]{img/konzeptfindung/klemme_breitenweg_zentrierung_2.jpeg}
+                    \caption{Darstellung Zentrierung bei Klemme Breitenweg - Bild 2}
+                    \label{img:konzept_zentrierung_2}
+                \end{minipage}
+                \caption{Vergleich der Zentrierung bei Klemme Breitenweg}
+            \end{figure}
+
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[width=0.48\textwidth]{img/konzeptfindung/Klemme_Langsweg_off_center.png}
+            \caption{Darstellung 'Offset' bei Klemme Längsweg}
+        \label{img:konzept_zentrierung_3}
+        \end{figure}  
+                        
         \newpage         
         \paragraph{Rotation und Translation}
         Da ein beweglicher Arm die Komplexität nicht nur mechanisch, sondern auch in den Bereichen Sensorik und Software erheblich erhöht, wird diese Option aus der Vorauswahl ausgeschlossen. Die Einführung eines Arms fügt zusätzliche Komplexität hinzu, ohne die Möglichkeit, in anderen Bereichen Vereinfachungen zu erzielen. Dies widerspricht unserer Grundidee, eine möglichst einfache und zuverlässige Lösung zu entwickeln.

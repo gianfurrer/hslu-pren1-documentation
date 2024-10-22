@@ -83,7 +83,64 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, welch
 
 \subsection{Objekterkennung}
 
+Die Objekterkennung ist ein zentraler Bestandteil des Systems und muss schnell und zuverlässig funktionieren. Da die Erkennung auf einem Raspberry Pi gemacht wird, muss der Algorithmus ebenfalls ressourcenschonend sein.
 
+Ein Killerkriterium der Objekterkennung ist das 
+
+
+\begin{table}[H]
+\resizebox{\textwidth}{!}{
+ \centering
+ \renewcommand{\arraystretch}{1.5}
+     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{} & \multicolumn{2}{c|}{\textbf{CNN}} & \multicolumn{2}{c|}{\textbf{YOLO}} & \multicolumn{2}{c|}{\textbf{Haar-Cascade}} & \multicolumn{2}{c|}{\textbf{R-CNN}} \\ \hline
+        \textbf{Kriterium} & \textbf{Gewicht} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} \\
+        \hline
+
+        Genauigkeit & 35 &
+        9 & 315 &
+        7 & 245 &
+        5 & 175 &
+        9 & 315 \\
+        \hline
+
+        Geschwindigkeit & 35 &
+        7 & 245 &
+        9 & 315 &
+        8 & 280 &
+        5 & 1 \\
+        \hline
+
+        Ressourcenbedarf & 20 &
+        6 & 1 &
+        4 & 1 &
+        3 & 1 &
+        8 & 1 \\
+        \hline
+
+        Komplexität & 10 &
+        9 & 1 &
+        7 & 1 &
+        5 & 1 &
+        9 & 1 \\
+        \hline
+        
+        \textbf{Nutzwert:} & 100 & & 615 & & 560 & & 1 && 1 \\ \hline
+    \end{tabular}
+ }
+    \caption{Nutzwertanalyse Objekterkennung}
+    \label{tab:konzept_nutzwertanalyse_aufnahme}
+\end{table}
+
+CNN: Convolutional Neural Networks (CNNs) bieten eine gute Balance zwischen Ressourcenbedarf, Geschwindigkeit und Genauigkeit. Sie sind in der Lage, mehrere Objekte zu erkennen und eignen sich gut für komplexe Szenarien.
+YOLO: You Only Look Once (YOLO) ist bekannt für seine hohe Geschwindigkeit und niedrigen Ressourcenbedarf. Die Genauigkeit ist jedoch geringer als bei CNNs oder R-CNNs. Im Kontext des "Pfadfinder"-Projekts, bei dem Geschwindigkeit eine hohe Priorität hat, könnte YOLO die beste Wahl sein. [aus der Konversation]
+Haar-Cascade: Haar-Cascade-Klassifikatoren sind ressourcenschonend und schnell, aber ihre Genauigkeit ist im Vergleich zu anderen Methoden geringer. Sie eignen sich am besten für die Erkennung einfacher Objekte mit klaren Merkmalen. Für die komplexen Anforderungen des "Pfadfinder"-Projekts könnten sie ungeeignet sein.
+R-CNN: Region-based CNNs (R-CNNs) bieten eine hohe Genauigkeit, haben aber einen hohen Ressourcenbedarf und sind langsam. Sie sind daher für den Einsatz auf einem Raspberry Pi weniger geeignet
 
 \subsubsection{Simulator}
     \paragraph{}

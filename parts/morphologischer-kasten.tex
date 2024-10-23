@@ -80,7 +80,31 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, welch
 
 \subsubsection{Elektrotechnik}
     \paragraph{Antrieb}
-    Bei der Auslegung des Antriebs, ergaben sich drei Varianten. Der Schrittmotor, DC-Motor und der Brushless-Motor. Da die Ansteuerung möglichst einfach gehalt
+    Bei der Auslegung des Antriebs, ergaben sich drei Varianten. Der Schrittmotor, DC-Motor und der Brushlessmotor. Da die Ansteuerung möglichst einfach gehalten werden soll, ist der Brushlessmotor mit seiner komplexeren Ansteuerung ungeeignet. Der Vorteil des Schrittmotors ist, dass dieser nicht zwanghaft auf einen Encoder oder ähnliches angewiesen ist. Dieser kann man genau Schrittweise ansteuern und kann somit seine Position ermitteln. Der Nachteil ist, das es ein Open-Loop Regelung wäre, also ohne Rückführgrösse. Dies bedeutet bei einem mechanischem verklemmen, würde der Schrittmotor trotzdem die nicht gefahrenen Schritte zurückmelden. Auch dieser Motor hat eine schwierigere Ansteuerung mithilfe von Drivers. Der DC-Motor ist dagegen der einfachste zum Ansteuern. Ausserdem kann man hohe Drehmoment mittles Übersetzungen erreichen. Ebenso kann man ein Encoder verbauen für die Positionierung.
+
+    \paragraph{Hardware Steuerung}
+    Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware nahe Steuerung, die mit dem Raspberry kommuniziert. Aus der Recherche ergaben sich dafür drei Möglichkeiten. Ein Arduino, TinyK22 oder ein ESP32. Dabei scheidet der ESP32 vor allem durch seine nicht benötigten Funktionen aus. Da wir weder WiFi noch Bluetooth benötigen. Damit bleiben noch der TinyK22 und ein Arduino-Board. Da diese sehr ähnlich sind, beschloss man für diese zwei eine Nutzwertanalyse zuerstellen (siehe Tabelle \ref{tab:konzept_nutzwertanalyse_mikrocontroller}).
+        
+    \begin{table}[H]
+        \resizebox{\textwidth}{!}{
+         \centering
+         \renewcommand{\arraystretch}{1.5}
+             \begin{tabular}{|c|>{\raggedright} p{3cm}|c|c|c|>{\raggedright} p{3cm}|c|c|>{\raggedright\arraybackslash}p{3cm}|}
+                \hline
+                \multicolumn{3}{|c|}{} & \multicolumn{3}{c|}{\textbf{Arduino}} & \multicolumn{3}{c|}{\textbf{TinyK22}} \\ \hline
+                \textbf{Kriterium} & \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} \\ \hline
+                Libarys & Gibt es Bibliotheken für die Programmierung & 40 & 8 & 320 & Grosse Anuahl Online Libarys & 8 & 320 & McFun Bibliothek \\ \hline
+                Online Informationen & Gibt es Online Anleitungen oder dergleichen & 30 & 8 & 240 & Viele Online Tutorials & 6 & 180 & Blog von M. Styger und McFun Folien \\ \hline
+                I/O Pins & Wie viele In Out Pins gibt es & 20 & 6 & 120 & Nur 22 Pins beim nano & 8 & 160 & 28 Pins verfügbar \\ \hline
+                Kosten & Wie viel kostet der Mikrocontroller & 10 & 6 & 60 & Um die 20CHF & 9 & 90 & Evtl. von der Schule \\ \hline
+                \multicolumn{2}{|r|}{\textbf{Nutzwert:}} & 100 & & 740 & & & 750 & \\ \hline
+            \end{tabular}
+         }
+            \caption{Nutzwertanalyse der Mikrocontroller}
+            \label{tab:konzept_nutzwertanalyse_mikrocontroller}
+        \end{table}
+
+    Da der Unterschied nicht sehr gross ist, wird als erste Wahl der TinyK22 verwendet und das Arduino-Board als Ersatzwahl.
 
 \newpage
 \subsection{Objekterkennung}

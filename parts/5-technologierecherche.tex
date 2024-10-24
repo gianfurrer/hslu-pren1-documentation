@@ -121,8 +121,10 @@ I & Simulation & Kommunikation & Virtual Serial Port for Linux & 8 &
 \href{https://stackoverflow.com/questions/52187/virtual-serial-port-for-linux}{Link} & 24.10.2024 & Gian
 \tabularnewline
 I & Simulation & Simulation & MicroMouseSimulator & 6 &
-\href{https://github.com/mackorone/mms} & 24.10.2024 & Gian
+\href{https://github.com/mackorone/mms}{Link} & 24.10.2024 & Gian
 \tabularnewline
+I & Simulation & Visualisierung & Matplotlib & 7 &
+\href{https://matplotlib.org/}{Link} & 24.10.2024 & Gian
 
 E & Sicherheit & Not-Aus & Implementierung eines Not-Aus & 6 & \href{https://www.eaton.com/ie/en-gb/markets/machine-building/service-and-support-machine-building-moem-service-eaton/blogs/emergency-stop-circuit---blogs---eaton.html}{Link} & 27.09.2024 & Thomas
 \tabularnewline
@@ -309,6 +311,8 @@ Sucht den Graphen nach einem Objekt ab. Dabei werden neu gefundene Wege weiterve
 
 Der Weg, die Hindernisse sowie die Pylonen müssen anhand von Software erkannt und kategorisiert werden. Um die beiden Objekte voneinander zu unterscheiden, müssen die Objekte anhand von Bildern erkannt werden.
 
+Dieser Abschnitt fasst die Rechercheergebnisse zusammen und listet Vor- und Nachteile zu unterschiedlichen Varianten.
+
 \paragraph{Convolutional Neural Networks (CNN)}
 
 Ein tiefes Lernverfahren, das besonders für die Bildverarbeitung und Objekterkennung geeignet ist. CNNs nutzen Faltungsschichten, um Merkmale aus Bildern zu extrahieren.
@@ -389,13 +393,31 @@ Ein Ansatz, der die Genauigkeit der Objekterkennung verbessert, indem er Regione
     \end{items}
 \end{minipage}
 
+\newpage
+\subsection{Simulation}
 
+Die Simulation soll sicherstellen, dass die Software bereits ohne vorhandene Hardware getestet werden kann.
 
-\subsubsection{Simulation}
+Dieser Abschnitt enthält mögliche Lösungsansätze dazu.
 
 \paragraph{MicroMouseSimulator}
 
+Der MicroMouseSimulator erlaubt das Testen von Code von einem \href{https://en.wikipedia.org/wiki/Micromouse}{Micromouse} Roboter,
+ohne einen physikalischen Roboter zu verwenden.
 
+\begin{minipage}[t]{0.48\textwidth}
+    \begin{items}
+      \item [Vorteile]
+      \item Existierendes Framework für Testen von realem Code ohne echte Hardware
+    \end{items}
+\end{minipage}
+\hfill
+\begin{minipage}[t]{0.48\textwidth}
+    \begin{items}
+      \item [Nachteile]
+      \item Nicht dieselben Hindernisse wie unser Projekt
+    \end{items}
+\end{minipage}
 
 \newpage
 \subsection{Fortbewegung}

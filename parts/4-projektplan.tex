@@ -22,9 +22,20 @@ Aus Darstellungsgründen wurden die Attribute der Risiko in zwei Tabellen aufget
 \begin{landscape}
 \newpage
 \scriptsize
+
+\textbf{Legende:}
+\hspace{1cm}
+\textbf{VW:} Verantwortlich
+\hspace{1cm}
+\textbf{EW:} Eintrittswahrscheinlichkeit (1-5)
+\hspace{1cm}
+\textbf{AW:} Auswirkung (1-5)
+\hspace{1cm}
+\textbf{BW:} Bewertung (EW * AW)
+
 \begin{longtable}{|c|p{4cm}|p{6cm}|c|c|p{4cm}|c|c|c|}
 \hline
-\textbf{ID}  & \textbf{Title} & \textbf{Beschreibung} & \textbf{Ver.} & \textbf{Kategorie} & \textbf{Ursachen} & \textbf{EW} & \textbf{AW} & \textbf{Bew.} \\ \hline
+\textbf{ID}  & \textbf{Titel} & \textbf{Beschreibung} & \textbf{VW} & \textbf{Kategorie} & \textbf{Ursachen} & \textbf{EW} & \textbf{AW} & \textbf{BW} \\ \hline
 R1  & Grip-Verlust normale Räder & Das Fahrzeug schleift über den Boden & MT & Mechanisch & Fahrzeug verliert Grip & 3 & 3 & 9 \\ \hline
 R2  & Liniensensor falsche Daten & Der Liniensensor erkennt die Fugen als Führungslinie & ET+INF & Elektrisch & Fahrzeug folgt der Fuge & 4 & 4 & 16 \\ \hline
 R3  & Motorenposition ungenau & Für Rückstellen des Hinderniss ungenau Positonswerte & ET & Elektrisch & Hinderniss nicht innerhalb 2 cm & 3 & 3 & 9 \\ \hline
@@ -44,12 +55,13 @@ R15 & Verschiebung bei Drehung & Mit dem Fahrantrieb kann keine genaue Drehung a
 
 \newpage
 
-\begin{multicols}{4}
-    \textbf{Legende:} \\
-    \textbf{EW} \> Eintrittswahrscheinlichkeit mit Massnahmen \\
-    \textbf{AW} \> Auswirkung mit Massnahmen \\
-    \textbf{BW} \> Bewertung mit Massnahmen \\
-\end{multicols}
+\textbf{Legende:}
+\hspace{1cm}
+\textbf{EW:} Eintrittswahrscheinlichkeit mit Massnahmen (1-5)
+\hspace{1cm}
+\textbf{AW:} Auswirkung mit Massnahmen  (1-5)
+\hspace{1cm}
+\textbf{BW:} Bewertung mit Massnahmen (EW * AW)
 
 \begin{longtable}{|c|p{7cm}|p{5cm}|p{5cm}|c|c|c|}
 \hline
@@ -73,6 +85,11 @@ R15 & Testen & Zusatzfunktion: abdocken und drehen des Fahrzeuges. & Fahrzeug dr
 
 \normalsize
 \end{landscape}
+
+TODO: Bild von Risikomatrix
+
+Diese Risiken werden so früh im Projekt wie möglich versucht zu minimieren.
+Dies kann beispielsweise anhand von einem Prototypen, Backup Lösungen oder vertiefter Recherche gemacht werden.
 
 
 \addtocounter{subsection}{1}

@@ -93,7 +93,7 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, welch
                 \hline
                 \multicolumn{3}{|c|}{} & \multicolumn{3}{c|}{\textbf{Arduino}} & \multicolumn{3}{c|}{\textbf{TinyK22}} \\ \hline
                 \textbf{Kriterium} & \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} \\ \hline
-                Libarys & Gibt es Bibliotheken für die Programmierung & 40 & 9 & 360 & Grosse Anzahl Online Libarys & 8 & 320 & McFun Bibliothek \\ \hline
+                Libraries & Gibt es Bibliotheken für die Programmierung & 40 & 9 & 360 & Grosse Anzahl Online Libraries & 8 & 320 & McFun Bibliothek \\ \hline
                 Online Informationen & Gibt es Online Anleitungen oder dergleichen & 30 & 8 & 240 & Viele Online Tutorials & 6 & 180 & Blog von M. Styger und McFun Folien \\ \hline
                 I/O Pins & Wie viele In Out Pins gibt es & 20 & 6 & 120 & Nur 22 Pins beim nano & 8 & 160 & 28 Pins verfügbar \\ \hline
                 Kosten & Wie viel kostet der Mikrocontroller & 10 & 6 & 60 & Um die 20CHF & 9 & 90 & Evtl. von der Schule \\ \hline
@@ -188,16 +188,12 @@ R-CNN und CNN, die in der Kategorie Genauigkeit die besten Bewertungen erzielen,
 
 
 \subsubsection{Simulator}
-
-Damit die Wegfindung des Fahrzeugs bereits getestet werden kann, bevor ein physischer Prototyp vorhanden ist, wird ein Simulator benötigt. Dieser soll 
-
-\subparagraph{Nutzwertanalyse Objekterkennung}
-
+Die Wegfindung und Entscheidungsprozesse des Fahrzeugs sollen anhand eines Simulators und vor dessen Bau getestet werden können. Bei der Technologierecherche wurden zwei Methoden recherchiert, die in diesem Abschnitt genauer analysiert werden.
 Die passendste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gewählt.
 
 \begin{itemize}
-\item \textbf{Genauigkeit}: Das wichtigste Kriterium ist, dass alle Objekte die in einem Bild ersichtlich sind genau erkannt werden.
-\item \textbf{Geschwindigkeit}: Die Bilder werden während des Fahrens analysiert. Eine schnelle Objekterkennungsmethode ist essentiell, damit das Fahrzeug schnell reagieren kann.
+\item \textbf{Anpassbarkeit}: Das wichtigste Kriterium ist, dass der Simulator genau an die Problemstellung angepasst werden kann.
+\item \textbf{Geschwindigkeit}: Die Simulation soll mögliche  
 \item \textbf{Ressourcenbedarf}: Die Objekterkennung erfolgt on-board auf ressourcenlimitierter Hardware. Somit soll die Erkennung möglichst effizient sein.
 \item \textbf{Komplexität}: Das Projekt ist zeitlich limitiert. Der Aufwand für die Implementierung der Objekterkennung berücksichtigt werden. Dazu gehört auch die Menge der benötigten Trainingsdaten.
 \end{itemize}
@@ -260,6 +256,9 @@ Die passendste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den
 YOLO erreicht in der durchgeführten Nutzwertanalyse (siehe Tabelle \ref{tab:nutzwertanalyse_objekterkennung}) die beste Gesamtbewertung. Es erlaubt eine effiziente und relativ genaue Analyse der Bilder.
 Haar-Cascade ist ebenfalls schnell und ressourcenschonend, schneidet aber in der wichtigsten Kategorie ''Genauigkeit'' schlecht ab.
 R-CNN und CNN, die in der Kategorie Genauigkeit die besten Bewertungen erzielen, zeigen deutliche Schwächen in Bezug auf Geschwindigkeit, Ressourcenbedarf und Komplexität.
+
+
+
 
 \subsection{Morphologischer Kasten}
         

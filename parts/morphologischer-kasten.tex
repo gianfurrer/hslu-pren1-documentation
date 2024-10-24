@@ -189,13 +189,13 @@ R-CNN und CNN, die in der Kategorie Genauigkeit die besten Bewertungen erzielen,
 
 \subsubsection{Simulator}
 Die Wegfindung und Entscheidungsprozesse des Fahrzeugs sollen anhand eines Simulators und vor dessen Bau getestet werden können. Bei der Technologierecherche wurden zwei Methoden recherchiert, die in diesem Abschnitt genauer analysiert werden.
-Die passendste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gewählt.
+Der passendste Simulator wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gewählt.
 
 \begin{itemize}
 \item \textbf{Anpassbarkeit}: Das wichtigste Kriterium ist, dass der Simulator genau an die Problemstellung angepasst werden kann.
-\item \textbf{Geschwindigkeit}: Die Simulation soll mögliche  
-\item \textbf{Ressourcenbedarf}: Die Objekterkennung erfolgt on-board auf ressourcenlimitierter Hardware. Somit soll die Erkennung möglichst effizient sein.
-\item \textbf{Komplexität}: Das Projekt ist zeitlich limitiert. Der Aufwand für die Implementierung der Objekterkennung berücksichtigt werden. Dazu gehört auch die Menge der benötigten Trainingsdaten.
+\item \textbf{Geschwindigkeit}: Die Simulation soll auf handelsüblichen Rechnern mit moderater Leistung schnell laufen, um einfache Softwareiteration zu ermöglichen.  
+\item \textbf{Komplexität}: Das Projekt ist zeitlich limitiert. Der Aufwand für die Implementierung und Anpassung des Simulators muss berücksichtigt werden.
+\item \textbf{Schnittstellen}: Damit der Simulator angesteuert werden kann, soll er möglichst einfache Schnittstellen besitzen.
 \end{itemize}
 
 \begin{table}[H]
@@ -205,57 +205,45 @@ Die passendste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den
      \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
         \hline
         \multicolumn{2}{|c|}{} & 
-        \multicolumn{2}{c|}{\textbf{CNN}} &
-        \multicolumn{2}{c|}{\textbf{YOLO}} &
-        \multicolumn{2}{c|}{\textbf{Haar-Cascade}} &
-        \multicolumn{2}{c|}{\textbf{R-CNN}} \\ 
+        \multicolumn{2}{c|}{\textbf{Selbst entwickelt}} &
+        \multicolumn{2}{c|}{\textbf{MicroMouseSimulator}}\\ 
         \hline
         
         \textbf{Kriterium} & \textbf{Gewicht} &
         \textbf{Bewertung} & \textbf{Punkte} &
-        \textbf{Bewertung} & \textbf{Punkte} &
-        \textbf{Bewertung} & \textbf{Punkte} &
-        \textbf{Bewertung} & \textbf{Punkte} \\
+        \textbf{Bewertung} & \textbf{Punkte}\\
         \hline
 
-        Genauigkeit & 40 &
-        8 & 320 &
-        7 & 280 &
-        5 & 200 &
-        9 & 360 \\
+        Anpassbarkeit & 40 &
+        10 & 360 &
+        5 & 200 \\
         \hline
 
-        Geschwindigkeit & 30 &
-        6 & 180 &
-        9 & 270 &
-        8 & 240 &
-        5 & 150 \\
+        Schnittstellen & 30 &
+        10 & 300 &
+        8 & 240  \\
         \hline
 
-        Ressourcenbedarf & 20 &
-        4 & 80 &
-        6 & 120 &
+        Komplexität & 20 &
         8 & 160 &
-        3 & 60 \\
+        4 & 80 \\
         \hline
 
-        Komplexität & 10 &
-        2 & 20 &
-        5 & 50 &
-        7 & 70 &
-        2 & 20 \\
+        Geschwindigkeit & 10 &
+        8 & 80 &
+        9 & 90 \\
         \hline
+
+
         
-        \textbf{Nutzwert:} & 100 & & 590 & & 720 & & 670 && 590 \\ \hline
+        \textbf{Nutzwert:} & 100 & & 900 & & 610\\ \hline
     \end{tabular}
  }
-    \caption{Nutzwertanalyse Objekterkennung}
-    \label{tab:nutzwertanalyse_objekterkennung}
+    \caption{Nutzwertanalyse Simulator}
+    \label{tab:nutzwertanalyse_simulator}
 \end{table}
 
-YOLO erreicht in der durchgeführten Nutzwertanalyse (siehe Tabelle \ref{tab:nutzwertanalyse_objekterkennung}) die beste Gesamtbewertung. Es erlaubt eine effiziente und relativ genaue Analyse der Bilder.
-Haar-Cascade ist ebenfalls schnell und ressourcenschonend, schneidet aber in der wichtigsten Kategorie ''Genauigkeit'' schlecht ab.
-R-CNN und CNN, die in der Kategorie Genauigkeit die besten Bewertungen erzielen, zeigen deutliche Schwächen in Bezug auf Geschwindigkeit, Ressourcenbedarf und Komplexität.
+Ein selbstgebauter Simulator erreicht in der durchgeführten Nutzwertanalyse (siehe Tabelle \ref{tab:nutzwertanalyse_simulator}) die beste Gesamtbewertung. Das hohe Mass an Anpassbarkeit und die Möglichkeit, Schnittstellen nach Belieben zu implementieren sprechen klar für eine Eigenentwicklung. Der MicroMouseSimulator ist bereits auf Geschwindigkeit optimiert, jedoch sollte der Unterschied auf modernen Rechnern einen zu kleinen Unterschied machen, als dass die anderen Nachteile aufgeholt würden. Statt sich in den Source-Code eines bereits bestehenden Projektes einzulesen, kann von Grund auf für die vorhandene Problemstellung entwickelt werden.
 
 
 

@@ -114,15 +114,15 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, welch
 
 Objekterkennung ist eine essentielle Teilfunktion, da das autonome Fahrzeug seine Umgebung verstehen und darauf reagieren muss, um erfolgreich durch das Wegenetzwerk zu navigieren.
 Bei der Technologierecherche wurden vier verschiedene Objekterkennungsmethoden recherchiert.
-Dieser Abschnitt fokussiert sich darauf, von den vier Auswahlen die besste zu treffen.
+Dieser Abschnitt fokussiert sich darauf, von den vier Auswahlen die beste zu treffen.
 
 \subparagraph{Nutzwertanalyse Objekterkennung}
 
-Die passenste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gewählt.
+Die passendste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gewählt.
 
 \begin{itemize}
 \item \textbf{Genauigkeit}: Das wichtigste Kriterium ist, dass alle Objekte die in einem Bild ersichtlich sind genau erkannt werden.
-\item \textbf{Geschwindigkeit}: Die Bilder werden während dem Fahren analysiert. Eine schnelle Objekterkennungsmethode ist essentiell, damit das Fahrzeug schnell reagieren kann.
+\item \textbf{Geschwindigkeit}: Die Bilder werden während des Fahrens analysiert. Eine schnelle Objekterkennungsmethode ist essentiell, damit das Fahrzeug schnell reagieren kann.
 \item \textbf{Ressourcenbedarf}: Die Objekterkennung erfolgt on-board auf ressourcenlimitierter Hardware. Somit soll die Erkennung möglichst effizient sein.
 \item \textbf{Komplexität}: Das Projekt ist zeitlich limitiert. Der Aufwand für die Implementierung der Objekterkennung berücksichtigt werden. Dazu gehört auch die Menge der benötigten Trainingsdaten.
 \end{itemize}
@@ -178,17 +178,88 @@ Die passenste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den 
         \textbf{Nutzwert:} & 100 & & 590 & & 720 & & 670 && 590 \\ \hline
     \end{tabular}
  }
-    \caption{Nutzwertanlalyse Objekterkennung}
+    \caption{Nutzwertanalyse Objekterkennung}
     \label{tab:nutzwertanalyse_objekterkennung}
 \end{table}
 
 YOLO erreicht in der durchgeführten Nutzwertanalyse (siehe Tabelle \ref{tab:nutzwertanalyse_objekterkennung}) die beste Gesamtbewertung. Es erlaubt eine effiziente und relativ genaue Analyse der Bilder.
-Haar-Cascade ist ebenfalls schnell und ressourcenschonend, schneidet aber in der wichtigsten Kategorie "Genauigkeit" schlecht ab.
+Haar-Cascade ist ebenfalls schnell und ressourcenschonend, schneidet aber in der wichtigsten Kategorie ''Genauigkeit'' schlecht ab.
 R-CNN und CNN, die in der Kategorie Genauigkeit die besten Bewertungen erzielen, zeigen deutliche Schwächen in Bezug auf Geschwindigkeit, Ressourcenbedarf und Komplexität.
 
 
 \subsubsection{Simulator}
-    \paragraph{}
+
+Damit die Wegfindung des Fahrzeugs bereits getestet werden kann, bevor ein physischer Prototyp vorhanden ist, wird ein Simulator benötigt. Dieser soll 
+
+\subparagraph{Nutzwertanalyse Objekterkennung}
+
+Die passendste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gewählt.
+
+\begin{itemize}
+\item \textbf{Genauigkeit}: Das wichtigste Kriterium ist, dass alle Objekte die in einem Bild ersichtlich sind genau erkannt werden.
+\item \textbf{Geschwindigkeit}: Die Bilder werden während des Fahrens analysiert. Eine schnelle Objekterkennungsmethode ist essentiell, damit das Fahrzeug schnell reagieren kann.
+\item \textbf{Ressourcenbedarf}: Die Objekterkennung erfolgt on-board auf ressourcenlimitierter Hardware. Somit soll die Erkennung möglichst effizient sein.
+\item \textbf{Komplexität}: Das Projekt ist zeitlich limitiert. Der Aufwand für die Implementierung der Objekterkennung berücksichtigt werden. Dazu gehört auch die Menge der benötigten Trainingsdaten.
+\end{itemize}
+
+\begin{table}[H]
+\resizebox{\textwidth}{!}{
+ \centering
+ \renewcommand{\arraystretch}{1.5}
+     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{} & 
+        \multicolumn{2}{c|}{\textbf{CNN}} &
+        \multicolumn{2}{c|}{\textbf{YOLO}} &
+        \multicolumn{2}{c|}{\textbf{Haar-Cascade}} &
+        \multicolumn{2}{c|}{\textbf{R-CNN}} \\ 
+        \hline
+        
+        \textbf{Kriterium} & \textbf{Gewicht} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} \\
+        \hline
+
+        Genauigkeit & 40 &
+        8 & 320 &
+        7 & 280 &
+        5 & 200 &
+        9 & 360 \\
+        \hline
+
+        Geschwindigkeit & 30 &
+        6 & 180 &
+        9 & 270 &
+        8 & 240 &
+        5 & 150 \\
+        \hline
+
+        Ressourcenbedarf & 20 &
+        4 & 80 &
+        6 & 120 &
+        8 & 160 &
+        3 & 60 \\
+        \hline
+
+        Komplexität & 10 &
+        2 & 20 &
+        5 & 50 &
+        7 & 70 &
+        2 & 20 \\
+        \hline
+        
+        \textbf{Nutzwert:} & 100 & & 590 & & 720 & & 670 && 590 \\ \hline
+    \end{tabular}
+ }
+    \caption{Nutzwertanalyse Objekterkennung}
+    \label{tab:nutzwertanalyse_objekterkennung}
+\end{table}
+
+YOLO erreicht in der durchgeführten Nutzwertanalyse (siehe Tabelle \ref{tab:nutzwertanalyse_objekterkennung}) die beste Gesamtbewertung. Es erlaubt eine effiziente und relativ genaue Analyse der Bilder.
+Haar-Cascade ist ebenfalls schnell und ressourcenschonend, schneidet aber in der wichtigsten Kategorie ''Genauigkeit'' schlecht ab.
+R-CNN und CNN, die in der Kategorie Genauigkeit die besten Bewertungen erzielen, zeigen deutliche Schwächen in Bezug auf Geschwindigkeit, Ressourcenbedarf und Komplexität.
 
 \subsection{Morphologischer Kasten}
         

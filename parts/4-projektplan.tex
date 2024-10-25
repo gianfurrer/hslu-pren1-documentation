@@ -38,8 +38,8 @@ Aus Darstellungsgründen wurden die Attribute der Risiko in zwei Tabellen aufget
 \textbf{ID}  & \textbf{Titel} & \textbf{Beschreibung} & \textbf{VW} & \textbf{Kategorie} & \textbf{Ursachen} & \textbf{EW} & \textbf{AW} & \textbf{BW} \\ \hline
 R1  & Grip-Verlust normale Räder & Das Fahrzeug schleift über den Boden & MT & Mechanisch & Fahrzeug verliert Grip & 3 & 3 & 9 \\ \hline
 R2  & Liniensensor falsche Daten & Der Liniensensor erkennt die Fugen als Führungslinie & ET+INF & Elektrisch & Fahrzeug folgt der Fuge & 4 & 4 & 16 \\ \hline
-R3  & Motorenposition ungenau & Für Rückstellen des Hinderniss ungenau Positonswerte & ET & Elektrisch & Hinderniss nicht innerhalb 2 cm & 3 & 3 & 9 \\ \hline
-R4  & Distanzmessung fehlerhafte Daten & Für die Erkennung der Distanz, des Hinderniss, könnten falsche Messwerte eine ungewollte Aktion ausführen & ET & Elektrisch & Fahrzeug führt Hindernissbewältigung aus ohne ein Hinderniss & 2 & 2 & 4 \\ \hline
+R3  & Motorenposition ungenau & Für Rückstellen des Hindernis ungenau Positionswerte & ET & Elektrisch & Hindernis nicht innerhalb 2 cm & 3 & 3 & 9 \\ \hline
+R4  & Distanzmessung fehlerhafte Daten & Für die Erkennung der Distanz, des Hindernis, könnten falsche Messwerte eine ungewollte Aktion ausführen & ET & Elektrisch & Fahrzeug führt Hindernisbewältigung aus ohne ein Hindernis & 2 & 2 & 4 \\ \hline
 R5  & Datenverlust & Verlust von Projektdaten/Forschungsergebnissen & INF & Projekt & Server offline & 2 & 5 & 10 \\ \hline
 R6  & Lieferschwierigkeiten & Teile, die bestellt werden haben Lieferverzögerung, was zur Verzögerung im jeweiligen Test-/Integrationsprozess führt & Market & & Längere Lieferzeiten/Keine Lieferzeiten angegeben & 3 & 4 & 12 \\ \hline
 R7  & Software-Absturz & Software crasht während Einsatz & INF & Software & Prozess wird unerwartet beendet & 2 & 5 & 10 \\ \hline
@@ -68,12 +68,12 @@ R15 & Verschiebung bei Drehung & Mit dem Fahrantrieb kann keine genaue Drehung a
 \textbf{ID} & \textbf{Massnahmen Risikominderung} & \textbf{Korrekturmassnahmen} & \textbf{Erfolgsfaktoren} & \textbf{EW} & \textbf{AW} & \textbf{BW} \\ \hline
 R1  & Auf Mensaboden testen & Andere Räder/Geschwindigkeit anpassen & Fahrzeug hat Grip & 2 & 2 & 4 \\ \hline
 R2  & Kalibrierung des Sensors, Abgleich mit Kamera. Befahren einer Linie nur, wenn Punkt oder Hindernis am Ende erkannt & Not-Aus verwenden & Fahrzeug folgt Führungslinie & 2 & 5 & 10 \\ \hline
-R3  & Langsame Fahrt bei Positioierung & Hallsensor, Drehgeber, Schrittmotor, Beschleunigungssensor & Hinderniss innerhalb der 2 cm Toleranz & 2 & 2 & 4 \\ \hline
-R4  & Distanzwert muss längere Zeit konstant bleiben & Zweiter Sensor zum Vergleich verbauen & Fahrzeug führt Hindernissbewältigung nur bei einem Hinderniss aus & 1 & 2 & 2 \\ \hline
+R3  & Langsame Fahrt bei Positionierung & Hallsensor, Drehgeber, Schrittmotor, Beschleunigungssensor & Hindernis innerhalb der 2 cm Toleranz & 2 & 2 & 4 \\ \hline
+R4  & Distanzwert muss längere Zeit konstant bleiben & Zweiter Sensor zum Vergleich verbauen & Fahrzeug führt Hindernisbewältigung nur bei einem Hindernis aus & 1 & 2 & 2 \\ \hline
 R5  & Regelmässige Backups erstellen & Daten aus Backups wiederherstellen & Daten sind zugänglich und schnell wiederherstellbar & 2 & 2 & 4 \\ \hline
 R6  & Frühzeitig Bestellen, alternative Teile/Quellen suchen & bei alternativen Quellen bestellen, Alternative Teile nutzen & Teile können zeitnah verwendet verbaut werden & 3 & 3 & 9 \\ \hline
 R7  & Gutes Testen des Codes und Failsafe einbauen, der bei Absturz ausgeführt wird. Aktuellen Zustand zwischenspeichern & Not-Aus verwenden & Fahrzeug kann nach Absturz von alleine wieder starten und fortfahren, ohne, dass das Fahrzeug die Linien verlässt & 1 & 5 & 5 \\ \hline
-R8  & Sicheres verbauen und Testen der Sensoren. Nominalwerte prüfen und Fehlerzustände definieren, um diese erkennen zu können. In solchen Fällen Neueinstellung/Kalibrierung durchführen & Wege in Software haben, um auch mit fehlender Sensorik die Aufgabe zu erfüllen. & Fahrzeug kann trotz fehlerhafter oder fehlender Sensorikdaten Aufgabe erfüllen & 2 & 3 & 6 \\ \hline
+R8  & Sicheres verbauen und Testen der Sensoren. Nominalwerte prüfen und Fehlerzustände definieren, um diese erkennen zu können. In solchen Fällen Neueinstellung/Kalibrierung durchführen & Wege in Software haben, um auch mit fehlender Sensorik die Aufgabe zu erfüllen. & Fahrzeug kann trotz fehlerhafter oder fehlender Sensordaten Aufgabe erfüllen & 2 & 3 & 6 \\ \hline
 R9  & Software von Beginn auf für Plattform optimiert bauen. Keine Bewegung des Fahrzeugs, wenn Fahrsteuerung überlastet. & Akzeptieren und langsamer fortsetzen & Fahrzeug kann trotz langsamer Laufzeit die Aufgabe lösen & 3 & 3 & 9 \\ \hline
 R10 & Frühes Training und Testing für Pylonenerkennung mit Simulation oder real world data, Backup-Sensor, der bei Nichterkennen von nahem Hindernis Alarm schlägt & Not-Aus verwenden & Das Fahrzeug erkennt Pylonen und fährt sie nicht um & 1 & 5 & 5 \\ \hline
 R11 & Bildaufnahme nur bei stehendem Fahrzeug. Training mit verschwommenen Bilddaten. Dafür frühe Datenaufnahme nötig & Fahrzeug für längere Zeit stehen lassen, bis scharfe Bilder da sind & Das Fahrzeug erkennt Objekte und kann mit scharfen Bildern arbeiten & 2 & 4 & 8 \\ \hline

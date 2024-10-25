@@ -238,46 +238,45 @@ Ein selbstgebauter Simulator erreicht in der durchgeführten Nutzwertanalyse (si
 
     \subsubsection{Variantenbeschreibung}
     \paragraph{Lösungsvariante A (grün)}
-    
+    Die Fortbewegung und Lenkung wird mit dem Prinzip Roomba realisiert, wobei die beiden angetriebenen Räder mittels je eines DC-Motors getrieben werden. Als Notfall-Lenksystem bleibt die Idee des 'Aufbocken und Drehen'. 
     
     \subsubsection{Fortbewegung}
 
+    Damit eine genauere Analyse zwischen Mecanum-Rädern und dem Prinzip Roomba durchgeführt werden kann, wird eine Nutzwertanalyse durchgeführt. der Gewinner ist das Prinzip Roomba (ersichtlich in Tabelle \ref{tab:nutzwertanalyse_fortbewegung}).
 
-        \subparagraph{Nutzwertanalyse Fortbewegung}
-        Damit eine genauere Analyse zwischen Mecanum-Rädern und dem Prinzip Roomba durchgeführt werden kann, wird eine Nutzwertanalyse durchgeführt. der Gewinner ist das Prinzip Roomba (ersichtlich in folgender Tabelle).
-
-\newpage
-\textbf{Legende:}
-\hspace{1cm}
-\textbf{BW:} Bewertung
-\hspace{1cm}
-\textbf{P:} Punkte
-
-\begin{table}[H]
-\resizebox{\textwidth}{!}{
-\centering
-\renewcommand{\arraystretch}{1.5}
-\scriptsize
-\begin{tabular}[H]{|p{2cm}|p{3cm}|c|c|p{3cm}|c|c|p{3cm}|}
-    \hline
-     \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{BW} & \textbf{P} & \textbf{Begründung} & \textbf{BW} & \textbf{P} & \textbf{Begründung} \\ 
-    \hline
-    Manövrierbarkeit & Wie einfach kann in alle Richtungen manövriert werden & 30 & 9 & Ist in alle Richtungen beweglich ohne vorgängige Drehung & 6 & 180 & Muss drehen, um in eine andere Richtung zu fahren \\
-    \hline
-    Resistenz gegen Verfangen in Plattenfugen & Wie anfällig sind die Räder auf Verfangen in den Plattenfugen und damit verbundene Fahrfehler & 35 & 5 & Kleine Rollen am Radumfang, welche in Fugen passen & 8 & 280 & Nur kleines Stützrad, welches in Fugen passt, Stützrad ist passiv für die Lenkung \\
-    \hline
-    Komplexität & Wie aufwendig ist die Konstruktion und Programmierung & 20 & 4 & 4 Motoren ansteuern und hoher Rechenaufwand & 8 & 160 & Nur 2 Motoren nötig \\
-    \hline
-    Kosten & Wie viel kostet die Vorrichtung & 15 & 4 & 4 Motoren nötig & 8 & 120 & Nur 2 Motoren nötig \\
-    \hline
-     Nutzwert & \textbf{Gesamtnutzwert} & 100 & & 585 & & 740 & \\
-    \hline
-\end{tabular}
-\normalsize
-}
-\caption{Nutzwertanalyse Fortbewegung}
-\label{tab:nutzwertanalyse_fortbewegung}
-\end{table}
+    \textbf{Legende:}
+    \hspace{1cm}
+    \textbf{GW:} Gewichtung
+    \hspace{1cm}
+    \textbf{BW:} Bewertung
+    \hspace{1cm}
+    \textbf{PT:} Punkte
+    
+    \begin{table}[H]
+        \resizebox{\textwidth}{!}{
+        \centering
+        \renewcommand{\arraystretch}{1.5}
+        \scriptsize
+        \begin{tabular}[H]{|p{2cm}|p{3cm}|c|c|c|p{2.5cm}|c|c|p{2.5cm}|}
+            \hline
+             \textbf{} & \textbf{Erklärung} & \textbf{GW} & \textbf{BW} & \textbf{PT} & \textbf{Begründung} & \textbf{BW} & \textbf{P} & \textbf{Begründung} \\ 
+            \hline
+            Manövrierbarkeit & Wie einfach kann in alle Richtungen manövriert werden & 30 & 9 & 270 & Ist in alle Richtungen beweglich ohne vorgängige Drehung & 6 & 180 & Muss drehen, um in eine andere Richtung zu fahren \\
+            \hline
+            Resistenz gegen Verfangen in Plattenfugen & Wie anfällig sind die Räder auf Verfangen in den Plattenfugen und damit verbundene Fahrfehler & 35 & 5 & 175 & Kleine Rollen am Radumfang, welche in Fugen passen & 8 & 280 & Nur kleines Stützrad, welches in Fugen passt, Stützrad ist passiv für die Lenkung \\
+            \hline
+            Komplexität & Wie aufwendig ist die Konstruktion und Programmierung & 20 & 4 & 80 & 4 Motoren ansteuern und hoher Rechenaufwand & 8 & 160 & Nur 2 Motoren nötig \\
+            \hline
+            Kosten & Wie viel kostet die Vorrichtung & 15 & 4 & 60 & 4 Motoren nötig & 8 & 120 & Nur 2 Motoren nötig \\
+            \hline
+             Nutzwert & \textbf{Gesamtnutzwert} & 100 & & 585 & & & 740 & \\
+            \hline
+        \end{tabular}
+        \normalsize
+        }
+        \caption{Nutzwertanalyse Fortbewegung}
+        \label{tab:nutzwertanalyse_fortbewegung}
+    \end{table}
 
 \subsubsection{Ersatz Rotation}
 
@@ -294,7 +293,7 @@ Zur Auswahl stehen ein Encoder und ein Hallsensor. Der Encoder liefert genauere 
 
 \subsubsection{Software Steuerung}
 
-Bei der Software Steuerung kommt wegen der Grösse und Leistung nur das Raspberry Pi in Frage.
+Bei der Softwaresteuerung kommt wegen der Grösse und Leistung nur das Raspberry Pi in Frage.
 Eine alternative wäre noch ein Arduino, jedoch reicht dies für leistungsintensive Aufgabe wie
 Objekterkennung nicht aus.
 
@@ -328,19 +327,19 @@ Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware na
  
  Bereits bekannt ist, dass  möglichst alle Sensorik doppelt abgedeckt wird. So ist eine weitere Möglichkeit vorhanden, falls ein Sensor nicht die gewünschten Daten liefert. Als Beispiel werden Farbsensoren gegen den Boden gerichtet sein, wie auch Fototransistoren mit LEDs, um die weissen Wegpunkte zu erkennen.
 
- Für die korrekte Positionierung der Greifarme nach einer Hindernisbewältigung werden Drucksensoren verwendet. Dadurch wird sichergestellt, dass die Greifarme nach der Platzierung des Hindernis wieder in der korrekten Ausgangslage sind.
+ Für die korrekte Positionierung der Greifarme nach einer Hindernisbewältigung werden Drucksensoren verwendet. Dadurch wird sichergestellt, dass die Greifarme nach der Hindernisbewältigung wieder in der korrekten Ausgangslage sind.
 
 \subsubsection{Streckenerkennung}
-Für die Streckenerkennung soll eine Kamera verwendet werden. Ein zweiter Lösungsansatz ist der Linienfolger. Um die Funktionalität eines Linienfolger 
+Für die Streckenerkennung soll eine Kamera verwendet werden. Ein zweiter Lösungsansatz ist der Linienfolger. Um die Funktionalität eines Linienfolger zu verifizieren, muss dieser in der Fahrumgebung getestet werden. Ebenfalls muss getestet werden, wie gut die Kamera die Linien bei starker Reflexion erkennt. Mit den Messresultaten wird entschieden, welche Methode umgesetzt wird.
 
 
 \subsubsection{Punktverifizierung}
-Um zu erkennen, ob das Fahrzeug sich auf ein Punkt befindet, wird ein Farbsensor genutzt. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Ausserdem wird die Farbtemperatur in K zurückgemeldet. Mit diesen Werten kann man das leicht gelbe Klebeband von dem weissen Punkt unterscheiden. Dies ermöglicht es am einfachsten den weissen Punkt zuerkennen. Eine weitere Option wäre die Erkennung mittels eines Kreisförmigen Liniensensors. Mit diesem kann man di
+Um zu erkennen, ob das Fahrzeug sich auf ein Punkt befindet, wird ein Farbsensor genutzt. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Ausserdem wird die Farbtemperatur in K zurückgemeldet. Mit diesen Werten kann man das leicht gelbe Klebeband von dem weissen Punkt unterscheiden. Dies ermöglicht es am einfachsten den weissen Punkt zuerkennen. Eine weitere Option wäre die Erkennung mittels eines kreisförmigen Liniensensors. Mit diesem kann man die Form der Linie erkennen. Wenn das Fahrzeug auf dem Punkt steht, haben alle Phototransistoren den gleichen Wert. Diese Variante ist ein wenig empfindlicher und bedarf es, dass das Fahrzeug zentriert auf der Linie fährt. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Da die eine Kamera für die Strecken und Objekterkennung sich auf einer gewissen Höhe befinden muss. Ausserdem wäre es für den Raspberry zu viel Rechenaufwand, zwei Bilderkennungen laufen zu lassen.
 
 
 \subsubsection{Objekterkennung Software}
 
-Objekterkennung ist eine essentielle Teilfunktion, da das autonome Fahrzeug seine Umgebung verstehen und darauf reagieren muss, um erfolgreich durch das Wegenetzwerk zu navigieren.
+Objekterkennung ist eine essenzielle Teilfunktion, da das autonome Fahrzeug seine Umgebung verstehen und darauf reagieren muss, um erfolgreich durch das Wegnetzwerk zu navigieren.
 Bei der Technologierecherche wurden vier verschiedene Objekterkennungsmethoden recherchiert.
 Dieser Abschnitt fokussiert sich darauf, von den vier Auswahlen die beste zu treffen.
 
@@ -350,7 +349,7 @@ Die passendste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den
 
 \begin{itemize}
 \item \textbf{Genauigkeit}: Das wichtigste Kriterium ist, dass alle Objekte die in einem Bild ersichtlich sind genau erkannt werden.
-\item \textbf{Geschwindigkeit}: Die Bilder werden während des Fahrens analysiert. Eine schnelle Objekterkennungsmethode ist essentiell, damit das Fahrzeug schnell reagieren kann.
+\item \textbf{Geschwindigkeit}: Die Bilder werden während des Fahrens analysiert. Eine schnelle Objekterkennungsmethode ist essenziell, damit das Fahrzeug schnell reagieren kann.
 \item \textbf{Ressourcenbedarf}: Die Objekterkennung erfolgt on-board auf ressourcenlimitierter Hardware. Somit soll die Erkennung möglichst effizient sein.
 \item \textbf{Komplexität}: Das Projekt ist zeitlich limitiert. Der Aufwand für die Implementierung der Objekterkennung berücksichtigt werden. Dazu gehört auch die Menge der benötigten Trainingsdaten.
 \end{itemize}

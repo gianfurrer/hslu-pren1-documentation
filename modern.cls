@@ -115,6 +115,8 @@
 \setmonofont{Anonymous Pro} % sets the monospace font
 
 \RequirePackage{url}
+
+\RequirePackage[moderate]{savetrees}
 % ------------------------------------------------------------------------------
 % DOCUMENT PAGE SIZE
 

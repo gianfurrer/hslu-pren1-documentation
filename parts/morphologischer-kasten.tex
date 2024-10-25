@@ -20,7 +20,7 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, welch
             Da das Konzept möglichst einfach und zuverlässig gestaltet werden soll, scheiden die Ideen 'Gabelstapler' und 'Vakuumgreifer' aus der Vorauswahl aus. Der Gabelstapler erfordert eine äusserst präzise und aufwendige Sensorik, um die Löcher für die Aufnahme genau zu treffen. Der Vakuumgreifer wiederum zeigt im Vergleich zu den 'Klemmen' eine geringere Zuverlässigkeit. Um eine vergleichbare Zuverlässigkeit zu erreichen, wären umfangreiche Tests erforderlich, ohne dass der Vakuumgreifer dabei signifikante Vorteile gegenüber den 'Klemmen' bieten würde.
 
         \subparagraph{Nutzwertanalyse Aufnahme}
-        Damit eine genauere Analyse zwischen Klemme Breitenweg und Klemme Längsweg durchgeführt werden konnte, wurde eine Nutzwertanalyse durchgeführt. Der Gewinner war Klemme Breitenweg, was auch in Tabelle \ref{tab:konzept_nutzwertanalyse_aufnahme} ersichtlich ist.
+        Damit eine genauere Analyse zwischen Klemme Breitenweg und Klemme Längsweg durchgeführt werden konnte, wurde eine Nutzwertanalyse durchgeführt. Der Gewinner war dank der höheren Präzision Klemme Breitenweg, was auch in Tabelle \ref{tab:konzept_nutzwertanalyse_aufnahme} ersichtlich ist.
         
         \begin{table}[H]
         \resizebox{\textwidth}{!}{
@@ -37,7 +37,7 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, welch
                 \multicolumn{2}{|r|}{\textbf{Nutzwert:}} & 100 & & 615 & & & 560 & \\ \hline
             \end{tabular}
          }
-            \caption{Nutzwertanalyse der Klemmen Breitenweg und Längsweg, Der Gewinner ist Klemme Breitenweg}
+            \caption{Nutzwertanalyse Hinderniss Aufnahme}
             \label{tab:konzept_nutzwertanalyse_aufnahme}
         \end{table}
 
@@ -63,7 +63,6 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, welch
                     \caption{Darstellung Zentrierung bei Klemme Breitenweg - Bild 2}
                     \label{img:konzept_zentrierung_2}
                 \end{minipage}
-                \caption{Vergleich der Zentrierung bei Klemme Breitenweg}
             \end{figure}
 
 
@@ -125,12 +124,78 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, welch
 \newpage
 \subsubsection{Wegfindung}
 
+Da der Graph bereits vorgegeben ist und es ein recht kleiner Graph ist, spielt die Effizienz und Dynamik des Algorithmus nur eine sehr kleine Rolle,
+da der Zeitunterschied der Algorithmen bei einer Neuberechnung nur minimal ist.
+
 \begin{itemize}
-    \item \textbf{Simpel}
-    \item \textbf{Dynamisch}
-    \item \textbf{}
+    \item \textbf{Einfachheit:} Einfach zu implementieren oder bereits in bekannten Bibliotheken vorhanden.
+    \item \textbf{Genauigkeit:} Findet \textbf{garantiert} den kürzesten Weg.
+    \item \textbf{Dynamisch:} Kann sich dynamisch auf Graphveränderungen anpassen.
+    \item \textbf{Schnelligkeit:} Wie schnell der kürzeste Weg berechnet werden kann.
+    \item \textbf{Ressourcenbedarf:} Benötigter Leistungs- und Speicheraufwand
 \end{itemize}
 
+\begin{table}[H]
+\resizebox{\textwidth}{!}{
+ \centering
+ \renewcommand{\arraystretch}{1.5}
+     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{} & 
+        \multicolumn{2}{c|}{\textbf{Dijkstra}} &
+        \multicolumn{2}{c|}{\textbf{A*}} &
+        \multicolumn{2}{c|}{\textbf{D*}} &
+        \multicolumn{2}{c|}{\textbf{RRT}} \\ 
+        \hline
+        
+        \textbf{Kriterium} & \textbf{Gewicht} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} \\
+        \hline
+
+        Einfachheit & 10 &
+        10 & 100 &
+        7 & 70 &
+        5 & 50 &
+        3 & 30 \\
+        \hline
+
+        Genauigkeit & 60 &
+        10 & 600 &
+        8 & 480 &
+        8 & 480 &
+        6 & 360 \\
+        \hline
+
+        Dynamisch & 5 &
+        1 & 180 &
+        9 & 270 &
+        8 & 240 &
+        5 & 150 \\
+        \hline
+
+        Schnelligkeit & 5 &
+        4 & 80 &
+        6 & 120 &
+        8 & 160 &
+        3 & 60 \\
+        \hline
+
+        Ressourcenbedarf & 20 &
+        2 & 20 &
+        5 & 50 &
+        7 & 70 &
+        2 & 20 \\
+        \hline
+        
+        \textbf{Nutzwert:} & 100 & & 590 & & 720 & & 670 && 590 \\ \hline
+    \end{tabular}
+ }
+    \caption{Nutzwertanalyse Objekterkennung}
+    \label{tab:nutzwertanalyse_objekterkennung}
+\end{table}
 
 
 \newpage

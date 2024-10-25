@@ -13,23 +13,37 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept, welch
         Damit eine genauere Analyse zwischen Mecanum-Rädern und dem Prinzip Roomba durchgeführt werden kann, wird eine Nutzwertanalyse durchgeführt. der Gewinner ist das Prinzip Roomba (ersichtlich in folgender Tabelle).
 
 \newpage
-     \resizebox{\textwidth}{!}{   
-    \begin{tabular}{|p{5cm}|p{5cm}|c|c|p{5cm}|c|c|p{5cm}|}
-\hline
- \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} \\ 
-\hline
-Manövrierbarkeit & Wie einfach kann in alle Richtungen manövriert werden & 30 & 9 & Ist in alle Richtungen beweglich ohne vorgängige Drehung & 6 & 180 & Muss drehen, um in eine andere Richtung zu fahren \\
-\hline
-Resistenz gegen Verfangen in Plattenfugen & Wie anfällig sind die Räder auf Verfangen in den Plattenfugen und damit verbundene Fahrfehler & 35 & 5 & Kleine Rollen am Radumfang, welche in Fugen passen & 8 & 280 & Nur kleines Stützrad, welches in Fugen passt, Stützrad ist passiv für die Lenkung \\
-\hline
-Komplexität & Wie aufwendig ist die Konstruktion und Programmierung & 20 & 4 & 4 Motoren ansteuern und hoher Rechenaufwand & 8 & 160 & Nur 2 Motoren nötig \\
-\hline
-Kosten & Wie viel kostet die Vorrichtung & 15 & 4 & 4 Motoren nötig & 8 & 120 & Nur 2 Motoren nötig \\
-\hline
- Nutzwert & \textbf{Gesamtnutzwert} & 100 & & 585 & & 740 & \\
-\hline
+\textbf{Legende:}
+\hspace{1cm}
+\textbf{BW:} Bewertung
+\hspace{1cm}
+\textbf{P:} Punkte
+
+\begin{table}[H]
+\resizebox{\textwidth}{!}{
+\centering
+\renewcommand{\arraystretch}{1.5}
+\scriptsize
+\begin{tabular}[H]{|p{2cm}|p{3cm}|c|c|p{3cm}|c|c|p{3cm}|}
+    \hline
+     \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{BW} & \textbf{P} & \textbf{Begründung} & \textbf{BW} & \textbf{P} & \textbf{Begründung} \\ 
+    \hline
+    Manövrierbarkeit & Wie einfach kann in alle Richtungen manövriert werden & 30 & 9 & Ist in alle Richtungen beweglich ohne vorgängige Drehung & 6 & 180 & Muss drehen, um in eine andere Richtung zu fahren \\
+    \hline
+    Resistenz gegen Verfangen in Plattenfugen & Wie anfällig sind die Räder auf Verfangen in den Plattenfugen und damit verbundene Fahrfehler & 35 & 5 & Kleine Rollen am Radumfang, welche in Fugen passen & 8 & 280 & Nur kleines Stützrad, welches in Fugen passt, Stützrad ist passiv für die Lenkung \\
+    \hline
+    Komplexität & Wie aufwendig ist die Konstruktion und Programmierung & 20 & 4 & 4 Motoren ansteuern und hoher Rechenaufwand & 8 & 160 & Nur 2 Motoren nötig \\
+    \hline
+    Kosten & Wie viel kostet die Vorrichtung & 15 & 4 & 4 Motoren nötig & 8 & 120 & Nur 2 Motoren nötig \\
+    \hline
+     Nutzwert & \textbf{Gesamtnutzwert} & 100 & & 585 & & 740 & \\
+    \hline
 \end{tabular}
+\normalsize
 }
+\caption{Nutzwertanalyse Fortbewegung}
+\label{tab:nutzwertanalyse_fortbewegung}
+\end{table}
         
     \newpage
     \subsubsection{Hindernis Bewältigung}
@@ -95,6 +109,7 @@ Kosten & Wie viel kostet die Vorrichtung & 15 & 4 & 4 Motoren nötig & 8 & 120 &
         Da ein beweglicher Arm die Komplexität nicht nur mechanisch, sondern auch in den Bereichen Sensorik und Software erheblich erhöht, wird diese Option aus der Vorauswahl ausgeschlossen. Die Einführung eines Arms fügt zusätzliche Komplexität hinzu, ohne die Möglichkeit, in anderen Bereichen Vereinfachungen zu erzielen. Dies widerspricht unserer Grundidee, eine möglichst einfache und zuverlässige Lösung zu entwickeln.
 
 \subsubsection{Elektrotechnik}
+
     \paragraph{Antrieb}
     Bei der Auslegung des Antriebs, ergaben sich drei Varianten. Der Schrittmotor, DC-Motor und der Brushlessmotor. Da die Ansteuerung möglichst einfach gehalten werden soll, ist der Brushlessmotor mit seiner komplexeren Ansteuerung ungeeignet. Der Vorteil des Schrittmotors ist, dass dieser nicht zwanghaft auf einen Encoder oder ähnliches angewiesen ist. Dieser kann man genau Schrittweise ansteuern und kann somit seine Position ermitteln. Der Nachteil ist, das es ein Open-Loop Regelung wäre, also ohne Rückführgrösse. Dies bedeutet bei einem mechanischem verklemmen, würde der Schrittmotor trotzdem die nicht gefahrenen Schritte zurückmelden. Auch dieser Motor hat eine schwierigere Ansteuerung mithilfe von Drivers. Der DC-Motor ist dagegen der einfachste zum Ansteuern. Ausserdem kann man hohe Drehmoment mittels Übersetzungen erreichen. Ebenso kann man ein Encoder verbauen für die Positionierung. Der Encoder kann auch wichtig sein, um die Fahrtrichtung zu kontrollieren. Sind die verwendeten DC-Motoren nicht identisch, so kann ein anderes Fahrverhalten pro Motor entstehen. Durch einen Encoder kann das Fehlverhalten abgefangen und korrigiert werden. (Wieso Encoder nicht hallsensor!!!!!!!)
 
@@ -111,12 +126,12 @@ Kosten & Wie viel kostet die Vorrichtung & 15 & 4 & 4 Motoren nötig & 8 & 120 &
                 \hline
                 \multicolumn{3}{|c|}{} & \multicolumn{3}{c|}{\textbf{Arduino}} & \multicolumn{3}{c|}{\textbf{TinyK22}} \\ \hline
                 \textbf{Kriterium} & \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} \\ \hline
-                Libraries & Sind Frameworks vorhanden & 30 & 9 & 270 & Grosse Anzahl Online Libraries & 8 & 240 & McFun Bibliothek \\ \hline
+                Libraries & Sind Frameworks vorhanden & 20 & 9 & 180 & Grosse Anzahl Online Libraries & 8 & 160 & McFun Bibliothek \\ \hline
                 Online Informationen & verfügbare Skripte / Beschriebe vorhanden? & 30 & 8 & 240 & Viele Online Tutorials & 6 & 180 & Blog von M. Styger und McFun Folien \\ \hline
-                I/O Pins & Anzahl frei verfügbare GPIO & 20 & 6 & 120 & 22 Pins beim nano & 8 & 160 & 28 Pins verfügbar \\ \hline
+                I/O Pins & Anzahl frei verfügbare GPIO & 30 & 6 & 180 & 22 Pins beim nano & 8 & 240 & 28 Pins verfügbar \\ \hline
                 Finanziell & Wie viel kostet der Mikrocontroller & 10 & 6 & 60 & Um die 20CHF & 9 & 90 & Evtl. von der Schule \\ \hline
                 Nachhaltigkeit & Energieverbrauch für die Beschaffung & 10 & 7 & 70 & Arduino bereits von Privatgebrauch vorhanden & 9 & 90 & Bereits vorhanden aus früheren Modulen \\ \hline
-                \multicolumn{2}{|r|}{\textbf{Nutzwert:}} & 100 & & 760 & & & 760 & \\ \hline
+                \multicolumn{2}{|r|}{\textbf{Nutzwert:}} & 100 & & 730 & & & 760 & \\ \hline
             \end{tabular}
          }
             \caption{Nutzwertanalyse der Mikrocontroller}
@@ -317,8 +332,10 @@ Der passendste Simulator wird anhand einer Nutzwertanalyse mit den folgenden Kri
 \item \textbf{Schnittstellen}: Damit der Simulator angesteuert werden kann, soll er möglichst einfache Schnittstellen besitzen.
 \end{itemize}
 
+
 \begin{table}[H]
 \resizebox{\textwidth}{!}{
+ \scriptsize
  \centering
  \renewcommand{\arraystretch}{1.5}
      \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
@@ -368,4 +385,9 @@ Ein selbstgebauter Simulator erreicht in der durchgeführten Nutzwertanalyse (si
 
 
 \subsection{Morphologischer Kasten}
+
+
+
+
+
 

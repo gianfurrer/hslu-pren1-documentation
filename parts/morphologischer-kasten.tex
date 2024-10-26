@@ -109,7 +109,7 @@ Der geeignetste Wegfindungsalgorithmus wird anhand einer Nutzwertanalyse mit den
     \label{tab:nutzwertanalyse_wegfindung}
 \end{table}
 
-Die Nutzwertanalyse zeigt Dijskta als deutlichen Gewinner. Dies liegt vor allem an der hohen Genauigkeit, Einfachheit und Effizient. Einzig bei der nicht vorhandenen Dynamik schneidet Dijkstra schlecht ab. Aufgrund des kleinen Graphen spielt das jedoch keine grosse Rolle, da der Weg einfach neu berechnet werden kann.
+Die Nutzwertanalyse zeigt Dijkstra als deutlichen Gewinner. Dies liegt vor allem an der hohen Genauigkeit, Einfachheit und Effizient. Einzig bei der nicht vorhandenen Dynamik schneidet Dijkstra schlecht ab. Aufgrund des kleinen Graphen spielt das jedoch keine grosse Rolle, da der Weg einfach neu berechnet werden kann.
 
 
 \newpage
@@ -200,7 +200,7 @@ Ein selbstgebauter Simulator erreicht in der durchgeführten Nutzwertanalyse (si
         \textbf{BW:} Bewertung
         \hspace{1cm}
         \textbf{PT:} Punkte
-        \vskip 3mm
+        \vskip 3 mm
         \resizebox{\textwidth}{!}{
         \centering
         \renewcommand{\arraystretch}{1.5}
@@ -242,11 +242,11 @@ Zur Auswahl stehen ein Encoder und ein Hallsensor. Der Encoder liefert genauere 
 \subsubsection{Software Steuerung}
 
 Bei der Softwaresteuerung kommt wegen der Grösse und Leistung nur das Raspberry Pi in Frage.
-Eine alternative wäre noch ein Arduino, jedoch reicht dies für leistungsintensive Aufgabe wie
+Eine Alternative wäre noch ein Arduino, jedoch reicht dies für leistungsintensive Aufgabe wie
 Objekterkennung nicht aus.
 
 \subsubsection{Hardware Steuerung}
-Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware nahe Steuerung, die mit dem Raspberry kommuniziert. Aus der Recherche ergaben sich dafür drei Möglichkeiten. Ein Arduino, TinyK22 oder ein ESP32. Dabei scheidet der ESP32 vor allem durch seine nicht benötigten Funktionen aus. Da wir weder WiFi noch Bluetooth benötigen. Damit bleiben noch der TinyK22 und ein Arduino-Board. Aufgrund Ihrer Ähnlichkeit wurde eine Nutzwerttabelle erstellt (siehe Tabelle \ref{tab:konzept_nutzwertanalyse_mikrocontroller}).
+Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware nahe Steuerung, die mit dem Raspberry kommuniziert. Aus der Recherche ergaben sich dafür drei Möglichkeiten. Ein Arduino, TinyK22 oder ein ESP32. Dabei scheidet der ESP32 vor allem durch seine nicht benötigten Funktionen aus. Da es weder Wi-Fi noch Bluetooth benötigt. Damit bleiben noch der TinyK22 und ein Arduino-Board. Aufgrund Ihrer Ähnlichkeit wurde eine Nutzwertanalyse erstellt (siehe Tabelle \ref{tab:konzept_nutzwertanalyse_mikrocontroller}).
 
     \begin{table}[H]
         \textbf{Legende:}
@@ -256,7 +256,7 @@ Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware na
         \textbf{BW:} Bewertung
         \hspace{1cm}
         \textbf{PT:} Punkte
-        \vskip 3mm
+        \vskip 3 mm
         \resizebox{\textwidth}{!}{
          \centering
          \renewcommand{\arraystretch}{1.5}
@@ -280,21 +280,21 @@ Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware na
             \label{tab:konzept_nutzwertanalyse_mikrocontroller}
         \end{table}
 
-    Da der Unterschied nicht sehr gross ist, wird als erste Wahl der Arduino verwendet und das TinyK22 als Ersatzwahl. Allenfalls können beide Boards verwendet werden und miteinander kommunizieren. Beispielsweise gibt es ein Arduino mit zwei UART Schnittstellen. Dieses kann als Kommunikator zum Raspberry und TinyK22 dienen. Hintergrund ist, dass eine Software für die Motorensteuerung per TinyK22 bereit besteht, mit welcher Thomas und Joel bereits gearbeitet haben. 
+    Da der Unterschied nicht sehr gross ist, wird als erste Wahl der Arduino verwendet und das TinyK22 als Ersatzwahl. Allenfalls könnten beide Boards verwendet werden und die dann miteinander kommunizieren. Beispielsweise gibt es ein Arduino mit zwei UART Schnittstellen. Dieses kann als Kommunikator zum Raspberry und TinyK22 dienen. Hintergrund ist, dass eine Software für die Motorensteuerung per TinyK22 bereit besteht, mit welcher Thomas und Joel bereits gearbeitet haben. 
 
 \subsubsection{Objekterkennung Hardware}
  Bei der Wahl der richtigen Sensorik müssen noch Tests durchgeführt werden. Vor allem für den Liniensensor und für die Erkennung des Wegpunktes. Für die Distanzmesssensoren ist ein Test zum Vergleich der Präzision zwischen Ultraschall und IR ebenso notwendig.
  
  Bereits bekannt ist, dass  möglichst alle Sensorik doppelt abgedeckt wird. So ist eine weitere Möglichkeit vorhanden, falls ein Sensor nicht die gewünschten Daten liefert. Als Beispiel werden Farbsensoren gegen den Boden gerichtet sein, wie auch Fototransistoren mit LEDs, um die weissen Wegpunkte zu erkennen.
 
- Für die korrekte Positionierung der Greifarme nach einer Hindernisbewältigung werden Drucksensoren verwendet. Dadurch wird sichergestellt, dass die Greifarme nach der Hindernisbewältigung wieder in der korrekten Ausgangslage sind.
+ Für die korrekte Positionierung der Klemmbacken nach einer Hindernisbewältigung werden Endschalter verwendet. Dadurch wird sichergestellt, dass die Greifarme nach der Hindernisbewältigung wieder in der korrekten Ausgangslage sind.
 
 \subsubsection{Streckenerkennung}
 Für die Streckenerkennung soll eine Kamera verwendet werden. Ein zweiter Lösungsansatz ist der Linienfolger. Um die Funktionalität eines Linienfolger zu verifizieren, muss dieser in der Fahrumgebung getestet werden. Ebenfalls muss getestet werden, wie gut die Kamera die Linien bei starker Reflexion erkennt. Mit den Messresultaten wird entschieden, welche Methode umgesetzt wird.
 
 
 \subsubsection{Punktverifizierung}
-Um zu erkennen, ob das Fahrzeug sich auf ein Punkt befindet, wird ein Farbsensor genutzt. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Ausserdem wird die Farbtemperatur in K zurückgemeldet. Mit diesen Werten kann man das leicht gelbe Klebeband von dem weissen Punkt unterscheiden. Dies ermöglicht es am einfachsten den weissen Punkt zuerkennen. Eine weitere Option wäre die Erkennung mittels eines kreisförmigen Liniensensors. Mit diesem kann man die Form der Linie erkennen. Wenn das Fahrzeug auf dem Punkt steht, haben alle Phototransistoren den gleichen Wert. Diese Variante ist ein wenig empfindlicher und bedarf es, dass das Fahrzeug zentriert auf der Linie fährt. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Da die eine Kamera für die Strecken und Objekterkennung sich auf einer gewissen Höhe befinden muss. Ausserdem wäre es für den Raspberry zu viel Rechenaufwand, zwei Bilderkennungen laufen zu lassen.
+Um zu erkennen, ob das Fahrzeug sich auf ein Punkt befindet, wird ein Farbsensor genutzt. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Ausserdem wird die Farbtemperatur in Kelvin zurückgegeben. Mit diesen Werten kann man das leicht gelbe Klebeband von dem weissen Punkt unterscheiden. Dies ermöglicht es am einfachsten den weissen Punkt zuerkennen. Eine weitere Option wäre die Erkennung mittels eines kreisförmigen Liniensensors. Mit diesem kann man die Form der Linie erkennen. Wenn das Fahrzeug auf dem Punkt steht, haben alle Phototransistoren den gleichen Wert. Diese Variante ist ein wenig empfindlicher und bedarf es, dass das Fahrzeug zentriert auf der Linie fährt. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Da die eine Kamera für die Strecken und Objekterkennung sich auf einer gewissen Höhe befinden muss. Ausserdem wäre es für den Raspberry zu viel Rechenaufwand, zwei Bilderkennungen laufen zu lassen.
 
 
 \subsubsection{Objekterkennung Software}
@@ -306,7 +306,7 @@ Dieser Abschnitt fokussiert sich darauf, anhand von einer Nutzwertanalyse von de
 Für die Nutzwertanalyse werden die folgenden Kriterien verwendet.
 
 \begin{itemize}
-\item \textbf{Genauigkeit}: Das wichtigste Kriterium ist, dass alle Objekte die in einem Bild ersichtlich sind genau erkannt werden.
+\item \textbf{Genauigkeit}: Das wichtigste Kriterium ist, dass alle Objekte, die in einem Bild ersichtlich sind, genau erkannt werden.
 \item \textbf{Geschwindigkeit}: Die Bilder werden während des Fahrens analysiert. Eine schnelle Objekterkennungsmethode ist essenziell, damit das Fahrzeug schnell reagieren kann.
 \item \textbf{Ressourcenbedarf}: Die Objekterkennung erfolgt on-board auf ressourcenlimitierter Hardware. Somit soll die Erkennung möglichst effizient sein.
 \item \textbf{Komplexität}: Das Projekt ist zeitlich limitiert. Der Aufwand für die Implementierung der Objekterkennung berücksichtigt werden. Dazu gehört auch die Menge der benötigten Trainingsdaten.
@@ -363,15 +363,15 @@ Für die Nutzwertanalyse werden die folgenden Kriterien verwendet.
 
 YOLO erreicht in der durchgeführten Nutzwertanalyse (siehe Tabelle \ref{tab:nutzwertanalyse_objekterkennung}) die beste Gesamtbewertung. Es erlaubt eine effiziente und relativ genaue Analyse der Bilder.
 Haar-Cascade ist ebenfalls schnell und ressourcenschonend, schneidet aber in der wichtigsten Kategorie ''Genauigkeit'' schlecht ab.
-CNN, das in der Kategorie Genauigkeit die beste Bewertunge erzielte, zeigt deutliche Schwächen in Bezug auf ''Geschwindigkeit'', ''Ressourcenbedarf'' und ''Komplexität''.
+CNN, das in der Kategorie Genauigkeit die beste Bewertung erzielte, zeigt deutliche Schwächen in Bezug auf ''Geschwindigkeit'', ''Ressourcenbedarf'' und ''Komplexität''.
 
 \subsubsection{Wegfindung}
 
 \subsubsection{Energiequelle}
-Zur Auswahl steht ein Li-Po, Li-Ion oder NiMh Akku. Der Li-Po und Li-Ion Akku haben die bessere Energiedichte als der NiMh Akku. Jedoch benötigt der Li-Po eine Logik für die Aufladung und der Li-Ion benötigt eine elektrische Schutzschaltung. Zwischen dem Li-Ion und Li-Po Akku gibt es keine weiteren Nennenswerte Unterschiede. 
+Zur Auswahl steht ein Li-Po, Li-Ion oder NiMh Akku. Der Li-Po und Li-Ion Akku haben die höhere Energiedichte als der NiMh Akku. Jedoch benötigt der Li-Po einen Laderegler für die Aufladung und der Li-Ionen benötigt eine elektrische Schutzschaltung. Zwischen dem Li-Ion und dem Li-Po Akku gibt es keine weiteren nennenswerten Unterschiede. 
 Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Ebenso haben sie keinen Memoryeffekt und eine geringere Selbstentladung als der NiMh Akku. Die Lebensdauer ist ca. 1.25 so lang wie die eines NiMh Akku.
 
-Es wird der Li-Po Akku verwendet. Dieser wird hauptsächlich für den Modellbau verwendet. Wie gemacht für einen Prototyp. Der NiMh Akku wird nicht verwendet, da dieser eine geringere Leistungsabgabe hat. Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entscheid ist aufgrund des vorgesehenen Anwendungsbereiches gegen den Li-Ion Akku gefallen. Durch den Modellbauanwendungsbereich des Li-Po Akkus ist es einfacher ähnliche Anwendungen zu finden.
+Es wird der Li-Po Akku verwendet. Diese Akkus werden hauptsächlich für den Modellbau verwendet. Wie gemacht für einen Prototyp. Der NiMh Akku wird nicht verwendet, da dieser eine geringe Leistungsabgabe hat. Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entscheid ist aufgrund des vorgesehenen Anwendungsbereiches gegen den Li-Ion Akku gefallen. Durch den Modellbauanwendungsbereich des Li-Po Akkus ist es einfacher ähnliche Anwendungen zu finden.
 
 
 \newpage
@@ -394,7 +394,7 @@ Es wird der Li-Po Akku verwendet. Dieser wird hauptsächlich für den Modellbau 
                 \multicolumn{2}{|r|}{\textbf{Nutzwert:}} & 100 & & 615 & & & 560 & \\ \hline
             \end{tabular}
          }
-            \caption{Nutzwertanalyse Hinderniss Aufnahme}
+            \caption{Nutzwertanalyse Hindernis Aufnahme}
             \label{tab:konzept_nutzwertanalyse_aufnahme}
         \end{table}
 
@@ -402,7 +402,7 @@ Es wird der Li-Po Akku verwendet. Dieser wird hauptsächlich für den Modellbau 
             
             \subparagraph{Präzision}
 
-            In der Nutzwertanalyse wird erwähnt, dass das Kriterium Präzision eine genauere Erklärung benötigt. Die Präzision der Klemme Breitenweg kann besser erreicht werden als bei der Klemme Längsweg. Einerseits kann, wie in den Abbildungen \ref{img:konzept_zentrierung_1} und \ref{img:konzept_zentrierung_2} gezeigt, eine Zentrierung bei der Klemme Breitenweg eingebaut werden. Diese Zentrierung fehlt bei der Klemme Längsweg. Da unter anderem das Ziel ist, das Hindernis möglichst zentriert wieder auf dem Klebeband abzustellen, verliert hier die Klemme Längsweg an Punkten. In Abbildung \ref{img:konzept_zentrierung_3} wird dargestellt, dass, wenn das Fahrzeug nicht perfekt mittig auf das Hindernis zufährt, automatisch ein Fehler generiert wird, weil das 'Offset' nicht, ohne komplexere Sensorik, miteinbezogen werden kann.
+            In der Nutzwertanalyse wird erwähnt, dass das Kriterium Präzision eine präzisere Erklärung benötigt. Die Präzision der Klemme Breitenweg kann besser erreicht werden als bei der Klemme Längsweg. Einerseits kann, wie in den Abbildungen \ref{img:konzept_zentrierung_1} und \ref{img:konzept_zentrierung_2} gezeigt, eine Zentrierung bei der Klemme Breitenweg eingebaut werden. Diese Zentrierung fehlt bei der Klemme Längsweg. Da unter anderem das Ziel ist, das Hindernis möglichst zentriert wieder auf dem Klebeband abzustellen, verliert hier die Klemme Längsweg an Punkten. In Abbildung \ref{img:konzept_zentrierung_3} wird dargestellt, dass, wenn das Fahrzeug nicht perfekt mittig auf das Hindernis zufährt, automatisch ein Fehler generiert wird, weil das 'Offset' nicht, ohne komplexere Sensorik, miteinbezogen werden kann.
 
 
             \begin{figure}[h!]

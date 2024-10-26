@@ -1,3 +1,7 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../img/}}}
+\begin{document}
+
 \newpage
 \section{Konzeptfindung}
 
@@ -244,15 +248,15 @@ Ein selbstgebauter Simulator erreicht in der durchgeführten Nutzwertanalyse (si
 
     Damit eine genauere Analyse zwischen Mecanum-Rädern und dem Prinzip Roomba durchgeführt werden kann, wird eine Nutzwertanalyse durchgeführt. der Gewinner ist das Prinzip Roomba (ersichtlich in Tabelle \ref{tab:nutzwertanalyse_fortbewegung}).
 
-    \textbf{Legende:}
-    \hspace{1cm}
-    \textbf{GW:} Gewichtung
-    \hspace{1cm}
-    \textbf{BW:} Bewertung
-    \hspace{1cm}
-    \textbf{PT:} Punkte
-    
     \begin{table}[H]
+        \textbf{Legende:}
+        \hspace{1cm}
+        \textbf{GW:} Gewichtung
+        \hspace{1cm}
+        \textbf{BW:} Bewertung
+        \hspace{1cm}
+        \textbf{PT:} Punkte
+        \vskip 3mm
         \resizebox{\textwidth}{!}{
         \centering
         \renewcommand{\arraystretch}{1.5}
@@ -299,15 +303,27 @@ Objekterkennung nicht aus.
 
 \subsubsection{Hardware Steuerung}
 Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware nahe Steuerung, die mit dem Raspberry kommuniziert. Aus der Recherche ergaben sich dafür drei Möglichkeiten. Ein Arduino, TinyK22 oder ein ESP32. Dabei scheidet der ESP32 vor allem durch seine nicht benötigten Funktionen aus. Da wir weder WiFi noch Bluetooth benötigen. Damit bleiben noch der TinyK22 und ein Arduino-Board. Aufgrund Ihrer Ähnlichkeit wurde eine Nutzwerttabelle erstellt (siehe Tabelle \ref{tab:konzept_nutzwertanalyse_mikrocontroller}).
-        
+
     \begin{table}[H]
+        \textbf{Legende:}
+        \hspace{1cm}
+        \textbf{GW:} Gewichtung
+        \hspace{1cm}
+        \textbf{BW:} Bewertung
+        \hspace{1cm}
+        \textbf{PT:} Punkte
+        \vskip 3mm
         \resizebox{\textwidth}{!}{
          \centering
          \renewcommand{\arraystretch}{1.5}
-             \begin{tabular}{|c|>{\raggedright} p{3cm}|c|c|c|>{\raggedright} p{3cm}|c|c|>{\raggedright\arraybackslash}p{3cm}|}
+             \begin{tabular}{|p{2.5cm}|>{\raggedright} p{3cm}|c|c|c|>{\raggedright} p{3cm}|c|c|>{\raggedright\arraybackslash}p{3cm}|}
                 \hline
                 \multicolumn{3}{|c|}{} & \multicolumn{3}{c|}{\textbf{Arduino}} & \multicolumn{3}{c|}{\textbf{TinyK22}} \\ \hline
-                \textbf{Kriterium} & \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} \\ \hline
+                \textbf{Kriterium} & \textbf{Erklärung} & \textbf{GW} & 
+                \textbf{BW} & \textbf{PT} & 
+                \textbf{Begründung} & \textbf{BW} & 
+                \textbf{PT} & \textbf{Begründung} \\ \hline
+
                 Libraries & Sind Frameworks vorhanden & 20 & 9 & 180 & Grosse Anzahl Online Libraries & 8 & 160 & McFun Bibliothek \\ \hline
                 Online Informationen & verfügbare Skripte / Beschriebe vorhanden? & 30 & 8 & 240 & Viele Online Tutorials & 6 & 180 & Blog von M. Styger und McFun Folien \\ \hline
                 I/O Pins & Anzahl frei verfügbare GPIO & 30 & 6 & 180 & 22 Pins beim nano & 8 & 240 & 28 Pins verfügbar \\ \hline
@@ -339,13 +355,11 @@ Um zu erkennen, ob das Fahrzeug sich auf ein Punkt befindet, wird ein Farbsensor
 
 \subsubsection{Objekterkennung Software}
 
-Objekterkennung ist eine essenzielle Teilfunktion, da das autonome Fahrzeug seine Umgebung verstehen und darauf reagieren muss, um erfolgreich durch das Wegnetzwerk zu navigieren.
-Bei der Technologierecherche wurden vier verschiedene Objekterkennungsmethoden recherchiert.
-Dieser Abschnitt fokussiert sich darauf, von den vier Auswahlen die beste zu treffen.
 
-\subparagraph{Nutzwertanalyse Objekterkennung}
+Bei der Technologierecherche wurden vier verschiedene Objekterkennungsmethoden recherchiert, wobei eine davon bei der Vorauswahl ausschied. 
+Dieser Abschnitt fokussiert sich darauf, anhand von einer Nutzwertanalyse von den restlichen drei Auswahlen die Beste zu treffen.
 
-Die passendste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gewählt.
+Für die Nutzwertanalyse werden die folgenden Kriterien verwendet.
 
 \begin{itemize}
 \item \textbf{Genauigkeit}: Das wichtigste Kriterium ist, dass alle Objekte die in einem Bild ersichtlich sind genau erkannt werden.
@@ -358,17 +372,15 @@ Die passendste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den
 \resizebox{\textwidth}{!}{
  \centering
  \renewcommand{\arraystretch}{1.5}
-     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+     \begin{tabular}{|c|c|c|c|c|c|c|c|}
         \hline
         \multicolumn{2}{|c|}{} & 
         \multicolumn{2}{c|}{\textbf{CNN}} &
         \multicolumn{2}{c|}{\textbf{YOLO}} &
-        \multicolumn{2}{c|}{\textbf{Haar-Cascade}} &
-        \multicolumn{2}{c|}{\textbf{R-CNN}} \\ 
+        \multicolumn{2}{c|}{\textbf{Haar-Cascade}} \\
         \hline
         
         \textbf{Kriterium} & \textbf{Gewicht} &
-        \textbf{Bewertung} & \textbf{Punkte} &
         \textbf{Bewertung} & \textbf{Punkte} &
         \textbf{Bewertung} & \textbf{Punkte} &
         \textbf{Bewertung} & \textbf{Punkte} \\
@@ -377,32 +389,28 @@ Die passendste Objekterkennungsmethode wird anhand einer Nutzwertanalyse mit den
         Genauigkeit & 40 &
         8 & 320 &
         7 & 280 &
-        5 & 200 &
-        9 & 360 \\
+        5 & 200 \\
         \hline
 
         Geschwindigkeit & 30 &
         6 & 180 &
         9 & 270 &
-        8 & 240 &
-        5 & 150 \\
+        8 & 240 \\
         \hline
 
         Ressourcenbedarf & 20 &
         4 & 80 &
         6 & 120 &
-        8 & 160 &
-        3 & 60 \\
+        8 & 160 \\
         \hline
 
         Komplexität & 10 &
         2 & 20 &
         5 & 50 &
-        7 & 70 &
-        2 & 20 \\
+        7 & 70 \\
         \hline
         
-        \textbf{Nutzwert:} & 100 & & 590 & & 720 & & 670 && 590 \\ \hline
+        \textbf{Nutzwert:} & 100 & & 590 & & 720 & & 670 \\ \hline
     \end{tabular}
  }
     \caption{Nutzwertanalyse Objekterkennung}
@@ -424,3 +432,5 @@ Es wird der Li-Po Akku verwendet. Dieser wird hauptsächlich für den Modellbau 
 \subsubsection{Aufnahme Hindernis}
 
 \subsubsection{Rotation / Translation Hindernis}
+
+\end{document}

@@ -36,11 +36,10 @@ Aufgrund dass der Graph bereits vorgegeben ist und recht klein ist, spielt die E
 
 \subsubsection{Objekterkennung}
 
-Bei der Objekterkennung ist der Ressourcenbedarf ein sehr wichtiges Kriterium.
-Da die Erkennung auf einem Raspberry Pi läuft und so viele Bilder pro Sekunde wie möglich analysieren 
+Bei der Objekterkennung snd die Schnelligkeit und der Ressourcenbedarf sehr wichtige Kriterien.
+Da die Erkennung auf einem Raspberry Pi läuft und so viele Bilder pro Sekunde wie möglich analysieren soll, muss sie möglichst schnell und ressourceneffizient sein. 
 
-Der R-CNN Algorithmus ist noch ressourcenintensiver als das normale CNN. Deshalb scheidet dieser in der Vorauswahl aus.
-
+R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Lansamste und Ressourcenintensivste, weshalb sie bereits in der Vorauswahl aus.
 
 \subsection{Morphologischer Kasten}
     \includegraphics[width=\textwidth]{img/Morphologischer_Kasten.png}
@@ -98,6 +97,13 @@ Der R-CNN Algorithmus ist noch ressourcenintensiver als das normale CNN. Deshalb
     \end{table}
 
 \subsubsection{Ersatz Rotation}
+
+Das Risiko R15 "Verschieben bei Drehung" (siehe Kapitel \ref{risikomatrix}) wird mitigiert,
+in dem optional eine zusätzliche Funktion für das Drehen des Fahrzeugs eingebaut werden kann, falls das Risiko eintreten sollte.
+
+Bei dieser Ersatz-Rotation würde das Fahrzeug aufgebockt werden um sich zu drehen.
+Diese Methode ist zwar viel langsamer, würde jedoch sicherstellen, dass sich das Fahrzeug 
+beim Drehen nicht verschiebt.
 
 \subsubsection{Fahrantrieb}
 Bei der Auslegung des Antriebs ergaben sich drei Varianten. Der Schrittmotor, DC-Motor und der Brushlessmotor. Da die Ansteuerung möglichst einfach gehalten werden soll, ist der Brushlessmotor mit seiner komplexeren Ansteuerung ungeeignet. Der Vorteil des Schrittmotors ist, dass dieser nicht unbedingt auf einen Encoder oder ähnliches angewiesen ist. Dieser kann man genau schrittweise ansteuern und somit seine Position verfolgen. Der Nachteil ist, dass es ein Open-Loop Regelung wäre, also ohne Rückführgrösse. Dies bedeutet bei einer mechanischen Überlastung, würde der Schrittmotor trotz allem die nicht gefahrenen Schritte zurückmelden. Auch dieser Motor hat eine schwierigere Ansteuerung mithilfe von Drivers. Der DC-Motor ist dagegen der einfachste zum Ansteuern. Dieser benötigt eine H-Brücke, die einfach anzusteuern ist. Ausserdem kann man hohe Drehmoment mittels Übersetzungen erreichen. Das macht den DC-Motor zum bevorzugten Antriebsmotor für die Fahrt.

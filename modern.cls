@@ -748,6 +748,17 @@ PREN 1}
   \end{figure}
 }
 
+% Custom height image (no float)
+\newcommand\imageheight[3]{
+  \begin{figure}[H]
+    \centering
+    \captionbox{#2\label{fig:#1}}{%
+      \includegraphics[height=#3]{#1}
+    }
+
+  \end{figure}
+}
+
 \renewcommand{\arraystretch}{1.5}
 \newcommand\workday[4]{
   \noindent{\begin{tabularx}{\textwidth}{ >{\hsize=.4\hsize}X >{\hsize=1.6\hsize}X }

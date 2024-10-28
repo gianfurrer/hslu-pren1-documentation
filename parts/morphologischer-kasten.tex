@@ -25,157 +25,21 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept zu fin
 \newpage
 \subsubsection{Wegfindung}
 
-Aufgrund dass der Graph bereits vorgegeben ist und recht klein ist, spielt die Effizienz und Dynamik des Algorithmus nur eine sehr kleine Rolle. Da der Zeitunterschied der Algorithmen bei einer Neuberechnung nur minimal ist.
+Aufgrund dass der Graph bereits vorgegeben ist und recht klein ist, spielt die Effizienz und Dynamik des Algorithmus nur eine sehr kleine Rolle. Da der Zeitunterschied der Algorithmen bei einer Neuberechnung nur minimal ist. Dafür werden Kriterien wie geringer Speicherbedarf und niedrige Komplexität höher gewertet.
 
-\subparagraph{Ausgeschiedene Algorithmen}
+\textbf{Ausgeschiedene Algorithmen:}
 
 \begin{itemize}
     \item \textbf{Goal directed shortest path queries using precomputed cluster distances}: Aufgrund der hohen Komplexität und Speicherbedarf wird dieser Algorithmus nicht weiter analysiert.
     \item \textbf{Floyd Warshall}: Der Algorithmus fokussiert sich auf die Berechnung von allen kürzesten Pfaden in einem Graphen. Dies entspricht nicht unserem Anwendungsbereich und wird deshalb nicht weiter analysiert.
 \end{itemize}
 
-\subparagraph{Nutzwertanalyse Wegfindung}
-
-Der geeignetste Wegfindungsalgorithmus wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gefunden.
-
-\begin{itemize}
-    \item \textbf{Einfachheit:} Einfach zu implementieren oder bereits in bekannten Bibliotheken vorhanden.
-    \item \textbf{Genauigkeit:} Findet \textbf{garantiert} den kürzesten Weg.
-    \item \textbf{Dynamisch:} Kann sich dynamisch auf Graphveränderungen anpassen.
-    \item \textbf{Schnelligkeit:} Wie schnell der kürzeste Weg berechnet werden kann.
-    \item \textbf{Effizienz:} Benötigter Leistungs- und Speicheraufwand
-\end{itemize}
-
-\begin{table}[H]
-\resizebox{\textwidth}{!}{
- \centering
- \renewcommand{\arraystretch}{1.5}
-     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-        \hline
-        \multicolumn{2}{|c|}{} & 
-        \multicolumn{2}{c|}{\textbf{Dijkstra}} &
-        \multicolumn{2}{c|}{\textbf{A*}} &
-        \multicolumn{2}{c|}{\textbf{D*}} &
-        \multicolumn{2}{c|}{\textbf{RRT}} \\ 
-        \hline
-        
-        \textbf{Kriterium} & \textbf{Gewicht} &
-        \textbf{Bewertung} & \textbf{Punkte} &
-        \textbf{Bewertung} & \textbf{Punkte} &
-        \textbf{Bewertung} & \textbf{Punkte} &
-        \textbf{Bewertung} & \textbf{Punkte} \\
-        \hline
-
-        Einfachheit & 10 &
-        10 & 100 &
-        7 & 70 &
-        5 & 50 &
-        3 & 30 \\
-        \hline
-
-        Genauigkeit & 60 &
-        10 & 600 &
-        8 & 480 &
-        8 & 480 &
-        6 & 360 \\
-        \hline
-
-        Dynamisch & 5 &
-        1 & 5 &
-        1 & 5 &
-        10 & 50 &
-        5 & 25 \\
-        \hline
-
-        Schnelligkeit & 5 &
-        7 & 35 &
-        8 & 40 &
-        9 & 45 &
-        5 & 25 \\
-        \hline
-
-        Effizienz & 20 &
-        9 & 180 &
-        7 & 140 &
-        4 & 80 &
-        2 & 40 \\
-        \hline
-        
-        \textbf{Nutzwert:} & 100 & & 920 & & 735 & & 705 && 480 \\ \hline
-    \end{tabular}
- }
-    \caption{Nutzwertanalyse Wegfindung}
-    \label{tab:nutzwertanalyse_wegfindung}
-\end{table}
-
-Die Nutzwertanalyse zeigt Dijkstra als deutlichen Gewinner. Dies liegt vor allem an der hohen Genauigkeit, Einfachheit und Effizient. Einzig bei der nicht vorhandenen Dynamik schneidet Dijkstra schlecht ab. Aufgrund des kleinen Graphen spielt das jedoch keine grosse Rolle, da der Weg einfach neu berechnet werden kann.
-
-
-\newpage
 \subsubsection{Objekterkennung}
 
+Bei der Objekterkennung ist der Ressourcenbedarf ein sehr wichtiges Kriterium.
+Da die Erkennung auf einem Raspberry Pi läuft und so viele Bilder pro Sekunde wie möglich analysieren 
+
 Der R-CNN Algorithmus ist noch ressourcenintensiver als das normale CNN. Deshalb scheidet dieser in der Vorauswahl aus.
-
-
-\subsubsection{Simulator}
-Die Wegfindung und Entscheidungsprozesse des Fahrzeugs sollen anhand eines Simulators und vor dessen Bau getestet werden können. Bei der Technologierecherche wurden zwei Methoden recherchiert, die in diesem Abschnitt genauer analysiert werden.
-Der passendste Simulator wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gewählt.
-
-\begin{itemize}
-\item \textbf{Anpassbarkeit}: Das wichtigste Kriterium ist, dass der Simulator genau an die Problemstellung angepasst werden kann.
-\item \textbf{Geschwindigkeit}: Die Simulation soll auf handelsüblichen Rechnern mit moderater Leistung schnell laufen, um einfache Softwareiteration zu ermöglichen.  
-\item \textbf{Komplexität}: Das Projekt ist zeitlich limitiert. Der Aufwand für die Implementierung und Anpassung des Simulators muss berücksichtigt werden.
-\item \textbf{Schnittstellen}: Damit der Simulator angesteuert werden kann, soll er möglichst einfache Schnittstellen besitzen.
-\end{itemize}
-
-
-\begin{table}[H]
-\resizebox{\textwidth}{!}{
-
- \centering
- \renewcommand{\arraystretch}{1.5}
-     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
-        \hline
-        \multicolumn{2}{|c|}{} & 
-        \multicolumn{2}{c|}{\textbf{Selbst entwickelt}} &
-        \multicolumn{2}{c|}{\textbf{MicroMouseSimulator}}\\ 
-        \hline
-        
-        \textbf{Kriterium} & \textbf{Gewicht} &
-        \textbf{Bewertung} & \textbf{Punkte} &
-        \textbf{Bewertung} & \textbf{Punkte}\\
-        \hline
-
-        Anpassbarkeit & 40 &
-        10 & 360 &
-        5 & 200 \\
-        \hline
-
-        Schnittstellen & 30 &
-        10 & 300 &
-        8 & 240  \\
-        \hline
-
-        Komplexität & 20 &
-        8 & 160 &
-        4 & 80 \\
-        \hline
-
-        Geschwindigkeit & 10 &
-        8 & 80 &
-        9 & 90 \\
-        \hline
-
-
-        
-        \textbf{Nutzwert:} & 100 & & 900 & & 610\\ \hline
-    \end{tabular}
- }
-    \caption{Nutzwertanalyse Simulator}
-    \label{tab:nutzwertanalyse_simulator}
-\end{table}
-
-Ein selbstgebauter Simulator erreicht in der durchgeführten Nutzwertanalyse (siehe Tabelle \ref{tab:nutzwertanalyse_simulator}) die beste Gesamtbewertung. Das hohe Mass an Anpassbarkeit und die Möglichkeit, Schnittstellen nach Belieben zu implementieren, sprechen klar für eine Eigenentwicklung. Der MicroMouseSimulator ist bereits auf Geschwindigkeit optimiert, jedoch sollte der Unterschied auf modernen Rechnern einen zu kleinen Unterschied machen, als dass die anderen Nachteile aufgeholt würden. Statt sich in den Source-Code eines bereits bestehenden Projektes einzulesen, kann von Grund auf für die vorhandene Problemstellung entwickelt werden.
 
 
 \subsection{Morphologischer Kasten}
@@ -373,6 +237,80 @@ Haar-Cascade ist ebenfalls schnell und ressourcenschonend, schneidet aber in der
 CNN, das in der Kategorie Genauigkeit die beste Bewertung erzielte, zeigt deutliche Schwächen in Bezug auf ''Geschwindigkeit'', ''Ressourcenbedarf'' und ''Komplexität''.
 
 \subsubsection{Wegfindung}
+
+Der geeignetste Wegfindungsalgorithmus wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gefunden.
+
+\begin{itemize}
+    \item \textbf{Einfachheit:} Einfach zu implementieren oder bereits in bekannten Bibliotheken vorhanden.
+    \item \textbf{Genauigkeit:} Findet \textbf{garantiert} den kürzesten Weg.
+    \item \textbf{Dynamisch:} Kann sich dynamisch auf Graphveränderungen anpassen.
+    \item \textbf{Schnelligkeit:} Wie schnell der kürzeste Weg berechnet werden kann.
+    \item \textbf{Effizienz:} Benötigter Leistungs- und Speicheraufwand
+\end{itemize}
+
+\begin{table}[H]
+\resizebox{\textwidth}{!}{
+ \centering
+ \renewcommand{\arraystretch}{1.5}
+     \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
+        \hline
+        \multicolumn{2}{|c|}{} & 
+        \multicolumn{2}{c|}{\textbf{Dijkstra}} &
+        \multicolumn{2}{c|}{\textbf{A*}} &
+        \multicolumn{2}{c|}{\textbf{D*}} &
+        \multicolumn{2}{c|}{\textbf{RRT}} \\ 
+        \hline
+        
+        \textbf{Kriterium} & \textbf{Gewicht} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} &
+        \textbf{Bewertung} & \textbf{Punkte} \\
+        \hline
+
+        Einfachheit & 10 &
+        10 & 100 &
+        7 & 70 &
+        5 & 50 &
+        3 & 30 \\
+        \hline
+
+        Genauigkeit & 60 &
+        10 & 600 &
+        8 & 480 &
+        8 & 480 &
+        6 & 360 \\
+        \hline
+
+        Dynamisch & 5 &
+        1 & 5 &
+        1 & 5 &
+        10 & 50 &
+        5 & 25 \\
+        \hline
+
+        Schnelligkeit & 5 &
+        7 & 35 &
+        8 & 40 &
+        9 & 45 &
+        5 & 25 \\
+        \hline
+
+        Effizienz & 20 &
+        9 & 180 &
+        7 & 140 &
+        4 & 80 &
+        2 & 40 \\
+        \hline
+        
+        \textbf{Nutzwert:} & 100 & & 920 & & 735 & & 705 && 480 \\ \hline
+    \end{tabular}
+ }
+    \caption{Nutzwertanalyse Wegfindung}
+    \label{tab:nutzwertanalyse_wegfindung}
+\end{table}
+
+Die Nutzwertanalyse zeigt Dijkstra als deutlichen Gewinner. Dies liegt vor allem an der hohen Genauigkeit, Einfachheit und Effizient. Einzig bei der nicht vorhandenen Dynamik schneidet Dijkstra schlecht ab. Aufgrund des kleinen Graphen spielt das jedoch keine grosse Rolle, da der Weg einfach neu berechnet werden kann.
 
 \subsubsection{Energiequelle}
 Zur Auswahl steht ein Li-Po, Li-Ion oder NiMh Akku. Der Li-Po und Li-Ion Akku haben die höhere Energiedichte als der NiMh Akku. Jedoch benötigt der Li-Po einen Laderegler für die Aufladung und der Li-Ionen benötigt eine elektrische Schutzschaltung. Zwischen dem Li-Ion und dem Li-Po Akku gibt es keine weiteren nennenswerten Unterschiede. 

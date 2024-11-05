@@ -1,15 +1,18 @@
 \newpage
 \section{Simulator}
 
-Der Simulator dient dazu, die Funktionalität der Software des autonomen Fahrzeugs zu testen, bevor der physische Prototyp6   gebaut wird.
+Der Simulator dient dazu, die Funktionalität der Software des autonomen Fahrzeugs zu testen, bevor der physische Prototyp gebaut wird.
 
 \subsection{Spezifikation}
 
 In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
 
 \begin{itemize}
-    \item Aufzeigen, dass (ohne Beachtung der Hindernisse) der schnellste Weg ins Ziel gefunden wird.
-    \item 
+    \item Es wird (ohne Beachtung der Hindernisse) immer der schnellste Weg ins Ziel gefunden wird.
+    \item Wegpunkte mit Pylonen werden nicht befahren.
+    \item Entfernte Linien werden nicht befahren.
+    \item Neue Informationen können während der Fahrt aufgenommen und entsprechende Anpassungen dazu getroffen werden.
+    \item Kommandos, die an die Hardware geschickt werden sollen, werden aufgezeigt.
 \end{itemize}
 
 \subsubsection{Nutzwertanalyse}

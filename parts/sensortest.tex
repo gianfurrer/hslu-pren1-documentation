@@ -1,0 +1,20 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../img/}}}
+\begin{document}
+
+
+\newpage
+\section{HardwareTest}
+
+\subsection{Ultraschallsensor}
+Als Ultraschalloption hat man den Typ HC-SR04 getestet. Dieser hat eine Reichweite von 2 cm bis 300 cm mit einer Genauigkeit von 3 mm. Der Sensor wird einmal an 5 V angeschlossen und der Trig Pin aktiviert die Messung. Der Echo Pin empfängt das, vom Trig ausgelöste, Signal. Der Zeitunterschied zwischen Trig und Echo ist dann mit der Schallgeschwindigkeit umgerechnet die Distanz. Mit einem Testaufbau ermittelt man die reale Präzision dieses Sensors (sieh Abbildung 
+
+\begin{figure}[h] % 'h' steht für here, was bedeutet, dass das Bild möglichst an dieser Stelle eingefügt wird
+    \centering
+    \includegraphics[width=0.5\textwidth]{bilddatei.png} % Bildname und Breite der Grafik angeben
+    \caption{Beschriftung der Abbildung}
+    \label{fig:beispielbild} % Label für die Referenzierung der Abbildung
+\end{figure}
+
+Quelle: https://www.mikrocontroller.net/attachment/218122/HC-SR04_ultraschallmodul_beschreibung_3.pdf
+\end{document}

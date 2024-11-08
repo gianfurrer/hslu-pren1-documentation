@@ -20,12 +20,14 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
     \item Kommandos, die an die Hardware geschickt werden sollen, werden aufgezeigt.
 \end{itemize}
 
+\subsection{Konzept}
+
 Idealerweise würde der Simulator die komplette Hardware des autonomen Fahrzeuges simulieren. So wäre die Software, die auf dem Fahrzeug läuft, genau die gleiche, die vom Simulator getestet wird. Dies ist jedoch mit sehr viel Aufwand verbunden, weshalb dies für die erste Version des Simulators für uns nicht realisierbar ist.
 
 Die erste Version des Simulators soll anhand einer vordefinierten Konfiguration den schnellsten Weg ins Ziel finden. Die Konfiguration enthält folgende Informationen:
 \begin{itemize}
-    \item Das Ziel: A, B oder C
-    \item Die Gewichtung für das befahren eines Hindernis.
+    \item Das Ziel: A, B oder C.
+    \item Die Gewichtung für das Befahren eines Hindernis.
     \item Informationen die erst beim Befahren eines neuen Wegpunktes freigeschalten werden:
      \begin{itemize}
         \item{Wegpunkte mit einer Pylone}
@@ -41,7 +43,7 @@ Damit die Simulation weiss, auf welchen Wegpunkten bzw. Linien sich Hindernisse 
 
 Die Konfiguration wird in einer YAML-Datei abgespeichert und sieht wie folgt aus.
 
-\begin{minted}{yaml}
+\begin{minted}
 end: B
 weight: 3
 S:
@@ -59,10 +61,15 @@ D:
 
 In der Beispielskonfiguration wird das Ziel B angesteuert.
 Eine Line mit Hindernis wird dreifach gewichtet im Vergleich zu einer normaler Line.  
-Beim Knoten S (Start) 
+Am Start (Knote S) erfährt die Software, dass auf dem Knoten E sich eine Pylone befindet,
+auf der Linie S-F ein Hindernis und dass die Linie E-A entfernt wurde.
+Falls das Fahrzeug die Kante D befährt, wird erkannt, dass die Kante D-B nicht existiert und dass sich auf Kante D-A ein Hindernis befindet.
+
+Diese Konfiguration kann einfach angepasst werden, wodurch mit dem Simulator einfach verschiedene Szenarien durchgespielt werden können.
 
 
 \subsubsection{Nutzwertanalyse}
+\textbf{TODO: Benötigt anpassungen}
 Die Wegfindung und Entscheidungsprozesse des Fahrzeugs sollen anhand eines Simulators und vor dessen Bau getestet werden können. Bei der Technologierecherche wurden zwei Methoden recherchiert, die in diesem Abschnitt genauer analysiert werden.
 Der passendste Simulator wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gewählt.
 

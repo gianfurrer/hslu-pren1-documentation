@@ -2,32 +2,44 @@
 \section{Hardware Test}
 
 \subsection{Ultraschallsensor}
-Als Ultraschallsensor hat man den Typ HC-SR04 getestet. Dieser hat eine Reichweite von 2 cm bis 300 cm mit einer Genauigkeit von 3 mm. Der Sensor wird an 5 V angeschlossen. Mit dem Trigger Pin aktiviert sich die Messung. Der Echo Pin empfängt dabei das, vom Trigger ausgelöste, Signal. Dieser Zeitunterschied zwischen Senden und Empfangen ist dann mit der Schallgeschwindigkeit umgerechnet die Distanz. Der Sensor wird mit dem Testaufbau ermittelt man die reale Präzision dieses Sensors (sieh Abbildung \ref{fig:Ultraschall1}).
+Als Ultraschallsensor hat man den Typ HC-SR04 getestet. Dieser hat eine Reichweite von 2 cm bis 300 cm mit einer Genauigkeit von 3 mm. Der Sensor wird an 5 V angeschlossen. Mit dem Trigger Pin aktiviert sich die Messung. Der Echo Pin empfängt dabei das, vom Trigger ausgelöste, Signal. Dieser Zeitunterschied zwischen Senden und Empfangen ist dann mit der Schallgeschwindigkeit umgerechnet die Distanz. Die Präzision des Sensors wird mit dem Messaufbau Abbildung \ref{fig:Ultraschall1} ermittelt.
 
 \begin{figure}[h] % 'h' steht für here, was bedeutet, dass das Bild möglichst an dieser Stelle eingefügt wird
     \centering
-    \includegraphics[width=0.5\textwidth]{img/sensortest/Ultraschall_Senkrecht.jpg} % Bildname und Breite der Grafik angeben
-    \caption{Testaufbau Ultraschallsensor}
+    \includegraphics[width=0.5\textwidth]{img/sensortest/MA_Ultraschall.jpg} % Bildname und Breite der Grafik angeben
+    \caption{Messaufbau Ultraschallsensor}
     \label{fig:Ultraschall1} % Label für die Referenzierung der Abbildung
 \end{figure}
 
-Daraus ergaben sich folgende Messwerte:
-\begin{table}[h!]
+In diesem Aufbau wird das Objekt je um ein Zentimeter verschoben und den dazugehörenden Messwert aufgeschrieben. Daraus ergaben sich folgende Messwerte:
+\begin{table}[H]
 \centering
-\begin{tabular}{>{\raggedright\arraybackslash}p{3cm} >{\raggedright\arraybackslash}p{3cm}}
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tabular}{@{}ll@{}}
 \toprule
 \textbf{Position} & \textbf{Messwert} \\
 \midrule
-10 mm & 22 mm \\
-20 mm & 25 mm \\
-30 mm & 31 mm \\
-40 mm & 41 mm \\
-50 mm & 54 mm \\
-60 mm & 61 mm \\
-70 mm & 69 mm \\
-80 mm & 82 mm \\
-90 mm & 89 mm \\
-100 mm & 95 mm \\
+10 mm  & 22 mm  \\
+20 mm  & 25 mm  \\
+30 mm  & 31 mm  \\
+40 mm  & 41 mm  \\
+50 mm  & 54 mm  \\
+60 mm  & 61 mm  \\
+70 mm  & 69 mm  \\
+80 mm  & 82 mm  \\
+90 mm  & 89 mm  \\
+100 mm & 95 mm  \\
+\bottomrule
+\end{tabular}
+\end{minipage}%
+\hspace{0.05\textwidth} % kleiner Abstand zwischen den Tabellen
+\begin{minipage}{0.45\textwidth}
+\centering
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Position} & \textbf{Messwert} \\
+\midrule
 110 mm & 112 mm \\
 120 mm & 121 mm \\
 130 mm & 130 mm \\
@@ -40,11 +52,12 @@ Daraus ergaben sich folgende Messwerte:
 200 mm & 205 mm \\
 \bottomrule
 \end{tabular}
+\end{minipage}
 \caption{Positionen und Messwerte}
-\label{tab:position_messwert}
+\label{tab:UltraschallMD}
 \end{table}
 
-Man sieht, dass der Sensor ungenauer ist in der Nähe des Sensors. Entfernt sich das Objekt, wird er präziser.
+Aus der Tabelle \ref{tab:UltraschallMD} fällt auf, dass die Messdaten ganz in der Nähe des Sensors ungenauer sind. Entfernt sich das Objekt, wird er präziser.
 
 \newpage
 

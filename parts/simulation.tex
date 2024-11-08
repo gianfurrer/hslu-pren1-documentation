@@ -1,3 +1,7 @@
+\documentclass[../main.tex]{subfiles}
+\graphicspath{{\subfix{../img/}}}
+\begin{document}
+
 \newpage
 \section{Simulator}
 
@@ -11,9 +15,52 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
     \item Es wird (ohne Beachtung der Hindernisse) immer der schnellste Weg ins Ziel gefunden wird.
     \item Wegpunkte mit Pylonen werden nicht befahren.
     \item Entfernte Linien werden nicht befahren.
+    \item Linien mit Hindernisse werden erkannt und nur befahren, falls ein Umweg länger dauert (konfigurierbar).
     \item Neue Informationen können während der Fahrt aufgenommen und entsprechende Anpassungen dazu getroffen werden.
     \item Kommandos, die an die Hardware geschickt werden sollen, werden aufgezeigt.
 \end{itemize}
+
+Idealerweise würde der Simulator die komplette Hardware des autonomen Fahrzeuges simulieren. So wäre die Software, die auf dem Fahrzeug läuft, genau die gleiche, die vom Simulator getestet wird. Dies ist jedoch mit sehr viel Aufwand verbunden, weshalb dies für die erste Version des Simulators für uns nicht realisierbar ist.
+
+Die erste Version des Simulators soll anhand einer vordefinierten Konfiguration den schnellsten Weg ins Ziel finden. Die Konfiguration enthält folgende Informationen:
+\begin{itemize}
+    \item Das Ziel: A, B oder C
+    \item Die Gewichtung für das befahren eines Hindernis.
+    \item Informationen die erst beim Befahren eines neuen Wegpunktes freigeschalten werden:
+     \begin{itemize}
+        \item{Wegpunkte mit einer Pylone}
+        \item{Entfernte Linien}
+        \item{Erkannte Hindernisse}
+   \end{itemize}
+\end{itemize}
+
+
+Damit die Simulation weiss, auf welchen Wegpunkten bzw. Linien sich Hindernisse befinden, wird jeder Wegpunkt beschriftet:
+
+\imagewidth{simulation/labeled-graph.png}{Beschrifteter Graph}{10cm}
+
+Die Konfiguration wird in einer YAML-Datei abgespeichert und sieht wie folgt aus.
+
+\begin{minted}{yaml}
+end: B
+weight: 3
+S:
+  cones: [E]
+  obstacles: 
+    - [S, F] 
+  removed:
+    - [E, A]
+D:
+  removed:
+    - [D, B]
+  obstacles:
+    - [D, A]
+\end{minted}
+
+In der Beispielskonfiguration wird das Ziel B angesteuert.
+Eine Line mit Hindernis wird dreifach gewichtet im Vergleich zu einer normaler Line.  
+Beim Knoten S (Start) 
+
 
 \subsubsection{Nutzwertanalyse}
 Die Wegfindung und Entscheidungsprozesse des Fahrzeugs sollen anhand eines Simulators und vor dessen Bau getestet werden können. Bei der Technologierecherche wurden zwei Methoden recherchiert, die in diesem Abschnitt genauer analysiert werden.
@@ -74,3 +121,5 @@ Der passendste Simulator wird anhand einer Nutzwertanalyse mit den folgenden Kri
 \end{table}
 
 Ein selbstgebauter Simulator erreicht in der durchgeführten Nutzwertanalyse (siehe Tabelle \ref{tab:nutzwertanalyse_simulator}) die beste Gesamtbewertung. Das hohe Mass an Anpassbarkeit und die Möglichkeit, Schnittstellen nach Belieben zu implementieren, sprechen klar für eine Eigenentwicklung. Der MicroMouseSimulator ist bereits auf Geschwindigkeit optimiert, jedoch sollte der Unterschied auf modernen Rechnern einen zu kleinen Unterschied machen, als dass die anderen Nachteile aufgeholt würden. Statt sich in den Source-Code eines bereits bestehenden Projektes einzulesen, kann von Grund auf für die vorhandene Problemstellung entwickelt werden.
+
+\end{document}

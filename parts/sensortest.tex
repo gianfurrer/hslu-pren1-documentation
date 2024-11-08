@@ -1,4 +1,12 @@
+
+
 \documentclass[../main.tex]{subfiles}
+
+\usepackage{graphicx}    % Für das Einfügen von Grafiken
+\usepackage{subcaption}   % Für Unterabbildungen in einer Matrix
+\usepackage{caption}      % Für Bildunterschriften
+
+
 \graphicspath{{\subfix{../img/}}}
 \begin{document}
 
@@ -105,5 +113,101 @@ Die Messungen ergaben folgende Resultate:
 \end{table}
 Hier sieht man 
 
+
+\subsection{Farbsensor}
+Der Farbsensor der hier getestet wird ist der TCS34725. Dieser kommunizier über eine I2C Schnittstelle und liefert folgende Werte: Temperaturwert in Kelvin, Lux, Rotwert, Grünwert, Bauwert, Clearwert. Hier geht es darum welcher dieser Wert sich am meisten Unterscheidet. Damit der Abstand zum Boden immer gleich ist, wurde ein Halter gedruckt, der den Sensor 1 cm über Boden hält (siehe Abbildung \ref{fig:Farbsensorhalter}).
+
+\begin{figure}[h] % 'h' steht für here, was bedeutet, dass das Bild möglichst an dieser Stelle eingefügt wird
+    \centering
+    \includegraphics[width=0.3\textwidth]{img/sensortest/FarbsensorHalter.jpg} % Bildname und Breite der Grafik angeben
+    \caption{Farbsensorhalter}
+    \label{fig:Farbsensorhalter} % Label für die Referenzierung der Abbildung
+\end{figure}
+
+Nun werden alle vier Möglichen Szenarien getestet siehe Abbildung \ref{fig:Testanordnungen}. Einmal die Linie, der weisse Punkt, die rote Platte und noch die Fuge.
+
+
+\begin{figure}[H]
+    \centering
+    % Oben links
+    \begin{subfigure}{0.3\textwidth} % Breite auf 45% gesetzt, um Platz für zwei Bilder pro Zeile zu schaffen
+        \centering
+        \includegraphics[width=\linewidth]{img/sensortest/Farbsensor_Linie.jpg}
+        \caption{Farbsensor Linie}
+        \label{fig:FarbsensorLinie}
+    \end{subfigure}
+    % Oben rechts
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/sensortest/Farbsensor_WeisserPunkt.jpg}
+        \caption{Farbsensor Weisser Punkt}
+        \label{fig:FarbsensorWeisserPunkt}
+    \end{subfigure}
+    
+    % Abstand zwischen den Reihen
+    \vspace{0.5cm}
+
+    % Unten links
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/sensortest/Farbsensor_Platte.jpg}
+        \caption{Farbsensor Platte}
+        \label{fig:FarbsensorPlatte}
+    \end{subfigure}
+    % Unten rechts
+    \begin{subfigure}{0.3\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/sensortest/Farbsensor_Fuge.jpg}
+        \caption{Farbsensor Fuge}
+        \label{fig:FarbsensorFuge}
+    \end{subfigure}
+
+    \caption{Testaufbau}
+    \label{fig:Testanordnungen}
+\end{figure}
+
+Das ergab folgende Messdaten:
+
+
+\begin{figure}[H]
+    \centering
+    % Oben links
+    \begin{subfigure}{0.45\textwidth} % Breite auf 45% gesetzt, um Platz für zwei Bilder pro Zeile zu schaffen
+        \centering
+        \includegraphics[width=\linewidth]{img/sensortest/MD_Linie.png}
+        \caption{Messdaten Farbsensor Linie}
+        \label{fig:MDFarbsensorLinie}
+    \end{subfigure}
+    % Oben rechts
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/sensortest/MD_WeisserPunkt.png}
+        \caption{Messdaten Farbsensor Weisser Punkt}
+        \label{fig:MDFarbsensorWeisserPunkt}
+    \end{subfigure}
+    
+    % Abstand zwischen den Reihen
+    \vspace{0.5cm}
+
+    % Unten links
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/sensortest/MD_RotePlatte.png}
+        \caption{Messdaten Farbsensor Platte}
+        \label{fig:MDFarbsensorPlatte}
+    \end{subfigure}
+    % Unten rechts
+    \begin{subfigure}{0.45\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{img/sensortest/MD_Fuge.png}
+        \caption{Messdaten Farbsensor Fuge}
+        \label{fig:MDFarbsensorFuge}
+    \end{subfigure}
+
+    \caption{Messdaten Farbsensor}
+    \label{fig:Testanordnungen}
+\end{figure}
+
+Aus den Messdaten erkennt man das der Lux Wert sich am meisten unterscheidet. Jedoch fällt auch auf, dass die benötigte Zeit für eine Messung fast eine halbe Sekunde beträgt. Das könnte ein Problem geben, da sich das Fahrzeug bei Fortbewegen in einer halben Sekunde eine grosse Strecke zurücklegt. Daher ist die Option einen Farbsensor zu verwenden als Liniendetektion eher unwahrscheinlich. Jedoch kann dieser gut genutzt werden um eine zweite Abfrage für den weissen Punkt zu realisieren.
 
 \end{document}

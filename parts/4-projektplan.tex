@@ -55,6 +55,8 @@ R12 & Fokus der Kamera umfasst nicht ganzen benötigten Bereich & Bilder enthalt
 R13 & Grip Verlust Omni und Mecanum & & & Mechanisch & Fahrzeug verliert Grip bei den Fugen & 4 & 4 & 16 \\ \hline
 R14 & Anzahl GPIO & Die Steuerungselektronik hat eine begrenzte Anzahl IN/OUT Pins & ET & Elektrisch & Sensorinformationen können nicht gelesen werden & 3 & 5 & 15 \\ \hline
 R15 & Verschiebung bei Drehung & Mit dem Fahrantrieb kann keine genaue Drehung an Ort und Stelle realisiert werden, um das Fahrzeug mit dem aufgenommenen Hindernis zu wenden. & MT & Mechanisch & Fahrzeug schiebt zur Seite bei Drehung & 3 & 5 & 15 \\ \hline
+
+R16 & Blendung der Kamera durch Reflexionen & Die Bodenplatten spiegeln bei flachem Lichteinfall. Dies kann das Erkennen von Punkten, Linien und Hindernissen erschweren & INF & Software & Erkennung von nicht vorhandenen Hindernissen. Hindernisse werden nicht erkannt & 4 & 4 & 16 \\ \hline
 \end{longtable}
 
 \newpage
@@ -85,6 +87,7 @@ R12 & Im Vorfeld Fokus-Range prüfen und frühzeitig testen. Training mit versch
 R13 & Testen der Räder & Mit Sensoren Position ausgleichen, dafür eine genaue Position des Fahrzeugs benötigt & Fahrzeug ist an der gewünschten Position & 3 & 3 & 9 \\ \hline
 R14 & & & & & & \\ \hline
 R15 & Testen & Zusatzfunktion: abdocken und drehen des Fahrzeuges. & Fahrzeug dreht an fixer Position & & & \\ \hline
+R16 & Polarisierungsfilter an Kamera befestigen & Gebrauch von anderer Sensorik statt Kamera & Das Fahrzeug erkennt Objekte korrekt trotz Sonneneinstrahlung & 2 & 3 & 6 \\ \hline
 \end{longtable}
 
 \normalsize

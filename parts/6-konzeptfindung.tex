@@ -40,7 +40,7 @@ für einen Algorithmus relativ klein ist. Die Effizienz und Dynamik des Algorith
 Bei der Objekterkennung sind die Schnelligkeit und der Ressourcenbedarf sehr wichtige Kriterien.
 Da die Erkennung auf einem Raspberry Pi läuft und so viele Bilder pro Sekunde wie möglich analysieren soll, muss sie möglichst schnell und ressourceneffizient sein. 
 
-R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Lansamste und Ressourcenintensivste, weshalb sie bereits in der Vorauswahl aus.
+R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste und Ressourcen intensivste, weshalb sie bereits in der Vorauswahl ausscheidet.
 
 \newpage
 \subsection{Morphologischer Kasten}
@@ -114,7 +114,7 @@ Bei der Auslegung des Antriebs ergaben sich drei Varianten. Der Schrittmotor, DC
 
 
 \subsubsection{Hindernisbewältigungsantrieb}
-Für die Hindernisbewältigung wird ebenfalls ein Antrieb benötigt. Dafür wird ein Schrittmotor verwendet. Die aufgeführten Nachteile verlieren in der Hindernisbewältigung an Gewichtung. Wird das Hindernis geklemmt, ist die minimale Schrittanzahl bekannt. Diese kann überschritten werden. Klemmt der Schrittmotor das Hindernis bereits vor den minimalen Schritten, hat das nicht Erkennen von nicht gemachten Schritten keinen Einfluss. Die Ausgangsposition kann mittels Endschaltern überprüft werden.
+Für die Hindernisbewältigung wird ebenfalls ein Antrieb benötigt. Dafür wird ein Schrittmotor verwendet. Die aufgeführten Nachteile verlieren in der Hindernisbewältigung an Gewichtung. Da ein Motor mit hohem Drehmoment bei niedriger Drehzahl benötigt wird. Somit kann ein Getriebe eingespart werden. Wird das Hindernis geklemmt, ist die minimale Schrittanzahl bekannt. Diese kann überschritten werden. Klemmt der Schrittmotor das Hindernis bereits vor den minimalen Schritten, hat das nicht Erkennen von nicht gemachten Schritten keinen Einfluss. Die Ausgangsposition kann mittels Endschaltern überprüft werden.
   
 
 \subsubsection{Sensorik Positionsabfrage}

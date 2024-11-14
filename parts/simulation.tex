@@ -13,34 +13,31 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
 
 
 % TODO: Transform to table 
-\begin{itemize}
-    \item Es wird (ohne Beachtung der Hindernisse) immer der schnellste Weg ins Ziel gefunden wird.
-    \item Wegpunkte mit Pylonen werden nicht befahren.
-    \item Entfernte Linien werden nicht befahren.
-    \item Linien mit Hindernisse werden erkannt und nur befahren, falls ein Umweg länger dauert (konfigurierbar).
-    \item Neue Informationen können während der Fahrt aufgenommen und entsprechende Anpassungen dazu getroffen werden.
-    \item Kommandos, die an die Hardware geschickt werden sollen, werden aufgezeigt.
-    \item Das Ziel kann konfiguriert werden (A, B oder C)
-\end{itemize}
 
+\begin{table}[htbp!]
+    \centering
+    \begin{tabularx}{\textwidth}{| l | X | l |}
+        \hline
+        \textbf{Nr.} & \textbf{Spezifikation} & \textbf{Priorität} \\ \hline
 
+        1. & Es wird (ohne Beachtung der Hindernisse) immer der schnellste Weg ins Ziel gefunden wird. & Hoch \\ \hline
+        2. & Entfernte Linien werden nicht befahren. & Hoch \\ \hline
+        3. & Linien mit Hindernissen werden erkannt und nur befahren, falls ein Umweg länger dauert. & Hoch \\ \hline
+        4. & Neue Informationen können während der Fahrt aufgenommen und entsprechende Anpassungen dazu getroffen werden. & Hoch \\ \hline
+        5. & Das Ziel kann konfiguriert werden (A, B oder C) & Hoch \\ \hline
+        6. & Es gibt ein User Interface, welches den befahrenen Graphen aufzeigt. & Hoch \\ \hline
+        6.1 & Im User Interface werden Pylonen, Hindernisse und entferne Linien aufgezeigt & Mittel \\ \hline
+        7. & Kommandos, die an die Hardware geschickt werden sollen, werden ausgegeben. & Mittel \\ \hline
+        8. & Der Simulator analysiert den Graphen anhand von Bildern. & Tief \\ \hline
+    \end{tabularx}
+\end{table}
 
+\newpage
 \subsection{Morphologischer Kasten}
-
-% \begin{table}
-%     \begin{tabularx}{l | a | b | a | b}
-%     \hline
-%     \rowcolor{LightCyan}
-%     \mc{1}{}  & \mc{1}{x} & \mc{1}{y} & \mc{1}{w} & \mc{1}{z} \\
-%     \hline
-%     variable 1 & a & b & c & d \\
-%     variable 2 & a & b & c & d \\ \hline
-%     \end{tabular}
-% \end{table}
 
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
-\begin{table}[htbp]
+\begin{table}[htbp!]
     \centering
     \begin{tabularx}{\textwidth}{| X | Y | Y | Y |}
         \hline
@@ -89,44 +86,19 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
         \\ \hline
         
         \textbf{Hindernis \newline Bewältigung}   &     
-        Immer umfahren &
-        Keine spezielle Behandlung &
+        Immer umfahren \newline
+        \includegraphics[width=3cm]{img/simulation/morphologischer-kasten/hindernis-umfahren.png}
+        &
+        Keine spezielle Behandlung \newline
+        \includegraphics[width=3cm]{img/simulation/morphologischer-kasten/hindernis-ignoriert.png}
+        &
         \cellcolor{LightGreen}
-        Gewicht hinzufügen
+        Gewicht hinzufügen\newline
+        \includegraphics[width=3cm]{img/simulation/morphologischer-kasten/hindernis-gewicht.png}
         \\ \hline
     \end{tabularx}
+    \caption{Morphologischer Kasten - Simulator}
 \end{table}
-\cellcolor{LightGreen}
-\begin{itemize}
-    \item User Interface
-        \begin{itemize}
-            \item Terminal
-            \item \textbf{Einfaches GUI}
-            \item Unreal Engine
-        \end{itemize}
-    \item Wegfindungs-Algorithmus
-        \begin{itemize}
-            \item \textbf{Externe Bibliothek}
-            \item Eigene Implementation
-        \end{itemize}
-    \item Programmiersprache
-        \begin{itemize}
-            \item \textbf{Python}
-            \item JavaScript
-            \item Java
-        \end{itemize}
-    \item Informationen einlesen
-        \begin{itemize}
-            \item \textbf{Konfigurationsdatei}
-            \item Bilder
-        \end{itemize}
-    \item Hindernis Bewältigung
-        \begin{itemize}
-            \item \textbf{Gewicht hinzufügen}
-            \item Immer umfahren
-            \item Keine spezielle Behandlung
-        \end{itemize}
-\end{itemize}
 
 \subsubsection{User Interface}
 

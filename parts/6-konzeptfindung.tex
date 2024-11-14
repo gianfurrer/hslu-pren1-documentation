@@ -324,15 +324,37 @@ Die Nutzwertanalyse zeigt Dijkstra als deutlichen Gewinner. Dies liegt vor allem
 
 \subsubsection{Energiequelle}
 Zur Auswahl steht ein Li-Po, Li-Ion oder NiMh Akku. Der Li-Po und Li-Ion Akku haben die höhere Energiedichte als der NiMh Akku. Jedoch benötigt der Li-Po einen Laderegler für die Aufladung und der Li-Ionen benötigt eine elektrische Schutzschaltung. Zwischen dem Li-Ion und dem Li-Po Akku gibt es keine weiteren nennenswerten Unterschiede. 
-Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Ebenso haben sie keinen Memoryeffekt und eine geringere Selbstentladung als der NiMh Akku. Die Lebensdauer eines NiMh Akkus ist dagegen fast fünf mal solange wie die eines Lipo-Akkus\footnote{https://www.rcteam.com/de/blogs/der-blog-des-rc-modellbaus/nimh-vs-lipo-batterien}.
+Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Ebenso haben sie keinen Memoryeffekt und eine geringere Selbstentladung als der NiMh Akku. Die Lebensdauer eines NiMh Akkus ist dagegen fast fünfmal so lange wie die eines Lipo-Akkus\footnote{https://www.rcteam.com/de/blogs/der-blog-des-rc-modellbaus/nimh-vs-lipo-batterien}.
 
-Es wird der Li-Po Akku verwendet. Diese Akkus werden hauptsächlich für den Modellbau verwendet. Wie gemacht für einen Prototyp. Der NiMh Akku wird nicht verwendet, da dieser eine geringe Leistungsabgabe hat. Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entscheid ist aufgrund des vorgesehenen Anwendungsbereiches gegen den Li-Ion Akku gefallen. Durch den Modellbauanwendungsbereich des Li-Po Akkus ist es einfacher ähnliche Anwendungen zu finden.
+
+\begin{table}[H]
+        \resizebox{\textwidth}{!}{
+         \centering
+         \renewcommand{\arraystretch}{1.5}
+             \begin{tabular}{|c|>{\raggedright} p{3cm}|c|c|c|>{\raggedright} p{3cm}|c|c|>{\raggedright\arraybackslash}p{3cm}|}
+                \hline
+                \multicolumn{3}{|c|}{} & \multicolumn{3}{c|}{\textbf{LiPo}} & \multicolumn{3}{c|}{\textbf{NiMh}} \\ \hline
+                \textbf{Kriterium} & \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} \\ \hline
+                Lebensdauer & Wie lange hält der Akku & 10 & 6 & 60 & Bis 200 Ladezyklen & 8 & 80 & Bis 1000 Ladezyklen \\ \hline
+                Leistungsdichte & Energie / Volumen & 30 & 9 & 270 & Hohe Energiedichte & 6 & 180 & Mittlere Energiedichte \\ \hline
+                Leistungsabgabe & Wie viel Strom kann gezogen werden & 30 & 8 & 240 & Hohe Entladungsrate  & 4 & 120 & Niedrige Entladungsrate \\ \hline
+                Sicherheit & Brenngefahr & 20 & 4 & 80 & Gefahr bei unsachmässigem Gebrauch & 8 & 160 & Keine Gefahr \\ \hline
+                Kosten & Wie viel kostet der Akku & 10 & 4 & 40 & Um die 30CHF & 7 & 70 & Um die 20CHF \\ \hline
+                \multicolumn{2}{|r|}{\textbf{Nutzwert:}} & 100 & & 690 & & & 610 & \\ \hline
+            \end{tabular}
+}
+            \caption{Nutzwertanalyse Akku}
+            \label{tab:konzept_Akku}
+        \end{table}
+        
+
+Es wird der Li-Po Akku verwendet. Diese Akkus werden hauptsächlich für den Modellbau verwendet. Wie gemacht für einen Prototyp. Der NiMh Akku wird nicht verwendet, da dieser eine geringe Leistungsabgabe hat (siehe auch Tabelle \ref{tab:konzept_Akku})\footnote{https://www.rccrush.com/nimh-vs-lipo-batteries/}. Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entscheid ist aufgrund des vorgesehenen Anwendungsbereiches gegen den Li-Ion Akku gefallen. Durch den Modellbauanwendungsbereich des Li-Po Akkus ist es einfacher ähnliche Anwendungen zu finden.
 
 
 \newpage
 \subsubsection{Aufnahme Hindernis}
 \subparagraph{Nutzwertanalyse Aufnahme}
-        Damit eine genauere Analyse zwischen Klemme Breitenweg und Klemme Längsweg durchgeführt werden konnte, wurde eine Nutzwertanalyse durchgeführt. Der Gewinner war dank der höheren Präzision Klemme Breitenweg, was auch in Tabelle \ref{tab:konzept_nutzwertanalyse_aufnahme} ersichtlich ist.
+        Damit eine genauere Analyse zwischen Klemme Breitenweg und Klemmung seitlich durchgeführt werden konnte, wurde eine Nutzwertanalyse durchgeführt. Der Gewinner war dank der höheren Präzision Klemme Breitenweg, was auch in Tabelle \ref{tab:konzept_nutzwertanalyse_aufnahme} ersichtlich ist.
         
         \begin{table}[H]
         \resizebox{\textwidth}{!}{
@@ -340,7 +362,7 @@ Es wird der Li-Po Akku verwendet. Diese Akkus werden hauptsächlich für den Mod
          \renewcommand{\arraystretch}{1.5}
              \begin{tabular}{|c|>{\raggedright} p{3cm}|c|c|c|>{\raggedright} p{3cm}|c|c|>{\raggedright\arraybackslash}p{3cm}|}
                 \hline
-                \multicolumn{3}{|c|}{} & \multicolumn{3}{c|}{\textbf{Klemme Breitenweg}} & \multicolumn{3}{c|}{\textbf{Klemme Längsweg}} \\ \hline
+                \multicolumn{3}{|c|}{} & \multicolumn{3}{c|}{\textbf{Klemme Breitenweg}} & \multicolumn{3}{c|}{\textbf{Klemme seitlich}} \\ \hline
                 \textbf{Kriterium} & \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} \\ \hline
                 Sicherer Halt & Wie gut hält das Hindernis in der Halterung & 35 & 7 & 245 & Relativ starke Punktlast, aber dennoch sehr guter Halt & 8 & 280 & Große Fläche zur Kraftübertragung, stabil und sehr guter Halt \\ \hline
                 Präzision & Wie präzise ist die Vorrichtung, auch wenn das Fahrzeug nicht genau zentriert vor dem Hindernis steht & 30 & 7 & 210 & Siehe Kapitel Präzision, detaillierte Erklärung & 4 & 120 & Siehe Kapitel Präzision, detaillierte Erklärung \\ \hline
@@ -357,7 +379,7 @@ Es wird der Li-Po Akku verwendet. Diese Akkus werden hauptsächlich für den Mod
             
             \subparagraph{Präzision}
 
-            In der Nutzwertanalyse wird erwähnt, dass das Kriterium Präzision eine präzisere Erklärung benötigt. Die Präzision der Klemme Breitenweg kann besser erreicht werden als bei der Klemme Längsweg. Einerseits kann, wie in den Abbildungen \ref{img:konzept_zentrierung_1} und \ref{img:konzept_zentrierung_2} gezeigt, eine Zentrierung bei der Klemme Breitenweg eingebaut werden. Diese Zentrierung fehlt bei der Klemme Längsweg. Da unter anderem das Ziel ist, das Hindernis möglichst zentriert wieder auf dem Klebeband abzustellen, verliert hier die Klemme Längsweg an Punkten. In Abbildung \ref{img:konzept_zentrierung_3} wird dargestellt, dass, wenn das Fahrzeug nicht perfekt mittig auf das Hindernis zufährt, automatisch ein Fehler generiert wird, weil das 'Offset' nicht, ohne komplexere Sensorik, miteinbezogen werden kann.
+            In der Nutzwertanalyse wird erwähnt, dass das Kriterium Präzision eine präzisere Erklärung benötigt. Die Präzision der Klemme Breitenweg kann besser erreicht werden als bei der Klemmung seitlich. Einerseits kann, wie in den Abbildungen \ref{img:konzept_zentrierung_1} und \ref{img:konzept_zentrierung_2} gezeigt, eine Zentrierung bei der Klemme Breitenweg eingebaut werden. Diese Zentrierung fehlt bei der Klemmung seitlich. Da unter anderem das Ziel ist, das Hindernis möglichst zentriert wieder auf dem Klebeband abzustellen, verliert hier die Klemmung seitlch an Punkten. In Abbildung \ref{img:konzept_zentrierung_3} wird dargestellt, dass, wenn das Fahrzeug nicht perfekt mittig auf das Hindernis zufährt, automatisch ein Fehler generiert wird, weil das 'Offset' nicht, ohne komplexere Sensorik, miteinbezogen werden kann.
 
 
             \begin{figure}[h!]
@@ -381,7 +403,7 @@ Es wird der Li-Po Akku verwendet. Diese Akkus werden hauptsächlich für den Mod
         \begin{figure}[h!]
             \centering
             \includegraphics[width=0.48\textwidth]{img/konzeptfindung/Klemme_Langsweg_off_center.png}
-            \caption{Darstellung 'Offset' bei Klemme se}
+            \caption{Darstellung 'Offset' bei Klemmung seitlich}
         \label{img:konzept_zentrierung_3}
         \end{figure}  
 

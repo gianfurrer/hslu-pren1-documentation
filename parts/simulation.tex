@@ -11,6 +11,8 @@ Der Simulator dient dazu, die Funktionalität der Software des autonomen Fahrzeu
 
 In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
 
+
+% TODO: Transform to table 
 \begin{itemize}
     \item Es wird (ohne Beachtung der Hindernisse) immer der schnellste Weg ins Ziel gefunden wird.
     \item Wegpunkte mit Pylonen werden nicht befahren.
@@ -18,7 +20,52 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
     \item Linien mit Hindernisse werden erkannt und nur befahren, falls ein Umweg länger dauert (konfigurierbar).
     \item Neue Informationen können während der Fahrt aufgenommen und entsprechende Anpassungen dazu getroffen werden.
     \item Kommandos, die an die Hardware geschickt werden sollen, werden aufgezeigt.
+    \item Das Ziel kann konfiguriert werden (A, B oder C)
 \end{itemize}
+
+
+
+\subsection{Morphologischer Kasten}
+
+\begin{itemize}
+    \item User Interface
+        \begin{itemize}
+            \item Terminal
+            \item \textbf{Einfaches GUI}
+            \item Unreal Engine
+        \end{itemize}
+    \item Programmiersprache
+        \begin{itemize}
+            \item \textbf{Python}
+            \item JavaScript
+            \item Java
+        \end{itemize}
+    \item Wegfindungs-Algorithmus
+        \begin{itemize}
+            \item \textbf{Externe Library}
+            \item Eigene Implementation
+        \end{itemize}
+    \item Informationen einlesen
+        \begin{itemize}
+            \item Konfigurationsdatei
+            \item Bilder
+        \end{itemize}
+    \item Hindernis Bewältigung
+        \begin{itemize}
+            \item Gewicht hinzufügen
+            \item Immer umfahren
+            \item Keine spezielle Behandlung
+        \end{itemize}
+\end{itemize}
+
+\subsubsection{User Interface}
+
+Obwohl wir ebenfalls eine Unreal Engine mit dem Pfadfinder-Model erstellen, wäre der Aufwand zu gross, diesen an den Simulator anzubinden. Die Ausgabe in einem Terminal hingegen wäre zu minimal. Deshalb wird das User Interface mit einem einfachen GUI umgesetzt. 
+
+\subsubsection{Programmiersprache}
+
+Bei der Programmiersprache kamen Python, JavaScript und Java in Frage.
+Java wird für die meisten Projekte im Informatik-Studium verwendet, wodurch viel wissen vorhanden ist. JavaScript erlaubt es, einfach graphische Darstellungen mittels Webseite zu implementieren. Python ist sehr simpel und wird oft  
 
 \subsection{Konzept}
 
@@ -30,7 +77,7 @@ Die erste Version des Simulators soll anhand einer vordefinierten Konfiguration 
     \item Die Gewichtung für das Befahren eines Hindernis.
     \item Informationen die erst beim Befahren eines neuen Wegpunktes freigeschalten werden:
      \begin{itemize}
-        \item{Wegpunkte mit einer Pylone}
+        \item{Wegpunkte mit einem Pylon}
         \item{Entfernte Linien}
         \item{Erkannte Hindernisse}
    \end{itemize}
@@ -43,7 +90,7 @@ Damit die Simulation weiss, auf welchen Wegpunkten bzw. Linien sich Hindernisse 
 
 Die Konfiguration wird in einer YAML-Datei abgespeichert und sieht wie folgt aus.
 
-\begin{minted}
+\begin{verbatim}
 end: B
 weight: 3
 S:
@@ -57,7 +104,7 @@ D:
     - [D, B]
   obstacles:
     - [D, A]
-\end{minted}
+\end{verbatim}
 
 In der Beispielskonfiguration wird das Ziel B angesteuert.
 Eine Line mit Hindernis wird dreifach gewichtet im Vergleich zu einer normaler Line.  

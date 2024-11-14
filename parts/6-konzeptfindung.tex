@@ -161,14 +161,12 @@ Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware na
             \label{tab:konzept_nutzwertanalyse_mikrocontroller}
         \end{table}
 
-    Da der Unterschied nicht sehr gross ist, wird als erste Wahl der Arduino verwendet und das TinyK22 als Ersatzwahl. Allenfalls könnten beide Boards verwendet werden und die dann miteinander kommunizieren. Beispielsweise gibt es ein Arduino mit zwei UART Schnittstellen. Dieses kann als Kommunikator zum Raspberry und TinyK22 dienen. Hintergrund ist, dass eine Software für die Motorensteuerung per TinyK22 bereit besteht, mit welcher Thomas und Joel bereits gearbeitet haben. 
+    Da der Unterschied nicht sehr gross ist, wird als erste Wahl der Arduino verwendet und das TinyK22 als Ersatzwahl. Allenfalls könnten beide Boards verwendet werden und die dann miteinander kommunizieren. Beispielsweise gibt es ein Arduino mit zwei UART Schnittstellen. Dieses kann als Kommunikator zum Raspberry und TinyK22 dienen. Hintergrund ist, dass eine Software für die Motorensteuerung per TinyK22 bereit besteht, mit welcher Thomas und Joel bereits gearbeitet haben. Ausserdem würden mit dieser Lösung mehr GPIOs bereitstehen, damit man im Projekt agil reagieren kann und keine Hardwaremässigen Limits hat.
 
 \subsubsection{Objekterkennung Hardware}
- Bei der Wahl der richtigen Sensorik müssen noch Tests durchgeführt werden. Vor allem für den Liniensensor und für die Erkennung des Wegpunktes. Für die Distanzmesssensoren ist ein Test zum Vergleich der Präzision zwischen Ultraschall und IR ebenso notwendig.
+ Bei der Wahl der richtigen Sensorik müssen noch Tests durchgeführt werden. Damit bewertet werden kann, welcher Sensor sich bei der vorgegebenen Umwelt am besten verhält. Vor allem für den Liniensensor und für die Erkennung des Wegpunktes. Da der Untergrund keine kontrastreichen Flächen hat. Für die Distanzmesssensoren ist ein Test zum Vergleich der Präzision zwischen Ultraschall und IR ebenso notwendig.
  
- Bereits bekannt ist, dass  möglichst alle Sensorik doppelt abgedeckt wird. So ist eine weitere Möglichkeit vorhanden, falls ein Sensor nicht die gewünschten Daten liefert. Als Beispiel werden Farbsensoren gegen den Boden gerichtet sein, wie auch Fototransistoren mit LEDs, um die weissen Wegpunkte zu erkennen.
-
- Für die korrekte Positionierung der Klemmbacken nach einer Hindernisbewältigung werden Endschalter verwendet. Dadurch wird sichergestellt, dass die Greifarme nach der Hindernisbewältigung wieder in der korrekten Ausgangslage sind.
+ Bereits angedacht ist, dass  die wichtigsten Sensoren doppelt abgedeckt werden sollen (siehe Risikoanalyse). So ist eine weitere Möglichkeit vorhanden, falls ein Sensor nicht die gewünschten Daten liefert. Als Beispiel werden Farbsensoren gegen den Boden gerichtet sein, wie auch Fototransistoren mit LEDs, um die weissen Wegpunkte zu erkennen.
 
 \subsubsection{Streckenerkennung}
 Für die Streckenerkennung soll eine Kamera verwendet werden. Ein zweiter Lösungsansatz ist der Linienfolger. Um die Funktionalität eines Linienfolger zu verifizieren, muss dieser in der Fahrumgebung getestet werden. Ebenfalls muss getestet werden, wie gut die Kamera die Linien bei starker Reflexion erkennt. Mit den Messresultaten wird entschieden, welche Methode umgesetzt wird.

@@ -27,6 +27,18 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
 
 \subsection{Morphologischer Kasten}
 
+\begin{table}
+    \begin{tabularx}{l | a | b | a | b}
+    \hline
+    \rowcolor{LightCyan}
+    \mc{1}{}  & \mc{1}{x} & \mc{1}{y} & \mc{1}{w} & \mc{1}{z} \\
+    \hline
+    variable 1 & a & b & c & d \\
+    variable 2 & a & b & c & d \\ \hline
+    \end{tabularx}
+\end{table}
+
+
 \begin{itemize}
     \item User Interface
         \begin{itemize}
@@ -34,25 +46,25 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
             \item \textbf{Einfaches GUI}
             \item Unreal Engine
         \end{itemize}
+    \item Wegfindungs-Algorithmus
+        \begin{itemize}
+            \item \textbf{Externe Bibliothek}
+            \item Eigene Implementation
+        \end{itemize}
     \item Programmiersprache
         \begin{itemize}
             \item \textbf{Python}
             \item JavaScript
             \item Java
         \end{itemize}
-    \item Wegfindungs-Algorithmus
-        \begin{itemize}
-            \item \textbf{Externe Library}
-            \item Eigene Implementation
-        \end{itemize}
     \item Informationen einlesen
         \begin{itemize}
-            \item Konfigurationsdatei
+            \item \textbf{Konfigurationsdatei}
             \item Bilder
         \end{itemize}
     \item Hindernis Bewältigung
         \begin{itemize}
-            \item Gewicht hinzufügen
+            \item \textbf{Gewicht hinzufügen}
             \item Immer umfahren
             \item Keine spezielle Behandlung
         \end{itemize}
@@ -62,10 +74,28 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
 
 Obwohl wir ebenfalls eine Unreal Engine mit dem Pfadfinder-Model erstellen, wäre der Aufwand zu gross, diesen an den Simulator anzubinden. Die Ausgabe in einem Terminal hingegen wäre zu minimal. Deshalb wird das User Interface mit einem einfachen GUI umgesetzt. 
 
+\subsubsection{Wegfindungs-Algorithmus}
+
+Der Wegfindungs-Algorithmus kann entweder selber oder mit Hilfe einer externen Bibliothek 
+implementiert werden. Da für die Graphentheorie bereits viele beliebte Bibliotheken existieren, macht es für uns keinen Sinn, dies selbst zu implementieren. Zwar sind wir dadurch weniger flexibel, jedoch ist die Fehleranfälligkeit viel geringer.  
+
 \subsubsection{Programmiersprache}
 
 Bei der Programmiersprache kamen Python, JavaScript und Java in Frage.
-Java wird für die meisten Projekte im Informatik-Studium verwendet, wodurch viel wissen vorhanden ist. JavaScript erlaubt es, einfach graphische Darstellungen mittels Webseite zu implementieren. Python ist sehr simpel und wird oft  
+Java wird für die meisten Projekte im Informatik-Studium verwendet. JavaScript erlaubt es, einfach graphische Darstellungen mittels Webseite zu implementieren. Python ist simpel und wird oft für Künstliche Intelligenz verwendet, was wir für die Implemetation der Software des autonomen Fahrzeugs benötigen. 
+
+Wir entscheiden uns für Python, da viel know-how vorhanden ist. Ebenfalls bietet es mit NetworkX\footnote{https://networkx.org} eine mächtige Bibliothek für Graphen an.
+
+\subsubsection{Informationen einlesen}
+
+Damit die Software weiss, welche Hindernisse sich auf dem Graphen befindet, müssen Informationen eingelesen werden können. Idealerweise würde dies auf gleiche Art geschehen, wie in der Realität: anhand von Bildern und Objekterkennung. Der Simulator soll jedoch so schnell wie möglich lauffähig sein, weshalb einfachkeitshalber eine Konfigurationsdatei mit den Informationen verwendet wird.
+
+Dies könnte im späteren Verlauf von dem Projekt noch angepasst werden.
+
+\subsubsection{Hindernis Bewältigung}
+
+Der Simulator soll aufzeigen, wie mit Hindernissen umgegangen wird.
+Hindernisse können eventuell nicht immer Umfahren werden, beispielsweise wenn alle anderen Pfade blockiert sind. Somit ist `Immer umfahren` keine gute Option. Hindernisse nicht speziell behandeln ist ebenfalls nicht optimal, da gleichlange Pfade ohne Hindernisse schneller durchfahren werden können. Deshalb verwenden wir die Option `Gewicht hinzufügen`. Dies erlaubt es uns, variabel zu entscheiden, wie viel Beachtung einem Hindernis geschenkt werden soll.
 
 \subsection{Konzept}
 

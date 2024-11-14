@@ -27,18 +27,64 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll.
 
 \subsection{Morphologischer Kasten}
 
-\begin{table}
-    \begin{tabularx}{l | a | b | a | b}
-    \hline
-    \rowcolor{LightCyan}
-    \mc{1}{}  & \mc{1}{x} & \mc{1}{y} & \mc{1}{w} & \mc{1}{z} \\
-    \hline
-    variable 1 & a & b & c & d \\
-    variable 2 & a & b & c & d \\ \hline
+% \begin{table}
+%     \begin{tabularx}{l | a | b | a | b}
+%     \hline
+%     \rowcolor{LightCyan}
+%     \mc{1}{}  & \mc{1}{x} & \mc{1}{y} & \mc{1}{w} & \mc{1}{z} \\
+%     \hline
+%     variable 1 & a & b & c & d \\
+%     variable 2 & a & b & c & d \\ \hline
+%     \end{tabular}
+% \end{table}
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\begin{table}[htbp]
+    \centering
+    \begin{tabularx}{\textwidth}{| X | Y | Y | Y |}
+        \hline
+
+        \rowcolor{LightGray}
+        \textbf{Funktion} & \textbf{Option 1} & \textbf{Option 2} & \textbf{Option 3} \\ \hline
+        
+        \textbf{User Interface} &     
+        Terminal &
+        \cellcolor{LightGreen} Einfaches GUI \newline
+        \includegraphics[width=3cm]{img/simulation/morphologischer-kasten/simple-gui.png}
+        &
+        Unreal Engine \newline
+        \includegraphics[width=3cm]{simulation/morphologischer-kasten/unreal-engine-logo.png}
+        \\ \hline
+        
+        \textbf{Wegfindungs-Algorithmus}  &
+        \cellcolor{LightGreen}
+        Externe Bibliothek &
+        Eigene Implementation &
+        \\ \hline
+        
+        \textbf{Programmiersprache}      &
+        \cellcolor{LightGreen}
+        Python &
+        JavaScript &
+        Java
+        \\ \hline
+        
+        \textbf{Informationen einlesen}  &     
+        Bilder mit Objekterkennung &
+        \cellcolor{LightGreen}
+        Konfigurationsdatei &
+        \\ \hline
+        
+        \textbf{Hindernis Bewältigung}   &     
+        Immer umfahren &
+        Keine spezielle Behandlung &
+        \cellcolor{LightGreen}
+        Gewicht hinzufügen
+        \\ \hline
     \end{tabularx}
 \end{table}
-
-
+\cellcolor{LightGreen}
 \begin{itemize}
     \item User Interface
         \begin{itemize}
@@ -88,7 +134,7 @@ Wir entscheiden uns für Python, da viel know-how vorhanden ist. Ebenfalls biete
 
 \subsubsection{Informationen einlesen}
 
-Damit die Software weiss, welche Hindernisse sich auf dem Graphen befindet, müssen Informationen eingelesen werden können. Idealerweise würde dies auf gleiche Art geschehen, wie in der Realität: anhand von Bildern und Objekterkennung. Der Simulator soll jedoch so schnell wie möglich lauffähig sein, weshalb einfachkeitshalber eine Konfigurationsdatei mit den Informationen verwendet wird.
+Damit die Software weiss, welche Hindernisse sich auf dem Graphen befindet, müssen Informationen eingelesen werden können. Idealerweise würde dies auf gleiche Art geschehen, wie in der Realität: anhand von Bildern mit Objekterkennung. Der Simulator soll jedoch so schnell wie möglich lauffähig sein, weshalb einfachkeitshalber eine Konfigurationsdatei mit den Informationen verwendet wird.
 
 Dies könnte im späteren Verlauf von dem Projekt noch angepasst werden.
 

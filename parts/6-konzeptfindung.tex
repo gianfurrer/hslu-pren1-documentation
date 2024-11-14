@@ -118,7 +118,9 @@ Für die Hindernisbewältigung wird ebenfalls ein Antrieb benötigt. Dafür wird
   
 
 \subsubsection{Sensorik Positionsabfrage}
-Zur Auswahl stehen ein Encoder und ein Hallsensor. Der Encoder liefert genauere Daten und der Aufbau ist einfacher. Daher wird ein Encoder verwendet. Der Encoder kann wichtig sein, um die Fahrtrichtung zu kontrollieren. Sind die verwendeten DC-Motoren nicht identisch, so kann ein anderes Fahrverhalten pro Motor entstehen. Durch einen Encoder kann das Fehlverhalten abgefangen und korrigiert werden. 
+Zur Auswahl stehen ein Encoder und ein Hallsensor. Der Encoder liefert genauere Daten und der Aufbau ist einfacher. Daher wird ein Encoder verwendet. Der Encoder kann wichtig sein, um die Fahrtrichtung zu kontrollieren. Sind die verwendeten DC-Motoren nicht identisch, so kann ein anderes Fahrverhalten pro Motor entstehen. Durch einen Encoder kann das Fehlverhalten abgefangen und korrigiert werden.
+
+ Für die korrekte Positionierung der Klemmbacken nach einer Hindernisbewältigung werden Endschalter verwendet. Dadurch wird sichergestellt, dass die Greifarme nach der Hindernisbewältigung wieder in der korrekten Ausgangslage sind.
 
 \subsubsection{Software Steuerung}
 
@@ -173,7 +175,7 @@ Für die Streckenerkennung soll eine Kamera verwendet werden. Ein zweiter Lösun
 
 
 \subsubsection{Punktverifizierung}
-Um zu erkennen, ob das Fahrzeug sich auf ein Punkt befindet, wird ein Farbsensor genutzt. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Ausserdem wird die Farbtemperatur in Kelvin zurückgegeben. Mit diesen Werten kann man das leicht gelbe Klebeband von dem weissen Punkt unterscheiden. Dies ermöglicht es am einfachsten den weissen Punkt zuerkennen. Eine weitere Option wäre die Erkennung mittels eines kreisförmigen Liniensensors. Mit diesem kann man die Form der Linie erkennen. Wenn das Fahrzeug auf dem Punkt steht, haben alle Phototransistoren den gleichen Wert. Diese Variante ist ein wenig empfindlicher und bedarf es, dass das Fahrzeug zentriert auf der Linie fährt. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Da die eine Kamera für die Strecken und Objekterkennung sich auf einer gewissen Höhe befinden muss. Ausserdem wäre es für den Raspberry zu viel Rechenaufwand, zwei Bilderkennungen laufen zu lassen.
+Um zu erkennen, ob das Fahrzeug sich auf ein Punkt befindet, wird ein Farbsensor genutzt. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Ausserdem wird die Farbtemperatur in Kelvin zurückgegeben. Mit diesen Werten kann man das leicht gelbe Klebeband von dem weissen Punkt unterscheiden. Dies ermöglicht es am einfachsten den weissen Punkt zuerkennen. Eine weitere Option wäre die Erkennung mittels eines kreisförmigen Liniensensors. Mit diesem kann man die Form der Linie erkennen. Wenn das Fahrzeug auf dem Punkt steht, haben alle Phototransistoren den gleichen Wert. Diese Variante ist ein empfindlicher und es setzt voraus, dass das Fahrzeug zentriert auf der Linie fährt. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Weil damit je nach Kamera 1/5 des Budgets aufgebraucht wäre. Es würden zwei benötigt, da die eine Kamera, die für die Strecken und Objekterkennung ist, sich auf einer gewissen Höhe befinden muss. Dagegen muss die Linienkamera möglichst nah an der Linie sein.
 
 
 \subsubsection{Objekterkennung Software}
@@ -322,7 +324,7 @@ Die Nutzwertanalyse zeigt Dijkstra als deutlichen Gewinner. Dies liegt vor allem
 
 \subsubsection{Energiequelle}
 Zur Auswahl steht ein Li-Po, Li-Ion oder NiMh Akku. Der Li-Po und Li-Ion Akku haben die höhere Energiedichte als der NiMh Akku. Jedoch benötigt der Li-Po einen Laderegler für die Aufladung und der Li-Ionen benötigt eine elektrische Schutzschaltung. Zwischen dem Li-Ion und dem Li-Po Akku gibt es keine weiteren nennenswerten Unterschiede. 
-Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Ebenso haben sie keinen Memoryeffekt und eine geringere Selbstentladung als der NiMh Akku. Die Lebensdauer ist ca. 1.25 so lang wie die eines NiMh Akku.
+Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Ebenso haben sie keinen Memoryeffekt und eine geringere Selbstentladung als der NiMh Akku. Die Lebensdauer eines NiMh Akkus ist dagegen fast fünf mal solange wie die eines Lipo-Akkus\footnote{https://www.rcteam.com/de/blogs/der-blog-des-rc-modellbaus/nimh-vs-lipo-batterien}.
 
 Es wird der Li-Po Akku verwendet. Diese Akkus werden hauptsächlich für den Modellbau verwendet. Wie gemacht für einen Prototyp. Der NiMh Akku wird nicht verwendet, da dieser eine geringe Leistungsabgabe hat. Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entscheid ist aufgrund des vorgesehenen Anwendungsbereiches gegen den Li-Ion Akku gefallen. Durch den Modellbauanwendungsbereich des Li-Po Akkus ist es einfacher ähnliche Anwendungen zu finden.
 
@@ -379,7 +381,7 @@ Es wird der Li-Po Akku verwendet. Diese Akkus werden hauptsächlich für den Mod
         \begin{figure}[h!]
             \centering
             \includegraphics[width=0.48\textwidth]{img/konzeptfindung/Klemme_Langsweg_off_center.png}
-            \caption{Darstellung 'Offset' bei Klemme Längsweg}
+            \caption{Darstellung 'Offset' bei Klemme se}
         \label{img:konzept_zentrierung_3}
         \end{figure}  
 

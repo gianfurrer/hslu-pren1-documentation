@@ -175,13 +175,13 @@ Für die Streckenerkennung soll eine Kamera verwendet werden. Ein zweiter Lösun
 
 
 \subsubsection{Punktverifizierung}
-Um zu erkennen, ob das Fahrzeug sich auf ein Punkt befindet, wird ein Farbsensor genutzt. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Ausserdem wird die Farbtemperatur in Kelvin zurückgegeben. Mit diesen Werten kann man das leicht gelbe Klebeband von dem weissen Punkt unterscheiden. Dies ermöglicht es am einfachsten den weissen Punkt zuerkennen. Eine weitere Option wäre die Erkennung mittels eines kreisförmigen Liniensensors. Mit diesem kann man die Form der Linie erkennen. Wenn das Fahrzeug auf dem Punkt steht, haben alle Phototransistoren den gleichen Wert. Diese Variante ist ein empfindlicher und es setzt voraus, dass das Fahrzeug zentriert auf der Linie fährt. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Weil damit je nach Kamera 1/5 des Budgets aufgebraucht wäre. Es würden zwei benötigt, da die eine Kamera, die für die Strecken und Objekterkennung ist, sich auf einer gewissen Höhe befinden muss. Dagegen muss die Linienkamera möglichst nah an der Linie sein.
+Um zu erkennen, ob das Fahrzeug sich auf einem Punkt befindet, wird ein Farbsensor genutzt. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Ausserdem wird die Farbtemperatur in Kelvin zurückgegeben. Mit diesen Werten kann man das leicht gelbe Klebeband von dem weissen Punkt unterscheiden. Dies ermöglicht es am einfachsten den weissen Punkt zu erkennen. Eine weitere Option wäre die Erkennung mittels eines kreisförmigen Liniensensors. Mit diesem kann man die Form der Linie erkennen. Wenn das Fahrzeug auf dem Punkt steht, haben alle Phototransistoren den gleichen Wert. Diese Variante ist empfindlicher und setzt voraus, dass das Fahrzeug zentriert auf der Linie fährt. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Weil damit je nach Kamera 1/5 des Budgets aufgebraucht wäre. Es würden zwei benötigt, da die eine Kamera, die für die Strecken und Objekterkennung ist, sich auf einer gewissen Höhe befinden muss. Dagegen muss die Linienkamera möglichst nah an der Linie sein.
 
 
 \subsubsection{Objekterkennung Software}
 
 
-Bei der Technologierecherche wurden vier verschiedene Objekterkennungsmethoden recherchiert, wobei eine davon bei der Vorauswahl ausschied. 
+Bei der Technologierecherche wurden vier verschiedene Objekterkennungsmethoden recherchiert, wobei R-CNN bereits in der Vorauswahl ausschied, weil sie langsam und ressourcenintensiv ist.
 Dieser Abschnitt fokussiert sich darauf, anhand von einer Nutzwertanalyse von den restlichen drei Auswahlen die Beste zu treffen.
 
 Für die Nutzwertanalyse werden die folgenden Kriterien verwendet.

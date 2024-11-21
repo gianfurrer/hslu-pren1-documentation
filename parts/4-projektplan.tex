@@ -38,8 +38,7 @@ Aus Darstellungsgründen wurden die Attribute der Risikos in zwei Reihen aufgete
 \hspace{1cm}
 \textbf{BW:} Bewertung (EW * AW)
 \\
-\vspace{5mm}
-\hspace{3cm}
+\vspace{1mm} \hspace{21.5mm}
 \textbf{EWM:} EW mit Massnahmen (1-5)
 \hspace{1cm}
 \textbf{AWM:} AW mit Massnahmen  (1-5)
@@ -48,64 +47,65 @@ Aus Darstellungsgründen wurden die Attribute der Risikos in zwei Reihen aufgete
 
 
 \renewcommand{\arraystretch}{1.5} % Adjust row height for readability
-\begin{longtable}{|c|p{4cm}|p{5cm}|c|c|p{4cm}|c|c|c|}
+\begin{longtable}{|c|p{4.5cm}|p{5cm}|c|c|p{4.5cm}|c|c|c|}
 \hline
 \rowcolor{white}
 & \textbf{Titel} & \textbf{Beschreibung} & & & \textbf{Ursachen} & \textbf{EW} & \textbf{AW} & \textbf{BW} \\ 
-\nbcline{2-3} \nbcline{6-9}
+\cline{2-3} \cline{6-9}
 \rowcolor{white}
 \multirow{-2}{*}{\textbf{ID}}
 & \textbf{Massnahmen Risikominderung} & \textbf{Korrekturmassnahmen} & \multirow{-2}{*}{\textbf{VW}} & \multirow{-2}{*}{\textbf{Kategorie}} & \textbf{Erfolgsfaktoren} & \textbf{EWM} & \textbf{AWM} & \textbf{BWM} \\ \hline
 \endhead
 
 \rowcolor[HTML]{F5F5F5} & Grip-Verlust normale Räder & Das Fahrzeug schleift über den Boden & MT & Mechanisch & Fahrzeug verliert Grip & 3 & 3 & 9
-\\ \nbcline{2-3} \nbcline{6-9}
+\\* \cline{2-3} \cline{6-9}
 \rowcolor[HTML]{F5F5F5} \multirow{-2}{*}{R1} & Auf Mensaboden testen & Andere Räder/Geschwindigkeit anpassen & & & Fahrzeug hat Grip & 2 & 2 & 4 \\ \hline
 
 \rowcolor{white} & Liniensensor falsche Daten & Der Liniensensor erkennt die Fugen als Führungslinie & ET+INF & Elektrisch & Fahrzeug folgt der Fuge & 4 & 4 & 16
-\\ \nbcline{2-3} \nbcline{6-9}
+\\* \cline{2-3} \cline{6-9}
 \rowcolor{white} \multirow{-2}{*}{R2} & Kalibrierung des Sensors, Abgleich mit Kamera & Not-Aus verwenden & & & Fahrzeug folgt Führungslinie & 2 & 5 & 10 \\ \hline
 
-\rowcolor[HTML]{F5F5F5} & Motorenposition ungenau & Für Rückstellen des Hindernis ungenau Positionswerte & ET & Elektrisch & Hindernis nicht innerhalb 2 cm & 3 & 3 & 9 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor[HTML]{F5F5F5} & Motorenposition ungenau & Für Rückstellen des Hindernis ungenau Positionswerte & ET & Elektrisch & Hindernis nicht innerhalb 2 cm & 3 & 3 & 9 \\* \cline{2-3} \cline{6-9}
 \rowcolor[HTML]{F5F5F5} \multirow{-2}{*}{R3} & Langsame Fahrt bei Positionierung & Hallsensor, Drehgeber, Schrittmotor & & & Hindernis innerhalb der 2 cm Toleranz & 2 & 2 & 4 \\ \hline
 
-\rowcolor{white} & Distanzmessung fehlerhafte Daten & Für die Erkennung der Distanz, des Hindernis, könnten falsche Messwerte eine ungewollte Aktion ausführen & ET & Elektrisch & Fahrzeug führt Hindernisbewältigung aus ohne ein Hindernis & 2 & 2 & 4 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor{white} & Distanzmessung fehlerhafte Daten & Für die Erkennung der Distanz, des Hindernis, könnten falsche Messwerte eine ungewollte Aktion ausführen & ET & Elektrisch & Fahrzeug führt Hindernisbewältigung aus ohne ein Hindernis & 2 & 2 & 4 \\* \cline{2-3} \cline{6-9}
 \rowcolor{white} \multirow{-2}{*}{R4} & Distanzwert muss längere Zeit konstant bleiben & Zweiter Sensor zum Vergleich verbauen & & & Fahrzeug führt Hindernisbewältigung nur bei einem Hindernis aus & 1 & 2 & 2 \\ \hline
 
-\rowcolor[HTML]{F5F5F5} & Datenverlust & Verlust von Projektdaten/Forschungsergebnissen & INF & Projekt & Server offline & 2 & 5 & 10 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor[HTML]{F5F5F5} & Datenverlust & Verlust von Projektdaten/Forschungsergebnissen & INF & Projekt & Server offline & 2 & 5 & 10 \\* \cline{2-3} \cline{6-9}
 \rowcolor[HTML]{F5F5F5} \multirow{-2}{*}{R5} & Regelmässige Backups erstellen & Daten aus Backups wiederherstellen & & & Daten sind zugänglich und schnell wiederherstellbar & 2 & 2 & 4 \\ \hline
 
-\rowcolor{white} & Lieferschwierigkeiten & Teile, die bestellt werden haben Lieferverzögerung & ET+MT &  Market & Längere Lieferzeiten/Keine Lieferzeiten angegeben & 3 & 4 & 12 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor{white} & Lieferschwierigkeiten & Teile, die bestellt werden haben Lieferverzögerung & ET+MT &  Market & Längere Lieferzeiten/Keine Lieferzeiten angegeben & 3 & 4 & 12 \\* \cline{2-3} \cline{6-9}
 \rowcolor{white} \multirow{-2}{*}{R6} & Frühzeitig Bestellen, alternative Teile/Quellen suchen & bei alternativen Quellen bestellen & & & Teile können zeitnah verwendet verbaut werden & 3 & 3 & 9 \\ \hline
 
-\rowcolor[HTML]{F5F5F5} & Software-Absturz & Software crasht während Einsatz & INF & Software & Prozess wird unerwartet beendet & 2 & 5 & 10 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor[HTML]{F5F5F5} & Software-Absturz & Software crasht während Einsatz & INF & Software & Prozess wird unerwartet beendet & 2 & 5 & 10 \\* \cline{2-3} \cline{6-9}
 \rowcolor[HTML]{F5F5F5} \multirow{-2}{*}{R7} & Gutes Testen des Codes und Failsafe einbauen & Not-Aus verwenden & & & Fahrzeug kann nach Absturz von alleine wieder starten & 1 & 5 & 5 \\
 \hline
-\rowcolor{white} & Verlust Sensorkommunikation & Die Kommunikation zwischen Sensorik und Software ist gestört & ET+INF & Software & Fehlerhafte Daten oder fehlende Daten & 2 & 5 & 10 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor{white} & Verlust Sensorkommunikation & Die Kommunikation zwischen Sensorik und Software ist gestört & ET+INF & Software & Fehlerhafte Daten oder fehlende Daten & 2 & 5 & 10 \\* \cline{2-3} \cline{6-9}
 \rowcolor{white} \multirow{-2}{*}{R8} & Sicheres verbauen und Testen der Sensoren & Neueinstellung/Kalibrierung durchführen & & & Fahrzeug kann trotz fehlerhafter Sensordaten Aufgabe erfüllen & 2 & 3 & 6 \\ \hline
 
-\rowcolor[HTML]{F5F5F5} & Software zu anspruchsvoll für Computer & Die Leistung des Computers reicht nicht aus & INF & Software & Software-Lags, langsame Reaktionszeit & 3 & 4 & 12 \\ \nbcline{2-3} \nbcline{6-9}
-\rowcolor[HTML]{F5F5F5} \multirow{-2}{*}{R9} & Software optimiert bauen & Langsamer fortsetzen & & & Fahrzeug kann trotz langsamer Laufzeit Aufgabe lösen & 3 & 3 & 9 \\
-\hline
-\rowcolor{white} & Pylone wird überfahren & Eine Pylone wird nicht erkannt & ET+INF & Elektrisch & Pylone wird nicht erkannt & 3 & 5 & 15 \\ \nbcline{2-3} \nbcline{6-9}
+\pagebreak
+
+\rowcolor[HTML]{F5F5F5} & Software zu anspruchsvoll für Computer & Die Leistung des Computers reicht nicht aus & INF & Software & Software-Lags, langsame Reaktionszeit & 3 & 4 & 12 \\* \cline{2-3} \cline{6-9}
+\rowcolor[HTML]{F5F5F5} \multirow{-2}{*}{R9} & Software optimiert bauen & Langsamer fortsetzen & & & Fahrzeug kann trotz langsamer Laufzeit Aufgabe lösen & 3 & 3 & 9 \\ \hline
+\rowcolor{white} & Pylone wird überfahren & Eine Pylone wird nicht erkannt & ET+INF & Elektrisch & Pylone wird nicht erkannt & 3 & 5 & 15 \\* \cline{2-3} \cline{6-9}
 \rowcolor{white} \multirow{-2}{*}{R10} & Frühes Training und Testing & Not-Aus verwenden & & & Das Fahrzeug erkennt Pylonen & 1 & 5 & 5 \\ \hline
 
-\rowcolor[HTML]{F5F5F5} & Unscharfe Bilder während Fahrt & Kamera liefert unscharfe Bilder & MT+INF & Software & Objekterkennung fehlerhaft & 4 & 4 & 16 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor[HTML]{F5F5F5} & Unscharfe Bilder während Fahrt & Kamera liefert unscharfe Bilder & MT+INF & Software & Objekterkennung fehlerhaft & 4 & 4 & 16 \\* \cline{2-3} \cline{6-9}
 \rowcolor[HTML]{F5F5F5} \multirow{-2}{*}{R11} & Bildaufnahme nur bei stehendem Fahrzeug & Fahrzeug stehen lassen & & & Das Fahrzeug erkennt Objekte korrekt & 2 & 4 & 8 \\ \hline
 
-\rowcolor{white} & Fokus der Kamera & Fokus umfasst nicht benötigten Bereich & ET+INF & Elektrisch & Objekte werden nicht korrekt erkannt & 3 & 3 & 9 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor{white} & Fokus der Kamera & Fokus umfasst nicht benötigten Bereich & ET+INF & Elektrisch & Objekte werden nicht korrekt erkannt & 3 & 3 & 9 \\* \cline{2-3} \cline{6-9}
 \rowcolor{white} \multirow{-2}{*}{R12} & Fokus-Range prüfen & Software anpassen & & & Fahrzeug erkennt Objekte & 2 & 2 & 4 \\ \hline
 
-\rowcolor[HTML]{F5F5F5} & Grip-Verlust Omni/Mecanum & Fahrzeug verliert Grip bei Fugen & MT & Mechanisch & Fahrzeug verliert Grip & 4 & 4 & 16 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor[HTML]{F5F5F5} & Grip-Verlust Omni/Mecanum & Fahrzeug verliert Grip bei Fugen & MT & Mechanisch & Fahrzeug verliert Grip & 4 & 4 & 16 \\* \cline{2-3} \cline{6-9}
 \rowcolor[HTML]{F5F5F5} \multirow{-2}{*}{R13} & Testen der Räder & Mit Sensoren Position ausgleichen & & & Fahrzeug ist an gewünschter Position & 3 & 3 & 9 \\ \hline
 
-\rowcolor{white} & Anzahl GPIO & Steuerung hat begrenzte Pins & ET & Elektrisch & Sensorinformationen nicht lesbar & 3 & 5 & 15 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor{white} & Anzahl GPIO & Steuerung hat begrenzte Pins & ET & Elektrisch & Sensorinformationen nicht lesbar & 3 & 5 & 15 \\* \cline{2-3} \cline{6-9}
 \rowcolor{white} \multirow{-2}{*}{R14} & Erweiterung mit Multiplexern & Alternative Schaltungen & & & Sensorinformationen verfügbar & 3 & 4 & 12 \\ \hline
 
-\rowcolor[HTML]{F5F5F5} & Verschiebung bei Drehung & Keine genaue Drehung möglich & MT & Mechanisch & Fahrzeug schiebt seitlich & 3 & 5 & 15 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor[HTML]{F5F5F5} & Verschiebung bei Drehung & Keine genaue Drehung möglich & MT & Mechanisch & Fahrzeug schiebt seitlich & 3 & 5 & 15 \\* \cline{2-3} \cline{6-9}
 \rowcolor[HTML]{F5F5F5} \multirow{-2}{*}{R15} & Testen & Zusatzfunktion abdocken & & & Fahrzeug dreht fix & 2 & 3 & 6 \\ \hline
 
-\rowcolor{white} & Blendende Beleuchtung & Licht stört Kamera & ET & Elektrisch & Kamera sieht Blendung statt Objekt & 4 & 4 & 16 \\ \nbcline{2-3} \nbcline{6-9}
+\rowcolor{white} & Blendende Beleuchtung & Licht stört Kamera & ET & Elektrisch & Kamera sieht Blendung statt Objekt & 4 & 4 & 16 \\* \cline{2-3} \cline{6-9}
 \rowcolor{white} \multirow{-2}{*}{R17} & LEDs vermeiden & Kameraeinstellung bei wenig Licht & & & Kamera erkennt Objekt trotz Blendung & 2 & 2 & 4 \\ \hline
 
 \end{longtable}

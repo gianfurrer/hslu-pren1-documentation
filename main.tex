@@ -46,12 +46,11 @@
 
 \makeatletter
 \def\nbcline#1{% no break cline
-\noalign{\penalty10000}% Prevent break before
-  \noalign{\vskip-\arrayrulewidth}% Avoid introducing vertical space
-  \noalign{\penalty10000}% Reinforce no-break rule
-  \cline{#1}% Actual cline
-  \noalign{\penalty10000}% Prevent break after
-  \noalign{\vskip-\arrayrulewidth}% Avoid vertical space after cline
+  \noalign{%
+    \global\let\tmp\@highpenalty
+    \gdef\@highpenalty{10000}}%
+  \cline{#1}
+  \noalign{\global\let\@highpenalty\tmp}
 }
 \makeatother
 \begin{document}

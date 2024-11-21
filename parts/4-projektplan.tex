@@ -1,5 +1,16 @@
 \documentclass[../main.tex]{subfiles}
 \graphicspath{{\subfix{../img/}}}
+
+\makeatletter
+\def\nbhline{%no break hline
+\noalign{%
+  \global\let\tmp\@lowpenalty
+  \gdef\@lowpenalty{-10000 }}%
+\hline
+\noalign{\global\let\@lowpenalty\tmp}}
+
+\makeatother
+
 \begin{document}
 
 \newpage

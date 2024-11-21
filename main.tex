@@ -23,7 +23,9 @@
 \newcommand{\sectionnumbering}[1]{%
   \setcounter{section}{0}%
    \renewcommand{\thesection}{\csname #1\endcsname{section}}
-   \renewcommand{\thesubsection}{\thesection.\csname #1\endcsname{subsection}}}
+   \renewcommand{\thesubsection}{\thesection.\csname #1\endcsname{subsection}}
+   \renewcommand{\thesubsubsection}{\thesubsection.\csname #1\endcsname{subsubsection}}
+   \renewcommand{\theparagraph}{\thesubsubsection.\csname #1\endcsname{paragraph}}}
 
 \usepackage{etoc}
 \etocsettocstyle
@@ -40,8 +42,18 @@
 \usepackage{graphicx}    % Für das Einfügen von Grafiken
 \usepackage{subcaption}   % Für Unterabbildungen in einer Matrix
 \usepackage{caption}      % Für Bildunterschriften
+\usepackage{multirow}      % Für Multirows in Tabellen
 
-
+\makeatletter
+\def\nbcline#1{% no break cline
+\noalign{\penalty10000}% Prevent break before
+  \noalign{\vskip-\arrayrulewidth}% Avoid introducing vertical space
+  \noalign{\penalty10000}% Reinforce no-break rule
+  \cline{#1}% Actual cline
+  \noalign{\penalty10000}% Prevent break after
+  \noalign{\vskip-\arrayrulewidth}% Avoid vertical space after cline
+}
+\makeatother
 \begin{document}
 
    % magic * chapter starts at 1 :) 
@@ -86,8 +98,6 @@
   \subfile{parts/2-aufgabenstellung}
   \subfile{parts/3-anforderungsliste}
   \subfile{parts/4-projektplan}
-  \subfile{parts/5-technologierecherche}
-  \subfile{parts/6-konzeptfindung}
   \subfile{parts/7-prototyping}
   \subfile{parts/sensortest.tex}
   \subfile{parts/unrealengine}

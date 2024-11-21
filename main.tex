@@ -22,7 +22,8 @@
 
 \newcommand{\sectionnumbering}[1]{%
   \setcounter{section}{0}%
-   \renewcommand{\thesection}{\csname #1\endcsname{section}}}
+   \renewcommand{\thesection}{\csname #1\endcsname{section}}
+   \renewcommand{\thesubsection}{\thesection.\csname #1\endcsname{subsection}}}
 
 \usepackage{etoc}
 \etocsettocstyle
@@ -91,7 +92,6 @@
   \subfile{parts/sensortest.tex}
   \subfile{parts/unrealengine}
   \subfile{parts/graphmorph}
-  \subfile{parts/99-anhang}
 
   \newpage
   \listoffigures
@@ -117,6 +117,6 @@
     {section}
     {Anhang}
     
-  %\subfile{parts/anhang}
+  \subfile{parts/anhang}
 
 \end{document}

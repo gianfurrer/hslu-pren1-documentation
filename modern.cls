@@ -51,7 +51,7 @@
   {babel}
 \RequirePackage{csquotes}
 
-\RequirePackage{minted2}   % Syntax highlighting
+%\RequirePackage{minted2}   % Syntax highlighting
   % \usemintedstyle{pastie} % Set the minted style
 
 

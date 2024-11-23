@@ -11,9 +11,7 @@ In diesem Kapitel wird das gewählte Lösungskonzept "Simpel" (siehe \ref{loesun
 
 
 
-
 \subsection{Ersatz Rotation}    % Gibt es ein besseren Teilfunktion beschrieb für das???
-
 
 
 
@@ -25,18 +23,29 @@ Als Fahrantriebe wurden zwei DC-Getriebemotoren mit Encodern gewählt. DC-Motore
 
 
 
-
 \subsection{Sensorik Positionsabfrage}
-Für die Bestimmung der Position des Fahrzeuges wird ein Encoder gewählt. Diesen kann man dierekt verbaut mit dem DC-MOtor bestellen. Für jede Umderehung des Motores gibt dieser eine bestimmte Anzahl an Impulsen raus. Dies ist ein sehr einfache Technologie und benötigt nur einen Eingang. Es wird kein I2C Schnittstelle oder sonstiges benötigt. Bei einem Beschleunigungssensor wird ein K
+Für die Bestimmung der Position des Fahrzeugs wird ein Encoder gewählt, der direkt zusammen mit dem DC-Motor bezogen werden kann. Bei jeder Umdrehung des Motors gibt der Encoder eine bestimmte Anzahl von Impulsen aus. Diese Technologie ist sehr einfach und benötigt lediglich einen Eingang, ohne dass eine I2C-Schnittstelle oder ein weiterer Kommunikationskanal erforderlich ist. Im Gegensatz dazu erfordert ein Beschleunigungssensor einen zusätzlichen Kommunikationskanal. Zudem kumuliert der Fehler eines Beschleunigungssensors mit der Betriebszeit, was zu unzuverlässigen Messwerten führen kann. Aufgrund dieser Nachteile wird der Beschleunigungssensor von vornherein ausgeschlossen. Daher fällt die Wahl auf den Encoder, der aufgrund seiner Einfachheit und Zuverlässigkeit die bevorzugte Lösung darstellt.
 
 
 \subsection{Bilderkennungssteuerung}
 
 
-\subsection{Hardware Steuerung}
 
+\subsection{Hardware Steuerung}
+Zur Auswahl stehen verschiedene Mikrocontroller, darunter der Arduino, der TinyK22 und der ESP32. Im Rahmen dieses Konzepts, das auf Einfachheit setzt, stellt der ESP32 jedoch eine überdimensionierte Lösung dar, da weder WiFi noch Bluetooth in unserem Anwendungsfall benötigt werden. Zudem hat der ESP32 einen höheren Stromverbrauch, der in diesem Kontext nicht gerechtfertigt ist. Aus diesen Gründen scheidet der ESP32 aus.
+
+Der Vorteil des Arduinos liegt in seiner grossen Community und der umfangreichen Online-Hilfe, die zur Verfügung steht. Da jedoch die Elektrotechniker keine Programmiererfahrung in C++ haben und nicht jeder Arduino eine Debugging-Funktion bietet, ist der Arduino nicht die einfachste Lösung.
+
+Der TinyK22 hingegen wurde im Modul Mc Fun ausführlich behandelt. Er bietet eine benutzerfreundliche Programmierumgebung mit integriertem Debugger und wird in C programmiert. Zudem können bei Fragen die Dozenten konsultiert werden, die bereits über umfangreiche Erfahrung mit dem TinyK22 verfügen. In unserem Anwendungsfall stellt der TinyK22 daher die einfachste und effektivste Lösung für die Programmierung dar.
 
 \subsection{Objekterkennung Hindernis}
+Das Hindernis wird bereits zu Beginn von der Kamera erkannt. Zur Distanzmessung des Hindernisses wird dann auf einen Ultraschallsensor gewechselt, da dieser ab 3 cm präzise Werte liefert. Zudem ist die Ansteuerung des Ultraschallsensors sehr einfach, da er nur über die Trigger- und Echo-Pins gesteuert wird. Der Time of Flight (TOF) Sensor hingegen wird über eine I2C-Schnittstelle ausgelesen. Im Kapitel \ref{sec:Hardware_Test} Hardware-Test zeigt sich, dass die Messwerte beider Sensoren grundsätzlich ähnlich sind. Der TOF-Sensor hat jedoch den Nachteil von Messfehlern bei direkter Sonneneinstrahlung. Aus diesen Gründen fiel die Wahl auf den Ultraschallsensor.
+
+
+
+
+
+
 
 
 \subsection{Objekterkennung Pylone}

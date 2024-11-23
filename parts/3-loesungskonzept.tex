@@ -5,7 +5,7 @@
 \newpage
 \section{Lösungskonzept}
 
-In diesem Kapitel wird das gewählte Lösungskonzept "Simpel" (siehe \ref{loesungsvariante_Simpel}) näher erläutert. Bei diesem Konzept liegt der Schwerpunkt auf der Suche nach einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. Im folgenden Text wird für jede Teilfunktion die einfachste Lösung erarbeitet und beschrieben.
+In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel" (siehe \ref{loesungsvariante_Simpel}) näher erläutert. Bei diesem Konzept liegt der Schwerpunkt auf der Suche nach einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. Im folgenden Text wird für jede Teilfunktion die einfachste Lösung erarbeitet und beschrieben.
 
 \subsection{Fortbewegung}
 
@@ -38,33 +38,34 @@ Der Vorteil des Arduinos liegt in seiner grossen Community und der umfangreichen
 
 Der TinyK22 hingegen wurde im Modul Mc Fun ausführlich behandelt. Er bietet eine benutzerfreundliche Programmierumgebung mit integriertem Debugger und wird in C programmiert. Zudem können bei Fragen die Dozenten konsultiert werden, die bereits über umfangreiche Erfahrung mit dem TinyK22 verfügen. In unserem Anwendungsfall stellt der TinyK22 daher die einfachste und effektivste Lösung für die Programmierung dar.
 
+
 \subsection{Objekterkennung Hindernis}
-Das Hindernis wird bereits zu Beginn von der Kamera erkannt. Zur Distanzmessung des Hindernisses wird dann auf einen Ultraschallsensor gewechselt, da dieser ab 3 cm präzise Werte liefert. Zudem ist die Ansteuerung des Ultraschallsensors sehr einfach, da er nur über die Trigger- und Echo-Pins gesteuert wird. Der Time of Flight (TOF) Sensor hingegen wird über eine I2C-Schnittstelle ausgelesen. Im Kapitel \ref{sec:Hardware_Test} Hardware-Test zeigt sich, dass die Messwerte beider Sensoren grundsätzlich ähnlich sind. Der TOF-Sensor hat jedoch den Nachteil von Messfehlern bei direkter Sonneneinstrahlung. Aus diesen Gründen fiel die Wahl auf den Ultraschallsensor.
-
-
-
-
-
-
+Das Hindernis wird bereits zu Beginn von der Kamera erkannt. Zur Distanzmessung des Hindernisses wird dann auf einen Ultraschallsensor gewechselt, da dieser ab 3 cm präzise Werte liefert. Zudem ist die Ansteuerung des Ultraschallsensors sehr einfach, da er nur über die Trigger- und Echo-Pins gesteuert wird. Der Time of Flight (TOF) Sensor hingegen wird über eine I2C-Schnittstelle ausgelesen. Im Kapitel Hardware-Test zeigt sich, dass die Messwerte beider Sensoren grundsätzlich ähnlich sind. Der TOF-Sensor hat jedoch den Nachteil von Messfehlern bei direkter Sonneneinstrahlung. Aus diesen Gründen fiel die Wahl auf den Ultraschallsensor.
 
 
 \subsection{Objekterkennung Pylone}
-
+Die Pylone wird mithilfe der Kamera erkannt, und zwar durch Bilderkennungssoftware und Algorithmen. Obwohl die Kamera eine komplexere Lösung darstellt, kann der Ultraschallsensor aufgrund der angeschrägten Fläche keinen validen Messwert liefern, ebenso wie der TOF-Sensor. Daher ist die Kamera die zuverlässigste und effektivste Methode, um die Pylone zu erkennen.
 
 
 \subsection{Streckenerkennung}
+Die Streckenerkennung setzt sich aus zwei Hauptteilen zusammen. Zunächst muss an dem Punkt erkannt werden, in welche Richtung das Fahrzeug weiterfahren soll. Dies wird durch eine Kamera in Verbindung mit einem Raspberry Pi realisiert. Der Raspberry Pi analysiert das Bild und berechnet, um wie viel Grad sich das Fahrzeug drehen muss, um der gewünschten Richtung zu folgen.
+
+Der zweite Teil der Streckenerkennung sorgt dafür, dass das Fahrzeug der Linie folgt. Dies wird durch einen Liniensensor aus Fototransistoren erreicht, der den Unterschied zwischen der Linie und dem Boden erkennen kann. Auf dieser Grundlage steuert der Sensor das Fahrzeug so, dass es konstant auf der Linie bleibt.
 
 
 \subsection{Punktverifizierung}
+Der Punkt wird auf die gleiche Weise wie die Linie mit dem Liniensensor erkannt. Der Liniensensor ist so breit wie der Punkt, was bedeutet, dass, wenn der Liniensensor auf dem Punkt platziert ist, alle Fototransistoren gleichzeitig die Linie erkennen. Dieser Zustand signalisiert, dass das Fahrzeug auf einem Punkt steht.
 
 
 \subsection{Objekterkennung Software}
+
+
 
 \subsection{Wegfindungssoftware}
 
 
 \subsection{Energiequelle}
-
+Aus der Technologierecherche hat sich herausgestellt, dass der LiPo-Akku der am besten geeignete Akku im Vergleich zu Li-Ion- und NiMH-Akkus ist. Dies liegt insbesondere an seiner höheren Leistungsdichte, besseren Leistungsabgabe und der Flexibilität in der Formgebung. Weitere Details dazu können im Anhang unter der Sektion Konzeptfindung \ref{subsec:Energiequelle} nachgelesen werden.
 
 \subsection{Aufnahme Hindernis}
 

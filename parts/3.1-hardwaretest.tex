@@ -224,12 +224,58 @@ Die durchgeführten Tests lieferten die folgenden Messdaten:
 
 Aus den Messdaten geht hervor, dass der Lux-Wert den grössten Unterschied zwischen den getesteten Oberflächen aufweist. Auf der Linie beträgt der Lux-Wert 320, während er auf dem weissen Punkt bei 280 liegt, wodurch die Linie vom Punkt unterschieden werden kann. Die rote Platte hat einen Lux-Wert von 28 und die Fuge einen Wert von 14, die deutlich von den 320 der Linie abweichen. Daher ist es mit dem Farbsensor möglich, die Linie zu erkennen.
 
-Ein erheblicher Nachteil ergibt sich jedoch durch die Belichtungszeit. Da alle 101 ms ein neuer Messwert geliefert wird, bedeutet dies, dass bei einer maximalen Geschwindigkeit von 20 cm/s alle 2 cm ein neuer Wert erfasst werden kann. Dies könnte dazu führen, dass der Farbsensor die Linie verliert oder von ihr abweicht, bevor er einen neuen Messwert einlesen kann.
+Ein erheblicher Nachteil ergibt sich jedoch durch die Belichtungszeit. Da alle 101 ms ein neuer Messwert geliefert wird, bedeutet dies, dass bei einer maximalen Geschwindigkeit von 20 cm/s alle 2 cm ein neuer Wert erfasst werden kann. Dies könnte dazu führen, dass der Farbsensor die Linie verliert oder von ihr abweicht, bevor er einen neuen Messwert einlesen kann. Aus diesem Grund scheidet der Farbsensor aus.
 
 
 \subsubsection{Infrarot-Linien-Array}
+Eine alternative Methode zur Linienerkennung besteht in der Verwendung einer Infrarot- (IR) LED und eines IR-Fototransistors. Auf einer hellen Oberfläche werden die IR-Strahlen stärker reflektiert, wodurch der Fototransistor besser leitet. Dies führt zu niedrigeren Spannungen über dem Fototransistor auf reflektierenden Oberflächen. Mithilfe eines AD-Wandlers (Analog-Digital-Wandler) können diese Spannungen von einem Mikrocontroller ausgelesen werden.
+
+Da viele Mikrocontroller nur eine begrenzte Anzahl an AD-Wandlern besitzen, gibt es eine alternative Lösung mithilfe eines Kondensators. Zunächst wird der Kondensator entladen, indem der entsprechende Pin (im Schema als ''Osci" bezeichnet) auf 3,3 V gesetzt wird (siehe Abbildung \ref{fig:IR_Schema}). Anschliessend wird der Pin auf Input-Capture umgestellt. Der Kondensator lädt sich daraufhin mit dem Strom des Fototransistors auf. Der Mikrocontroller misst die Zeit, bis die Spannung am Eingangs-Pin auf GND gefallen ist.
+
+Da der Strom des Fototransistors bei stärker reflektierenden Oberflächen zunimmt, lässt sich auf diese Weise die Linie erkennen. Um die Erkennung noch zuverlässiger zu gestalten, können mehrere Fototransistoren und IR-Leuchtdioden nebeneinander angeordnet werden. Diese parallele Anordnung ermöglicht es, die Position der Linie präzise zu erfassen, selbst wenn sie sich verschiebt.
 
 
+\begin{figure}[H] % 'h' steht für here, was bedeutet, dass das Bild möglichst an dieser Stelle eingefügt wird
+    \centering
+    \includegraphics[width=0.7\textwidth]{img/sensortest/IR_Schema.png} % Bildname und Breite der Grafik angeben
+    \caption{IR Testschema Aufbau}
+    \label{fig:IR_Schema} % Label für die Referenzierung der Abbildung
+\end{figure}
+
+Mit dem Oszilloskop wurden drei Messungen auf verschiedenen Oberflächen durchgeführt. Zunächst wurde das weisse Klebeband gemessen (siehe Abbildung \ref{fig:IR_Klebeband}). Dabei zeigte sich eine steile Spannungsänderung von 3,3 V auf GND. Die Dauer des Spannungswechsels beträgt, wie unten links bei
+ΔX zu sehen ist, 160 µs.
+
+Als Nächstes wurde eine schwarze Oberfläche getestet. Hier ergab sich ein ΔX von nahezu 2 ms (siehe Abbildung \ref{fig:IR_Schwarz}). Die Differenz zwischen diesen beiden Tests beträgt somit 1840 µs, was ausreicht, um die Linie zuverlässig zu erkennen. Diese Differenz könnte weiter erhöht werden, indem ein Kondensator mit grösserer Kapazität verwendet wird.
+
+In der dritten Messung wurde der Sensor ohne Untergrund, also nur auf die Luft gerichtet, getestet. Diese Messung ergab ein ΔX von 1,71 ms (siehe Abbildung \ref{fig:IR_Luft}). Dies bedeutet, dass der Sensor ohne einen Untergrund eine schwarze Oberfläche erkennt.
+
+\begin{figure}[htbp]
+    \raggedright
+    % Erstes Bild
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=4cm]{img/sensortest/IR_Klebeband.jpg}
+        \caption{Messung Klebeband}
+        \label{fig:IR_Klebeband}
+    \end{subfigure}
+    \hspace{0.2cm}  % Horizontaler Abstand
+    % Zweites Bild
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=4cm]{img/sensortest/IR_Schwarz.jpg}
+        \caption{Messung Schwarz}
+        \label{fig:IR_Schwarz}
+    \end{subfigure}
+    \hspace{0.5cm}  % Horizontaler Abstand
+    % Drittes Bild
+    \begin{subfigure}[b]{0.3\textwidth}
+        \includegraphics[height=4cm]{img/sensortest/IR_Luft.jpg}
+        \caption{Messung Luft}
+        \label{fig:IR_Luft}
+    \end{subfigure}
+    \caption{IR-Messungen Oszilloskop}
+    \label{fig:IR_Messungen}
+\end{figure}
+
+Aufgrund dieser Ergebnisse wird die Linienerkennung mit Fototransistoren bevorzugt. Mit einem Fototransistor-Array, das mindestens 7 cm breit ist, kann auch der weisse Punkt zuverlässig erkannt werden. Denn auf der Linie wird niemals jeder Fototransistor die Linie gleichzeitig erfassen. Auf dem Punkt hingegen melden alle Fototransistoren die Erkennung der Linie, was darauf hinweist, dass es sich um den Punkt handelt.
 
 
 

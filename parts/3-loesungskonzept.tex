@@ -5,6 +5,66 @@
 \newpage
 \section{Lösungskonzept}
 
-In diesem Kapitel wird das gewählte Lösungskonzept "Roomba" (siehe \ref{loesungsvariante_roomba}) beschrieben. 
+In diesem Kapitel wird das gewählte Lösungskonzept "Simpel" (siehe \ref{loesungsvariante_Simpel}) näher erläutert. Bei diesem Konzept liegt der Schwerpunkt auf der Suche nach einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. Im folgenden Text wird für jede Teilfunktion die einfachste Lösung erarbeitet und beschrieben.
+
+\subsection{Fortbewegung}
+
+
+
+
+\subsection{Ersatz Rotation}    % Gibt es ein besseren Teilfunktion beschrieb für das???
+
+
+
+
+\subsection{Fahrantrieb}
+Als Fahrantriebe wurden zwei DC-Getriebemotoren mit Encodern gewählt. DC-Motoren lassen sich einfach mit H-Brücken steuern, wodurch die Drehzahl über ein PWM-Signal geregelt werden kann. Darüber hinaus ermöglicht diese Steuerung die Anpassung der Drehrichtung sowie das Bremsen oder Beschleunigen des Motors. Der Encoder sorgt für einen geschlossenen Regelkreis, sodass die Position des Fahrzeugs jederzeit im Programm berechnet werden kann. Dies ist besonders wichtig für das Anforderungskriterium 4.1, wie in Tabelle \ref{tab:Anforderungsliste} aufgeführt ist. Aus diesem Grund wurde der Schrittmotor ausgeschlossen, da er einen offenen Regelkreis besitzt, bei dem die Gefahr besteht, dass Schritte verloren gehen. Zudem ist die Ansteuerung eines Schrittmotors komplexer als die eines DC-Motors.
+
+
+\subsection{Hindernisbewältigungsantrieb}
+
+
+
+
+\subsection{Sensorik Positionsabfrage}
+Für die Bestimmung der Position des Fahrzeuges wird ein Encoder gewählt. Diesen kann man dierekt verbaut mit dem DC-MOtor bestellen. Für jede Umderehung des Motores gibt dieser eine bestimmte Anzahl an Impulsen raus. Dies ist ein sehr einfache Technologie und benötigt nur einen Eingang. Es wird kein I2C Schnittstelle oder sonstiges benötigt. Bei einem Beschleunigungssensor wird ein K
+
+
+\subsection{Bilderkennungssteuerung}
+
+
+\subsection{Hardware Steuerung}
+
+
+\subsection{Objekterkennung Hindernis}
+
+
+\subsection{Objekterkennung Pylone}
+
+
+
+\subsection{Streckenerkennung}
+
+
+\subsection{Punktverifizierung}
+
+
+\subsection{Objekterkennung Software}
+
+\subsection{Wegfindungssoftware}
+
+
+\subsection{Energiequelle}
+
+
+\subsection{Aufnahme Hindernis}
+
+
+
+\subsection{Rotation / Translation Hindernis}
+
+
+
+
 
 \end{document}

@@ -46,6 +46,21 @@ Das Hindernis wird bereits zu Beginn von der Kamera erkannt. Zur Distanzmessung 
 \subsection{Objekterkennung Pylone}
 Die Pylone wird mithilfe der Kamera erkannt, und zwar durch Bilderkennungssoftware und Algorithmen. Obwohl die Kamera eine komplexere Lösung darstellt, kann der Ultraschallsensor aufgrund der angeschrägten Fläche keinen validen Messwert liefern, ebenso wie der TOF-Sensor. Daher ist die Kamera die zuverlässigste und effektivste Methode, um die Pylone zu erkennen.
 
+\subsection{Umgebungserkennung}
+
+Der Roboter muss möglichst schnell und effizient vom Start bis zum Ziel navigieren.
+Um dies zu erreichen, muss er die Strecke zusammen mit den Hindernissen erkennen können.
+
+Die Umgebungserkennung wird in zwei Teilbereiche unterteilt. Diese werden in den folgenden Abschnitten erläutert.
+
+\subsubsection{Objekterkennung}
+
+Bei der Objekterkennung werden die Pylonen, Hindernisse und Wegpunkte erkannt.
+
+\subsubsection{Linienerkennung}
+
+Linien können nicht mit dem gleichen Mechanismus wie Objekte erkannt werden, da 
+
 
 \subsection{Streckenerkennung}
 Die Streckenerkennung setzt sich aus zwei Hauptteilen zusammen. Zunächst muss an dem Punkt erkannt werden, in welche Richtung das Fahrzeug weiterfahren soll. Dies wird durch eine Kamera in Verbindung mit einem Raspberry Pi realisiert. Der Raspberry Pi analysiert das Bild und berechnet, um wie viel Grad sich das Fahrzeug drehen muss, um der gewünschten Richtung zu folgen.

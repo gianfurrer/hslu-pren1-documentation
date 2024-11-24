@@ -46,7 +46,7 @@ Das Hindernis wird bereits zu Beginn von der Kamera erkannt. Zur Distanzmessung 
 \subsection{Objekterkennung Pylone}
 Die Pylone wird mithilfe der Kamera erkannt, und zwar durch Bilderkennungssoftware und Algorithmen. Obwohl die Kamera eine komplexere Lösung darstellt, kann der Ultraschallsensor aufgrund der angeschrägten Fläche keinen validen Messwert liefern, ebenso wie der TOF-Sensor. Daher ist die Kamera die zuverlässigste und effektivste Methode, um die Pylone zu erkennen.
 
-\subsection{Umgebungserkennung}
+\subsection{Umgebungserkennung} % Gian: TODO
 
 Der Roboter muss möglichst schnell und effizient vom Start bis zum Ziel navigieren.
 Um dies zu erreichen, muss er die Strecke zusammen mit den Hindernissen erkennen können.
@@ -59,11 +59,10 @@ Bei der Objekterkennung werden die Pylonen, Hindernisse und Wegpunkte erkannt.
 
 \subsubsection{Linienerkennung}
 
-Linien können nicht mit dem gleichen Mechanismus wie Objekte erkannt werden, da 
 
 
 \subsection{Streckenerkennung}
-Die Streckenerkennung setzt sich aus zwei Hauptteilen zusammen. Zunächst muss an dem Punkt erkannt werden, in welche Richtung das Fahrzeug weiterfahren soll. Dies wird durch eine Kamera in Verbindung mit einem Raspberry Pi realisiert. Der Raspberry Pi analysiert das Bild und berechnet, um wie viel Grad sich das Fahrzeug drehen muss, um der gewünschten Richtung zu folgen.
+Die Streckenerkennung setzt sich aus zwei Teilen zusammen. Zunächst muss an dem Punkt erkannt werden, in welche Richtung das Fahrzeug weiterfahren soll. Dies wird durch eine Kamera in Verbindung mit einem Raspberry Pi realisiert. Der Raspberry Pi analysiert das Bild und berechnet, um wie viel Grad sich das Fahrzeug drehen muss, um der gewünschten Richtung zu folgen.
 
 Der zweite Teil der Streckenerkennung sorgt dafür, dass das Fahrzeug der Linie folgt. Dies wird durch einen Liniensensor aus Fototransistoren erreicht, der den Unterschied zwischen der Linie und dem Boden erkennen kann. Auf dieser Grundlage steuert der Sensor das Fahrzeug so, dass es konstant auf der Linie bleibt.
 
@@ -77,6 +76,17 @@ Der Punkt wird auf die gleiche Weise wie die Linie mit dem Liniensensor erkannt.
 
 
 \subsection{Wegfindungssoftware}
+
+Um den schnellsten Weg ins Ziel zu finden, wird der Graph in der Software abgespeichert
+und der kürzeste Weg mittels Dijkstra Algorithmus berechnet. Sobald neue Informationen der Strecke erkannt werden, wird der Graph entsprechend angepasst und der kürzeste Weg wird neu ermittelt.
+Urspünglich haben alle 
+
+Je nach Information werden andere Anpassungen am Graphen vorgenommen:
+\begin{itemize}
+    \item Pylone auf Wegpunkt erkannt: Wegpunkt (Node) wird aus dem Graphen entfernt
+    \item Linie wurde entfernt: Linie (Edge) wird aus dem Graphen entfernt.
+    \item Hindernis auf Linie erkannt: Linie (Edge) erhält mehr Gewichtung.
+\end{itemize}
 
 
 \subsection{Energiequelle}

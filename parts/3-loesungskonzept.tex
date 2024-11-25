@@ -43,22 +43,8 @@ Der TinyK22 hingegen wurde im Modul Mc Fun ausführlich behandelt. Er bietet ein
 Das Hindernis wird bereits zu Beginn von der Kamera erkannt. Zur Distanzmessung des Hindernisses wird dann auf einen Ultraschallsensor gewechselt, da dieser ab 3 cm präzise Werte liefert. Zudem ist die Ansteuerung des Ultraschallsensors sehr einfach, da er nur über die Trigger- und Echo-Pins gesteuert wird. Der Time of Flight (TOF) Sensor hingegen wird über eine I2C-Schnittstelle ausgelesen. Im Kapitel Hardware-Test zeigt sich, dass die Messwerte beider Sensoren grundsätzlich ähnlich sind. Der TOF-Sensor hat jedoch den Nachteil von Messfehlern bei direkter Sonneneinstrahlung. Aus diesen Gründen fiel die Wahl auf den Ultraschallsensor.
 
 
-\subsection{Objekterkennung Pylone}
-Die Pylone wird mithilfe der Kamera erkannt, und zwar durch Bilderkennungssoftware und Algorithmen. Obwohl die Kamera eine komplexere Lösung darstellt, kann der Ultraschallsensor aufgrund der angeschrägten Fläche keinen validen Messwert liefern, ebenso wie der TOF-Sensor. Daher ist die Kamera die zuverlässigste und effektivste Methode, um die Pylone zu erkennen.
-
-\subsection{Umgebungserkennung} % Gian: TODO
-
-Der Roboter muss möglichst schnell und effizient vom Start bis zum Ziel navigieren.
-Um dies zu erreichen, muss er die Strecke zusammen mit den Hindernissen erkennen können.
-
-Die Umgebungserkennung wird in zwei Teilbereiche unterteilt. Diese werden in den folgenden Abschnitten erläutert.
-
-\subsubsection{Objekterkennung}
-
-Bei der Objekterkennung werden die Pylonen, Hindernisse und Wegpunkte erkannt.
-
-\subsubsection{Linienerkennung}
-
+\subsection{Objekterkennung Pylon}
+Die Pylonen werden mit der Kamera erkannt, und zwar mit Hilfe von Objekterkeunnung. Obwohl die Kamera eine komplexere Lösung darstellt, kann der Ultraschallsensor aufgrund der angeschrägten Fläche keinen validen Messwert liefern, ebenso wie der TOF-Sensor. Daher ist die Kamera die zuverlässigste und effektivste Methode, um die Pylonen zu erkennen.
 
 
 \subsection{Streckenerkennung}
@@ -78,16 +64,15 @@ Der Punkt wird auf die gleiche Weise wie die Linie mit dem Liniensensor erkannt.
 \subsection{Wegfindungssoftware}
 
 Um den schnellsten Weg ins Ziel zu finden, wird der Graph in der Software abgespeichert
-und der kürzeste Weg mittels Dijkstra Algorithmus berechnet. Sobald neue Informationen der Strecke erkannt werden, wird der Graph entsprechend angepasst und der kürzeste Weg wird neu ermittelt.
-Urspünglich haben alle 
+und der kürzeste Weg mittels Dijkstra Algorithmus berechnet. Sobald neue Informationen der Strecke erkannt werden, wird der Graph entsprechend angepasst und der kürzeste Weg wird anhand der aktuellen Position neu ermittelt.
+Ursprünglich haben alle Linien im Graphen eine einheitliche Gewichtung. 
 
-Je nach Information werden andere Anpassungen am Graphen vorgenommen:
+Je nach neu erhaltener Information werden andere Anpassungen am Graphen vorgenommen:
 \begin{itemize}
-    \item Pylone auf Wegpunkt erkannt: Wegpunkt (Node) wird aus dem Graphen entfernt
-    \item Linie wurde entfernt: Linie (Edge) wird aus dem Graphen entfernt.
-    \item Hindernis auf Linie erkannt: Linie (Edge) erhält mehr Gewichtung.
+    \item Pylon auf Wegpunkt erkannt: Wegpunkt (Knote) wird aus dem Graphen entfernt
+    \item Linie wurde entfernt: Linie (Kante) wird aus dem Graphen entfernt.
+    \item Hindernis auf Linie erkannt: Linie (Kante) erhält mehr Gewichtung.
 \end{itemize}
-
 
 \subsection{Energiequelle}
 Aus der Technologierecherche hat sich herausgestellt, dass der LiPo-Akku der am besten geeignete Akku im Vergleich zu Li-Ion- und NiMH-Akkus ist. Dies liegt insbesondere an seiner höheren Leistungsdichte, besseren Leistungsabgabe und der Flexibilität in der Formgebung. Weitere Details dazu können im Anhang unter der Sektion Konzeptfindung \ref{subsec:Energiequelle} nachgelesen werden.

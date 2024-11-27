@@ -52,6 +52,15 @@ Die Streckenerkennung setzt sich aus zwei Teilen zusammen. Zunächst muss an dem
 
 Der zweite Teil der Streckenerkennung sorgt dafür, dass das Fahrzeug der Linie folgt. Dies wird durch einen Liniensensor aus Fototransistoren erreicht, der den Unterschied zwischen der Linie und dem Boden erkennen kann. Auf dieser Grundlage steuert der Sensor das Fahrzeug so, dass es konstant auf der Linie bleibt.
 
+\subsubsection{Streckenerkennung Kamera}
+
+TODO: Gian
+- Wegpunkt wird mittels Objekterkennung erkannt (siehe ref)
+- Linien bei Wegpunkt erkennen
+  - Canny Edge Detection (Technologierecherche)
+  - Hough Line Transform
+
+
 
 \subsection{Punktverifizierung}
 Der Punkt wird auf die gleiche Weise wie die Linie mit dem Liniensensor erkannt. Der Liniensensor ist so breit wie der Punkt, was bedeutet, dass, wenn der Liniensensor auf dem Punkt platziert ist, alle Fototransistoren gleichzeitig die Linie erkennen. Dieser Zustand signalisiert, dass das Fahrzeug auf einem Punkt steht.

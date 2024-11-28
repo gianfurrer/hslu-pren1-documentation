@@ -43,8 +43,8 @@ Der TinyK22 hingegen wurde im Modul Mc Fun ausführlich behandelt. Er bietet ein
 Das Hindernis wird bereits zu Beginn von der Kamera erkannt. Zur Distanzmessung des Hindernisses wird dann auf einen Ultraschallsensor gewechselt, da dieser ab 3 cm präzise Werte liefert. Zudem ist die Ansteuerung des Ultraschallsensors sehr einfach, da er nur über die Trigger- und Echo-Pins gesteuert wird. Der Time of Flight (TOF) Sensor hingegen wird über eine I2C-Schnittstelle ausgelesen. Im Kapitel Hardware-Test zeigt sich, dass die Messwerte beider Sensoren grundsätzlich ähnlich sind. Der TOF-Sensor hat jedoch den Nachteil von Messfehlern bei direkter Sonneneinstrahlung. Aus diesen Gründen fiel die Wahl auf den Ultraschallsensor.
 
 
-\subsection{Objekterkennung Pylon}
-Die Pylonen werden mit der Kamera erkannt, und zwar mit Hilfe von Objekterkeunnung. Obwohl die Kamera eine komplexere Lösung darstellt, kann der Ultraschallsensor aufgrund der angeschrägten Fläche keinen validen Messwert liefern, ebenso wie der TOF-Sensor. Daher ist die Kamera die zuverlässigste und effektivste Methode, um die Pylonen zu erkennen.
+\subsection{Objekterkennung Pylone}
+Die Pylonen werden mit der Kamera erkannt, und zwar mithilfe von Objekterkennungssoftware. Obwohl die Kamera eine komplexere Lösung darstellt, kann der Ultraschallsensor aufgrund der angeschrägten Fläche keinen validen Messwert liefern, ebenso wie der TOF-Sensor. Daher ist die Kamera die zuverlässigste und effektivste Methode, um die Pylonen zu erkennen.
 
 
 \subsection{Streckenerkennung}

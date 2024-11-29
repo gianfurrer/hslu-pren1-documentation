@@ -5,7 +5,9 @@
 \newpage
 \section{Lösungskonzept}
 
-In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel'' (siehe Anhang \ref{a3:loesungsvariante_Simpel}) näher erläutert. Wieso das Lösungskonzept ''Beweglich'' ausgeschieden ist lese im Anhang \ref{a3:EntscheidLösungsvariante} Bei diesem Konzept liegt der Schwerpunkt auf der Suche nach einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. Im folgenden Text wird für jede Teilfunktion die einfachste Lösung erarbeitet und beschrieben.
+
+
+In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel'' (siehe Anhang \ref{a3:loesungsvariante_Simpel}) näher erläutert. Wieso das Lösungskonzept ''Beweglich'' ausgeschieden ist, lese im Anhang \ref{a3:EntscheidLösungsvariante}. Bei dem gewählten Konzept liegt der Schwerpunkt auf einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. Im folgenden Text wird für jede Teilfunktion die einfachste Lösung erarbeitet und beschrieben.
 
 \subsection{Ablauf}
 
@@ -17,9 +19,51 @@ Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Ablauf des Robot
 \label{img:ablaufdiagramm}
 \end{figure}
 
+
+
+\subsection{Wegfindung} %Objekterekennung, idealer Weg, 
+
+
+\subsection{Fortbewegung} 
+
+1. Raspberry PI schickt Winkel
+
+
+
+%Schnittstelle Raspy zurüfür Richtung, Antrieb, Mechanik, Zielsignal, Liniensensor
+
+% Anhalten
+\subsection{Hindernisbewältigung} %Hindernisvermessung, Antrieb, Mechanik,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+% Beschreib von Aufbau
+% Schnittstelle TiynK22 Raspy (Schnittstelle Bild)
+% Problem Kap
+% 
+
+
 \subsection{Fortbewegung}
 
-Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Wie der Name schon erahnen lässt, handelt es sich dabei um ein ähnliches System, wie wir es von Staubsauger-Robotern kennen. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Das Prinzip Roomba ist von allen recherchierten\ref{recherche-prinzip-roomba} Fortbewegungssystemen dasjenige, welches mit am wenigsten Komponenten auskommt und den geringsten Programmieraufwand benötigt. Dadurch verspricht es robust und am wenigsten fehleranfällig zu sein. Als Stützelement wird nicht wie üblich ein drehbares Rad verwendet, sonders ein Gleitelement. Der Grund dafür ist die Gefahr, dass bei einem Rad ein Versatz entsteht, wenn sich dieses neu ausrichten muss. Das Problem kann man sich wie bei einem Einkaufswagen vorstellen, wenn man damit wenden will, fährt der Einkaufswagen bekanntlich immer einen kleinen Schwenker, bevor die Räder wieder in die gewollte Richtung zeigen. Eine andere Möglichkeit wäre eine Kugel, jedoch hat ein etwas grossflächigeres Gleitelement den Vorteil, dass es weniger in die Plattenfugen rutscht. Das Gleitelement wird im hinteren Teil des Fahrzeuges angebracht, weil vorne aufgrund des Mechanismus zur Hindernisaufnahme kein Platz dafür besteht. Bei dieser Anordnung muss darauf geachtet werden, dass der Schwerpunkt des Fahrzeuges auch mit aufgenommenem Hindernis hinter der Kippachse (Achse der Antriebsräder) liegt. Dies wird mit der Anordnung des Akkus im hintersten Teil des Fahrzeuges sichergestellt.
+Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Wie der Name schon erahnen lässt, handelt es sich dabei um ein ähnliches System, wie wir es von Staubsauger-Robotern kennen. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Das Prinzip Roomba ist von allen recherchierten\ref{recherche-prinzip-roomba} Fortbewegungssystemen dasjenige, welches mit den wenigsten Komponenten auskommt und den geringsten Programmieraufwand benötigt. Dadurch verspricht es robust und am wenigsten fehleranfällig zu sein. Als Stützelement wird nicht wie üblich ein drehbares Rad verwendet, sondern ein Gleitelement. Der Grund dafür ist die Gefahr, dass bei einem Rad ein Versatz entsteht, wenn es sich neu ausrichten muss. Das Problem kann man sich wie bei einem Einkaufswagen vorstellen: Wenn man damit wenden will, fährt der Einkaufswagen bekanntlich immer einen kleinen Schwenker, bevor die Räder wieder in die gewünschte Richtung zeigen.
+
+Eine andere Möglichkeit wäre eine Kugel, jedoch hat ein etwas grossflächigeres Gleitelement den Vorteil, dass es weniger in die Plattenfugen rutscht. Das Gleitelement wird im hinteren Teil des Fahrzeuges angebracht, weil vorne aufgrund des Mechanismus zur Hindernisaufnahme kein Platz dafür besteht. Bei dieser Anordnung muss darauf geachtet werden, dass der Schwerpunkt des Fahrzeuges auch mit aufgenommenem Hindernis hinter der Kippachse (Achse der Antriebsräder) liegt. Dies wird mit der Anordnung des Akkus im hintersten Teil des Fahrzeuges sichergestellt.
 
 \subsection{Ersatz Rotation}    % Gibt es ein besseren Teilfunktion beschrieb für das???
 
@@ -110,14 +154,14 @@ Die Recherche und Entscheidungen die zu diesen ausgearbeiteten Konzept geführt 
 \subsubsection{Dimensionen Greifarm}
 Wie bereits im Kapitel \ref{a3:Präzision} erwähnt, ist die Präzision, die mechanisch gewonnen werden kann, sehr relevant für dieses Konzept. Damit dies auch funktioniert, wurden die passenden Dimensionen der Klemme eruiert. 
 
-\paragraph{Winkel Verschiebung}
+\paragraph{Winkel Verschiebung} \label{loes:winkel_verschiebung}
 Nach Aufgabenstellung kann das Hindernis bis zu 15° verschoben sein.
 In der Abbildung \ref{img:loes_winkel_hinderniss} ist dies bildlich dargestellt.
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.48\textwidth]{img/lösungskonzpet/hindernissaufnahme/winkekl_klemmen.jpg}
-        \caption[Möglicher Winkel des Hinderniss]{Möglicher Winkel des Hinderniss \footnotemark} 
+        \caption {Möglicher Winkel des Hinderniss}
         \label{img:loes_winkel_hinderniss}
 \end{figure}
 
@@ -131,8 +175,16 @@ Damit genügend Sicherheit hierbei eingerechnet wird, haben wir uns entschieden 
 
 $\varphi$ wurde 90° gewählt, dies ist vorläufig eine Annahme und muss zu einem späteren Zeitpunkt getestet werden.
 
+\newpage
 \paragraph{Abstand der Klemmen}
+Der Abstand der Klemmen wurde anhand der Aufgabenstellung eruiert und ist in Abbildung \ref{img:loes_abstand_klemmen} ersichtlich. Das Hindernis kann 2 cm von der Linie entfernt sein. Das heisst das Maximale Offset ist 2 cm (In Abbildung Orange). Zusätzlich kommt die Winkel Reserve, die Distanz wurde im Kapitel \ref{loes:winkel_verschiebung} eruiert (In der Abbildung Blau). Ebenfalls in der Abbildung enthalten sind Reserve für Fehlmessungen (Rot), Reserve Festigkeit, die für nötig ist, um die Druckkräfte auszuhalten (Violett) und die Hälfte des Hindernis (Gelb)
 
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.48\textwidth]{img/lösungskonzpet/hindernissaufnahme/dimensionen_klemme.jpg}
+        \caption {Abstand zwischen den Klemmen}
+        \label{img:loes_abstand_klemmen}
+\end{figure}
 
 \newpage
 \subsubsection{Funktionalitäten}

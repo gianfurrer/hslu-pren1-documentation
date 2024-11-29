@@ -10,7 +10,7 @@ Im folgenden Kapitel wird zuerst ein grober Überblick über die Technologierech
     \item Wegfindung 
     \item Objekterkennung (Objekterken.)
     \item Fortbewegung
-    \item Hindernisbewältigung (Hindernisbe.)
+    \item Hindernisbewältigung (Hindernis)
     \item Antrieb und Orientierung (A \& O)
 \end{itemize}
 
@@ -63,6 +63,9 @@ I & Wegfindung & Simulation & MicroMouseSimulator & 6 &
 I & Wegfindung & Visualisierung & Matplotlib & 7 &
 \href{https://matplotlib.org/}{Link} & 24.10.2024 & Gian
 \tabularnewline
+I & Wegfindung & Graphanalyse & NetworkX & 10 &
+\href{https://wiki.python.org/moin/PythonGraphLibraries}{Link} & 29.11.2024
+\tabularnewline
 
 % Objekterkennung---------------------------------------------------------------------------------------------
 I & Objekterken. & Deep Learning & Deep Learning Frameworks & 7 &  \href{https://www.simplilearn.com/tutorials/deep-learning-tutorial/deep-learning-frameworks} {Link}&  27.09.2024 & Gian
@@ -106,23 +109,23 @@ M & Fortbewegung & Beweglichkeit & Fahrzeug abbocken und an Stelle auf Drehkranz
 \tabularnewline
 
 % Hindernisbewältigung----------------------------------------------------------------------------------------
-M & Hindernisbe. & Aufnahme & gegen Fahrzeug pressen & 8 &  & 03.10.2024 & Silas
+M & Hindernis & Aufnahme & gegen Fahrzeug pressen & 8 &  & 03.10.2024 & Silas
 \tabularnewline
-M & Hindernisbe. & Aufnahme & Palettengabel in Löcher von Hindernis  & 5 &  & 03.10.2024 & Silas
+M & Hindernis & Aufnahme & Palettengabel in Löcher von Hindernis  & 5 &  & 03.10.2024 & Silas
 \tabularnewline
-M & Hindernisbe. & Aufnahme & Vakuumgreifer & 5 & \href{https://www.schmalz.com/de-ch/glossar/vakuumgreifer/}{Link} & 03.10.2024 & Silas
+M & Hindernis & Aufnahme & Vakuumgreifer & 5 & \href{https://www.schmalz.com/de-ch/glossar/vakuumgreifer/}{Link} & 03.10.2024 & Silas
 \tabularnewline
-M & Hindernisbe. & Transport & ganzes Fahrzeug wenden & 8 &  & 03.10.2024 & Silas
+M & Hindernis & Transport & ganzes Fahrzeug wenden & 8 &  & 03.10.2024 & Silas
 \tabularnewline
-M & Hindernisbe. & Transport & über Fahrzeug hinweg mit Ausleger & 6 &  & 03.10.2024 & Silas
+M & Hindernis & Transport & über Fahrzeug hinweg mit Ausleger & 6 &  & 03.10.2024 & Silas
 \tabularnewline
-M & Hindernisbe. & Transport & über Fahrzeug hinweg mit Förderband & 3 &  & 03.10.2024 & Silas
+M & Hindernis & Transport & über Fahrzeug hinweg mit Förderband & 3 &  & 03.10.2024 & Silas
 \tabularnewline
-M & Hindernisbe. & Aufnahme & Vakuumgreifer & 8 & \href{https://www.youtube.com/shorts/alxwWgzSVss}{Link}& 03.10.2024 & Silvan
+M & Hindernis & Aufnahme & Vakuumgreifer & 8 & \href{https://www.youtube.com/shorts/alxwWgzSVss}{Link}& 03.10.2024 & Silvan
 \tabularnewline
-M & Hindernisbe. & Rotation & Kran & 9 & \href{https://www.youtube.com/watch?v=VZRFHJfUkq4&feature=youtu.be}{Link}& 03.10.2024 & Silvan
+M & Hindernis & Rotation & Kran & 9 & \href{https://www.youtube.com/watch?v=VZRFHJfUkq4&feature=youtu.be}{Link}& 03.10.2024 & Silvan
 \tabularnewline
-M & Hindernisbe. & Rotation & Kran von oben & 8 & \href{https://www.youtube.com/watch?v=J7LGSNhFTU4}{Link}& 03.10.2024 & Silvan
+M & Hindernis & Rotation & Kran von oben & 8 & \href{https://www.youtube.com/watch?v=J7LGSNhFTU4}{Link}& 03.10.2024 & Silvan
 \tabularnewline
 
 % Antrieb & Orientierung--------------------------------------------------------------------------------------
@@ -381,32 +384,6 @@ Ein Ansatz, der die Genauigkeit der Objekterkennung verbessert, indem er Regione
       \item [Nachteile]
       \item Hoher Rechenaufwand, was die Echtzeitfähigkeit einschränkt.
       \item Erfordert eine sorgfältige Abstimmung der Hyperparameter und Regionenvorschläge.
-    \end{items}
-\end{minipage}
-
-\newpage
-\subsubsection{Simulation}
-
-Die Simulation soll sicherstellen, dass die Software bereits ohne vorhandene Hardware getestet werden kann.
-
-Dieser Abschnitt enthält mögliche Lösungsansätze dazu.
-
-\paragraph{MicroMouseSimulator}
-
-Der MicroMouseSimulator erlaubt das Testen von Code von einem \href{https://en.wikipedia.org/wiki/Micromouse}{Micromouse} Roboter,
-ohne einen physikalischen Roboter zu verwenden.
-
-\begin{minipage}[t]{0.48\textwidth}
-    \begin{items}
-      \item [Vorteile]
-      \item Existierendes Framework für Testen von realem Code ohne echte Hardware
-    \end{items}
-\end{minipage}
-\hfill
-\begin{minipage}[t]{0.48\textwidth}
-    \begin{items}
-      \item [Nachteile]
-      \item Nicht dieselben Hindernisse wie unser Projekt
     \end{items}
 \end{minipage}
 

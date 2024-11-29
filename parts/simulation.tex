@@ -96,6 +96,8 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll. Die An
     \caption{Morphologischer Kasten - Simulator}
 \end{table}
 
+Der Lösungsansatz des Morphologischen Kastens ist darauf ausgelegt, einen simplen Simulator zu erstellen, welcher trotzdem viele Anforderungen an die Wegfindung abdecken kann.
+
 \subsubsection{User Interface}
 
 Obwohl wir ebenfalls eine virtuelle Umgebung mit der Unreal Engine und dem Pfadfinder-Model erstellen, wäre der Aufwand zu gross, diese an den Simulator anzubinden. Die Ausgabe in einem Terminal hingegen wäre zu minimal. Deshalb wird das User Interface mit einem einfachen GUI umgesetzt. 
@@ -110,13 +112,13 @@ implementiert werden. Da für die Graphentheorie bereits viele beliebte Biblioth
 Bei der Programmiersprache kamen Python, JavaScript und Java in Frage.
 Java wird für die meisten Projekte im Informatik-Studium verwendet. JavaScript erlaubt es, einfach graphische Darstellungen mittels Webseite zu implementieren. Python ist simpel und wird oft für Künstliche Intelligenz verwendet, was wir für die Implementation der Software des autonomen Fahrzeugs benötigen. 
 
-Wir entscheiden uns für Python, da viel know-how vorhanden ist. Ebenfalls bietet es mit NetworkX\footnote{https://networkx.org} eine mächtige Bibliothek für Graphen an.
+Wir entscheiden uns für Python, da im Team viel know-how vorhanden ist. Ebenfalls bietet es mit NetworkX\footnote{https://networkx.org} eine mächtige Bibliothek für Graphen an.
 
 \subsubsection{Informationen einlesen}
 
 Damit die Software weiss, welche Hindernisse sich auf dem Graphen befindet, müssen Informationen eingelesen werden können. Idealerweise würde dies auf gleiche Art geschehen, wie in der Realität: anhand von Bildern mit Objekterkennung. Der Simulator soll jedoch so schnell wie möglich lauffähig sein, weshalb einfachkeitshalber eine Konfigurationsdatei mit den Informationen verwendet wird.
 
-Dies könnte im späteren Verlauf des Projekts noch erweitert werden.
+Die Konfigurationsdatei kann sehr einfach angepasst werden, wodurch man schnell viele Szenarien testen kann.
 
 \subsubsection{Hindernis Bewältigung}
 
@@ -171,5 +173,14 @@ Falls das Fahrzeug die Kante D befährt, wird erkannt, dass die Kante D-B nicht 
 Diese Konfiguration kann einfach angepasst werden, wodurch mit dem Simulator einfach verschiedene Szenarien durchgespielt werden können.
 
 \subsection{Umsetzung}
+
+Der Simulator 
+
+Verwendete Bibliotheken:
+
+\begin{itemize}
+    \item NetworkX
+    \item Matplotlib
+\end{itemize}
 
 \end{document}

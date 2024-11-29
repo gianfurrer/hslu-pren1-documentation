@@ -10,16 +10,16 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept zu fin
 \subsection{Vorauswahl}
     \subsubsection{Fortbewegung}
     Das Fahrzeug muss in der Lage sein, sich an Ort und Stelle um die eigene Achse zu drehen. Somit sind die Optionen Knicklenkung, Achsschenkellenkung und Drehschemellenkung nicht geeignet.
-    Das Prinzip 'Fahrzeug abbocken und drehen' ist als alleiniges Lenksystem ungeeignet, weil es zu viel Zeit benötigt für das Lenkmanöver. Es wird als optionalen Plan-B beibehalten für den Fall, dass das Fahrzeug beim Wenden während dem Hindernishandling verrutscht. Falls dieses Problem beim Testen auftritt, kann das System nachgerüstet werden.
+    Das Prinzip ''Fahrzeug abbocken und drehen'' ist als alleiniges Lenksystem ungeeignet, weil es zu viel Zeit benötigt für das Lenkmanöver. 
     Omniwheels und Mecanum-Räder sind sehr ähnlich, nur die Form und Anordnung der Rollen auf den Rädern ist unterschiedlich. Bei Omniwheels sind die Rollen in einem Winkel von 90° an den Rädern befestigt, wobei sie bei Mecanum-Rädern in 45° angeordnet sind und eine Tonnenform aufweisen. Dadurch versprechen die Mecanum-Räder eine geringere Anfälligkeit, sich in den Plattenfugen zu verfangen. Die 4-Rad Differenzial Lenkung und das Prinzip Roomba sind von der Wendigkeit und dem konstruktiven Aufwand vergleichbar, jedoch besteht bei der 4-Rad Variante die Gefahr von Aufschaukeln bei einer Drehung an Ort und Stelle, sowie die Gefahr von Schieben der langsameren Räder bei Kurvenfahrt. Mit diesen Erkenntnissen kommen nur noch die Mecanum-Räder und das Prinzip Roomba in Frage. Die beiden Systeme werden in einer Nutzwertanalyse \ref{tab:nutzwertanalyse_fortbewegung} unterhalb vom Morphologischen Kasten genauer verglichen und bewertet.
         
-    \newpage
-    \subsubsection{Hindernis Bewältigung}
-        \paragraph{Aufnahme}
-        Weil das Konzept möglichst einfach und zuverlässig gestaltet werden soll, scheiden die Ideen 'Gabelstapler' und 'Vakuumgreifer' aus. Der Gabelstapler erfordert eine äusserst präzise und aufwendige Sensorik, um die Löcher für die Aufnahme genau zu treffen. Der Vakuumgreifer dagegen zeigt im Vergleich zu den 'Klemmen' eine geringere Sicherheit in der Technik. Wir besitzen kein Wissen mit dieser Technologie. Um eine vergleichbare Sicherheit zu erreichen, wären umfangreiche Tests erforderlich. Dabei hat der Vakuumgreifer keine signifikanten Vorteile gegenüber den 'Klemmen'.
+\newpage
+\subsubsection{Hindernis Bewältigung}
+    \paragraph{Aufnahme}
+    Weil das Konzept möglichst einfach und zuverlässig gestaltet werden soll, scheiden die Ideen ''Gabelstapler'' und ''Vakuumgreifer'' aus. Der Gabelstapler erfordert eine äusserst präzise und aufwendige Sensorik, um die Löcher für die Aufnahme genau zu treffen. Der Vakuumgreifer dagegen zeigt im Vergleich zu den ''Klemmen'' eine geringere Sicherheit in der Technik. Wir besitzen kein Wissen mit dieser Technologie. Um eine vergleichbare Sicherheit zu erreichen, wären umfangreiche Tests erforderlich. Dabei hat der Vakuumgreifer keine signifikanten Vorteile gegenüber den ''Klemmen''.
         
-        \paragraph{Rotation und Translation}
-        Ein beweglicher Arm erhöht die Komplexität sowohl mechanisch als auch in den Bereichen Sensorik und Software erheblich. Dabei ist zu beachten, dass die Integration eines Arms die Gesamtkomplexität steigert, ohne in anderen Bereichen nennenswerte Vereinfachungen zu ermöglichen, sodass kein Vorteil gewonnen wird. Dies widerspricht unserem Grundprinzip, eine möglichst einfache und zuverlässige Lösung zu entwickeln. Daher werden alle Optionen mit einem beweglichen Arm ausgeschlossen, sodass lediglich die Option "Rotation des Fahrzeugs" verbleibt.
+    \paragraph{Rotation und Translation}
+    Ein beweglicher Arm erhöht die Komplexität sowohl mechanisch als auch in den Bereichen Sensorik und Software erheblich. Dabei ist zu beachten, dass die Integration eines Arms die Gesamtkomplexität steigert, ohne in anderen Bereichen nennenswerte Vereinfachungen zu ermöglichen, sodass kein Vorteil gewonnen wird. Dies widerspricht unserem Grundprinzip, eine möglichst einfache und zuverlässige Lösung zu entwickeln. Daher werden alle Optionen mit einem beweglichen Arm ausgeschlossen, sodass lediglich die Option ''Rotation des Fahrzeugs'' verbleibt.
 
 
 \newpage
@@ -51,20 +51,20 @@ R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste un
     \subsubsection{Variantenbeschreibung}
     \paragraph{Lösungsvariante Simpel (grün)} 
     \label{a3:loesungsvariante_Simpel}
-    Bei der Lösungsvariante ''Simpel'' liegt der Schwerpunkt auf der Einfachheit und Zuverlässigkeit des Konzepts. Die Fortbewegung und Lenkung erfolgen nach dem "Roomba"-Prinzip, bei dem zwei angetriebene Räder jeweils von einem DC-Motor bewegt werden. Dieses Konzept ermöglicht eine einfache Steuerung und eine Drehung auf der Stelle.
+    Bei der Lösungsvariante ''Simpel'' liegt der Schwerpunkt auf der Einfachheit und Zuverlässigkeit des Konzepts. Die Fortbewegung und Lenkung erfolgen nach dem ''Roomba''-Prinzip, bei dem zwei angetriebene Räder jeweils von einem DC-Motor bewegt werden. Dieses Konzept ermöglicht eine einfache Steuerung und eine Drehung auf der Stelle.
 
-    Hindernisse werden seitlich geklemmt und aufgenommen, wobei der Antrieb dafür durch einen Linearmotor realisiert wird. Nach dem Aufnehmen des Hindernisses dreht sich das Fahrzeug um die eigene Achse und setzt es anschliessend wieder ab. Zur Überprüfung der Position der DC-Motoren werden Encoder verwendet. Diese sind aufgrund ihrer einfachen Funktionsweise und ihrer zuverlässigen Ausgabe besonders geeignet.
+    Hindernisse werden seitlich geklemmt und aufgenommen, wobei der Antrieb dafür durch einen Schrittmotor realisiert wird. Nach dem Aufnehmen des Hindernisses dreht sich das Fahrzeug um die eigene Achse und setzt es anschliessend wieder ab. Zur Überprüfung der Position der DC-Motoren werden Encoder verwendet. Diese sind aufgrund ihrer einfachen Funktionsweise und ihrer zuverlässigen Ausgabe besonders geeignet.
 
-    Die Software läuft auf einem Raspberry Pi, während die Hardwaresteuerung durch einen TinyK22 erfolgt. Beide Plattformen sind den Informatikern und Elektrotechnikern aus früheren Projekten vertraut. Hindernisse werden mit einem Ultraschallsensor erkannt. Zur Sicherstellung von Redundanz überprüft ein Infrarotsensor, ob tatsächlich ein Hindernis vorhanden ist. Diese Redundanz ist notwendig, da die Sensoren gelegentlich ungenaue Messwerte liefern können (siehe \ref{sec:Hardware_Test}. 
+    Die Software läuft auf einem Raspberry Pi, während die Hardwaresteuerung durch einen TinyK22 erfolgt. Beide Plattformen sind den Informatikern und Elektrotechnikern aus früheren Projekten vertraut. Hindernisse werden mit einem Ultraschallsensor erkannt. Dieser hat sich für den Anwendungsfall behauptet (siehe \ref{sec:Hardware_Test}. 
 
-    Pylonen werden mithilfe einer Kamera erkannt, die auch zur allgemeinen Streckenerkennung dient. Zusätzlich sorgt ein Infrarotsensor für ein Backup-Signal bei der Erkennung der Pylonen. Da der Ultraschallsensor aufgrund der Anschrägung falsche Messwerte zurückgibt. Für die Erkennung des nächsten Zielpunkts wird eine Kamera verwendet. Ein Liniensensor stellt sicher, dass sich das Fahrzeug korrekt entlang des Klebestreifens bewegt. Der Liniensensor ist dabei die einfachste Lösung zur Linienerkennung.Ähnlich verhält es sich bei der Verifizierung von Wegpunkten, die ebenfalls primär durch den Liniensensor erkannt werden. Dabei wird festgestellt, dass ein Wegpunkt vorliegt, wenn die Linie eine bestimmte Dicke überschreitet.Zusätzlich überprüft ein Farbsensor, ob der richtige Farbwert für einen Wegpunkt vorhanden ist.
+    Pylonen werden mithilfe einer Kamera erkannt, die auch zur allgemeinen Streckenerkennung dient. Für die Erkennung des nächsten Zielpunkts wird eine Kamera verwendet. Ein Liniensensor stellt sicher, dass sich das Fahrzeug korrekt entlang des Klebestreifens bewegt. Der Liniensensor ist dabei die einfachste Lösung zur Linienerkennung. Ähnlich verhält es sich bei der Verifizierung von Wegpunkten, die ebenfalls primär durch den Liniensensor erkannt werden. Dabei wird festgestellt, dass ein Wegpunkt vorliegt, wenn die Linie eine bestimmte Dicke überschreitet. 
 
     Die Software für die Objekterkennung basiert auf YOLO, während für die Wegfindung der Dijkstra-Algorithmus eingesetzt wird. Die Energieversorgung erfolgt durch einen Lithium-Polymer-Akku, aufgrund seiner zahlreichen Vorteile (siehe \ref{subsec:Energiequelle}).
 
     \paragraph{Lösungsvariante Beweglich (gelb)}
     Bei der Lösungsvariante ''Beweglich'' liegt der Fokus auf der Beweglichkeit des Fahrzeugs. Die Fortbewegung und Lenkung erfolgen mit Mecanum-Rädern, wobei jedes der vier Räder von einem Schrittmotor angetrieben wird. Dadurch kann sich das Fahrzeug in alle vier Richtungen linear bewegen, was es ermöglicht, das Fahrzeug präzise auf ein Hindernis auszurichten.
 
-    Das Hindernis wird von vorne und hinten geklemmt und aufgenommen, wobei der Antrieb durch einen Schrittmotor erfolgt, der eine exakte Klemmung ermöglicht. Nachdem das Hindernis aufgenommen wurde, dreht sich das Fahrzeug um die eigene Achse und setzt es wieder ab. Die Position des Fahrzeugs wird mithilfe eines Beschleunigungssensors überwacht. Dies ermöglicht eine präzise Erfassung der Fahrzeugbewegung, obwohl sich das Fahrzeug in alle Richtungen bewegen kann. Zudem werden Schrittfehler der Schrittmotoren abgefangen.
+    Das Hindernis wird von vorne und hinten geklemmt und aufgenommen, wobei der Antrieb durch einen DC-Motor erfolgt, der eine exakte Klemmung ermöglicht. Nachdem das Hindernis aufgenommen wurde, dreht sich das Fahrzeug um die eigene Achse und setzt es wieder ab. Die Position des Fahrzeugs wird mithilfe eines Beschleunigungssensors überwacht. Dies ermöglicht eine präzise Erfassung der Fahrzeugbewegung, obwohl sich das Fahrzeug in alle Richtungen bewegen kann. Zudem werden Schrittfehler der Schrittmotoren abgefangen.
 
     Die Software läuft auf einem Raspberry Pi, während die Hardwaresteuerung durch einen Arduino erfolgt. Der Vorteil des Arduinos liegt in der grossen Community und der Vielzahl an Hilfestellungen, die im Internet verfügbar sind.
 
@@ -76,9 +76,9 @@ R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste un
 
     \paragraph{Entscheid Lösungsvariante}
     \label{a3:EntscheidLösungsvariante}
-    Umgesetzt wird die Lösungsvariante "Simpel" (grün), aufgrund ihrer Einfachheit und Robustheit. Bei der Lösungsvariante "Beweglichkeit" (grün) bestehen zu viele Risiken. Zum Beispiel ist die Ansteuerung der Schrittmotoren mit den Mecanum-Rädern wesentlich komplexer als beim Roomba-Prinzip. Außerdem reicht für die "Simpel"-Lösungsvariante die Toleranz von etwa 2 cm beim Zurückstellen des Hindernisses aus. Bei der "Beweglichkeit"-Lösungsvariante wäre das Hindernis zwar präziser zurückgestellt, jedoch mit zu vielen Unsicherheiten verbunden.
+    Umgesetzt wird die Lösungsvariante ''Simpel'' (grün), aufgrund ihrer Einfachheit und Robustheit. Bei der Lösungsvariante ''Beweglichkeit'' (gelb) bestehen zu viele Risiken. Zum Beispiel ist die Ansteuerung der Schrittmotoren mit den Mecanum-Rädern wesentlich komplexer als beim Roomba-Prinzip. Ausserdem reicht für die ''Simpel''-Lösungsvariante die Toleranz von etwa 2 cm beim Zurückstellen des Hindernisses aus. Bei der ''Beweglichkeit''-Lösungsvariante wäre das Hindernis zwar präziser zurückgestellt, jedoch mit zu vielen Unsicherheiten verbunden.
 
-    Zudem wird der TinyK22 bevorzugt, da die Elektrotechniker bisher keine Erfahrung mit Arduinos haben und der TinyK22 bereits intensiv im Unterricht behandelt wurde. Das Ziel der Gruppe ist es, das Ziel sicher zu erreichen, und dafür eignet sich die "Simpel"-Lösungsvariante am besten.
+    Zudem wird der TinyK22 bevorzugt, da die Elektrotechniker bisher keine Erfahrung mit Arduinos haben und der TinyK22 bereits intensiv im Unterricht behandelt wurde. Das Ziel der Gruppe ist es, das Ziel sicher zu erreichen, und dafür eignet sich die ''Simpel''-Lösungsvariante am besten.
     
     \subsubsection{Fortbewegung}
 
@@ -124,7 +124,7 @@ R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste un
 
 \subsubsection{Ersatz Rotation}
 
-Das Risiko R15 "Verschieben bei Drehung" (siehe Kapitel \ref{risikomatrix}) wird mitigiert,
+Das Risiko R15 ''Verschieben bei Drehung'' (siehe Kapitel \ref{risikomatrix}) wird mitigiert,
 in dem optional eine zusätzliche Funktion für das Drehen des Fahrzeugs eingebaut werden kann, falls das Risiko eintreten sollte.
 
 Bei dieser Ersatz-Rotation würde das Fahrzeug aufgebockt werden um sich zu drehen.
@@ -140,18 +140,16 @@ Für die Hindernisbewältigung wird ebenfalls ein Antrieb benötigt. Dafür wird
   
 
 \subsubsection{Sensorik Positionsabfrage}
-Zur Auswahl stehen ein Encoder und ein Hallsensor. Der Encoder liefert genauere Daten und der Aufbau ist einfacher. Daher wird ein Encoder verwendet. Der Encoder kann wichtig sein, um die Fahrtrichtung zu kontrollieren. Sind die verwendeten DC-Motoren nicht identisch, so kann ein anderes Fahrverhalten pro Motor entstehen. Durch einen Encoder kann das Fehlverhalten abgefangen und korrigiert werden.
+Zur Auswahl stehen ein Encoder und ein Beschleunigungssensor. Der Encoder liefert genauere Daten und der Aufbau ist einfacher. Daher wird ein Encoder verwendet. Der Encoder kann wichtig sein, um die Fahrtrichtung zu kontrollieren. Sind die verwendeten DC-Motoren nicht identisch, so kann ein anderes Fahrverhalten pro Motor entstehen. Durch einen Encoder kann das Fehlverhalten abgefangen und korrigiert werden.
 
- Für die korrekte Positionierung der Klemmbacken nach einer Hindernisbewältigung werden Endschalter verwendet. Dadurch wird sichergestellt, dass die Greifarme nach der Hindernisbewältigung wieder in der korrekten Ausgangslage sind.
 
 \subsubsection{Software Steuerung}
-
 Bei der Softwaresteuerung kommt wegen der Grösse und Leistung nur das Raspberry Pi in Frage.
 Eine Alternative wäre noch ein Arduino, jedoch reicht dies für leistungsintensive Aufgabe wie
 Objekterkennung nicht aus.
 
 \subsubsection{Hardware Steuerung}
-Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware nahe Steuerung, die mit dem Raspberry kommuniziert. Aus der Recherche ergaben sich dafür drei Möglichkeiten. Ein Arduino, TinyK22 oder ein ESP32. Dabei scheidet der ESP32 vor allem durch seine nicht benötigten Funktionen aus. Da es weder Wi-Fi noch Bluetooth benötigt. Damit bleiben noch der TinyK22 und ein Arduino-Board. Aufgrund Ihrer Ähnlichkeit wurde eine Nutzwertanalyse erstellt (siehe Tabelle \ref{tab:konzept_nutzwertanalyse_mikrocontroller}).
+Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware nahe Steuerung, die mit dem Raspberry Pi kommuniziert. Aus der Recherche ergaben sich dafür drei Möglichkeiten. Ein Arduino, TinyK22 oder ein ESP32. Dabei scheidet der ESP32 vor allem durch seine nicht benötigten Funktionen aus. Da es weder Wi-Fi noch Bluetooth benötigt wird. Damit bleiben noch der TinyK22 und ein Arduino-Board. Aufgrund Ihrer Ähnlichkeit wurde eine Nutzwertanalyse erstellt (siehe Tabelle \ref{tab:konzept_nutzwertanalyse_mikrocontroller}).
 
     \begin{table}[H]
         \textbf{Legende:}
@@ -185,24 +183,23 @@ Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware na
             \label{tab:konzept_nutzwertanalyse_mikrocontroller}
         \end{table}
 
-    Da der Unterschied nicht sehr gross ist, wird als erste Wahl der Arduino verwendet und das TinyK22 als Ersatzwahl. Allenfalls könnten beide Boards verwendet werden, die dann miteinander kommunizieren. Beispielsweise gibt es ein Arduino mit zwei UART Schnittstellen. Dieses kann als Kommunikator zum Raspberry und TinyK22 dienen. Hintergrund ist, dass eine Software für die Motorensteuerung per TinyK22 bereits besteht, mit welcher Thomas und Joel bereits gearbeitet haben. Ausserdem würden mit dieser Lösung mehr GPIOs bereitstehen, damit man im Projekt agil reagieren kann und keine hardwaremässigen Limits hat.
+    Da der Unterschied nicht sehr gross ist, wird als erste Wahl der TinyK22 verwendet und das Arduino als Ersatzwahl. Allenfalls könnten beide Boards verwendet werden, die dann miteinander kommunizieren. Beispielsweise gibt es ein Arduino mit zwei UART Schnittstellen. Dieses kann als Kommunikator zum Raspberry und TinyK22 dienen. Hintergrund ist, dass eine Software für die Motorensteuerung per TinyK22 bereits besteht, mit welcher Thomas und Joel bereits gearbeitet haben. Ausserdem würden mit dieser Lösung mehr GPIOs bereitstehen, damit man im Projekt agil reagieren kann und keine hardwaremässigen Limits hat.
 
 \subsubsection{Objekterkennung Hardware}
- Bei der Wahl der richtigen Sensorik müssen noch Tests durchgeführt werden. Damit bewertet werden kann, welcher Sensor sich bei der vorgegebenen Umwelt am besten verhält. Vor allem für den Liniensensor und für die Erkennung des Wegpunktes. Da der Untergrund keine kontrastreichen Flächen hat. Für die Distanzmesssensoren ist ein Test zum Vergleich der Präzision zwischen Ultraschall und IR ebenso notwendig.
- 
- Bereits angedacht ist, dass  die wichtigsten Sensoren doppelt abgedeckt werden sollen (siehe Risikoanalyse). So ist eine weitere Möglichkeit vorhanden, falls ein Sensor nicht die gewünschten Daten liefert. Als Beispiel werden Farbsensoren gegen den Boden gerichtet sein, wie auch Fototransistoren mit LEDs, um die weissen Wegpunkte zu erkennen.
+ Aus dem Anhang \ref{sec:Hardware_Test}, in welchem die Sensorik getestet wurden, ergaben sich folgende Resultat. Der Ultraschallsensor übermittelt ab einer Distanz von 3 cm zuverlässige Messwerte. Er ist ebenso unabhängig der Sonnenlichteinstrahlung. Der Infrarotsensor reagiert stärker auf Sonnenlichteinstrahlung und misst ungefähr die gleichen Werte. 
+
+
 
 \subsubsection{Streckenerkennung}
-Für die Streckenerkennung soll eine Kamera verwendet werden. Ein zweiter Lösungsansatz ist der Linienfolger. Um die Funktionalität eines Linienfolger zu verifizieren, muss dieser in der Fahrumgebung getestet werden. Ebenfalls muss getestet werden, wie gut die Kamera die Linien bei starker Reflexion erkennt. Mit den Messresultaten wird entschieden, welche Methode umgesetzt wird.
+Für die Streckenerkennung soll eine Kamera verwendet werden. Die Kamera erkennt Hindernisse und Pylonen auf der Strecke und hilft dem Raspberry Pi so die beste Strecke zu ermitteln. Damit das Fahrzeug auf der Linie bleibt wird ein Liniensensor eingesetzt.  Im Anhang \ref{sec:Hardware_Test} wurde ebenfalls die Phototransistoren gemessen, welche für den Liniensensor benötigt werden. Diese Messungen ergaben, dass sich die Aufladezeit des Kondensators gegenüber der verschiedenen Untergründe stark unterscheiden. Für weitere Details siehe Anhang \ref{sec:Hardware_Test}. 
+
 
 
 \subsubsection{Punktverifizierung}
-Um zu erkennen, ob das Fahrzeug sich auf einem Punkt befindet, wird ein Farbsensor genutzt. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Ausserdem wird die Farbtemperatur in Kelvin zurückgegeben. Mit diesen Werten kann man das leicht gelbe Klebeband von dem weissen Punkt unterscheiden. Dies ermöglicht es am einfachsten den weissen Punkt zu erkennen. Eine weitere Option wäre die Erkennung mittels eines kreisförmigen Liniensensors. Mit diesem kann man die Form der Linie erkennen. Wenn das Fahrzeug auf dem Punkt steht, haben alle Phototransistoren den gleichen Wert. Diese Variante ist empfindlicher und setzt voraus, dass das Fahrzeug zentriert auf der Linie fährt. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Weil damit je nach Kamera 1/5 des Budgets aufgebraucht wäre. Es würden zwei benötigt, da die eine Kamera, die für die Strecken und Objekterkennung ist, sich auf einer gewissen Höhe befinden muss. Dagegen muss die Linienkamera möglichst nah an der Linie sein.
-
+Um zu erkennen, ob das Fahrzeug sich auf einem Punkt befindet, könnte ein Farbsensor genutzt werden. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Dieser scheidet aufgrund von Tests aus, siehe Anhang \ref{sec:Hardware_Test}. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Weil damit je nach Kamera 1/5 des Budgets aufgebraucht wäre. Es würden zwei benötigt, da die eine Kamera, die für die Strecken und Objekterkennung ist, sich auf einer gewissen Höhe befinden muss. Dagegen muss die Linienkamera möglichst nah an der Linie sein.
+Der Liniensensor könnte den Punkt erkennen, indem er auf die Grösse des Durchmessers des Punktes dimensioniert wird. Das bedeutet, wenn der Liniensensor über dem Punkt ist erkennen alle Phototransistoren die Linie, dies bedeutet es ist ein Punk vorhanden. 
 
 \subsubsection{Objekterkennung Software}
-
-
 Bei der Technologierecherche wurden vier verschiedene Objekterkennungsmethoden recherchiert, wobei R-CNN bereits in der Vorauswahl ausschied, weil sie langsam und ressourcenintensiv ist.
 Dieser Abschnitt fokussiert sich darauf, anhand von einer Nutzwertanalyse von den restlichen drei Auswahlen die Beste zu treffen.
 
@@ -269,7 +266,6 @@ Haar-Cascade ist ebenfalls schnell und ressourcenschonend, schneidet aber in der
 CNN, das in der Kategorie Genauigkeit die beste Bewertung erzielte, zeigt deutliche Schwächen in Bezug auf ''Geschwindigkeit'', ''Ressourcenbedarf'' und ''Komplexität''.
 
 \subsubsection{Wegfindung}
-
 Der geeignetste Wegfindungsalgorithmus wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gefunden.
 
 \begin{itemize}
@@ -346,7 +342,7 @@ Die Nutzwertanalyse zeigt Dijkstra als deutlichen Gewinner. Dies liegt vor allem
 
 \subsubsection{Energiequelle}
 \label{a3:Energiequelle}
-Zur Auswahl steht ein Li-Po, Li-Ion oder NiMh Akku. Der Li-Po und Li-Ion Akku haben die höhere Energiedichte als der NiMh Akku. Jedoch benötigt der Li-Po einen Laderegler für die Aufladung und der Li-Ionen benötigt eine elektrische Schutzschaltung. Zwischen dem Li-Ion und dem Li-Po Akku gibt es keine weiteren nennenswerten Unterschiede. 
+Zur Auswahl steht ein Li-Po, Li-Ion oder NiMh Akku. Der Li-Po und Li-Ion Akku haben die höhere Energiedichte als der NiMh Akku. Jedoch benötigt der Li-Po Akku einen Laderegler für die Aufladung und der Li-Ionen Akku benötigt eine elektrische Schutzschaltung. Zwischen dem Li-Ion und dem Li-Po Akku gibt es keine weiteren nennenswerten Unterschiede. 
 Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Ebenso haben sie keinen Memoryeffekt und eine geringere Selbstentladung als der NiMh Akku. Die Lebensdauer eines NiMh Akkus ist dagegen fast fünfmal so lange wie die eines Lipo-Akkus.\footnotemark
 \footnotetext{Quelle:\href{https://www.rcteam.com/de/blogs/der-blog-des-rc-modellbaus/nimh-vs-lipo-batterien}{www.rcteam.com}}
 

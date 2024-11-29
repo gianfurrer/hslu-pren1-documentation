@@ -8,6 +8,7 @@
 \label{sec:Hardware_Test}
 \subsection{Distanz Hindernis}
 Um die Bewältigung des Hindernisses erfolgreich durchzuführen, muss die exakte Entfernung zum Hindernis bestimmt werden. Ziel ist es, das Hindernis präzise zwischen den Klemmbacken zu positionieren, ohne dabei mit ihm zu kollidieren. Hierfür stehen zwei bewährte Methoden zur Distanzmessung zur Verfügung: die Messung mittels Schallwellen und die Messung mittels Lichtwellen. In den folgenden Unterkapiteln werden diese Verfahren näher untersucht und getestet.
+
 \subsubsection{Ultraschallsensor}
 Für die Messung wird der Ultraschallsensor HC-SR04 verwendet. Dieser Sensor hat eine Reichweite von 2 cm bis 300 cm\footnotemark und arbeitet mit einer Genauigkeit von ±3 mm. Der Sensor wird mit einer Betriebsspannung von 5 V versorgt. Die Messung wird über den Trigger-Pin gestartet, während der Echo-Pin das vom Trigger ausgesendete Signal nach dessen Rückkehr empfängt. Der Zeitunterschied zwischen dem Senden und Empfangen des Signals wird mithilfe der Schallgeschwindigkeit in die Entfernung umgerechnet. Die Genauigkeit des Sensors wird mithilfe des in Abbildung \ref{fig:Ultraschall1} dargestellten Messaufbaus überprüft.
 \footnotetext{Quelle: \url{https://www.mikrocontroller.net/attachment/218122/HC-SR04_ultraschallmodul_beschreibung_3.pdf}}
@@ -88,7 +89,7 @@ Auch bei diesem Experiment wird das Objekt schrittweise um jeweils einen Zentime
 \toprule
 \textbf{Position} & \textbf{Messwert} \\
 \midrule
-10 mm  & 11 mm  \\
+10 mm  & 22 mm  \\
 20 mm  & 24 mm  \\
 30 mm  & 31 mm  \\
 40 mm  & 43 mm  \\
@@ -125,7 +126,7 @@ Auch bei diesem Experiment wird das Objekt schrittweise um jeweils einen Zentime
 \label{tab:TOFMD}
 \end{table}
 
-Aus der Tabelle \ref{tab:TOFMD} wird ersichtlich, dass die Messwerte des TOF-Sensors in der Nähe des Sensors bessere Messungen liefert. Ebenso liefert der Sensor zuverlässige Ergebnisse in grösserer Entfernung. Jedoch ändert sich dies schnell bei Sonnenlicht Einstrahlung. In diesem Fall sind die Werte sehr inkonsistent. Daher wird der Ultraschallsensor als zuverlässiger eingeschätzt.
+Aus der Tabelle \ref{tab:TOFMD} wird ersichtlich, dass die Messwerte des TOF-Sensors in der Nähe des Sensors ein ähnlich gut wie die des Ultraschallsensors. Ebenso liefert der Sensor zuverlässige Ergebnisse in grösserer Entfernung. Jedoch ändert sich dies schnell bei Sonnenlicht Einstrahlung. In diesem Fall sind die Werte sehr inkonsistent. Daher wird der Ultraschallsensor als zuverlässiger eingeschätzt.
 
 \subsection{Linienerkennung / Punkterkennung}
 \subsubsection{Farbsensor}
@@ -226,7 +227,7 @@ Die durchgeführten Tests lieferten die folgenden Messdaten:
 
 Aus den Messdaten geht hervor, dass der Lux-Wert den grössten Unterschied zwischen den getesteten Oberflächen aufweist. Auf der Linie beträgt der Lux-Wert 320, während er auf dem weissen Punkt bei 280 liegt, wodurch die Linie vom Punkt unterschieden werden kann. Die rote Platte hat einen Lux-Wert von 28 und die Fuge einen Wert von 14, die deutlich von den 320 der Linie abweichen. Daher ist es mit dem Farbsensor möglich, die Linie zu erkennen.
 
-Ein erheblicher Nachteil ergibt sich jedoch durch die Belichtungszeit. Da alle 101 ms ein neuer Messwert geliefert wird, bedeutet dies, dass bei einer maximalen Geschwindigkeit von 20 cm/s alle 2 cm ein neuer Wert erfasst werden kann. Dies könnte dazu führen, dass der Farbsensor die Linie verliert oder von ihr abweicht, bevor er einen neuen Messwert einlesen kann. Aus diesem Grund scheidet der Farbsensor aus.
+Ein erheblicher Nachteil ergibt sich jedoch durch die Belichtungszeit. Da alle 101 ms ein neuer Messwert geliefert wird, bedeutet dies, dass bei einer maximalen Geschwindigkeit von 20 cm/s alle 2 cm ein neuer Wert erfasst werden kann. Dies könnte dazu führen, dass der Farbsensor die Linie verliert oder von ihr abweicht, bevor er einen neuen Messwert einlesen kann. Aus diesem Grund scheidet der Farbsensor als Liniensensor aus.
 
 
 \subsubsection{Infrarot-Linien-Array}

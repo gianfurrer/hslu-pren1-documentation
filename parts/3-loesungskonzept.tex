@@ -22,20 +22,32 @@ Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Ablauf des Robot
 
 
 \subsection{Wegfindung} %Objekterekennung, idealer Weg, 
-
+Die Objekterkennung wird mithilfe eines Raspberry Pi und der dazugehörigen Pi-Kamera durchgeführt. Dabei werden Pylonen, Hindernisse und Wegpunkte erkannt. Als Software kommt YOLO zum Einsatz. Die erfassten Daten dienen anschliessend der Wegfindung, wobei versucht wird, den kürzest möglichen Weg ohne Pylonen zu ermitteln. Hierfür wird der Dijkstra-Algorithmus verwendet. Da anfangs wahrscheinlich nicht das gesamte Feld erfasst wird, wird jeweils der nächstbeste Punkt bestimmt und die Prozedur dort wiederholt.
 
 \subsection{Fortbewegung} 
 
-1. Raspberry PI schickt Winkel
+Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Wie der Name schon erahnen lässt, handelt es sich dabei um ein ähnliches System, wie wir es von Staubsauger-Robotern kennen. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht.
+
+Als Antriebsmotoren werden Brushed-DC-Motoren verwendet, die über eine H-Brücke mit einem PWM-Signal angesteuert werden können. Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22, der die H-Brücke kontrolliert.
+
+Der TinyK22 ist über eine UART-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Schnittstelle}). Zunächst sendet der TinyK22 das gewünschte Ziel an den Raspberry Pi. Anschliessend teilt der Raspberry Pi dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um den nächsten Zielpunkt zu erreichen. Dreht sich das Fahrzeug auf die angepeilte Linie, erkennt dies der Liniensensor. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat.
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{img/lösungskonzpet/Skizzen/UART_Schnittstelle.png}
+\caption{UART Schnittstelle}
+\label{img:UART_Schnittstelle}
+\end{figure}
+Das Fahrzeug folgt der Linie mithilfe des Liniensensors. Erkennt der Sensor eine breitere Linie, also einen Punkt, informiert der TinyK22 den Raspberry Pi, stoppt das Fahrzeug, und der Vorgang beginnt erneut. Sobald das Fahrzeug den Zielpunkt erreicht, signalisiert der Raspberry Pi dies dem TinyK22, der daraufhin eine LED blinken lässt.
+%Schnittstelle Raspy zurüfür Richtung, Antrieb, Mechanik, Zielsignal, Liniensensor, Anhalten
 
 
-
-%Schnittstelle Raspy zurüfür Richtung, Antrieb, Mechanik, Zielsignal, Liniensensor
-
-% Anhalten
 \subsection{Hindernisbewältigung} %Hindernisvermessung, Antrieb, Mechanik,
-
-
+Erkennt der Ultraschallsensor ein Hindernis auf der Linie, wird dies kontinuierlich während der Fahrt überwacht. Sobald ein Hindernis in 30 cm Entfernung detektiert wird, verlangsamt sich das Fahrzeug und fährt langsam darauf zu, bis es zwischen den zwei Klemmbacken positioniert ist. Diese Distanz ist vorprogrammiert, und das Fahrzeug hält an. Danach wird der Schrittmotor angesteuert, der das Hindernis ergreift und mit einem Mechanismus anhebt.
+Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermessung die Distanz überwacht. Danach dreht es sich um 180 Grad, und der Schrittmotor löst die Klemmen. Das Fahrzeug fährt nun ein Stück zurück, um das Hindernis nicht mehr zwischen den Klemmbacken zu haben, und vollzieht eine weitere 180-Grad-Drehung. Abschliessend fährt das Fahrzeug mithilfe des Liniensensors entlang der Linie zum nächsten Punkt.
+\begin{figure}[H]
+\includegraphics[width=0.9\textwidth]{img/lösungskonzpet/Skizzen/Skizze_Hindernisbewältigung.png}
+\caption{Hindernisbewältigung}
+\label{img:Skizze_Hindernisbewältigung}
+\end{figure}
 
 
 

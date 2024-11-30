@@ -9,12 +9,19 @@
 
 In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel'' (siehe Anhang \ref{a3:loesungsvariante_Simpel}) näher erläutert. Wieso das Lösungskonzept ''Beweglich'' ausgeschieden ist, lese im Anhang \ref{a3:EntscheidLösungsvariante}. Bei dem gewählten Konzept liegt der Schwerpunkt auf einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. Im folgenden Text wird für jede Teilfunktion die einfachste Lösung erarbeitet und beschrieben.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{img/lösungskonzpet/Skizzen/Skizze_Fahrzeug.png}
+\caption{Skizze Fahrzeug}
+\label{img:Skizze_Fahrzeug}
+\end{figure}
+
 \subsection{Ablauf}
 
 Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Ablauf des Roboters von Start bis Ziel übersichtlich aufgezeigt.
 
 \begin{figure}[H]
-\includegraphics[width=\textwidth]{img/lösungskonzpet/Ablaufdiagramm.png}
+\includegraphics[width=0.9\textwidth]{img/lösungskonzpet/Ablaufdiagramm.png}
 \caption{Ablaufdiagramm}
 \label{img:ablaufdiagramm}
 \end{figure}
@@ -24,6 +31,8 @@ Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Ablauf des Robot
 \subsection{Wegfindung} %Objekterekennung, idealer Weg, 
 Die Objekterkennung wird mithilfe eines Raspberry Pi und der dazugehörigen Pi-Kamera durchgeführt. Dabei werden Pylonen, Hindernisse und Wegpunkte erkannt. Als Software kommt YOLO zum Einsatz. Die erfassten Daten dienen anschliessend der Wegfindung, wobei versucht wird, den kürzest möglichen Weg ohne Pylonen zu ermitteln. Hierfür wird der Dijkstra-Algorithmus verwendet. Da anfangs wahrscheinlich nicht das gesamte Feld erfasst wird, wird jeweils der nächstbeste Punkt bestimmt und die Prozedur dort wiederholt.
 
+
+
 \subsection{Fortbewegung} 
 
 Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Wie der Name schon erahnen lässt, handelt es sich dabei um ein ähnliches System, wie wir es von Staubsauger-Robotern kennen. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht.
@@ -32,7 +41,8 @@ Als Antriebsmotoren werden Brushed-DC-Motoren verwendet, die über eine H-Brück
 
 Der TinyK22 ist über eine UART-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Schnittstelle}). Zunächst sendet der TinyK22 das gewünschte Ziel an den Raspberry Pi. Anschliessend teilt der Raspberry Pi dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um den nächsten Zielpunkt zu erreichen. Dreht sich das Fahrzeug auf die angepeilte Linie, erkennt dies der Liniensensor. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat.
 \begin{figure}[H]
-\includegraphics[width=0.9\textwidth]{img/lösungskonzpet/Skizzen/UART_Schnittstelle.png}
+\centering
+\includegraphics[width=0.7\textwidth]{img/lösungskonzpet/Skizzen/UART_Schnittstelle.png}
 \caption{UART Schnittstelle}
 \label{img:UART_Schnittstelle}
 \end{figure}
@@ -44,14 +54,16 @@ Das Fahrzeug folgt der Linie mithilfe des Liniensensors. Erkennt der Sensor eine
 Erkennt der Ultraschallsensor ein Hindernis auf der Linie, wird dies kontinuierlich während der Fahrt überwacht. Sobald ein Hindernis in 30 cm Entfernung detektiert wird, verlangsamt sich das Fahrzeug und fährt langsam darauf zu, bis es zwischen den zwei Klemmbacken positioniert ist. Diese Distanz ist vorprogrammiert, und das Fahrzeug hält an. Danach wird der Schrittmotor angesteuert, der das Hindernis ergreift und mit einem Mechanismus anhebt.
 Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermessung die Distanz überwacht. Danach dreht es sich um 180 Grad, und der Schrittmotor löst die Klemmen. Das Fahrzeug fährt nun ein Stück zurück, um das Hindernis nicht mehr zwischen den Klemmbacken zu haben, und vollzieht eine weitere 180-Grad-Drehung. Abschliessend fährt das Fahrzeug mithilfe des Liniensensors entlang der Linie zum nächsten Punkt.
 \begin{figure}[H]
-\includegraphics[width=0.9\textwidth]{img/lösungskonzpet/Skizzen/Skizze_Hindernisbewältigung.png}
+\centering
+\includegraphics[width=0.8\textwidth]{img/lösungskonzpet/Skizzen/Skizze_Hindernisbewältigung.png}
 \caption{Hindernisbewältigung}
 \label{img:Skizze_Hindernisbewältigung}
 \end{figure}
 
 
 
-
+\subsection{Energiequelle}
+Aus der Technologierecherche hat sich herausgestellt, dass der LiPo-Akku der am besten geeignete Akku im Vergleich zu Li-Ion- und NiMH-Akkus ist. Dies liegt insbesondere an seiner höheren Leistungsdichte, besseren Leistungsabgabe und der Flexibilität in der Formgebung. Weitere Details dazu können im Anhang unter  \ref{a3:Energiequelle} nachgelesen werden.
 
 
 
@@ -70,6 +82,14 @@ Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermess
 % Problem Kap
 % 
 
+
+
+
+
+
+
+
+% Alter Teil===========================================================================================================================================================
 
 \subsection{Fortbewegung}
 
@@ -128,10 +148,6 @@ TODO: Gian
 
 
 
-\subsection{Punktverifizierung}
-Der Punkt wird auf die gleiche Weise wie die Linie mit dem Liniensensor erkannt. Der Liniensensor ist so breit wie der Punkt, was bedeutet, dass, wenn der Liniensensor auf dem Punkt platziert ist, alle Fototransistoren gleichzeitig die Linie erkennen. Dieser Zustand signalisiert, dass das Fahrzeug auf einem Punkt steht.
-
-
 \subsection{Objekterkennung Software}
 
 
@@ -150,8 +166,7 @@ Je nach neu erhaltener Information werden andere Anpassungen am Graphen vorgenom
     \item Hindernis auf Linie erkannt: Linie (Kante) erhält mehr Gewichtung.
 \end{itemize}
 
-\subsection{Energiequelle}
-Aus der Technologierecherche hat sich herausgestellt, dass der LiPo-Akku der am besten geeignete Akku im Vergleich zu Li-Ion- und NiMH-Akkus ist. Dies liegt insbesondere an seiner höheren Leistungsdichte, besseren Leistungsabgabe und der Flexibilität in der Formgebung. Weitere Details dazu können im Anhang unter der Sektion Konzeptfindung \ref{a3:Energiequelle} nachgelesen werden.
+
 
 \newpage
 \subsection{Aufnahme Hindernis}

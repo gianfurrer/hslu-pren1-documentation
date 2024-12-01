@@ -5,14 +5,22 @@
 \newpage
 \section{Lösungskonzept}
 
-In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel'' (siehe Anhang \ref{a3:loesungsvariante_Simpel}) näher erläutert. Wieso das Lösungskonzept ''Beweglich'' ausgeschieden ist, lese im Anhang \ref{a3:EntscheidLösungsvariante}. Bei dem gewählten Konzept liegt der Schwerpunkt auf einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. Im folgenden Text wird für jede Teilfunktion die einfachste Lösung erarbeitet und beschrieben.
+In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel'' (siehe Anhang \ref{a3:loesungsvariante_Simpel}) näher erläutert. Wieso das Lösungskonzept ''Beweglich'' ausgeschieden ist, lese im Anhang \ref{a3:EntscheidLösungsvariante}. Bei dem gewählten Konzept liegt der Schwerpunkt auf einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. In der Abbildung \ref{img:Konzept-Skizze_Fahrzeug} ist eine Skizze von dem gewählten Lösungskonzept zu sehen.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.85\linewidth]{Skizze Konzept beschriftet.png}
-\caption{Konzept-Skizze Fahrzeug}
+\caption{Skizze des Lösungskonzepts}
 \label{img:Konzept-Skizze_Fahrzeug}
 \end{figure}
+
+\subsection{Aufbau}
+
+TODO: Beschreiben, wie die einzelnen Teile, die auf der Skizze zu sehen sind, zusammenhängen
+
+Der Roboter besteht aus zwei (TODO welche) Rädern, die mit jeweils einem DC-Motor angetrieben werden.
+
+Die Kamera befindet sich auf einem höhenverstellbaren Masten. Die Höhe der Kamera kann dadurch zwischen 40 und 60 Zentimeter variabel eingestellt werden. Der Winkel der Kamera kann ebenfalls eingestellt werden. Somit kann die Kamera-Position im späteren Verlauf des Projektes einfach optimiert werden.
 
 \subsection{Ablauf}
 
@@ -24,21 +32,15 @@ Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Ablauf des Robot
 \label{img:ablaufdiagramm}
 \end{figure}
 
-\subsection{Objekterkennung} %Objekterekennung, idealer Weg, 
-Die Objekterkennung wird mithilfe eines Raspberry Pi und der dazugehörigen Pi-Kamera durchgeführt. Dabei werden Pylonen, Hindernisse und Wegpunkte erkannt. Als Software kommt YOLO zum Einsatz (Anhang \ref{a3:Objekterkennung}. Diese Daten werden dann für die Wegfindung genutzt. Das Ziel ist, möglichst viel des Graphen zu erfassen und auszuwerten. Gelingt dies nicht, wird am nächsten Punkt eine weite Objektkennung durchgeführt. 
+\newpage
+\subsection{Zielauswahl}
+\imagefloat{img/lösungskonzpet/Skizzen/Zielauswahl.png}{Zielauswahl (Ausschnitt Abbildung \ref{img:Konzept-Skizze_Fahrzeug})}{5cm}
 
-\subsection{Wegfindungssoftware}
+Das Ziel des Roboters muss vor dem Start ausgewählt werden. Die Auswahlmöglichkeiten sind A, B oder C. Jede dieser Optionen kann über einen physischen Knopf am Roboter festgelegt werden.
 
-Um den schnellsten Weg ins Ziel zu finden, wird der Graph in der Software abgespeichert
-und der kürzeste Weg mittels Dijkstra Algorithmus berechnet(Anhang \ref{a3:Wegfindung}. Sobald neue Informationen der Strecke erkannt werden, wird der Graph entsprechend angepasst und der kürzeste Weg wird anhand der aktuellen Position neu ermittelt.
-Ursprünglich haben alle Linien im Graphen eine einheitliche Gewichtung. 
+Neben der Zielauswahl befindet sich der Knopf zum Starten des Fahrzeugs. Dieser funktioniert erst, wenn ein Ziel ausgewählt wurde. Bei einer mehrfachen Zielauswahl wird das zuletzt gewählte Ziel angesteuert.
 
-Je nach neu erhaltener Information werden andere Anpassungen am Graphen vorgenommen:
-\begin{itemize}
-    \item Pylon auf Wegpunkt erkannt: Wegpunkt (Knote) wird aus dem Graphen entfernt
-    \item Linie wurde entfernt: Linie (Kante) wird aus dem Graphen entfernt.
-    \item Hindernis auf Linie erkannt: Linie (Kante) erhält mehr Gewichtung.
-\end{itemize}
+Sobald der Roboter im Ziel angekommen ist, erleuchtet die LED, welche sich neben dem Start-Knopf befindet. 
 
 \subsection{Fortbewegung} 
 
@@ -50,7 +52,7 @@ Der TinyK22 ist über eine UART-Schnittstelle mit dem Raspberry Pi verbunden (si
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.7\textwidth]{img/lösungskonzpet/Skizzen/UART_Schnittstelle.png}
+\includegraphics[width=\textwidth]{img/lösungskonzpet/Skizzen/UART_Schnittstelle.png}
 \caption{UART Schnittstelle}
 \label{img:UART_Schnittstelle}
 \end{figure}
@@ -59,7 +61,20 @@ Das Fahrzeug folgt der Linie mithilfe des Liniensensors. Erkennt der Sensor eine
 
 \newpage
 
-\subsection{Hindernisbewältigung} %Hindernisvermessung, Antrieb, Mechanik,
+\subsection{Wegfindung}
+
+Um den schnellsten Weg ins Ziel zu finden, wird der vorgegebene Graph in der Software gespeichert und der kürzeste Weg mittels des Dijkstra-Algorithmus berechnet (siehe Anhang \ref{a3:Wegfindung}). Sobald die Kamera neue Informationen über die Strecke erkennt (siehe \ref{sub:Objekterkennung}), wird der Graph entsprechend angepasst, und der kürzeste Weg wird anhand der aktuellen Position neu berechnet. Ursprünglich haben alle Linien im Graphen eine einheitliche Gewichtung.
+
+Je nach neu erhaltener Information werden folgende Anpassungen am Graphen vorgenommen: \begin{itemize} 
+  \item Pylon auf Wegpunkt erkannt: Der Wegpunkt (Knoten) wird aus dem Graphen entfernt.
+  \item Linie wurde entfernt: Die Linie (Kante) wird aus dem Graphen entfernt. 
+  \item Hindernis auf Linie erkannt: Die Linie (Kante) erhält eine höhere Gewichtung.
+\end{itemize}
+
+\subsubsection{Objekterkennung} \label{sub:Objekterkennung}
+Die Objekterkennung wird mithilfe einer weitwinkligen Raspberry Pi Camera Module 3 Kamera durchgeführt. Dabei werden Pylonen, Hindernisse und Wegpunkte erkannt. Als Software kommt YOLO zum Einsatz (Anhang \ref{a3:Objekterkennung}). Die erkannten Objekte werden für die Wegfindung genutzt. Das Ziel ist es, von Anfang an möglichst viele Objekte zu erfassen und auszuwerten. Da dies jedoch nicht garantiert werden kann, wird die Objekterkennung bei jedem Wegpunkt durchgeführt. 
+
+\subsection{Hindernisbewältigung}
 Der Ultraschallsensor überwacht kontinuierlich, ob sich ein Hindernis auf der Linie befindet (siehe Anhang \ref{a3:Objekterkennung_Sensor}). Sobald ein Hindernis in 30 cm Entfernung detektiert wird, verlangsamt sich das Fahrzeug und fährt langsam darauf zu, bis es zwischen den zwei seitlichen Klemmbacken positioniert ist. Diese Distanz ist vorprogrammiert, und das Fahrzeug hält an. Danach wird der Schrittmotor angesteuert, der das Hindernis ergreift und mit einem Mechanismus anhebt (Anhang \ref{a3:Hindernisbewältigungsantrieb} und \ref{a3:Aufnahme_Hindernis}).
 Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermessung die Distanz überwacht. Danach dreht es sich um 180 Grad, und der Schrittmotor löst die Klemmen. Das Fahrzeug fährt nun ein Stück zurück, um das Hindernis nicht mehr zwischen den Klemmbacken zu haben, und vollzieht eine weitere 180-Grad-Drehung. Abschliessend fährt das Fahrzeug mithilfe des Liniensensors entlang der Linie zum nächsten Punkt(siehe Abbildung \ref{img:Skizze_Hindernisbewältigung}.
 
@@ -74,33 +89,5 @@ Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermess
 
 \subsection{Energiequelle}
 Aus der Technologierecherche hat sich herausgestellt, dass der LiPo-Akku der am besten geeignete Akku im Vergleich zu Li-Ion- und NiMH-Akkus ist. Dies liegt insbesondere an seiner höheren Leistungsdichte, besseren Leistungsabgabe und der Flexibilität in der Formgebung. Weitere Details dazu können im Anhang unter  \ref{a3:Energiequelle} nachgelesen werden.
-
-
-
-
-
-
-
-
-
-
-% Alter Teil===========================================================================================================================================================
-
-
-
-
-\subsubsection{Streckenerkennung Kamera}
-
-TODO: Gian
-- Wegpunkt wird mittels Objekterkennung erkannt (siehe ref)
-- Linien bei Wegpunkt erkennen
-  - Canny Edge Detection (Technologierecherche)
-  - Hough Line Transform
-
-
-
-
-
-
 
 \end{document}

@@ -729,11 +729,9 @@ PREN 1}
 % Floating image (text wrap)
 \newcommand\imagefloat[3]{
   \begin{wrapfigure}{r}{#3}
-
     \captionbox{#2\label{fig:#1}}{
       \includegraphics[width=#3]{#1}
     }
-
   \end{wrapfigure}
 }
 

@@ -81,7 +81,7 @@ R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste un
     Zudem wird der TinyK22 bevorzugt, da die Elektrotechniker bisher keine Erfahrung mit Arduinos haben und der TinyK22 bereits intensiv im Unterricht behandelt wurde. Das Ziel der Gruppe ist es, das Ziel sicher zu erreichen, und dafür eignet sich die ''Simpel''-Lösungsvariante am besten.
     
     \subsubsection{Fortbewegung}
-
+    \label{a3:Fortbewegung}
     Damit eine genauere Analyse zwischen Mecanum-Rädern und dem Prinzip Roomba durchgeführt werden kann, wird eine Nutzwertanalyse erstellt. Der Gewinner ist das Prinzip Roomba (ersichtlich in Tabelle \ref{tab:nutzwertanalyse_fortbewegung}).
 
     \begin{table}[H]
@@ -124,6 +124,10 @@ R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste un
 
 \subsubsection{Ersatz Rotation}
 
+Das Prinzip Roomba ist von allen recherchierten\ref{recherche-prinzip-roomba} Fortbewegungssystemen dasjenige, welches mit den wenigsten Komponenten auskommt und den geringsten Programmieraufwand benötigt. Dadurch verspricht es robust und am wenigsten fehleranfällig zu sein. Als Stützelement wird nicht wie üblich ein drehbares Rad verwendet, sondern ein Gleitelement. Der Grund dafür ist die Gefahr, dass bei einem Rad ein Versatz entsteht, wenn es sich neu ausrichten muss. Das Problem kann man sich wie bei einem Einkaufswagen vorstellen: Wenn man damit wenden will, fährt der Einkaufswagen bekanntlich immer einen kleinen Schwenker, bevor die Räder wieder in die gewünschte Richtung zeigen.
+
+Eine andere Möglichkeit wäre eine Kugel, jedoch hat ein etwas grossflächigeres Gleitelement den Vorteil, dass es weniger in die Plattenfugen rutscht. Das Gleitelement wird im hinteren Teil des Fahrzeuges angebracht, weil vorne aufgrund des Mechanismus zur Hindernisaufnahme kein Platz dafür besteht. Bei dieser Anordnung muss darauf geachtet werden, dass der Schwerpunkt des Fahrzeuges auch mit aufgenommenem Hindernis hinter der Kippachse (Achse der Antriebsräder) liegt. Dies wird mit der Anordnung des Akkus im hintersten Teil des Fahrzeuges sichergestellt.
+
 Das Risiko R15 ''Verschieben bei Drehung'' (siehe Kapitel \ref{risikomatrix}) wird mitigiert,
 in dem optional eine zusätzliche Funktion für das Drehen des Fahrzeugs eingebaut werden kann, falls das Risiko eintreten sollte.
 
@@ -131,7 +135,12 @@ Bei dieser Ersatz-Rotation würde das Fahrzeug aufgebockt werden um sich zu dreh
 Diese Methode ist zwar viel langsamer, würde jedoch sicherstellen, dass sich das Fahrzeug 
 beim Drehen nicht verschiebt.
 
+
+
+
+
 \subsubsection{Fahrantrieb}
+\label{a3:Fahrantrieb}
 Bei der Auslegung des Antriebs ergaben sich drei Varianten. Der Schrittmotor, DC-Motor und der Brushlessmotor. Da die Ansteuerung möglichst einfach gehalten werden soll, ist der Brushlessmotor mit seiner komplexeren Ansteuerung ungeeignet. Der Vorteil des Schrittmotors ist, dass dieser nicht unbedingt auf einen Encoder oder ähnliches angewiesen ist. Dieser kann man genau schrittweise ansteuern und somit seine Position verfolgen. Der Nachteil ist, dass es ein Open-Loop Regelung wäre, also ohne Rückführgrösse. Dies bedeutet bei einer mechanischen Überlastung, würde der Schrittmotor trotz allem die nicht gefahrenen Schritte zurückmelden. Auch dieser Motor hat eine schwierigere Ansteuerung mithilfe von Drivers. Der DC-Motor ist dagegen der einfachste zum Ansteuern. Dieser benötigt eine H-Brücke, die einfach anzusteuern ist. Ausserdem kann man hohe Drehmoment mittels Übersetzungen erreichen. Das macht den DC-Motor zum bevorzugten Antriebsmotor für die Fahrt.
 
 

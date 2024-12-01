@@ -36,9 +36,9 @@ Die Objekterkennung wird mithilfe eines Raspberry Pi und der dazugehörigen Pi-K
 
 \subsection{Fortbewegung} 
 
-Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Wie der Name schon erahnen lässt, handelt es sich dabei um ein ähnliches System, wie wir es von Staubsauger-Robotern kennen. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht.
+Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Wie der Name schon erahnen lässt, handelt es sich dabei um ein ähnliches System, wie wir es von Staubsauger-Robotern kennen. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Weitere Details dazu befinden sich im Anhang unter \ref{a3:}
 
-Als Antriebsmotoren werden Brushed-DC-Motoren verwendet, die über eine H-Brücke mit einem PWM-Signal angesteuert werden können. Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22, der die H-Brücke kontrolliert.
+Als Antriebsmotoren werden Brushed-DC-Motoren verwendet, die über eine H-Brücke mit einem PWM-Signal angesteuert werden können. Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22, der die H-Brücke ansteuert. Weitere Details können im Anhang unter \ref{a3:Fahrantrieb} nachgeschlagen werden.
 
 Der TinyK22 ist über eine UART-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Schnittstelle}). Zunächst sendet der TinyK22 das gewünschte Ziel an den Raspberry Pi. Anschliessend teilt der Raspberry Pi dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um den nächsten Zielpunkt zu erreichen. Dreht sich das Fahrzeug auf die angepeilte Linie, erkennt dies der Liniensensor. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat.
 \begin{figure}[H]
@@ -49,6 +49,8 @@ Der TinyK22 ist über eine UART-Schnittstelle mit dem Raspberry Pi verbunden (si
 \end{figure}
 Das Fahrzeug folgt der Linie mithilfe des Liniensensors. Erkennt der Sensor eine breitere Linie, also einen Punkt, informiert der TinyK22 den Raspberry Pi, stoppt das Fahrzeug, und der Vorgang beginnt erneut. Sobald das Fahrzeug den Zielpunkt erreicht, signalisiert der Raspberry Pi dies dem TinyK22, der daraufhin eine LED blinken lässt.
 %Schnittstelle Raspy zurüfür Richtung, Antrieb, Mechanik, Zielsignal, Liniensensor, Anhalten
+
+
 
 
 \subsection{Hindernisbewältigung} %Hindernisvermessung, Antrieb, Mechanik,
@@ -69,6 +71,18 @@ Aus der Technologierecherche hat sich herausgestellt, dass der LiPo-Akku der am 
 
 
 
+\subsection{Wegfindungssoftware}
+
+Um den schnellsten Weg ins Ziel zu finden, wird der Graph in der Software abgespeichert
+und der kürzeste Weg mittels Dijkstra Algorithmus berechnet. Sobald neue Informationen der Strecke erkannt werden, wird der Graph entsprechend angepasst und der kürzeste Weg wird anhand der aktuellen Position neu ermittelt.
+Ursprünglich haben alle Linien im Graphen eine einheitliche Gewichtung. 
+
+Je nach neu erhaltener Information werden andere Anpassungen am Graphen vorgenommen:
+\begin{itemize}
+    \item Pylon auf Wegpunkt erkannt: Wegpunkt (Knote) wird aus dem Graphen entfernt
+    \item Linie wurde entfernt: Linie (Kante) wird aus dem Graphen entfernt.
+    \item Hindernis auf Linie erkannt: Linie (Kante) erhält mehr Gewichtung.
+\end{itemize}
 
 
 
@@ -91,30 +105,6 @@ Aus der Technologierecherche hat sich herausgestellt, dass der LiPo-Akku der am 
 
 
 % Alter Teil===========================================================================================================================================================
-
-\subsection{Fortbewegung}
-
-Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Wie der Name schon erahnen lässt, handelt es sich dabei um ein ähnliches System, wie wir es von Staubsauger-Robotern kennen. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Das Prinzip Roomba ist von allen recherchierten\ref{recherche-prinzip-roomba} Fortbewegungssystemen dasjenige, welches mit den wenigsten Komponenten auskommt und den geringsten Programmieraufwand benötigt. Dadurch verspricht es robust und am wenigsten fehleranfällig zu sein. Als Stützelement wird nicht wie üblich ein drehbares Rad verwendet, sondern ein Gleitelement. Der Grund dafür ist die Gefahr, dass bei einem Rad ein Versatz entsteht, wenn es sich neu ausrichten muss. Das Problem kann man sich wie bei einem Einkaufswagen vorstellen: Wenn man damit wenden will, fährt der Einkaufswagen bekanntlich immer einen kleinen Schwenker, bevor die Räder wieder in die gewünschte Richtung zeigen.
-
-Eine andere Möglichkeit wäre eine Kugel, jedoch hat ein etwas grossflächigeres Gleitelement den Vorteil, dass es weniger in die Plattenfugen rutscht. Das Gleitelement wird im hinteren Teil des Fahrzeuges angebracht, weil vorne aufgrund des Mechanismus zur Hindernisaufnahme kein Platz dafür besteht. Bei dieser Anordnung muss darauf geachtet werden, dass der Schwerpunkt des Fahrzeuges auch mit aufgenommenem Hindernis hinter der Kippachse (Achse der Antriebsräder) liegt. Dies wird mit der Anordnung des Akkus im hintersten Teil des Fahrzeuges sichergestellt.
-
-\subsection{Ersatz Rotation}    % Gibt es ein besseren Teilfunktion beschrieb für das???
-
-
-
-\subsection{Fahrantrieb}
-Als Fahrantriebe wurden zwei DC-Getriebemotoren mit Encodern gewählt. DC-Motoren lassen sich einfach mit H-Brücken steuern, wodurch die Drehzahl über ein PWM-Signal geregelt werden kann. Darüber hinaus ermöglicht diese Steuerung die Anpassung der Drehrichtung sowie das Bremsen oder Beschleunigen des Motors. Der Encoder sorgt für einen geschlossenen Regelkreis, sodass die Position des Fahrzeugs jederzeit im Programm berechnet werden kann. Dies ist besonders wichtig für das Anforderungskriterium 4.1, wie in Tabelle \ref{tab:Anforderungsliste} aufgeführt ist. Aus diesem Grund wurde der Schrittmotor ausgeschlossen, da er einen offenen Regelkreis besitzt, bei dem die Gefahr besteht, dass Schritte verloren gehen. Zudem ist die Ansteuerung eines Schrittmotors komplexer als die eines DC-Motors.
-
-
-\subsection{Hindernisbewältigungsantrieb}
-
-
-
-\subsection{Sensorik Positionsabfrage}
-Für die Bestimmung der Position des Fahrzeugs wird ein Encoder gewählt, der direkt zusammen mit dem DC-Motor bezogen werden kann. Bei jeder Umdrehung des Motors gibt der Encoder eine bestimmte Anzahl von Impulsen aus. Diese Technologie ist sehr einfach und benötigt lediglich einen Eingang, ohne dass eine I2C-Schnittstelle oder ein weiterer Kommunikationskanal erforderlich ist. Im Gegensatz dazu erfordert ein Beschleunigungssensor einen zusätzlichen Kommunikationskanal. Zudem kumuliert der Fehler eines Beschleunigungssensors mit der Betriebszeit, was zu unzuverlässigen Messwerten führen kann. Aufgrund dieser Nachteile wird der Beschleunigungssensor von vornherein ausgeschlossen. Daher fällt die Wahl auf den Encoder, der aufgrund seiner Einfachheit und Zuverlässigkeit die bevorzugte Lösung darstellt.
-
-
-\subsection{Bilderkennungssteuerung}
 
 
 
@@ -154,18 +144,6 @@ TODO: Gian
 
 
 
-\subsection{Wegfindungssoftware}
-
-Um den schnellsten Weg ins Ziel zu finden, wird der Graph in der Software abgespeichert
-und der kürzeste Weg mittels Dijkstra Algorithmus berechnet. Sobald neue Informationen der Strecke erkannt werden, wird der Graph entsprechend angepasst und der kürzeste Weg wird anhand der aktuellen Position neu ermittelt.
-Ursprünglich haben alle Linien im Graphen eine einheitliche Gewichtung. 
-
-Je nach neu erhaltener Information werden andere Anpassungen am Graphen vorgenommen:
-\begin{itemize}
-    \item Pylon auf Wegpunkt erkannt: Wegpunkt (Knote) wird aus dem Graphen entfernt
-    \item Linie wurde entfernt: Linie (Kante) wird aus dem Graphen entfernt.
-    \item Hindernis auf Linie erkannt: Linie (Kante) erhält mehr Gewichtung.
-\end{itemize}
 
 
 

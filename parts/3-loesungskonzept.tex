@@ -172,8 +172,8 @@ Je nach neu erhaltener Information werden andere Anpassungen am Graphen vorgenom
 \newpage
 \subsection{Aufnahme Hindernis}
 Wie bereits beschrieben wurde das Greifkonzept 'Klemme seitlich' ausgewählt (siehe \ref{loesungsvariante_Simpel}).
-Damit dieses erfolgreich umgesetzt werden kann, wurden Dimensionen vom Greifer definiert  sowie ein passendes Konzept für den Mechanismus gefunden. Zusätzlich wurde der hebe Mechanismus und der Greifmechanismus so konstruiert das es mit einem Motor angesteuert werden kann.
-Die Recherche und Entscheidungen die zu diesen ausgearbeiteten Konzept geführt hat sind im Anhang: \ref{hier muss noch ein Anhang hin} ersichtlich.
+Damit dieses erfolgreich umgesetzt werden kann, wurden Dimensionen vom Greifer definiert  sowie ein passendes Konzept für den Mechanismus gefunden. Zusätzlich wurde der hebe Mechanismus und der Greifmechanismus so konstruiert das es mit einem Motor angesteuert werden kann.\\
+Die Recherche und Entscheidungen die zu diesen ausgearbeiteten Konzept geführt hat sind im Anhang: \ref{hier muss noch ein Anhang hin} ersichtlich. Das Design, ersichtlich in Abbildung \ref{fig:greifarm_oben} und \ref{fig:greifarm_unten} besteht aus einer Kombination von Zahnrädern für die Klemmen sowie einer linearen Bewegung für das Anheben der ganzen Konstruktion mit Hindernis.
 
 \begin{figure}[h!]
     \centering
@@ -201,16 +201,19 @@ Die Recherche und Entscheidungen die zu diesen ausgearbeiteten Konzept geführt 
 \subsubsection{Funktionalitäten}
 Wie bereits im Kapitel \ref{} beschrieben soll das Konzept folgende Anforderungen mit einem Motor erfüllen.
 \begin{enumerate}
-    \item \textbf{Greifen}
-    \item \textbf{Anheben}
-    \item \textbf{Senken}
-    \item \textbf{Loslassen}
+    \item Greifen
+    \item Anheben
+    \item Senken
+    \item Loslassen
 \end{enumerate}
 
 Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigieren.
-korrektur Distanz
-Korrektur Winkel
-Korrektur Offset
+\begin{enumerate}
+    \item Korrektur Winkel (bis zu 15°, siehe Kapitel \ref{loes:winkel_verschiebung})
+    \item Korrektur Distanz (bis zur Hälfte $b$, was 2.25 cm ist, siehe Kapitel \ref{loes:winkel_verschiebung})
+    \item Korrektur Offset (bis zu 2 cm, siehe Kapitel \ref{loes:abstand_klemmen})
+\end{enumerate}
+
 
 \subsubsection{Dimensionen Greifarm}
 Wie bereits im Kapitel \ref{a3:Präzision} erwähnt, ist die Präzision, die mechanisch gewonnen werden kann, sehr relevant für dieses Konzept. Damit dies auch funktioniert, wurden die passenden Dimensionen der Klemme eruiert. 
@@ -237,7 +240,7 @@ Für genügend Sicherheit wurde entschieden das $b = 4.5cm$ ist. Diese Sicherhei
 $\varphi$ wurde 90° gewählt, dies war eine Annahme und wurde im Kapitel \ref{} getestet.
 
 \newpage
-\paragraph{Abstand der Klemmen}
+\paragraph{Abstand der Klemmen} \label{loes:abstand_klemmen}
 Der Abstand der Klemmen wurde anhand der Aufgabenstellung eruiert und ist in Abbildung \ref{img:loes_abstand_klemmen} ersichtlich. Das Hindernis kann 2 cm von der Linie entfernt sein. Das heisst das Maximale Offset ist 2 cm (In Abbildung Orange). Zusätzlich kommt die Winkel Reserve, die Distanz wurde im Kapitel \ref{loes:winkel_verschiebung} eruiert (In der Abbildung Blau). Ebenfalls in der Abbildung enthalten sind Reserve für Fehlmessungen (Rot), Reserve Festigkeit, die für nötig ist, um die Druckkräfte auszuhalten (Violett) und die Hälfte des Hindernis (Gelb)
 
 \begin{figure}[H]

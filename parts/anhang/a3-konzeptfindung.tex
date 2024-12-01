@@ -42,7 +42,7 @@ Da die Erkennung auf einem Raspberry Pi läuft und so viele Bilder pro Sekunde w
 
 R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste und Ressourcen intensivste, weshalb sie bereits in der Vorauswahl ausscheidet.
 
-\newpage
+
 \subsection{Morphologischer Kasten}
 
     \imageheight{assets/MorphologischerKasten.pdf}{Morphologischer Kasten}{0.88\textheight}
@@ -51,7 +51,7 @@ R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste un
     \subsubsection{Variantenbeschreibung}
     \paragraph{Lösungsvariante Simpel (grün)} 
     \label{a3:loesungsvariante_Simpel}
-    Bei der Lösungsvariante ''Simpel'' liegt der Schwerpunkt auf der Einfachheit und Zuverlässigkeit des Konzepts. Die Fortbewegung und Lenkung erfolgen nach dem ''Roomba''-Prinzip, bei dem zwei angetriebene Räder jeweils von einem DC-Motor bewegt werden. Dieses Konzept ermöglicht eine einfache Steuerung und eine Drehung auf der Stelle.
+    Bei der Lösungsvariante ''Simpel'' liegt der Schwerpunkt auf der Einfachheit und Zuverlässigkeit des Konzepts. Die Fortbewegung und Lenkung erfolgen nach dem ''Roomba''-Prinzip, bei dem zwei Räder jeweils von einem DC-Motor angetrieben werden. Dieses Konzept ermöglicht eine einfache Steuerung und eine Drehung auf der Stelle.
 
     Hindernisse werden seitlich geklemmt und aufgenommen, wobei der Antrieb dafür durch einen Schrittmotor realisiert wird. Nach dem Aufnehmen des Hindernisses dreht sich das Fahrzeug um die eigene Achse und setzt es anschliessend wieder ab. Zur Überprüfung der Position der DC-Motoren werden Encoder verwendet. Diese sind aufgrund ihrer einfachen Funktionsweise und ihrer zuverlässigen Ausgabe besonders geeignet.
 
@@ -60,7 +60,9 @@ R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste un
     Pylonen werden mithilfe einer Kamera erkannt, die auch zur allgemeinen Streckenerkennung dient. Für die Erkennung des nächsten Zielpunkts wird eine Kamera verwendet. Ein Liniensensor stellt sicher, dass sich das Fahrzeug korrekt entlang des Klebestreifens bewegt. Der Liniensensor ist dabei die einfachste Lösung zur Linienerkennung. Ähnlich verhält es sich bei der Verifizierung von Wegpunkten, die ebenfalls primär durch den Liniensensor erkannt werden. Dabei wird festgestellt, dass ein Wegpunkt vorliegt, wenn die Linie eine bestimmte Dicke überschreitet. 
 
     Die Software für die Objekterkennung basiert auf YOLO, während für die Wegfindung der Dijkstra-Algorithmus eingesetzt wird. Die Energieversorgung erfolgt durch einen Lithium-Polymer-Akku, aufgrund seiner zahlreichen Vorteile (siehe \ref{subsec:Energiequelle}).
-
+    
+    \newpage
+    
     \paragraph{Lösungsvariante Beweglich (gelb)}
     Bei der Lösungsvariante ''Beweglich'' liegt der Fokus auf der Beweglichkeit des Fahrzeugs. Die Fortbewegung und Lenkung erfolgen mit Mecanum-Rädern, wobei jedes der vier Räder von einem Schrittmotor angetrieben wird. Dadurch kann sich das Fahrzeug in alle vier Richtungen linear bewegen, was es ermöglicht, das Fahrzeug präzise auf ein Hindernis auszurichten.
 
@@ -122,8 +124,6 @@ R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste un
         \label{tab:nutzwertanalyse_fortbewegung}
     \end{table}
 
-\subsubsection{Ersatz Rotation}
-
 Das Prinzip Roomba ist von allen recherchierten\ref{recherche-prinzip-roomba} Fortbewegungssystemen dasjenige, welches mit den wenigsten Komponenten auskommt und den geringsten Programmieraufwand benötigt. Dadurch verspricht es robust und am wenigsten fehleranfällig zu sein. Als Stützelement wird nicht wie üblich ein drehbares Rad verwendet, sondern ein Gleitelement. Der Grund dafür ist die Gefahr, dass bei einem Rad ein Versatz entsteht, wenn es sich neu ausrichten muss. Das Problem kann man sich wie bei einem Einkaufswagen vorstellen: Wenn man damit wenden will, fährt der Einkaufswagen bekanntlich immer einen kleinen Schwenker, bevor die Räder wieder in die gewünschte Richtung zeigen.
 
 Eine andere Möglichkeit wäre eine Kugel, jedoch hat ein etwas grossflächigeres Gleitelement den Vorteil, dass es weniger in die Plattenfugen rutscht. Das Gleitelement wird im hinteren Teil des Fahrzeuges angebracht, weil vorne aufgrund des Mechanismus zur Hindernisaufnahme kein Platz dafür besteht. Bei dieser Anordnung muss darauf geachtet werden, dass der Schwerpunkt des Fahrzeuges auch mit aufgenommenem Hindernis hinter der Kippachse (Achse der Antriebsräder) liegt. Dies wird mit der Anordnung des Akkus im hintersten Teil des Fahrzeuges sichergestellt.
@@ -135,29 +135,27 @@ Bei dieser Ersatz-Rotation würde das Fahrzeug aufgebockt werden um sich zu dreh
 Diese Methode ist zwar viel langsamer, würde jedoch sicherstellen, dass sich das Fahrzeug 
 beim Drehen nicht verschiebt.
 
-
-
-
-
 \subsubsection{Fahrantrieb}
 \label{a3:Fahrantrieb}
 Bei der Auslegung des Antriebs ergaben sich drei Varianten. Der Schrittmotor, DC-Motor und der Brushlessmotor. Da die Ansteuerung möglichst einfach gehalten werden soll, ist der Brushlessmotor mit seiner komplexeren Ansteuerung ungeeignet. Der Vorteil des Schrittmotors ist, dass dieser nicht unbedingt auf einen Encoder oder ähnliches angewiesen ist. Dieser kann man genau schrittweise ansteuern und somit seine Position verfolgen. Der Nachteil ist, dass es ein Open-Loop Regelung wäre, also ohne Rückführgrösse. Dies bedeutet bei einer mechanischen Überlastung, würde der Schrittmotor trotz allem die nicht gefahrenen Schritte zurückmelden. Auch dieser Motor hat eine schwierigere Ansteuerung mithilfe von Drivers. Der DC-Motor ist dagegen der einfachste zum Ansteuern. Dieser benötigt eine H-Brücke, die einfach anzusteuern ist. Ausserdem kann man hohe Drehmoment mittels Übersetzungen erreichen. Das macht den DC-Motor zum bevorzugten Antriebsmotor für die Fahrt.
 
-
 \subsubsection{Hindernisbewältigungsantrieb}
+\label{a3:Hindernisbewältigungsantrieb}
 Für die Hindernisbewältigung wird ebenfalls ein Antrieb benötigt. Dafür wird ein Schrittmotor verwendet. Die aufgeführten Nachteile verlieren in der Hindernisbewältigung an Gewichtung. Da ein Motor mit hohem Drehmoment bei niedriger Drehzahl benötigt wird. Somit kann ein Getriebe eingespart werden. Wird das Hindernis geklemmt, ist die minimale Schrittanzahl bekannt. Diese kann überschritten werden. Klemmt der Schrittmotor das Hindernis bereits vor den minimalen Schritten, hat das nicht Erkennen von nicht gemachten Schritten keinen Einfluss. Die Ausgangsposition kann mittels Endschaltern überprüft werden.
   
-
-\subsubsection{Sensorik Positionsabfrage}
+\subsubsection{Sensorik Positionsabfrage}7
+\label{a3:Sensorik:Positionsabfrage}
 Zur Auswahl stehen ein Encoder und ein Beschleunigungssensor. Der Encoder liefert genauere Daten und der Aufbau ist einfacher. Daher wird ein Encoder verwendet. Der Encoder kann wichtig sein, um die Fahrtrichtung zu kontrollieren. Sind die verwendeten DC-Motoren nicht identisch, so kann ein anderes Fahrverhalten pro Motor entstehen. Durch einen Encoder kann das Fehlverhalten abgefangen und korrigiert werden.
-
 
 \subsubsection{Software Steuerung}
 Bei der Softwaresteuerung kommt wegen der Grösse und Leistung nur das Raspberry Pi in Frage.
 Eine Alternative wäre noch ein Arduino, jedoch reicht dies für leistungsintensive Aufgabe wie
 Objekterkennung nicht aus.
 
+\newpage
+
 \subsubsection{Hardware Steuerung}
+\label{a3:Hardware Steuerung}
 Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware nahe Steuerung, die mit dem Raspberry Pi kommuniziert. Aus der Recherche ergaben sich dafür drei Möglichkeiten. Ein Arduino, TinyK22 oder ein ESP32. Dabei scheidet der ESP32 vor allem durch seine nicht benötigten Funktionen aus. Da es weder Wi-Fi noch Bluetooth benötigt wird. Damit bleiben noch der TinyK22 und ein Arduino-Board. Aufgrund Ihrer Ähnlichkeit wurde eine Nutzwertanalyse erstellt (siehe Tabelle \ref{tab:konzept_nutzwertanalyse_mikrocontroller}).
 
     \begin{table}[H]
@@ -192,9 +190,13 @@ Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware na
             \label{tab:konzept_nutzwertanalyse_mikrocontroller}
         \end{table}
 
-    Da der Unterschied nicht sehr gross ist, wird als erste Wahl der TinyK22 verwendet und das Arduino als Ersatzwahl. Allenfalls könnten beide Boards verwendet werden, die dann miteinander kommunizieren. Beispielsweise gibt es ein Arduino mit zwei UART Schnittstellen. Dieses kann als Kommunikator zum Raspberry und TinyK22 dienen. Hintergrund ist, dass eine Software für die Motorensteuerung per TinyK22 bereits besteht, mit welcher Thomas und Joel bereits gearbeitet haben. Ausserdem würden mit dieser Lösung mehr GPIOs bereitstehen, damit man im Projekt agil reagieren kann und keine hardwaremässigen Limits hat.
+    Der Vorteil des Arduinos liegt in seiner grossen Community und der umfangreichen Online-Hilfe, die zur Verfügung steht. Da jedoch die Elektrotechniker keine Programmiererfahrung in C++ haben und nicht jeder Arduino eine Debugging-Funktion bietet, ist der Arduino nicht die geeignete Lösung.
 
-\subsubsection{Objekterkennung Hardware}
+    Der TinyK22 hingegen wurde im Modul Mc Fun ausführlich behandelt. Er bietet eine benutzerfreundliche Programmierumgebung mit integriertem Debugger und wird in C programmiert. Zudem können bei Fragen die Dozenten konsultiert werden, die bereits über umfangreiche Erfahrung mit dem TinyK22 verfügen. In unserem Anwendungsfall stellt der TinyK22 daher die einfachste und effektivste Lösung für die Programmierung dar.
+
+
+\subsubsection{Objekterkennung Sensor}
+\label{a3:Objekterkennung_Sensor}
  Aus dem Anhang \ref{sec:Hardware_Test}, in welchem die Sensorik getestet wurden, ergaben sich folgende Resultat. Der Ultraschallsensor übermittelt ab einer Distanz von 3 cm zuverlässige Messwerte. Er ist ebenso unabhängig der Sonnenlichteinstrahlung. Der Infrarotsensor reagiert stärker auf Sonnenlichteinstrahlung und misst ungefähr die gleichen Werte. 
 
 
@@ -202,13 +204,14 @@ Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware na
 \subsubsection{Streckenerkennung}
 Für die Streckenerkennung soll eine Kamera verwendet werden. Die Kamera erkennt Hindernisse und Pylonen auf der Strecke und hilft dem Raspberry Pi so die beste Strecke zu ermitteln. Damit das Fahrzeug auf der Linie bleibt wird ein Liniensensor eingesetzt.  Im Anhang \ref{sec:Hardware_Test} wurde ebenfalls die Phototransistoren gemessen, welche für den Liniensensor benötigt werden. Diese Messungen ergaben, dass sich die Aufladezeit des Kondensators gegenüber der verschiedenen Untergründe stark unterscheiden. Für weitere Details siehe Anhang \ref{sec:Hardware_Test}. 
 
-
-
 \subsubsection{Punktverifizierung}
 Um zu erkennen, ob das Fahrzeug sich auf einem Punkt befindet, könnte ein Farbsensor genutzt werden. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Dieser scheidet aufgrund von Tests aus, siehe Anhang \ref{sec:Hardware_Test}. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Weil damit je nach Kamera 1/5 des Budgets aufgebraucht wäre. Es würden zwei benötigt, da die eine Kamera, die für die Strecken und Objekterkennung ist, sich auf einer gewissen Höhe befinden muss. Dagegen muss die Linienkamera möglichst nah an der Linie sein.
 Der Liniensensor könnte den Punkt erkennen, indem er auf die Grösse des Durchmessers des Punktes dimensioniert wird. Das bedeutet, wenn der Liniensensor über dem Punkt ist erkennen alle Phototransistoren die Linie, dies bedeutet es ist ein Punk vorhanden. 
 
+\newpage
+
 \subsubsection{Objekterkennung Software}
+\label{a3:Objekterkennung}
 Bei der Technologierecherche wurden vier verschiedene Objekterkennungsmethoden recherchiert, wobei R-CNN bereits in der Vorauswahl ausschied, weil sie langsam und ressourcenintensiv ist.
 Dieser Abschnitt fokussiert sich darauf, anhand von einer Nutzwertanalyse von den restlichen drei Auswahlen die Beste zu treffen.
 
@@ -274,7 +277,10 @@ YOLO erreicht in der durchgeführten Nutzwertanalyse (siehe Tabelle \ref{tab:nut
 Haar-Cascade ist ebenfalls schnell und ressourcenschonend, schneidet aber in der wichtigsten Kategorie ''Genauigkeit'' schlecht ab.
 CNN, das in der Kategorie Genauigkeit die beste Bewertung erzielte, zeigt deutliche Schwächen in Bezug auf ''Geschwindigkeit'', ''Ressourcenbedarf'' und ''Komplexität''.
 
+\newpage
+
 \subsubsection{Wegfindung}
+\label{a3:Wegfindung}
 Der geeignetste Wegfindungsalgorithmus wird anhand einer Nutzwertanalyse mit den folgenden Kriterien gefunden.
 
 \begin{itemize}
@@ -349,6 +355,8 @@ Der geeignetste Wegfindungsalgorithmus wird anhand einer Nutzwertanalyse mit den
 
 Die Nutzwertanalyse zeigt Dijkstra als deutlichen Gewinner. Dies liegt vor allem an der hohen Genauigkeit, Einfachheit und Effizient. Einzig bei der nicht vorhandenen Dynamik schneidet Dijkstra schlecht ab. Aufgrund des kleinen Graphen spielt das jedoch keine grosse Rolle, da der Weg einfach neu berechnet werden kann.
 
+\newpage
+
 \subsubsection{Energiequelle}
 \label{a3:Energiequelle}
 Zur Auswahl steht ein Li-Po, Li-Ion oder NiMh Akku. Der Li-Po und Li-Ion Akku haben die höhere Energiedichte als der NiMh Akku. Jedoch benötigt der Li-Po Akku einen Laderegler für die Aufladung und der Li-Ionen Akku benötigt eine elektrische Schutzschaltung. Zwischen dem Li-Ion und dem Li-Po Akku gibt es keine weiteren nennenswerten Unterschiede. 
@@ -383,8 +391,9 @@ Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entsche
 
 \newpage
 \subsubsection{Aufnahme Hindernis}
+\label{a3:Aufnahme_Hindernis}
 \subparagraph{Nutzwertanalyse Aufnahme}
-        Damit eine genauere Analyse zwischen Klemme Breitenweg und Klemmung seitlich durchgeführt werden konnte, wurde eine Nutzwertanalyse durchgeführt. Der Gewinner war dank der höheren Präzision Klemme Breitenweg, was auch in Tabelle \ref{tab:konzept_nutzwertanalyse_aufnahme} ersichtlich ist.
+        Damit eine genauere Analyse zwischen Klemme, Breitenweg und Klemmung seitlich durchgeführt werden konnte, wurde eine Nutzwertanalyse durchgeführt. Der Gewinner war dank der höheren Präzision Klemme seitlich, was auch in Tabelle \ref{tab:konzept_nutzwertanalyse_aufnahme} ersichtlich ist.
         
         \begin{table}[H]
         \resizebox{\textwidth}{!}{
@@ -392,7 +401,7 @@ Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entsche
          \renewcommand{\arraystretch}{1.5}
              \begin{tabular}{|c|>{\raggedright} p{3cm}|c|c|c|>{\raggedright} p{3cm}|c|c|>{\raggedright\arraybackslash}p{3cm}|}
                 \hline
-                \multicolumn{3}{|c|}{} & \multicolumn{3}{c|}{\textbf{Klemme Breitenweg}} & \multicolumn{3}{c|}{\textbf{Klemme seitlich}} \\ \hline
+                \multicolumn{3}{|c|}{} & \multicolumn{3}{c|}{\textbf{Klemme seitlich}} & \multicolumn{3}{c|}{\textbf{Klemme Breitenweg}} \\ \hline
                 \textbf{Kriterium} & \textbf{Erklärung} & \textbf{Gewichtung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} & \textbf{Bewertung} & \textbf{Punkte} & \textbf{Begründung} \\ \hline
                 Sicherer Halt & Wie gut hält das Hindernis in der Halterung & 35 & 7 & 245 & Relativ starke Punktlast, aber dennoch sehr guter Halt & 8 & 280 & Große Fläche zur Kraftübertragung, stabil und sehr guter Halt \\ \hline
                 Präzision & Wie präzise ist die Vorrichtung beim abstellen, auch wenn das Fahrzeug nicht genau zentriert bei der Aufnahme vor dem Hindernis steht & 30 & 7 & 210 & Siehe Kapitel Präzision, detaillierte Erklärung & 4 & 120 & Siehe Kapitel Präzision, detaillierte Erklärung \\ \hline
@@ -409,7 +418,7 @@ Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entsche
             
             \subparagraph{Präzision}\label{a3:Präzision}
 
-            In der Nutzwertanalyse wird erwähnt, dass das Kriterium Präzision eine präzisere Erklärung benötigt. Die Präzision der Klemme Breitenweg kann besser erreicht werden als bei der Klemmung seitlich. Einerseits kann, wie in den Abbildungen \ref{img:konzept_zentrierung_1} und \ref{img:konzept_zentrierung_2} gezeigt, eine Zentrierung bei der Klemme Breitenweg eingebaut werden. Diese Zentrierung fehlt bei der Klemmung seitlich. Da unter anderem das Ziel ist, das Hindernis möglichst zentriert wieder auf dem Klebeband abzustellen, verliert hier die Klemmung seitilch an Punkten. In Abbildung \ref{img:konzept_zentrierung_3} wird dargestellt, dass, wenn das Fahrzeug nicht perfekt mittig auf das Hindernis zufährt, automatisch ein Fehler generiert wird, weil das 'Offset' nicht, ohne komplexere Sensorik, miteinbezogen werden kann.
+            In der Nutzwertanalyse wird erwähnt, dass das Kriterium Präzision eine präzisere Erklärung benötigt. Die Präzision der Klemme seitlich kann besser erreicht werden als bei der Klemmung Breitenweg. Einerseits kann, wie in den Abbildungen \ref{img:konzept_zentrierung_1} und \ref{img:konzept_zentrierung_2} gezeigt, eine Zentrierung bei der Klemme seitlich eingebaut werden. Diese Zentrierung fehlt bei der Klemmung Breitenweg. Da unter anderem das Ziel ist, das Hindernis möglichst zentriert wieder auf dem Klebeband abzustellen, verliert hier die Klemmung Breitenweg an Punkten. In Abbildung \ref{img:konzept_zentrierung_3} wird dargestellt, dass, wenn das Fahrzeug nicht perfekt mittig auf das Hindernis zufährt, automatisch ein Fehler generiert wird, weil das 'Offset' nicht, ohne komplexere Sensorik, miteinbezogen werden kann.
 
 
             \begin{figure}[h!]
@@ -417,14 +426,14 @@ Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entsche
                 \begin{minipage}{0.48\textwidth}
                     \centering
                     \includegraphics[width=\linewidth]{img/konzeptfindung/klemme_breitenweg_zentrierung_1.jpeg}
-                    \caption{Darstellung Zentrierung bei Klemme Breitenweg - Bild 1}
+                    \caption{Darstellung Zentrierung bei Klemme seitlich - Bild 1}
                     \label{img:konzept_zentrierung_1}
                 \end{minipage}
                 \hfill
                 \begin{minipage}{0.48\textwidth}
                     \centering
                     \includegraphics[width=\linewidth]{img/konzeptfindung/klemme_breitenweg_zentrierung_2.jpeg}
-                    \caption{Darstellung Zentrierung bei Klemme Breitenweg - Bild 2}
+                    \caption{Darstellung Zentrierung bei Klemme seitlich - Bild 2}
                     \label{img:konzept_zentrierung_2}
                 \end{minipage}
             \end{figure}
@@ -436,6 +445,89 @@ Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entsche
             \caption{Darstellung 'Offset' bei Klemmung seitlich}
         \label{img:konzept_zentrierung_3}
         \end{figure}  
+
+\newpage
+
+\subsubsection{Konzept Aufnahme seitlich}
+\label{a3:Aufnahme_seitlich}
+Wie bereits beschrieben wurde das Greifkonzept 'Klemme seitlich' ausgewählt (siehe \ref{a3:Aufnahme_Hindernis}).
+Damit dieses erfolgreich umgesetzt werden kann, wurden Dimensionen vom Greifer definiert  sowie ein passendes Konzept für den Mechanismus gefunden. Zusätzlich wurde der Hebemechanismus und der Greifmechanismus so konstruiert, dass es mit einem Motor angesteuert werden kann. Dies vereinfacht die Ansteuerung extrem und es werden weniger Sensoren benötigt.
+Das Design, ersichtlich in Abbildung \ref{fig:greifarm_oben} und \ref{fig:greifarm_unten}, besteht aus einer Kombination von Zahnrädern für die Klemmen sowie einer linearen Bewegung für das Anheben der ganzen Konstruktion mit Hindernis.
+
+\begin{figure}[h!]
+    \centering
+    % Erste Minipage für das obere Bild
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/lösungskonzpet/hindernissaufnahme/Greifarm_oben.PNG}
+        \caption{Greifarm oben}
+        \label{fig:greifarm_oben}
+    \end{minipage}
+    \hfill
+    % Zweite Minipage für das untere Bild
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/lösungskonzpet/hindernissaufnahme/Greifarm_unten.PNG}
+        \caption{Greifarm unten}
+        \label{fig:greifarm_unten}
+    \end{minipage}
+\end{figure}
+
+
+
+\paragraph{Funktionalitäten}
+Wie bereits im Kapitel \ref{} beschrieben, soll das Konzept folgende Anforderungen mit einem Motor erfüllen.
+\begin{enumerate}
+    \item Greifen
+    \item Anheben
+    \item Senken
+    \item Loslassen
+\end{enumerate}
+
+Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigieren.
+\begin{enumerate}
+    \item Korrektur-Winkel (bis zu 15°, siehe Kapitel \ref{loes:winkel_verschiebung})
+    \item Korrektur Distanz (bis zur Hälfte $b$, was 2.25 cm ist, siehe Kapitel \ref{loes:winkel_verschiebung})
+    \item Korrektur Offset (bis zu 2 cm, siehe Kapitel \ref{loes:abstand_klemmen})
+\end{enumerate}
+
+\newpage
+
+\paragraph{Dimensionen Greifarm}
+Wie bereits im Kapitel \ref{a3:Präzision} erwähnt, ist die Präzision, die mechanisch gewonnen werden kann, sehr relevant für dieses Konzept. Damit dies auch funktioniert, wurden die passenden Dimensionen der Klemme eruiert. 
+
+\paragraph{Winkel Verschiebung} \label{loes:winkel_verschiebung}
+Nach Aufgabenstellung kann das Hindernis bis zu 15° verschoben sein.
+In der Abbildung \ref{img:loes_winkel_hinderniss} ist dies bildlich dargestellt.
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.48\textwidth]{img/lösungskonzpet/hindernissaufnahme/winkekl_klemmen.jpg}
+        \caption {Möglicher Winkel des Hinderniss}
+        \label{img:loes_winkel_hinderniss}
+\end{figure}
+
+Damit kann $b$ ausgerechnet werden:
+
+\[
+b = 13cm * sin(15) = 3.36cm
+\]
+
+Für genügend Sicherheit wurde entschieden das $b = 4.5cm$ ist. Diese Sicherheit hilft ebenfalls Fehler in der Distanzmessung auszugleichen.
+
+\newpage
+
+\paragraph{Abstand der Klemmen} \label{loes:abstand_klemmen}
+Der Abstand der Klemmen wurde anhand der Aufgabenstellung eruiert und ist in Abbildung \ref{img:loes_abstand_klemmen} ersichtlich. Das Hindernis kann 2 cm von der Linie entfernt sein. Das heisst, das Maximale Offset ist 2 cm (in Abbildung Orange). Zusätzlich kommt die Winkel Reserve, die Distanz wurde im Kapitel \ref{loes:winkel_verschiebung} eruiert (In der Abbildung Blau). Ebenfalls in der Abbildung enthalten sind Reserve für Fehlmessungen (Rot), Reserve Festigkeit, die für nötig ist, um die Druckkräfte auszuhalten (Violett) und die Hälfte des Hindernis (Gelb)
+
+\begin{figure}[H]
+        \centering
+        \includegraphics[width=0.48\textwidth]{img/lösungskonzpet/hindernissaufnahme/dimensionen_klemme.jpg}
+        \caption {Abstand zwischen den Klemmen}
+        \label{img:loes_abstand_klemmen}
+\end{figure}
+
+
 
 
 \end{document}

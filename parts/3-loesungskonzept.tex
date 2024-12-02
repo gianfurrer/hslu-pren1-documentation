@@ -97,7 +97,45 @@ Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermess
 
 
 \subsubsection{Klemmen}
-Die Klemmen erfü
+Die Klemmen, die in Punkt 3 und 6 in der Abbildung \ref{img:Skizze_Hindernisbewältigung} benötigt werden erfüllen gleichzeitig mehrere Funktionen.
 
+\begin{enumerate}
+    \item Greifen
+    \item Anheben
+    \item Senken
+    \item Loslassen
+\end{enumerate}
+
+Alle Funktionen werden mithilfe eines Stepper Motors ausgeübt. Das Design ist in Abbildungen \ref{fig:greifarm_oben} und \ref{fig:greifarm_unten} ersichtlich.
+\newline
+
+Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigieren.
+\begin{enumerate}
+    \item Korrektur-Winkel (bis zu 15°, siehe Kapitel \ref{loes:winkel_verschiebung})
+    \item Korrektur Distanz (bis zur Hälfte $b$, was 2.25 cm ist, siehe Kapitel \ref{loes:winkel_verschiebung})
+    \item Korrektur Offset (bis zu 2 cm, siehe Kapitel \ref{loes:abstand_klemmen})
+\end{enumerate}
+
+\begin{figure}[h!]
+    \centering
+    % Erste Minipage für das obere Bild
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/lösungskonzpet/hindernissaufnahme/Greifarm_oben.jpg}
+        \caption{Greifarm oben}
+        \label{fig:greifarm_oben}
+    \end{minipage}
+    \hfill
+    % Zweite Minipage für das untere Bild
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{img/lösungskonzpet/hindernissaufnahme/Greifarm_unten.jpg}
+        \caption{Greifarm unten}
+        \label{fig:greifarm_unten}
+    \end{minipage}
+\end{figure}
+
+Ersichtlich in Abbildung \ref{fig:greifarm_oben} sind die Klemmen, die durch Zahnräder angetrieben werden, welche wiederum von einem linearen Mechanismus bewegt werden, um gleichzeitig den Hebemechanismus auszulösen. Die Feder sorgt dafür, dass, sobald die nötige Griffkraft erreicht ist, weiterhin eine Bewegung für den Hebemechanismus ermöglicht wird. In Abbildung \ref{fig:greifarm_unten} ist der Hebemechanismus zu sehen, der sich von einer Plattform (nicht im Bild sichtbar) abdrückt. An den Rändern befinden sich acht Löcher, von denen vier für Schrauben und die anderen vier für Führungen genutzt werden, um eine kontrollierte Anhebung des Greifarms durch den Mechanismus sicherzustellen.
+Der Stepper Motor, der den ganzen Mechanismus antreibt, würde sich auf dem Gehäuse befinden. Dieser Mechanismus wurde dafür ausgelegt, um von Hand betrieben zu werden (für Tests). Die Tests des Mechanismus sind im Kapitel \ref{} ersichtlich.
 
 \end{document}

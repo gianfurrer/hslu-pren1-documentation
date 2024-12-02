@@ -279,7 +279,56 @@ In der dritten Messung wurde der Sensor ohne Untergrund, also nur auf die Luft g
 \end{figure}
 
 Aufgrund dieser Ergebnisse wird die Linienerkennung mit Fototransistoren bevorzugt. Mit einem Fototransistor-Array, das mindestens 7 cm breit ist, kann auch der weisse Punkt zuverlässig erkannt werden. Denn auf der Linie wird niemals jeder Fototransistor die Linie gleichzeitig erfassen. Auf dem Punkt hingegen melden alle Fototransistoren die Erkennung der Linie, was darauf hinweist, dass es sich um den Punkt handelt.
+\newpage    
+\subsection{Greifarm} \label{sec:hardware_greifarm}
+Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Greifarm gemacht werden können, wurde ein Prototyp 3D - gedruckt \ref{fig:hardware_test_fertig}. Es wurden diverse Erkenntnisse gewonnen:
 
+\begin{enumerate}
+    \item Der Greifarm kann das Hindernis klemmen.
+    \item Der Hebemechanismus funktioniert nicht, weil die Feder nicht geführt ist.(Siehe Abbildung\ref{fig:hardware_test_klemmen_gleiten})
+    \item Der Mechanismus ist allgemein noch nicht robust:
+    \begin{itemize}
+        \item Für die lineare Bewegung fehlt eine geeignete Führung.
+        \item Die Verbinder zwischen Schieber und Zahnrädern müssen verlängert werden.
+    \end{itemize}
+    \item Zahnräder reiben an der Decke (Der Luftspalt ist zu klein und muss vergrössert werden).
+    \item Alle Löcher sind zu klein (Schrumpfungseffekt durch 3D-Druck). (Siehe Abbildung \ref{fig:hardware_test_loecher})
+    \item Führung des Greifarms vergrössern Schrumpfungseffekt durch 3D-Druck). (Siehe Abbildung \ref{fig:hardware_test_klemmen_gleiten})
+    \item Für ein besseres Verhalten des gesamten Systems Silikonspray verwenden
+\end{enumerate}
 
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=6cm]{img/greifarmtest/prototyp_test_fertig.jpeg}
+        \caption{Prototyp von Aussen}
+        \label{fig:hardware_test_fertig}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=6cm]{img/greifarmtest/prototyp_test_klemmen_gleiten.jpeg}
+        \caption{Führung des Greifarms passt nicht}
+        \label{fig:hardware_test_klemmen_gleiten}
+    \end{minipage}
+\end{figure}
+\newpage
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=6cm]{img/greifarmtest/prototyp_test_loecher.jpeg}
+        \caption{Alle Löcher sind zu klein}
+        \label{fig:hardware_test_loecher}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=6cm]{img/greifarmtest/prototyp_test_schieber.jpeg}
+        \caption{Feder wurde durch einen, temporär durch einen Schieber ersetzt.}
+        \label{fig:hardware_test_schieber}
+    \end{minipage}
+\end{figure}
 
 \end{document}

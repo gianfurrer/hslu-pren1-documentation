@@ -9,18 +9,28 @@ In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel'' (siehe Anhang \r
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\linewidth]{Skizze Konzept beschriftet.png}
+\includegraphics[width=0.85\linewidth]{img/lösungskonzpet/Skizzen/Skizze_Konzept_beschriftet.png}
 \caption{Skizze des Lösungskonzepts}
 \label{img:Konzept-Skizze_Fahrzeug}
 \end{figure}
 
 \subsection{Aufbau}
 
-TODO: Beschreiben, wie die einzelnen Teile, die auf der Skizze zu sehen sind, zusammenhängen
+\textbf{TODO:} 
+- Aufbau mit fehlenden Daten ergänzen.  
+
 
 Der Roboter besteht aus zwei (TODO welche) Rädern, die mit jeweils einem DC-Motor angetrieben werden.
 
-Die Kamera befindet sich auf einem höhenverstellbaren Masten. Die Höhe der Kamera kann dadurch zwischen 40 und 60 Zentimeter variabel eingestellt werden. Der Winkel der Kamera kann ebenfalls eingestellt werden. Somit kann die Kamera-Position im späteren Verlauf des Projektes einfach optimiert werden.
+Die Raspberry Pi Camera Module 3 Kamera befindet sich auf einem höhenverstellbaren Masten. Die Höhe der Kamera kann zwischen 40 und 60 Zentimeter variabel eingestellt werden. Der Winkel der Kamera kann ebenfalls verändert werden. Somit kann die Kamera-Position im späteren Verlauf des Projektes einfach optimiert werden.
+
+Zur Hindernisbewältigung befinden sich an der Vorderseite des Roboters zwei Klemmblöcke mit einem Abstand von (TODO: Abstand einfügen) zueinander. Ein Schrittmotor kann diese Klemmblöcke zusammenziehen, um ein Hindernis aufzuheben. Damit der Abstand zu einem Hindernis erkannt werden kann, befindet sich ein Ultraschallsensor zwischen den beiden Klemmblöcken. 
+
+Die Motoren, Sensoren und Eingabeknöpfe sind mit einem TinyK22 verbunden.
+Das TinyK22 sowie die Kamera sind an einem Raspberry Pi 5 angeschlossen.
+
+Die Energieversorgung für alle Komponenten wird mit einem LiPo-Akku sichergestellt (Begründung im Anhang \ref{a3:Energiequelle}).
+Mit dem Notaus-Knopf kann die Energieversorgung zu allen Komponenten direkt unterbrochen werden.
 
 \subsection{Ablauf}
 
@@ -34,7 +44,7 @@ Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Ablauf des Robot
 
 \newpage
 \subsection{Zielauswahl}
-\imagefloat{img/lösungskonzpet/Skizzen/Zielauswahl.png}{Zielauswahl (Ausschnitt Abbildung \ref{img:Konzept-Skizze_Fahrzeug})}{5cm}
+\imagefloat{img/lösungskonzpet/Skizzen/Zielauswahl.png}{Zielauswahl (Ausschnitt Abbildung \ref{img:Konzept-Skizze_Fahrzeug})}{0.3\textwidth}
 
 Das Ziel des Roboters muss vor dem Start ausgewählt werden. Die Auswahlmöglichkeiten sind A, B oder C. Jede dieser Optionen kann über einen physischen Knopf am Roboter festgelegt werden.
 
@@ -84,10 +94,5 @@ Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermess
 \caption{Hindernisbewältigung}
 \label{img:Skizze_Hindernisbewältigung}
 \end{figure}
-
-\newpage
-
-\subsection{Energiequelle}
-Aus der Technologierecherche hat sich herausgestellt, dass der LiPo-Akku der am besten geeignete Akku im Vergleich zu Li-Ion- und NiMH-Akkus ist. Dies liegt insbesondere an seiner höheren Leistungsdichte, besseren Leistungsabgabe und der Flexibilität in der Formgebung. Weitere Details dazu können im Anhang unter  \ref{a3:Energiequelle} nachgelesen werden.
 
 \end{document}

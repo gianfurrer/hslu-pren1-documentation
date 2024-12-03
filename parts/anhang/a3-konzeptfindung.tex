@@ -197,16 +197,16 @@ Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware na
 
 \subsubsection{Objekterkennung Sensor}
 \label{a3:Objekterkennung_Sensor}
- Aus dem Anhang \ref{sec:Hardware_Test}, in welchem die Sensorik getestet wurden, ergab sich, dass der Ultraschallsensor ab einer minimalen Distanz von 3 cm zuverlässige Messwerte erkennt. Er ist ebenso unabhängig der Sonnenlichteinstrahlung. Der Infrarotsensor reagiert stärker auf Sonnenlichteinstrahlung und misst ungefähr die gleichen Werte. 
+ Aus dem Kapitel \ref{sec:Hardware_Test}, in welchem die Sensorik getestet wurden, ergab sich, dass der Ultraschallsensor ab einer minimalen Distanz von 3 cm zuverlässige Messwerte erkennt. Er ist ebenso unabhängig der Sonnenlichteinstrahlung. Der Infrarotsensor reagiert stärker auf Sonnenlichteinstrahlung und misst ungefähr die gleichen Werte. 
 
 
 
 \subsubsection{Streckenerkennung}
-Für die Streckenerkennung soll eine Kamera verwendet werden. Die Kamera erkennt Hindernisse und Pylonen auf der Strecke und hilft dem Raspberry Pi so die beste Strecke zu ermitteln. Damit das Fahrzeug auf der Linie bleibt wird ein Liniensensor eingesetzt.  Im Anhang \ref{sec:Hardware_Test} wurde ebenfalls die Phototransistoren gemessen, welche für den Liniensensor benötigt werden. Diese Messungen ergaben, dass sich die Aufladezeit des Kondensators gegenüber der verschiedenen Untergründe stark unterscheiden. Für weitere Details siehe Anhang \ref{sec:Hardware_Test}. 
+Für die Streckenerkennung soll eine Kamera verwendet werden. Die Kamera erkennt Hindernisse und Pylonen auf der Strecke und hilft dem Raspberry Pi so die beste Strecke zu ermitteln. Damit das Fahrzeug auf der Linie bleibt, wird ein Liniensensor eingesetzt.  Im Kapitel \ref{sec:Hardware_Test} wurden ebenfalls die Phototransistoren gemessen, welche für den Liniensensor benötigt werden. Diese Messungen ergaben, dass sich die Aufladezeit des Kondensators gegenüber der verschiedenen Untergründe stark unterscheiden. Für weitere Details siehe Kapitel \ref{sec:Hardware_Test}. 
 
 \subsubsection{Punktverifizierung}
-Um zu erkennen, ob das Fahrzeug sich auf einem Punkt befindet, könnte ein Farbsensor genutzt werden. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Dieser scheidet aufgrund von Tests aus, siehe Anhang \ref{sec:Hardware_Test}. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Weil damit je nach Kamera 1/5 des Budgets aufgebraucht wäre. Es würden zwei benötigt, da die eine Kamera, die für die Strecken und Objekterkennung ist, sich auf einer gewissen Höhe befinden muss. Dagegen muss die Linienkamera möglichst nah an der Linie sein.
-Der Liniensensor könnte den Punkt erkennen, indem er auf die Grösse des Durchmessers des Punktes dimensioniert wird. Das bedeutet, wenn der Liniensensor über dem Punkt ist erkennen alle Phototransistoren die Linie, dies bedeutet es ist ein Punk vorhanden. 
+Um zu erkennen, ob das Fahrzeug sich auf einem Punkt befindet, könnte ein Farbsensor genutzt werden. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Dieser scheidet aufgrund von Tests aus, siehe Kapitel \ref{sec:Hardware_Test}. Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Weil damit je nach Kamera 1/5 des Budgets aufgebraucht wäre. Es würden zwei benötigt, da die eine Kamera, die für die Strecken und Objekterkennung ist, sich auf einer gewissen Höhe befinden muss. Dagegen muss die Linienkamera möglichst nah an der Linie sein.
+Der Liniensensor könnte den Punkt erkennen, indem er auf die Grösse des Durchmessers des Punktes dimensioniert wird. Das bedeutet, wenn der Liniensensor über dem Punkt ist, erkennen alle Phototransistoren die Linie, dies bedeutet es ist ein Punk vorhanden. 
 
 \newpage
 

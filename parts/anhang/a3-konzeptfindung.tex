@@ -197,7 +197,7 @@ Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware na
 
 \subsubsection{Objekterkennung Sensor}
 \label{a3:Objekterkennung_Sensor}
- Aus dem Anhang \ref{sec:Hardware_Test}, in welchem die Sensorik getestet wurden, ergaben sich folgende Resultat. Der Ultraschallsensor übermittelt ab einer Distanz von 3 cm zuverlässige Messwerte. Er ist ebenso unabhängig der Sonnenlichteinstrahlung. Der Infrarotsensor reagiert stärker auf Sonnenlichteinstrahlung und misst ungefähr die gleichen Werte. 
+ Aus dem Anhang \ref{sec:Hardware_Test}, in welchem die Sensorik getestet wurden, ergab sich, dass der Ultraschallsensor ab einer minimalen Distanz von 3 cm zuverlässige Messwerte erkennt. Er ist ebenso unabhängig der Sonnenlichteinstrahlung. Der Infrarotsensor reagiert stärker auf Sonnenlichteinstrahlung und misst ungefähr die gleichen Werte. 
 
 
 
@@ -360,8 +360,8 @@ Die Nutzwertanalyse zeigt Dijkstra als deutlichen Gewinner. Dies liegt vor allem
 \subsubsection{Energiequelle}
 \label{a3:Energiequelle}
 Zur Auswahl steht ein Li-Po, Li-Ion oder NiMh Akku. Der Li-Po und Li-Ion Akku haben die höhere Energiedichte als der NiMh Akku. Jedoch benötigt der Li-Po Akku einen Laderegler für die Aufladung und der Li-Ionen Akku benötigt eine elektrische Schutzschaltung. Zwischen dem Li-Ion und dem Li-Po Akku gibt es keine weiteren nennenswerten Unterschiede. 
-Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Ebenso haben sie keinen Memoryeffekt und eine geringere Selbstentladung als der NiMh Akku. Die Lebensdauer eines NiMh Akkus ist dagegen fast fünfmal so lange wie die eines Lipo-Akkus.\footnotemark
-\footnotetext{Quelle:\href{https://www.rcteam.com/de/blogs/der-blog-des-rc-modellbaus/nimh-vs-lipo-batterien}{www.rcteam.com}}
+Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Ebenso haben sie keinen Memoryeffekt und eine geringere Selbstentladung als der NiMh Akku. Die Lebensdauer eines NiMh Akkus ist dagegen fast fünfmal so lange wie die eines Lipo-Akkus\footnotemark
+\footnotetext{Quelle:\href{https://www.rcteam.com/de/blogs/der-blog-des-rc-modellbaus/nimh-vs-lipo-batterien}{www.rcteam.com}}. Für den Entscheid wurde eine Nutzwertanalyse erstellt:
 
 
 \begin{table}[H]
@@ -385,7 +385,7 @@ Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Eb
         \end{table}
         
 
-Es wird der Li-Po Akku verwendet. Diese Akkus werden hauptsächlich für den Modellbau verwendet. Wie gemacht für einen Prototyp. Der NiMh Akku wird nicht verwendet, da dieser eine geringe Leistungsabgabe hat (siehe auch Tabelle \ref{tab:konzept_Akku}).\footnotemark
+Aus der Nutzwertanalyse geht hervor, dass der Li-Po Akku verwendet wird. Diese Akkus werden hauptsächlich für den Modellbau verwendet. Wie gemacht für einen Prototyp. Der NiMh Akku wird nicht verwendet, da dieser eine geringe Leistungsabgabe hat (siehe auch Tabelle \ref{tab:konzept_Akku}).\footnotemark
 Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entscheid ist aufgrund des vorgesehenen Anwendungsbereiches gegen den Li-Ion Akku gefallen. Durch den Modellbauanwendungsbereich des Li-Po Akkus ist es einfacher ähnliche Anwendungen zu finden.
 \footnotetext{Quelle: \url{https://www.rccrush.com/nimh-vs-lipo-batteries/}}
 
@@ -475,6 +475,8 @@ b = 13cm * sin(15) = 3.36cm
 \]
 
 Für genügend Sicherheit wurde entschieden das $b = 4.5cm$ ist. Diese Sicherheit hilft ebenfalls Fehler in der Distanzmessung auszugleichen.
+
+$\varphi$ wurde überschlägig 90° definiert. Die Winkeldefinition wurde anschliessend erfolgreich in Kapitel \ref{sec:hardware_greifarm} getestet.
 
 \newpage
 

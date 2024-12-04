@@ -24,7 +24,7 @@ Der Roboter besteht aus zwei (TODO welche) Rädern, die mit jeweils einem DC-Mot
 
 Die Raspberry Pi Camera Module 3 Kamera befindet sich auf einem höhenverstellbaren Masten. Die Höhe der Kamera kann zwischen 40 und 60 Zentimeter variabel eingestellt werden. Der Winkel der Kamera kann ebenfalls verändert werden. Somit kann die Kamera-Position im späteren Verlauf des Projektes einfach optimiert werden.
 
-Zur Hindernisbewältigung befinden sich an der Vorderseite des Roboters zwei Klemmblöcke mit einem Abstand von (TODO: Abstand einfügen) zueinander. Ein Schrittmotor kann diese Klemmblöcke zusammenziehen, um ein Hindernis aufzuheben. Damit der Abstand zu einem Hindernis erkannt werden kann, befindet sich ein Ultraschallsensor zwischen den beiden Klemmblöcken. 
+Zur Hindernisbewältigung befinden sich an der Vorderseite des Roboters ein Greifarm. Ein Schrittmotor die zwei Klemmblöcke des Greifarms zusammenziehen und anheben, um ein Hindernis aufzuheben. Damit der Abstand zu einem Hindernis erkannt werden kann, befindet sich ein Ultraschallsensor zwischen den beiden Klemmblöcken. 
 
 Die Motoren, Sensoren und Eingabeknöpfe sind mit einem TinyK22 verbunden.
 Das TinyK22 sowie die Kamera sind an einem Raspberry Pi 5 angeschlossen.
@@ -73,7 +73,7 @@ Das Fahrzeug folgt der Linie mithilfe des Liniensensors. Erkennt der Sensor eine
 
 \subsection{Wegfindung}
 
-Um den schnellsten Weg ins Ziel zu finden, wird der vorgegebene Graph in der Software gespeichert und der kürzeste Weg mittels des Dijkstra-Algorithmus berechnet (siehe Anhang \ref{a3:Wegfindung}). Sobald die Kamera neue Informationen über die Strecke erkennt (siehe \ref{sub:Objekterkennung}), wird der Graph entsprechend angepasst, und der kürzeste Weg wird anhand der aktuellen Position neu berechnet. Ursprünglich haben alle Linien im Graphen eine einheitliche Gewichtung.
+Der schnellste Weg ins Ziel wird, wie in der Konzeptfindung festgelegt (siehe Anhang \ref{a3:Wegfindung}), mithilfe des Dijkstra-Algorithmus berechnet. Dabei wird die vorgegebene Strecke als gewichteter Graph in der Software gespeichert. Ursprünglich besitzen alle Kanten eine einheitliche Gewichtung. Sobald die Kamera neue Informationen über die Strecke erfasst (siehe \ref{sub:Objekterkennung}), wird der Graph entsprechend aktualisiert, und der kürzeste Weg wird basierend auf der aktuellen Position neu berechnet.
 
 Je nach neu erhaltener Information werden folgende Anpassungen am Graphen vorgenommen: \begin{itemize} 
   \item Pylon auf Wegpunkt erkannt: Der Wegpunkt (Knoten) wird aus dem Graphen entfernt.

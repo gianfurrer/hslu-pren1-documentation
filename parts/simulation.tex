@@ -100,44 +100,44 @@ Der Lösungsansatz des Morphologischen Kastens ist darauf ausgelegt, einen simpl
 
 \subsubsection{User Interface}
 
-Obwohl wir ebenfalls eine virtuelle Umgebung mit der Unreal Engine und dem Pfadfinder-Model erstellen, wäre der Aufwand zu gross, diese an den Simulator anzubinden. Die Ausgabe in einem Terminal hingegen wäre zu minimal. Deshalb wird das User Interface mit einem einfachen GUI umgesetzt. 
+Obwohl ebenfalls eine virtuelle Umgebung mit der Unreal Engine und dem Pfadfinder-Model existiert, ist der Aufwand zu gross, diese an den Simulator anzubinden. Die Ausgabe in einem Terminal hingegen ist zu minimal. Deshalb wird das User Interface mit einem einfachen GUI umgesetzt. 
 
 \subsubsection{Wegfindungs-Algorithmus}
 
-Der Wegfindungs-Algorithmus kann entweder selber oder mit Hilfe einer externen Bibliothek 
-implementiert werden. Da für die Graphentheorie bereits viele beliebte Bibliotheken existieren, macht es für uns keinen Sinn, dies selbst zu implementieren. Zwar sind wir dadurch weniger flexibel, jedoch ist die Fehleranfälligkeit viel geringer.  
+Die Umsetzung des Wegfindungs-Algorithmus kann entweder eigenständig oder mithilfe einer externen Bibliothek erfolgen. Da zahlreiche etablierte Bibliotheken für die Graphentheorie verfügbar sind, erscheint eine eigenständige Implementierung nicht sinnvoll. Dies führt zwar zu einer geringeren Flexibilität, reduziert jedoch die Fehleranfälligkeit erheblich.
 
 \subsubsection{Programmiersprache}
 
-Bei der Programmiersprache kamen Python, JavaScript und Java in Frage.
-Java wird für die meisten Projekte im Informatik-Studium verwendet. JavaScript erlaubt es, einfach graphische Darstellungen mittels Webseite zu implementieren. Python ist simpel und wird oft für Künstliche Intelligenz verwendet, was wir für die Implementation der Software des autonomen Fahrzeugs benötigen. 
+Für die Wahl der Programmiersprache wurden Python, JavaScript und Java in Betracht gezogen. Java ist im Informatik-Studium weit verbreitet und wird für zahlreiche Projekte eingesetzt. JavaScript bietet die Möglichkeit, grafische Darstellungen unkompliziert über eine Webseite zu realisieren. Python zeichnet sich durch seine einfache Handhabung aus und wird häufig im Bereich der Künstlichen Intelligenz verwendet, was für die Software des autonomen Roboters wichtig ist.
 
-Wir entscheiden uns für Python, da im Team viel know-how vorhanden ist. Ebenfalls bietet es mit NetworkX\footnote{https://networkx.org} eine mächtige Bibliothek für Graphen an.
+Python wurde als Programmiersprache gewählt, da innerhalb des Teams umfassendes Know-how vorhanden ist. Darüber hinaus stellt die Bibliothek NetworkX\footnote{https://networkx.org} eine leistungsstarke Lösung für die Arbeit mit Graphen bereit, die optimal für die Anforderungen des Projekts geeignet ist.
 
 \subsubsection{Informationen einlesen}
 
-Damit die Software weiss, welche Hindernisse sich auf dem Graphen befindet, müssen Informationen eingelesen werden können. Idealerweise würde dies auf gleiche Art geschehen, wie in der Realität: anhand von Bildern mit Objekterkennung. Der Simulator soll jedoch so schnell wie möglich lauffähig sein, weshalb einfachkeitshalber eine Konfigurationsdatei mit den Informationen verwendet wird.
+Damit die Software die Hindernisse auf dem Graphen kennt, müssen entsprechende Informationen eingelesen werden können. Idealerweise erfolgt dies ähnlich wie in der Realität, durch die Auswertung von Bildern mittels Objekterkennung. Um den Simulator jedoch möglichst schnell einsatzfähig zu machen, wird stattdessen eine Konfigurationsdatei verwendet, die die notwendigen Informationen bereitstellt.
 
-Die Konfigurationsdatei kann sehr einfach angepasst werden, wodurch man schnell viele Szenarien testen kann.
+Die Konfigurationsdatei ermöglicht eine einfache Anpassung der Szenarien und erlaubt dadurch das effiziente Testen verschiedener Konstellationen. Diese Herangehensweise beschleunigt die Entwicklungsphase und sorgt für Flexibilität beim Simulieren diverser Bedingungen.
 
 \subsubsection{Hindernis Bewältigung}
 
-Der Simulator soll aufzeigen, wie mit Hindernissen umgegangen wird.
-Hindernisse können eventuell nicht immer Umfahren werden, beispielsweise wenn alle anderen Pfade blockiert sind. Somit ist `Immer umfahren` keine gute Option. Hindernisse nicht speziell behandeln ist ebenfalls nicht optimal, da gleichlange Pfade ohne Hindernisse schneller durchfahren werden können. Deshalb verwenden wir die Option `Gewicht hinzufügen`. Dies erlaubt es uns, variabel zu entscheiden, wie viel Beachtung einem Hindernis geschenkt werden soll.
+Der Simulator soll aufzeigen, wie Hindernisse auf der Strecke behandelt werden.
+Dabei wird berücksichtigt, dass Hindernisse unter bestimmten Bedingungen nicht immer umfahren werden können, beispielsweise wenn sämtliche alternativen Wege blockiert sind. Daher stellt die Option `Immer umfahren` keine sinnvolle Strategie dar.
+
+Das Ignorieren von Hindernissen ist ebenfalls suboptimal, da gleich lange Pfade ohne Hindernisse effizienter befahren werden können. Um diesem Problem zu begegnen, wird die Strategie `Gewicht hinzufügen` angewendet. Mit dieser Methode kann flexibel entschieden werden, wie stark ein Hindernis die Wahl eines Pfades beeinflusst. Die Gewichtung erlaubt es, Hindernisse dynamisch in die Berechnung einzubeziehen, ohne zwingend alle Alternativen auszuschliessen.
 
 \subsection{Konzept}
 
-Idealerweise würde der Simulator die komplette Hardware des autonomen Fahrzeuges simulieren. So wäre die Software, die auf dem Fahrzeug läuft, genau die gleiche, die vom Simulator getestet wird. Dies ist jedoch mit sehr viel Aufwand verbunden, weshalb dies für die erste Version des Simulators für uns nicht realisierbar ist.
+Im Optimalfall würde der Simulator die gesamte Hardware des autonomen Fahrzeugs nachbilden. Dadurch könnte die Fahrzeugsoftware direkt im Simulator getestet werden, ohne Anpassungen vornehmen zu müssen. Diese Herangehensweise würde eine nahtlose Integration zwischen Softwareentwicklung und Simulation ermöglichen. Allerdings ist die vollständige Simulation der Hardware mit erheblichem Aufwand verbunden und übersteigt den Rahmen des Simulators.
 
-Die erste Version des Simulators soll anhand einer vordefinierten Konfiguration den schnellsten Weg ins Ziel finden. Die Konfiguration enthält folgende Informationen:
+Der Simulator wird so konzipiert, dass er anhand einer vorgegebenen Konfiguration den optimalen Weg zum Ziel findet. Diese Konfiguration beinhaltet:
 \begin{itemize}
     \item Das Ziel: A, B oder C.
     \item Die Gewichtung für das Befahren von Linien mit einem Hindernis.
     \item Informationen die erst beim Befahren eines neuen Wegpunktes freigeschalten werden:
      \begin{itemize}
-        \item{Wegpunkte mit einem Pylon}
-        \item{Entfernte Linien}
-        \item{Erkannte Hindernisse}
+        \item Wegpunkte mit einem Pylon 
+        \item Entfernte Linien
+        \item Erkannte Hindernisse
    \end{itemize}
 \end{itemize}
 
@@ -158,19 +158,29 @@ S:
   removed:
     - [E, A]
 D:
-  removed:
-    - [D, B]
   obstacles:
     - [D, A]
+  removed:
+    - [D, B]
 \end{minted}
 
-In der Beispielkonfiguration wird das Ziel B angesteuert.
-Eine Linie mit Hindernis wird dreifach gewichtet im Vergleich zu einer normaler Linie.  
-Am Start (Knote S) erfährt die Software, dass auf dem Knoten E sich eine Pylone befindet,
-auf der Linie S-F ein Hindernis und dass die Linie E-A entfernt wurde.
-Falls das Fahrzeug die Kante D befährt, wird erkannt, dass die Kante D-B nicht existiert und dass sich auf Kante D-A ein Hindernis befindet.
+In der Beispielkonfiguration wird das Ziel \textbf{B} definiert. Hindernisse auf Linien erhalten eine \textbf{dreifache Gewichtung} im Vergleich zu normalen Linien. 
 
-Diese Konfiguration kann einfach angepasst werden, wodurch mit dem Simulator einfach verschiedene Szenarien durchgespielt werden können.
+Zu Beginn der Simulation, am Knoten \textbf{S}, erhält die Software folgende Informationen:
+\begin{itemize}
+    \item Auf dem \textbf{Knoten E} befindet sich eine Pylone.
+    \item Auf der \textbf{Kante S-F} befindet sich ein Hindernis.
+    \item Die \textbf{Kante E-A} ist nicht vorhanden.
+\end{itemize}
+
+Zusätzlich wird beim Befahren vom Wegpunkt \textbf{D} folgendes festgestellt:
+\begin{itemize}
+    \item Auf der \textbf{Kante D-A} befindet sich ein Hindernis.
+    \item Die \textbf{Kante D-B} ist nicht vorhanden.
+\end{itemize}
+
+Diese Informationen werden genutzt, um den Graphen dynamisch zu aktualisieren und die optimalen Routen basierend auf den aktuellen Bedingungen neu zu berechnen.
+
 
 \subsection{Umsetzung}
 

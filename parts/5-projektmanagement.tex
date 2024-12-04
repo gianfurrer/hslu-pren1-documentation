@@ -20,7 +20,6 @@ Diese Ziele bieten die Grundlage für das Fahrzeug mitsamt Software.
 Die Positionierung im Wettbewerb in PREN2 ist durch die Zielsetzung klar sekundär. Durch das zuverlässige Lösen der Aufgabe, wird eine Platzierung sichergestellt.
 
 \subsection{Resultate und Umfang}
- 
 Für PREN1 wurden in der Aufgabenstellung \ref{aufgabenstellung} drei Meilensteine und deren Resultate definiert. Weitere Meilensteine sind aus Semesterterminen abgeleitet.
 \begin{table}[H]
 \centering
@@ -37,15 +36,15 @@ Für PREN1 wurden in der Aufgabenstellung \ref{aufgabenstellung} drei Meilenstei
 \label{tab:meilensteine}
 \end{table}
 
-Weitere Meilensteine werden im Verlauf von PREN2 definiert. Resultate von PREN 2 sind zusätzlich:
+Weitere Meilensteine und Resultate von PREN 2 werden fortlaufend hinzugefügt:
 \begin{itemize}
-\item \textbf{Fahrzeug}
-\item \textbf{Vollständige Projektdokumentation inkl. Reflexion}
+\item Fahrzeug
+\item Vollständige Projektdokumentation inkl. Reflexion
 \end{itemize}
-
 \subsection{Risikomatrix} \label{risikomatrix}
 
-Alle bekannten Risiken in Bezug zum Projekt sind in folgender Tabelle aufgelistet.
+Alle bekannten Risiken in Bezug zum Projekt sind in folgender Tabelle aufgelistet. Diese Risiken werden kontinuierlich erweitert und möglichst minimiert. Dies kann beispielsweise anhand von Prototypen, geplanten Backup-Lösungen oder vertieften Recherchen erfolgen.
+
 Dabei hat jedes Risiko folgende Attribute:
 \begin{itemize}
     \item \textbf{Titel + Beschreibung}: Beschreibung des Risikos
@@ -150,22 +149,86 @@ Aus Darstellungsgründen wurden die Attribute der Risikos in zwei Reihen aufgete
 \end{landscape}
 
 \newpage
-TODO: Bild von Risikomatrix
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Vor Risiken} & \textbf{Risiken nach Massnahmen} \\ \hline
+ \includegraphics[width=8cm]{img/Risikomatrix/Risks_before_measures_v_pren1.png}        & \includegraphics[width=8cm]{img/Risikomatrix/Risks_after_measures_v_pren1.png} \\ \hline
+ 
+\end{tabular}
+\caption{Grafiken der Risiken vor und nach risikomindernden Massnahmen}
+\label{tab:risikografik}
+\end{table}
 
-Diese Risiken werden am Projektanfang möglichst minimiert. Dies kann beispielsweise anhand von Prototypen, geplanten Backup Lösungen oder vertieften Recherchen\ref{} erfolgen.
 
 \subsection{Projektplan}
-Für die Projektplanung verwenden wir eine Excel-Vorlage, die geplante und tatsächliche Zeiten zeigt. Meilensteine, sowie die dazugehörenden Aufgaben sind hier festgehalten und regelmässig aktualisiert.
-\addtocounter{subsection}{1}
-\addcontentsline{toc}{subsection}{\protect\numberline{\thesubsubsection} Projektplan}
+Für die Projektplanung wird eine Excel-Vorlage verwendet. Die geplanten und benötigten Tage, sowie Verzögerungen und früherer Abschluss wird im Projektplan dargestellt. Meilensteine, sowie die dazugehörenden Aufgaben sind hier festgehalten und regelmässig aktualisiert. Anhand dieses Plans wird das Projekt-Controlling durchgeführt.
 \includepdf[
   landscape=true,
   pages={1-},
   scale=1,
   pagecommand={\pagestyle{fancy}}
-]{assets/Projektplan_v3.pdf}
+]{assets/Projektplan_v4.pdf}
 
 \subsection{Projektsupport}
+Verschiedene Werkzeuge unterstützen das Projekt in unterschiedlichen Bereichen und sind hier festgehalten.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+\textbf{Werkzeug} & \textbf{Gebraucht für} \\ \hline
+Visual Studio Code & Simulator-/Software-Entwicklung \\ \hline
+Unreal Engine 5 & Erstellung virtueller Klon \\ \hline
+Blender & Konvertierung 3D Modelle und Texturierung \\ \hline
+Overleaf & Erstellung Dokumentation \\ \hline
+Github & Host für Code Repositories \\ \hline
+Altium Designer & PCB-Layouts \\ \hline
+NX Siemens & Zeichnen von 3D Modellen \\ \hline
+Concept & Zeichnen von Skizzen \\ \hline
+Draw.io & Diagramme erstellen \\ \hline
+Roboflow & Bilder für Objekterkennung annotieren \\ \hline
+Microsoft Excel & Projektplan und Risikomatrix \\ \hline
+Microsoft Teams & Dateiablage und Kommunikationshub \\ \hline
+Chat-GPT & Proof-Reading \\ \hline
+ 
+\end{tabular}
+\caption{Tabelle der verwendeten Werkzeuge für PREN}
+\label{tab:werkzeugtabelle}
+\end{table}
+
+
 \subsection{Produktkostenkontrolle}
+Das Projekt hat einen fixen Budgetrahmen von total CHF 500.--, wobei maximal CHF 200.-- in PREN1 ausgegeben werden dürfen. Deswegen braucht es eine Kostenkontrolle, die bereits getätigte Ausgaben festhält und geplante Ausgaben einkalkuliert.
+\begin{table}[H]
+\begin{tabular}{|p{6cm}|p{2.5cm}|p{2cm}|p{2.5cm}|}
+\hline
+\textbf{Was} & \textbf{Preis} & \textbf{Gekauft} & \textbf{Wo} \\ \hline
+Raspberry Pi 3 Kamera & CHF 37.30 & 31.10.2024 & Digitec \\ \hline
+Raspberry Pi 5 8GB & CHF 77.90 & 09.11.2024 & Digitec \\ \hline
+Kamera-Kabel & CHF 5.70 & 11.11.2024 & Digitec \\ \hline
+H Brücke A4950 & CHF 3.06 & 22.11.2024 & Mouser \\ \hline
+DC-Motor mit Encoder & CHF 32.10 & & Mouser \\ \hline
+IR-LED & CHF 3.30 & & Mouser \\ \hline
+Phototransistor & CHF 4.30 & & Disterelec \\ \hline
+\hline
+\textbf{Total} & \textbf{CHF 163.66} & & \\ \hline
+\end{tabular}
+\caption{Tabelle aller Ausgaben in PREN1}
+\label{tab:werkzeugtabelle}
+\end{table}
+
+\begin{table}[H]
+\begin{tabular}{|p{6cm}|p{2.5cm}|p{2cm}|p{2.5cm}|}
+\hline
+\textbf{Was} & \textbf{Preis} & \textbf{Gekauft} & \textbf{Wo} \\ \hline
+
+\hline
+\textbf{Total} & \textbf{} & & \\ \hline
+\end{tabular}
+\caption{Tabelle aller Ausgaben in PREN2}
+\label{tab:werkzeugtabelle}
+\end{table}
 
 \end{document}

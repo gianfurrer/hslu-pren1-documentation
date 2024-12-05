@@ -7,7 +7,7 @@
 \section{Hardware Test}
 \label{sec:Hardware_Test}
 \subsection{Distanz Hindernis}
-Um die Bewältigung des Hindernisses erfolgreich durchzuführen, muss die exakte Entfernung zum Hindernis bestimmt werden. Ziel ist es, das Hindernis präzise zwischen den Klemmbacken zu positionieren, ohne dabei mit ihm zu kollidieren. Hierfür stehen zwei bewährte Methoden zur Distanzmessung zur Verfügung: die Messung mittels Schallwellen und die Messung mittels Lichtwellen. In den folgenden Unterkapiteln werden diese Verfahren näher untersucht und getestet.
+Um die Bewältigung eines Hindernis erfolgreich durchzuführen, muss die exakte Entfernung vom Fahrzeug zum Hindernis bestimmt werden. Ziel ist es, das Hindernis präzise zwischen den Klemmbacken zu positionieren, ohne dabei mit ihm zu kollidieren. Hierfür stehen zwei bewährte Methoden zur Distanzmessung zur Verfügung: die Messung mittels Schallwellen und die Messung mittels Lichtwellen. In den folgenden Unterkapiteln werden diese Verfahren näher untersucht und getestet.
 
 \subsubsection{Ultraschallsensor}
 Für die Messung wird der Ultraschallsensor HC-SR04 verwendet. Dieser Sensor hat eine Reichweite von 2 cm bis 300 cm\footnotemark und arbeitet mit einer Genauigkeit von ±3 mm. Der Sensor wird mit einer Betriebsspannung von 5 V versorgt. Die Messung wird über den Trigger-Pin gestartet, während der Echo-Pin das vom Trigger ausgesendete Signal nach dessen Rückkehr empfängt. Der Zeitunterschied zwischen dem Senden und Empfangen des Signals wird mithilfe der Schallgeschwindigkeit in die Entfernung umgerechnet. Die Genauigkeit des Sensors wird mithilfe des in Abbildung \ref{fig:Ultraschall1} dargestellten Messaufbaus überprüft.
@@ -70,7 +70,7 @@ Aus der in Tabelle \ref{tab:UltraschallMD} dargestellten Messwerte wird ersichtl
 
 \newpage
 \subsubsection{Time of Flight Sensor}
-Ein Time-of-Flight-Sensor (TOF) arbeitet nach einem ähnlichen Prinzip wie ein Ultraschallsensor, jedoch sendet er statt Schallwellen einen Lichtstrahl aus. In diesem Experiment wird der TOF-Sensor vom Typ VL530L0X getestet. Der Messaufbau entspricht dem des Ultraschallsensors (siehe Abbildung \ref{fig:TOF1}). Die Kommunikationsart lauft über den I2C Bus.
+Ein Time-of-Flight-Sensor (TOF) arbeitet nach einem ähnlichen Prinzip wie ein Ultraschallsensor, jedoch sendet er statt Schallwellen einen Lichtstrahl aus. In diesem Experiment wird der TOF-Sensor vom Typ VL530L0X getestet. Der Messaufbau entspricht dem des Ultraschallsensors (siehe Abbildung \ref{fig:TOF1}). Die Kommunikation findet über den I2C Bus statt.
 
 \begin{figure}[h!] % 'h' steht für here, was bedeutet, dass das Bild möglichst an dieser Stelle eingefügt wird
     \centering
@@ -126,7 +126,7 @@ Auch bei diesem Experiment wird das Objekt schrittweise um jeweils einen Zentime
 \label{tab:TOFMD}
 \end{table}
 
-Aus der Tabelle \ref{tab:TOFMD} wird ersichtlich, dass die Messwerte des TOF-Sensors in der Nähe des Sensors ein ähnlich gut wie die des Ultraschallsensors. Ebenso liefert der Sensor zuverlässige Ergebnisse in grösserer Entfernung. Jedoch ändert sich dies schnell bei Sonnenlicht Einstrahlung. In diesem Fall sind die Werte sehr inkonsistent. Daher wird der Ultraschallsensor als zuverlässiger eingeschätzt.
+Aus der Tabelle \ref{tab:TOFMD} wird ersichtlich, dass die Messwerte des TOF-Sensors bei kurzer Messdistanz ähnlich gute Messungen macht, wie die des Ultraschallsensors. Ebenso liefert der Sensor zuverlässige Ergebnisse in grösserer Entfernung. Tests mit künstlicher Sonneneinstrahlung haben ergeben, dass sich die Zuverlässigkeit stark verändert. In diesem Fall sind die Werte sehr inkonsistent. Daher wird der Ultraschallsensor als zuverlässiger eingeschätzt.
 
 \subsection{Linienerkennung / Punkterkennung}
 \subsubsection{Farbsensor}
@@ -281,7 +281,7 @@ In der dritten Messung wurde der Sensor ohne Untergrund, also nur auf die Luft g
 Aufgrund dieser Ergebnisse wird die Linienerkennung mit Fototransistoren bevorzugt. Mit einem Fototransistor-Array, das mindestens 7 cm breit ist, kann auch der weisse Punkt zuverlässig erkannt werden. Denn auf der Linie wird niemals jeder Fototransistor die Linie gleichzeitig erfassen. Auf dem Punkt hingegen melden alle Fototransistoren die Erkennung der Linie, was darauf hinweist, dass es sich um den Punkt handelt.
 \newpage    
 \subsection{Greifarm} \label{sec:hardware_greifarm}
-Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Greifarm gemacht werden können, wurde ein Prototyp 3D - gedruckt \ref{fig:hardware_test_fertig}. Es wurden diverse Erkenntnisse gewonnen:
+Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Greifarm gemacht werden können, wurde ein Prototyp 3D - gedruckt \ref{fig:hardware_test_fertig}. Bei dem Zusammenbau und Funktionalitätstests wurden diverse Erkenntnisse gewonnen:
 
 \begin{enumerate}
     \item Der Greifarm kann das Hindernis klemmen.
@@ -303,14 +303,14 @@ Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Greifarm ge
     \centering
     \begin{minipage}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=6cm]{img/greifarmtest/prototyp_test_fertig.jpeg}
+        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_fertig.jpeg}
         \caption{Prototyp von Aussen}
         \label{fig:hardware_test_fertig}
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=6cm]{img/greifarmtest/prototyp_test_klemmen_gleiten.jpeg}
+        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_klemmen_gleiten.jpeg}
         \caption{Führung des Greifarms passt nicht}
         \label{fig:hardware_test_klemmen_gleiten}
     \end{minipage}
@@ -320,14 +320,14 @@ Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Greifarm ge
     \centering
     \begin{minipage}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=6cm]{img/greifarmtest/prototyp_test_loecher.jpeg}
+        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_loecher.jpeg}
         \caption{Alle Löcher sind zu klein}
         \label{fig:hardware_test_loecher}
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=6cm]{img/greifarmtest/prototyp_test_schieber.jpeg}
+        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_schieber.jpeg}
         \caption{Feder wurde temporär durch einen Schieber ersetzt.}
         \label{fig:hardware_test_schieber}
     \end{minipage}

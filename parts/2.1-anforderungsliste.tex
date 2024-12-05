@@ -19,13 +19,7 @@ Es wird ebenfalls angegeben, wer für die jeweilige Anforderung verantwortlich i
 
 \columnbreak
 
-\begin{itemize}
-  \item {\bf INF} = Informatik
-  \item {\bf MT} = Maschinentechnik
-  \item {\bf ET} = Elektrotechnik
-  \item {\bf DOZ} = Dozenten
-  \item {\bf ALL} = MT, INF, ET
-\end{itemize}
+
 \end{multicols}
 
 \begin{longtable}[]{@{}lp{4.5cm}p{7.5cm}cc}
@@ -33,57 +27,57 @@ Es wird ebenfalls angegeben, wer für die jeweilige Anforderung verantwortlich i
 & \textbf{Anforderung}
 & \textbf{Beschreibung}
 & \textbf{Kat.}
-& \textbf{Verantw.} 
+
 \tabularnewline
 \hline
 \endhead
   1.  & \multicolumn{4}{l}{\textbf{Allgemeine Anforderungen}} \\ \hline
-  1.1 & Projektziel & Entwicklung eines autonomen Fahrzeugs, das den Weg durch ein Wegenetzwerk findet. & F & ALL \\ \hline
-  1.2 & Wegfindung & Das Fahrzeug findet den optimalen Weg durch das Wegnetzwerk. & W & INF \\ \hline
-  1.3 & Autonomie & Das Fahrzeug muss nach dem Start autonom agieren, ohne externe Eingriffe. & F & INF \\ \hline
-  1.4 & Kernfunktionalität & Erkennen und Umfahren von Hindernissen und gesperrten Wegpunkten. & F & ALL \\ \hline
+  1.1 & Projektziel & Entwicklung eines autonomen Fahrzeugs, das den Weg durch ein Wegenetzwerk findet. & F\\ \hline
+  1.2 & Wegfindung & Das Fahrzeug findet den optimalen Weg durch das Wegnetzwerk. & W \\ \hline
+  1.3 & Autonomie & Das Fahrzeug muss nach dem Start autonom agieren, ohne externe Eingriffe. & F  \\ \hline
+  1.4 & Kernfunktionalität & Erkennen und Umfahren von Hindernissen und gesperrten Wegpunkten. & F  \\ \hline
   
   2.  & \multicolumn{4}{l}{\textbf{Technische Anforderungen}} \\ \hline
-  2.1 & Dimensionen & Das Fahrzeug muss am Anfang auf eine Startfläche von 30 x 30 x 80 cm passen (das beinhaltet Anbauteile). Diese dürfen bei der Bewältigung der Hindernisse in Breite und Länge überschritten werden. & F & ALL \\ \hline
-  2.2 & Maximalgewicht & Das Fahrzeug darf maximal 2 kg wiegen. & F & ALL \\ \hline
-  2.3 & Hardware-Integration & Alle Sensoren, Aktoren und Steuergeräte müssen im Fahrzeug integriert sein. & F & ET \\ \hline
-  2.4 & Zielerreichungssignal & Das Fahrzeug muss visuell oder akustisch anzeigen, wenn es das Ziel erreicht. & F & ET \\ \hline
-  2.5 & Erreichen des Ziels & Das Fahrzeug muss den Mittelpunkt des Zielkreises abdecken. & F & ALL \\ \hline
-  2.6 & Minimale Fahrgeschwindigkeit & Das Fahrzeug soll mindestens 20 cm/s auf einer geraden Strecke ohne Hindernisse fahren. & W & ALL \\ \hline
+  2.1 & Dimensionen & Das Fahrzeug muss am Anfang auf eine Startfläche von 30 x 30 x 80 cm passen (das beinhaltet Anbauteile). Diese dürfen bei der Bewältigung der Hindernisse in Breite und Länge überschritten werden. & F \\ \hline
+  2.2 & Maximalgewicht & Das Fahrzeug darf maximal 2 kg wiegen. & F  \\ \hline
+  2.3 & Hardware-Integration & Alle Sensoren, Aktoren und Steuergeräte müssen im Fahrzeug integriert sein. & F\\ \hline
+  2.4 & Zielerreichungssignal & Das Fahrzeug muss visuell oder akustisch anzeigen, wenn es das Ziel erreicht. & F \\ \hline
+  2.5 & Erreichen des Ziels & Das Fahrzeug muss den Mittelpunkt des Zielkreises abdecken. & F \\ \hline
+  2.6 & Minimale Fahrgeschwindigkeit & Das Fahrzeug soll mindestens 20 cm/s auf einer geraden Strecke ohne Hindernisse fahren. & W \\ \hline
  
   3.  & \multicolumn{4}{l}{\textbf{Erkennung des Weges und der Wegpunkte}} \\ \hline
-  3.1 & Befahren des Weges & Mindestens ein Teil des Fahrzeugs muss immer auf der Linie bleiben. & F & INF, ET \\ \hline
-  3.2 & Linienlänge & Eine Linie ist zwischen 0.5 und 2 Meter lang. & F & DOZ \\ \hline
-  3.3 & Linienbreite & Eine Linie ist zwischen 15 und 25 Millimeter breit. & F & DOZ \\ \hline
-  3.4 & Linienfarbe & Die Linien bestehen aus hellem Klebeband. & F & DOZ \\ \hline
-  3.5 & Wegpunkte & Ein Wegpunkt hat einen Durchmesser von 7–12 cm. & F & DOZ \\ \hline
-  3.6 & Erkennung gesperrter Wegpunkte & Gesperrte Wegpunkte müssen erkannt und umfahren werden (markiert durch Pylonen). & F & INF \\ \hline
+  3.1 & Befahren des Weges & Mindestens ein Teil des Fahrzeugs muss immer auf der Linie bleiben. & F \\ \hline
+  3.2 & Linienlänge & Eine Linie ist zwischen 0.5 und 2 Meter lang. & F \\ \hline
+  3.3 & Linienbreite & Eine Linie ist zwischen 15 und 25 Millimeter breit. & F \\ \hline
+  3.4 & Linienfarbe & Die Linien bestehen aus hellem Klebeband. & F \\ \hline
+  3.5 & Wegpunkte & Ein Wegpunkt hat einen Durchmesser von 7–12 cm. & F \\ \hline
+  3.6 & Erkennung gesperrter Wegpunkte & Gesperrte Wegpunkte müssen erkannt und umfahren werden (markiert durch Pylonen). & F \\ \hline
 
   4.  & \multicolumn{4}{l}{\textbf{Hindernisse}} \\ \hline
-  4.1 & Erkennung und Handling von Hindernissen & Hindernisse müssen erkannt, aufgenommen und an der ursprünglichen Position zurückgestellt werden (Hindernisse dürfen um 180° horizontal gedreht abgesetzt werden). (Toleranzzone 20 mm umlaufend). & F & ALL \\ \hline
-  4.2 & Hindernis-Anzahl pro Linie & Maximal ein Hindernis pro Linie. & F & DOZ \\ \hline
-  4.3 & Hindernis-Dimensionen & 135 mm x 38 mm x 60 mm (L x B x H) +/- 15 mm. & F & DOZ \\ \hline
-  4.4 & Hindernis-Gewicht & 50–300 Gramm & F & DOZ \\ \hline
-  4.5 & Hindernis-Orientierung & Befindet sich vor dem Aufheben orthogonal und zentriert auf der Linie (+/- 15° und 2 cm). & F & DOZ \\ \hline
-  4.6 & Hindernis-Position auf Linie & Minimalabstand der Hindernisse zum nächsten Punkt beträgt 20 cm. & F & DOZ \\ \hline
+  4.1 & Erkennung und Handling von Hindernissen & Hindernisse müssen erkannt, aufgenommen und an der ursprünglichen Position zurückgestellt werden (Hindernisse dürfen um 180° horizontal gedreht abgesetzt werden). (Toleranzzone 20 mm umlaufend). & F\\ \hline
+  4.2 & Hindernis-Anzahl pro Linie & Maximal ein Hindernis pro Linie. & F\\ \hline
+  4.3 & Hindernis-Dimensionen & 135 mm x 38 mm x 60 mm (L x B x H) +/- 15 mm. & F  \\ \hline
+  4.4 & Hindernis-Gewicht & 50–300 Gramm & F \\ \hline
+  4.5 & Hindernis-Orientierung & Befindet sich vor dem Aufheben orthogonal und zentriert auf der Linie (+/- 15° und 2 cm). & F \\ \hline
+  4.6 & Hindernis-Position auf Linie & Minimalabstand der Hindernisse zum nächsten Punkt beträgt 20 cm. & F \\ \hline
 
   5. & \multicolumn{4}{l}{\textbf{Steuerung \& Bedienung}} \\ \hline
-  5.1 & Startmethode & Start des Fahrzeugs durch physischen Schalter. & F & ALL \\ \hline
-  5.2 & Zielauswahl & Ziel wird über einen Wahlschalter (A, B oder C) vor dem Start ausgewählt. & F & INF, ET \\ \hline
-  5.3 & Notabschaltung & Das Fahrzeug muss über einen jederzeit zugänglichen Not-Aus-Schalter verfügen. & F & INF, ET \\ \hline
+  5.1 & Startmethode & Start des Fahrzeugs durch physischen Schalter. & F \\ \hline
+  5.2 & Zielauswahl & Ziel wird über einen Wahlschalter (A, B oder C) vor dem Start ausgewählt. & F  \\ \hline
+  5.3 & Notabschaltung & Das Fahrzeug muss über einen jederzeit zugänglichen Not-Aus-Schalter verfügen. & F  \\ \hline
 
   6.  & \multicolumn{4}{l}{\textbf{Softwareanforderungen}} \\ \hline
-  6.1 & Simulator & Testen des Verhaltens des Fahrzeugs auf Hindernisse, gesperrte Wegpunkte und fehlende Linien mit einem Simulator. & F & INF \\ \hline
+  6.1 & Simulator & Testen des Verhaltens des Fahrzeugs auf Hindernisse, gesperrte Wegpunkte und fehlende Linien mit einem Simulator. & F  \\ \hline
 
   7.  & \multicolumn{4}{l}{\textbf{Nachhaltigkeit}} \\ \hline
-  7.1 & Umsetzung & Das Produkt soll möglichst nachhaltig entwickelt werden. & F & ALL \\ \hline
+  7.1 & Umsetzung & Das Produkt soll möglichst nachhaltig entwickelt werden. & F  \\ \hline
 
   8.  & \multicolumn{4}{l}{\textbf{Kostenrahmen}} \\ \hline
-  8.1 & Budget & Maximal CHF 500,- für das gesamte Projekt, davon maximal CHF 200,- in der Konzeptphase. & F & ALL \\ \hline
+  8.1 & Budget & Maximal CHF 500,- für das gesamte Projekt, davon maximal CHF 200,- in der Konzeptphase. & F \\ \hline
   
   9.  & \multicolumn{4}{l}{\textbf{Zeit}} \\ \hline
-  9.1 & Maximale Dauer des Tests & Der Testlauf (ohne Vorbereitung) darf maximal 4 Minuten dauern. & F & ALL \\ \hline
-  9.2 & Schnelligkeit des Fahrzeugs & Das Fahrzeug erreicht das Ziel innerhalb von 2 Minuten ohne Hindernisse. & W & ALL \\ \hline
+  9.1 & Maximale Dauer des Tests & Der Testlauf (ohne Vorbereitung) darf maximal 4 Minuten dauern. & F \\ \hline
+  9.2 & Schnelligkeit des Fahrzeugs & Das Fahrzeug erreicht das Ziel innerhalb von 2 Minuten ohne Hindernisse. & W  \\ \hline
 
 \caption{Anforderungsliste}
 \label{tab:Anforderungsliste}

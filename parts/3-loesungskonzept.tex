@@ -24,17 +24,17 @@ Der Roboter besteht aus zwei (TODO welche) Rädern, die mit jeweils einem DC-Mot
 
 Die Raspberry Pi Camera Module 3 Kamera befindet sich auf einem höhenverstellbaren Masten. Die Höhe der Kamera kann zwischen 40 und 60 Zentimeter variabel eingestellt werden. Der Winkel der Kamera kann ebenfalls verändert werden. Somit kann die Kamera-Position im späteren Verlauf des Projektes einfach optimiert werden.
 
-Zur Hindernisbewältigung befinden sich an der Vorderseite des Roboters ein Greifarm. Ein Schrittmotor die zwei Klemmblöcke des Greifarms zusammenziehen und anheben, um ein Hindernis aufzuheben. Damit der Abstand zu einem Hindernis erkannt werden kann, befindet sich ein Ultraschallsensor zwischen den beiden Klemmblöcken. 
+Zur Hindernisbewältigung befindet sich an der Vorderseite des Roboters ein Greifarm. Ein Schrittmotor zieht die zwei Klemmblöcke des Greifarms zusammen und hebt sie an, um das Hindernis aufzuheben. Damit der Abstand zu einem Hindernis erkannt werden kann, befindet sich ein Ultraschallsensor zwischen den beiden Klemmblöcken. 
 
 Die Motoren, Sensoren und Eingabeknöpfe sind mit einem TinyK22 verbunden.
 Das TinyK22 sowie die Kamera sind an einem Raspberry Pi 5 angeschlossen.
 
 Die Energieversorgung für alle Komponenten wird mit einem LiPo-Akku sichergestellt (Begründung im Anhang \ref{a3:Energiequelle}).
 Mit dem Notaus-Knopf kann die Energieversorgung zu allen Komponenten direkt unterbrochen werden.
-
+\newpage
 \subsection{Ablauf}
 
-Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Ablauf des Roboters von Start bis Ziel übersichtlich aufgezeigt.
+Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Programmablauf des Roboters von Start bis Ziel übersichtlich aufgezeigt.
 
 \begin{figure}[H]
 \includegraphics[width=0.9\textwidth]{img/lösungskonzpet/Ablaufdiagramm.png}
@@ -56,16 +56,24 @@ Sobald der Roboter im Ziel angekommen ist, erleuchtet die LED, welche sich neben
 
 Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Wie der Name schon erahnen lässt, handelt es sich dabei um ein ähnliches System, wie wir es von Staubsauger-Robotern kennen. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Weitere Details dazu befinden sich im Anhang unter \ref{a3:Fortbewegung}.
 
-Als Antriebsmotoren werden Brushed-DC-Motoren verwendet, die über eine H-Brücke mit einem PWM-Signal angesteuert werden können. Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die H-Brücke ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} nachgeschlagen werden.
+Als Antriebsmotoren werden Brushed-DC-Motoren verwendet, die über eine H-Brücke mit einem PWM-Signal angesteuert werden können. \textcolor{red}{Funktion H-Brücke und PWM Signal erklären wie bei Encoder, in Anhang ergänzen oder so stehen lassen?} Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die H-Brücke ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} nachgeschlagen werden.
 \newpage
-Der TinyK22 ist über eine UART-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Schnittstelle}). Zunächst sendet der TinyK22 das gewünschte Ziel an den Raspberry Pi. Der Raspberry Pi wertet mit der Kamera aus, welches der nächste beste Punkt ohne Pylone ist und teilt anschliessend dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um diesen Punkt zu erreichen. Somit dreht sich das Fahrzeug auf die angepeilte Linie, dies wird vom Liniensensor darauf erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat.
+Der TinyK22 ist über eine UART-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Zunächst sendet der TinyK22 das gewünschte Ziel an den Raspberry Pi. Der Raspberry Pi wertet mit der Kamera aus, welches der nächstbeste Punkt ohne Pylone ist und teilt anschliessend dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um diesen Punkt zu erreichen. Somit dreht sich das Fahrzeug auf die angepeilte Linie, diese wird vom Liniensensor erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalaustausch} visualisiert.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{img/lösungskonzpet/Skizzen/UART_Schnittstelle.png}
-\caption{UART Schnittstelle}
-\label{img:UART_Schnittstelle}
+\includegraphics[width=0.4\textwidth]{img/lösungskonzpet/Skizzen/Uart_Physisch.png}
+\caption{UART Physische Verbindung}
+\label{img:UART_Physisch}
 \end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.7\textwidth]{img/lösungskonzpet/Skizzen/Uart_Signalaustausch.png}
+\caption{UART Signalaustausch}
+\label{img:UART_Signalaustausch}
+\end{figure}
+
 
 Das Fahrzeug folgt der Linie mithilfe des Liniensensors. Erkennt der Sensor eine breitere Linie, also einen Punkt, informiert der TinyK22 den Raspberry Pi, stoppt das Fahrzeug, und der Vorgang beginnt erneut. Sobald das Fahrzeug den Zielpunkt erreicht, signalisiert der Raspberry Pi dies dem TinyK22, der daraufhin eine LED blinken lässt.
 
@@ -73,7 +81,7 @@ Das Fahrzeug folgt der Linie mithilfe des Liniensensors. Erkennt der Sensor eine
 
 \subsection{Wegfindung}
 
-Der schnellste Weg ins Ziel wird, wie in der Konzeptfindung festgelegt (siehe Anhang \ref{a3:Wegfindung}), mithilfe des Dijkstra-Algorithmus berechnet. Dabei wird die vorgegebene Strecke als gewichteter Graph in der Software gespeichert. Ursprünglich besitzen alle Kanten eine einheitliche Gewichtung. Sobald die Kamera neue Informationen über die Strecke erfasst (siehe \ref{sub:Objekterkennung}), wird der Graph entsprechend aktualisiert, und der kürzeste Weg wird basierend auf der aktuellen Position neu berechnet.
+Der schnellste Weg ins Ziel wird, wie in der Konzeptfindung festgelegt (siehe Anhang \ref{a3:Wegfindung}), mithilfe des Dijkstra-Algorithmus berechnet. Dabei wird das vorgegebene Liniennetz als gewichteter Graph in der Software gespeichert. Ursprünglich besitzen alle Kanten eine einheitliche Gewichtung. Sobald die Kamera neue Informationen über die Strecke erfasst (siehe \ref{sub:Objekterkennung}), wird der Graph entsprechend aktualisiert, und der kürzeste Weg wird basierend auf der aktuellen Position neu berechnet.
 
 Je nach neu erhaltener Information werden folgende Anpassungen am Graphen vorgenommen: \begin{itemize} 
   \item Pylon auf Wegpunkt erkannt: Der Wegpunkt (Knoten) wird aus dem Graphen entfernt.
@@ -97,7 +105,7 @@ Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermess
 
 
 \subsubsection{Klemmen}
-Die Klemmen, die in Punkt 3 und 6 in der Abbildung \ref{img:Skizze_Hindernisbewältigung} benötigt werden erfüllen gleichzeitig mehrere Funktionen.
+Die Klemmen, die in Punkt 3 und 6 in der Abbildung \ref{img:Skizze_Hindernisbewältigung} benötigt werden, erfüllen gleichzeitig mehrere Funktionen.
 
 \begin{enumerate}
     \item Greifen
@@ -106,7 +114,7 @@ Die Klemmen, die in Punkt 3 und 6 in der Abbildung \ref{img:Skizze_Hindernisbew�
     \item Loslassen
 \end{enumerate}
 
-Alle Funktionen werden mithilfe eines Stepper Motors ausgeübt. Das Design ist in Abbildungen \ref{fig:greifarm_oben} und \ref{fig:greifarm_unten} ersichtlich.
+Alle Funktionen werden mithilfe eines Schrittmotors ausgeübt. Das Design ist in Abbildungen \ref{fig:greifarm_oben} und \ref{fig:greifarm_unten} ersichtlich.
 \newline
 
 Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigieren.
@@ -136,6 +144,6 @@ Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigiere
 \end{figure}
 
 Ersichtlich in Abbildung \ref{fig:greifarm_oben} sind die Klemmen, die durch Zahnräder angetrieben werden, welche wiederum von einem linearen Mechanismus bewegt werden, um gleichzeitig den Hebemechanismus auszulösen. Die Feder sorgt dafür, dass, sobald die nötige Griffkraft erreicht ist, weiterhin eine Bewegung für den Hebemechanismus ermöglicht wird. In Abbildung \ref{fig:greifarm_unten} ist der Hebemechanismus zu sehen, der sich von einer Plattform (nicht im Bild sichtbar) abdrückt. An den Rändern befinden sich acht Löcher, von denen vier für Schrauben und die anderen vier für Führungen genutzt werden, um eine kontrollierte Anhebung des Greifarms durch den Mechanismus sicherzustellen.
-Der Stepper Motor, der den ganzen Mechanismus antreibt, würde sich auf dem Gehäuse befinden. Dieser Mechanismus wurde dafür ausgelegt, um von Hand für Tests betrieben zu werden. Die Tests des Mechanismus sind im Kapitel \ref{sec:hardware_greifarm} ersichtlich.
+Der Schrittmotor, der den ganzen Mechanismus antreibt, würde sich auf dem Gehäuse befinden. Dieser Mechanismus wurde dafür ausgelegt, um von Hand für Tests betrieben zu werden. Die Tests des Mechanismus sind im Kapitel \ref{sec:hardware_greifarm} ersichtlich.
 
 \end{document}

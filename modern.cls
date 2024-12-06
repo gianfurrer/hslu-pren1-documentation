@@ -69,7 +69,7 @@
   \usetikzlibrary{shadows,calc}
 
 \RequirePackage{subfiles}
-\RequirePackage[section, acronym]{glossaries}
+\RequirePackage[section, acronym, toc]{glossaries}
 \RequirePackage{pdfpages}
 
 % Align footnotes at the bottom of the page
@@ -650,21 +650,20 @@ PREN 1}
 
   \printglossary[
     title=Akronyme,
-    style=acronymindent,
+    % style=acronymindent,
     type=\acronymtype
   ]
 
   \newpage
-  %  Glossar
-  %\addcontentsline{toc}
-   %{section}
-    %{Glossar}
+  \addcontentsline{toc}
+   {section}
+    {Glossar}
 
 
- % \printglossary[
-  %  style=altlist,
-   % title=Glossar
- % ]
+  \printglossary[
+    style=altlist,
+    title=Glossar
+  ]
 }
 
 % ------------------------------------------------------------------------------

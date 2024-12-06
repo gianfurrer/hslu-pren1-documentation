@@ -134,7 +134,7 @@ Aus der in Tabelle \ref{tab:UltraschallMD} dargestellten Messwerte wird ersichtl
 
 \newpage
 \subsubsection{Time-of-Flight Sensor}
-Ein \acrfull{tof-sensor} arbeitet nach einem ähnlichen Prinzip wie ein Ultraschallsensor, jedoch sendet er statt Schallwellen einen Lichtstrahl aus. In diesem Experiment wird der \acrshort{tof-sensor} vom Typ VL530L0X getestet. Der Messaufbau entspricht dem des Ultraschallsensors (siehe Abbildung \ref{fig:TOF1}). Die Kommunikation findet über den I2C Bus statt.
+Ein \acrfull{tof-sensor} arbeitet nach einem ähnlichen Prinzip wie ein Ultraschallsensor, jedoch sendet er statt Schallwellen einen Lichtstrahl aus. In diesem Experiment wird der \acrshort{tof-sensor} vom Typ VL530L0X getestet. Der Messaufbau entspricht dem des Ultraschallsensors (siehe Abbildung \ref{fig:TOF1}). Die Kommunikation findet über den \gls{i2c} Bus statt.
 
 \begin{figure}[h!] % 'h' steht für here, was bedeutet, dass das Bild möglichst an dieser Stelle eingefügt wird
     \centering
@@ -245,7 +245,7 @@ Im nächsten Schritt werden alle vier möglichen Szenarien getestet, wie in Abbi
 \end{figure}
 
 
-Der Farbsensor kann über die I2C-Schnittstelle konfiguriert werden, wobei unter anderem die Belichtungszeit angepasst werden kann. In diesem Test wurde die Belichtungszeit auf 101 ms eingestellt, um den Kontrast zwischen den Bodenelementen zu erhöhen. Es hat sich gezeigt, dass mit einer längeren Belichtungszeit die Differenz zwischen den verschiedenen Bodenelementen grösser wird. Allerdings waren die Differenzen bei einer Belichtungszeit von weniger als 101 ms zu gering, um eine signifikante Unterscheidung zu ermöglichen.
+Der Farbsensor kann über die \gls{i2c}-Schnittstelle konfiguriert werden, wobei unter anderem die Belichtungszeit angepasst werden kann. In diesem Test wurde die Belichtungszeit auf 101 ms eingestellt, um den Kontrast zwischen den Bodenelementen zu erhöhen. Es hat sich gezeigt, dass mit einer längeren Belichtungszeit die Differenz zwischen den verschiedenen Bodenelementen grösser wird. Allerdings waren die Differenzen bei einer Belichtungszeit von weniger als 101 ms zu gering, um eine signifikante Unterscheidung zu ermöglichen.
 
 Die durchgeführten Tests lieferten die folgenden Messdaten:
 

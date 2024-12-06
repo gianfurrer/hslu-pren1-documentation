@@ -211,7 +211,7 @@ Ein heuristischer Algorithmus, der den kürzesten Pfad von einem Startknoten zu 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
-  \item Findet optimale Lösungen und ist oft schneller als Dijkstra, besonders bei großen Graphen.
+  \item Findet optimale Lösungen und ist oft schneller als Dijkstra, besonders bei grossen Graphen.
   \item Anpassbar durch Wahl der Heuristik.
 \end{items}
 \end{minipage}
@@ -267,12 +267,12 @@ Eine Erweiterung des A*-Algorithmus, die speziell für dynamische Umgebungen ent
 
 
 \paragraph{Goal directed shortest path queries using precomputed cluster distances}
-beschleunigte Version von Dijkstra's Algorithmus, wobei für Graphen-Cluster-Distanzen vorberechnet werden.
+beschleunigte Version von Dijkstra's Algorithmus, wobei für Graphen-Cluster Distanzen vorberechnet werden.
 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
-  \item Vor generierte kürzeste Pfade erlauben schnelle Wechsel bei Graph-Anpassungen
+  \item Vorgenerierte kürzeste Pfade erlauben schnelle Wechsel bei Graph-Anpassungen
   \item Schnell bei kleinen Graphen
 \end{items}
 \end{minipage}
@@ -285,7 +285,7 @@ beschleunigte Version von Dijkstra's Algorithmus, wobei für Graphen-Cluster-Dis
 \end{minipage}
 
 \paragraph{Floyd Warshall}
-Findet den kürzesten Weg von allen Knoten zu allen anderen Knoten in einem Graphen.
+Findet den kürzesten Weg von allen Knoten zu allen anderen Knoten eines Graphen.
 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
@@ -303,7 +303,7 @@ Findet den kürzesten Weg von allen Knoten zu allen anderen Knoten in einem Grap
 
 \subsection{Objekterkennung}
 
-Der Weg, die Hindernisse sowie die Pylonen müssen anhand von Software erkannt und kategorisiert werden. Um die beiden Objekte voneinander zu unterscheiden, müssen die Objekte anhand von Bildern erkannt werden.
+Der Weg, die Hindernisse sowie die Pylonen müssen anhand von Software erkannt und kategorisiert werden. Um die beiden Objekte voneinander zu unterscheiden, werden die Objekte anhand von Bildern erkannt.
 
 Dieser Abschnitt fasst die Rechercheergebnisse zusammen und listet Vor- und Nachteile zu unterschiedlichen Varianten.
 
@@ -315,7 +315,7 @@ Ein tiefes Lernverfahren, das besonders für die Bildverarbeitung und Objekterke
 \begin{items}
   \item [Vorteile]
   \item Hohe Genauigkeit bei der Objekterkennung, besonders bei komplexen Szenen.
-  \item Automatische Merkmalserkennung ohne manuelle Feature-Engineering.
+  \item Automatische Merkmalserkennung ohne manuelles Feature-Engineering.
 \end{items}
 \end{minipage}
 \hfill
@@ -390,7 +390,7 @@ Ein Ansatz, der die Genauigkeit der Objekterkennung verbessert, indem er Regione
 \newpage
 \subsection{Fortbewegung}
 
-Dieser Abschnitt enthält detaillierte Rechercheergebnisse zu den unterschiedlichen Arten der Fortbewegung und dessen Vor- und Nachteilen.
+Dieser Abschnitt enthält detaillierte Rechercheergebnisse zu den unterschiedlichen Arten der Fortbewegung und deren Vor- und Nachteilen.
 
 \subsubsection{Beweglichkeit}
 
@@ -398,7 +398,7 @@ Dieser Abschnitt enthält detaillierte Rechercheergebnisse zu den unterschiedlic
 
 Das Mecanum-Rad ist ein Rad, das einem Fahrzeug omnidirektionale Fahrmanöver erlaubt, ohne mit einer mechanischen Lenkung ausgestattet zu sein.
 Auf dem Umfang des Rades sind mehrere einzelne tonnenförmige Rollen in einem Winkel von 45° gelagert angebracht. 
-In Abhängigkeit von, wie die einzelnen Räder nun angetrieben werden, kann das Fahrzeug sich in alle Richtungen bewegen und sogar um die eigene Achse drehen.
+In Abhängigkeit von, wie die einzelnen Räder nun angetrieben werden, kann das Fahrzeug sich in alle Richtungen bewegen und um die eigene Achse drehen.
 
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
@@ -558,7 +558,7 @@ Die Idee ist eine nach unten absenkbare Fussplatte, welche das Fahrzeug im Zentr
 
 \newpage
 \subsection{Hindernisbewältigung}
-Folgendes sind Ideen für die Hindernisbewältigung, jeweils mit Vor- und Nachteilen sowie einer Skizze oder Bildquelle. Die Aufgabe wurde in den Teilaufgaben Aufnahme und Rotation / Translation des Hindernisses unterteilt. 
+Folgendes sind Ideen für die Hindernisbewältigung, jeweils mit Vor- und Nachteilen sowie einer Skizze oder Bildquelle. Die Aufgabe wurde in die Teilaufgaben Aufnahme und Rotation / Translation des Hindernisses unterteilt. 
 
 \subsubsection{Lösungsprinzipien}
 \paragraph{Gabelstapler}
@@ -993,7 +993,7 @@ Ein Ultraschallsensor sendet Schallwellen aus und kann mit deren Reflexion von O
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
-  \item Material unabhängig
+  \item Unabhängig vom Material
   \item Hohe Präzision
   \item Robust gegenüber Umwelteinflüssen
 \end{items}
@@ -1009,7 +1009,7 @@ Ein Ultraschallsensor sendet Schallwellen aus und kann mit deren Reflexion von O
 \end{minipage}
 
 \paragraph{Encoder}
-Ein Encoder detektiert die Umdrehungen eines Motors und wandelt dies in ein digitales Signal um. Mit diesem Signal kann die Steuerung den Motor präzise ansteuern.
+Ein Encoder detektiert die Umdrehungen eines Motors und wandelt diese in ein digitales Signal um. Mit diesem Signal kann die Steuerung den Motor präzise ansteuern.
  
 
 \begin{minipage}[t]{0.48\textwidth}
@@ -1058,7 +1058,7 @@ Der Lithium-Polymer (LiPo) Akku ist ein formbarer Akku, der vor allem im Modellb
 
 \paragraph{Lithium-Ionen}
 
-Der Lithium-Ionen (Li-Ion) Akku ist ein robuster Akku der in Laptop und Smartphones eingesetzt wird. Da dieser kein Memory Effekt besitzt. Der Memory Effekt beschreibt, wenn der Akku nicht ganz entladen wurde und dann wieder aufgeladen wird, das er diesen Punkt als tiefesten Zustand "merkt".
+Lithium-Ionen-Akkumulatoren (Li-Ion-Akkus) stellen eine zuverlässige Energiespeichertechnologie dar, die häufig in Laptops und Smartphones eingesetzt wird. Ein wesentlicher Vorteil dieser Akkutypen ist das Fehlen des sogenannten Memory-Effekts. Dieser Effekt beschreibt das Phänomen, bei dem ein Akkumulator, der vor dem erneuten Aufladen nicht vollständig entladen wurde, diesen Ladezustand als tiefsten Entladezustand ``speichert``, was zu einer Reduktion der nutzbaren Kapazität führen kann.
 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}

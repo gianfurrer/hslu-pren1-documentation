@@ -3,11 +3,11 @@
 \begin{document}
 
 \newpage
-\section{Simulator}
+\subsection{Simulator}
 
 Der Simulator dient dazu, die Funktionalität der Software des autonomen Fahrzeugs zu testen, bevor der physische Prototyp gebaut wird.\\
 
-\subsection{Spezifikation}
+\subsubsection{Spezifikation}
 
 In diesem Abschnitt wird definiert, was der Simulator genau leisten soll. Die Anforderungen stammen aus der Aufgabenstellung sowie dem gewählten Fahrzeugkonzept.
 
@@ -29,7 +29,7 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll. Die An
 \end{table}
 
 \newpage
-\subsection{Morphologischer Kasten}
+\subsubsection{Morphologischer Kasten}
 
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
@@ -98,34 +98,34 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll. Die An
 
 Der Lösungsansatz des Morphologischen Kastens ist darauf ausgelegt, einen simplen Simulator zu erstellen, welcher trotzdem viele Anforderungen an die Wegfindung abdecken kann.
 
-\subsubsection{User Interface}
+\paragraph{User Interface}
 
 Obwohl ebenfalls eine virtuelle Umgebung mit der Unreal Engine und dem Pfadfinder-Model existiert, ist der Aufwand zu gross, diese an den Simulator anzubinden. Die Ausgabe in einem Terminal hingegen ist zu minimal. Deshalb wird das User Interface mit einem einfachen GUI umgesetzt. 
 
-\subsubsection{Wegfindungs-Algorithmus}
+\paragraph{Wegfindungs-Algorithmus}
 
 Die Umsetzung des Wegfindungs-Algorithmus kann entweder eigenständig oder mithilfe einer externen Bibliothek erfolgen. Da zahlreiche etablierte Bibliotheken für die Graphentheorie verfügbar sind, erscheint eine eigenständige Implementierung nicht sinnvoll. Dies führt zwar zu einer geringeren Flexibilität, reduziert jedoch die Fehleranfälligkeit erheblich.
 
-\subsubsection{Programmiersprache}
+\paragraph{Programmiersprache}
 
 Für die Wahl der Programmiersprache wurden Python, JavaScript und Java in Betracht gezogen. Java ist im Informatik-Studium weit verbreitet und wird für zahlreiche Projekte eingesetzt. JavaScript bietet die Möglichkeit, grafische Darstellungen unkompliziert über eine Webseite zu realisieren. Python zeichnet sich durch seine einfache Handhabung aus und wird häufig im Bereich der Künstlichen Intelligenz verwendet, was für die Software des autonomen Roboters wichtig ist.
 
 Python wurde als Programmiersprache gewählt, da innerhalb des Teams umfassendes Know-how vorhanden ist. Darüber hinaus stellt die Bibliothek NetworkX\footnote{https://networkx.org} eine leistungsstarke Lösung für die Arbeit mit Graphen bereit, die optimal für die Anforderungen des Projekts geeignet ist.
 
-\subsubsection{Informationen einlesen}
+\paragraph{Informationen einlesen}
 
 Damit die Software die Hindernisse auf dem Graphen kennt, müssen entsprechende Informationen eingelesen werden können. Idealerweise erfolgt dies ähnlich wie in der Realität, durch die Auswertung von Bildern mittels Objekterkennung. Um den Simulator jedoch möglichst schnell einsatzfähig zu machen, wird stattdessen eine Konfigurationsdatei verwendet, die die notwendigen Informationen bereitstellt.
 
 Die Konfigurationsdatei ermöglicht eine einfache Anpassung der Szenarien und erlaubt dadurch das effiziente Testen verschiedener Konstellationen. Diese Herangehensweise beschleunigt die Entwicklungsphase und sorgt für Flexibilität beim Simulieren diverser Bedingungen.
 
-\subsubsection{Hindernis Bewältigung}
+\paragraph{Hindernis Bewältigung}
 
 Der Simulator soll aufzeigen, wie Hindernisse auf der Strecke behandelt werden.
 Dabei wird berücksichtigt, dass Hindernisse unter bestimmten Bedingungen nicht immer umfahren werden können, beispielsweise wenn sämtliche alternativen Wege blockiert sind. Daher stellt die Option `Immer umfahren` keine sinnvolle Strategie dar.
 
 Das Ignorieren von Hindernissen ist ebenfalls suboptimal, da gleich lange Pfade ohne Hindernisse effizienter befahren werden können. Um diesem Problem zu begegnen, wird die Strategie `Gewicht hinzufügen` angewendet. Mit dieser Methode kann flexibel entschieden werden, wie stark ein Hindernis die Wahl eines Pfades beeinflusst. Die Gewichtung erlaubt es, Hindernisse dynamisch in die Berechnung einzubeziehen, ohne zwingend alle Alternativen auszuschliessen.
 
-\subsection{Konzept}
+\subsubsection{Konzept}
 
 Im Optimalfall würde der Simulator die gesamte Hardware des autonomen Fahrzeugs nachbilden. Dadurch könnte die Fahrzeugsoftware direkt im Simulator getestet werden, ohne Anpassungen vornehmen zu müssen. Diese Herangehensweise würde eine nahtlose Integration zwischen Softwareentwicklung und Simulation ermöglichen. Allerdings ist die vollständige Simulation der Hardware mit erheblichem Aufwand verbunden und übersteigt den Rahmen des Simulators.
 
@@ -182,7 +182,7 @@ Zusätzlich wird beim Befahren vom Wegpunkt \textbf{D} folgendes festgestellt:
 Diese Informationen werden genutzt, um den Graphen dynamisch zu aktualisieren und die optimalen Routen basierend auf den aktuellen Bedingungen neu zu berechnen.
 
 
-\subsection{Umsetzung}
+\subsubsection{Umsetzung}
 
 TODO(Gian): Kapitel vervollständigen
 

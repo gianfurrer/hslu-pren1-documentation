@@ -56,21 +56,21 @@ Sobald der Roboter im Ziel angekommen ist, erleuchtet die LED, welche sich neben
 
 Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Wie der Name schon erahnen lässt, handelt es sich dabei um ein ähnliches System, wie wir es von Staubsauger-Robotern kennen. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Weitere Details dazu befinden sich im Anhang unter \ref{a3:Fortbewegung}.
 
-Als Antriebsmotoren werden Brushed-DC-Motoren verwendet, die über eine H-Brücke mit einem PWM-Signal angesteuert werden können. \textcolor{red}{Funktion H-Brücke und PWM Signal erklären wie bei Encoder, in Anhang ergänzen oder so stehen lassen?} Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die H-Brücke ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} nachgeschlagen werden.
+Als Antriebsmotoren werden Brushed-DC-Motoren verwendet, die über eine H-Brücke mit einem PWM-Signal angesteuert werden können. \textcolor{red}{TODO: Funktion H-Brücke und PWM Signal erklären wie bei Encoder, in Anhang ergänzen oder so stehen lassen?} Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die H-Brücke ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} nachgeschlagen werden.
 \newpage
-Der TinyK22 ist über eine UART-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Zunächst sendet der TinyK22 das gewünschte Ziel an den Raspberry Pi. Der Raspberry Pi wertet mit der Kamera aus, welches der nächstbeste Punkt ohne Pylone ist und teilt anschliessend dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um diesen Punkt zu erreichen. Somit dreht sich das Fahrzeug auf die angepeilte Linie, diese wird vom Liniensensor erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalaustausch} visualisiert.
+Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Zunächst sendet der TinyK22 das gewünschte Ziel an den Raspberry Pi. Der Raspberry Pi wertet mit der Kamera aus, welches der nächstbeste Punkt ohne Pylone ist und teilt anschliessend dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um diesen Punkt zu erreichen. Somit dreht sich das Fahrzeug auf die angepeilte Linie, diese wird vom Liniensensor erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalaustausch} visualisiert.
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.4\textwidth]{img/lösungskonzpet/Skizzen/Uart_Physisch.png}
-\caption{UART Physische Verbindung}
+\caption{\Gls{uart} Physische Verbindung}
 \label{img:UART_Physisch}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{img/lösungskonzpet/Skizzen/Uart_Signalaustausch.png}
-\caption{UART Signalaustausch}
+\caption{\Gls{uart} Signalaustausch}
 \label{img:UART_Signalaustausch}
 \end{figure}
 

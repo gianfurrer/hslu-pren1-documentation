@@ -1,5 +1,6 @@
 \documentclass[../main.tex]{subfiles}
 \graphicspath{{\subfix{../img/}}}
+\include{../glossary}
 \begin{document}
 
 \newpage
@@ -16,25 +17,21 @@ In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel'' (siehe Anhang \r
 
 \subsection{Aufbau}
 
-\textbf{TODO:} 
-- Aufbau mit fehlenden Daten ergänzen.  
+Der Fahrzeug besitzt zwei Räder, die mit jeweils einem DC-Motor angetrieben werden. Um das Fahrzeug zu balancieren, hat es am hinteren Fahrzeugende eine dritte Auflagefläche.
 
+Die Raspberry Pi Module 3 Kamera befindet sich auf einem höhenverstellbaren Masten. Die Höhe der Kamera kann zwischen 40 und 60 Zentimeter manuell eingestellt werden. Der Winkel der Kamera kann ebenfalls manuell verändert werden. Somit kann die Kamera-Position im späteren Verlauf des Projektes einfach optimiert werden.
 
-Der Roboter besteht aus zwei (TODO welche) Rädern, die mit jeweils einem DC-Motor angetrieben werden.
+Zur Hindernisbewältigung befindet sich an der Vorderseite des Roboters ein Klemmmechanismus. Ein dritter DC-Motor zieht die beiden Klemmbacken des Mechanismus zusammen und hebt sie an, um das Hindernis aufzuheben. Damit der Abstand zu einem Hindernis erkannt werden kann, befindet sich ein Ultraschallsensor zwischen den beiden Klemmbacken. 
 
-Die Raspberry Pi Camera Module 3 Kamera befindet sich auf einem höhenverstellbaren Masten. Die Höhe der Kamera kann zwischen 40 und 60 Zentimeter variabel eingestellt werden. Der Winkel der Kamera kann ebenfalls verändert werden. Somit kann die Kamera-Position im späteren Verlauf des Projektes einfach optimiert werden.
-
-Zur Hindernisbewältigung befindet sich an der Vorderseite des Roboters ein Greifarm. Ein Schrittmotor zieht die zwei Klemmblöcke des Greifarms zusammen und hebt sie an, um das Hindernis aufzuheben. Damit der Abstand zu einem Hindernis erkannt werden kann, befindet sich ein Ultraschallsensor zwischen den beiden Klemmblöcken. 
-
-Die Motoren, Sensoren und Eingabeknöpfe sind mit einem TinyK22 verbunden.
-Das TinyK22 sowie die Kamera sind an einem Raspberry Pi 5 angeschlossen.
+Die Motoren und Sensoren werden über das TinyK22 gesteuert.
+Das TinyK22, die Eingabeknöpfe sowie die Kamera sind an einem Raspberry Pi 5 angeschlossen.
 
 Die Energieversorgung für alle Komponenten wird mit einem LiPo-Akku sichergestellt (Begründung im Anhang \ref{a3:Energiequelle}).
 Mit dem Notaus-Knopf kann die Energieversorgung zu allen Komponenten direkt unterbrochen werden.
 \newpage
 \subsection{Ablauf}
 
-Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Programmablauf des Roboters von Start bis Ziel übersichtlich aufgezeigt.
+Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Programmablauf des Fahrzeugs von Start bis Ziel übersichtlich aufgezeigt.
 
 \begin{figure}[H]
 \includegraphics[width=0.9\textwidth]{img/lösungskonzpet/Ablaufdiagramm.png}
@@ -54,11 +51,11 @@ Sobald der Roboter im Ziel angekommen ist, erleuchtet die LED, welche sich neben
 
 \subsection{Fortbewegung} 
 
-Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Wie der Name schon erahnen lässt, handelt es sich dabei um ein ähnliches System, wie wir es von Staubsauger-Robotern kennen. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Weitere Details dazu befinden sich im Anhang unter \ref{a3:Fortbewegung}.
+Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Es handelt sich dabei um ein ähnliches System, wie es bei Staubsauger-Robotern vorkommt. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Weitere Details dazu befinden sich im Anhang unter \ref{a3:Fortbewegung}.
 
 Als Antriebsmotoren werden Brushed-DC-Motoren verwendet, die über eine H-Brücke mit einem PWM-Signal angesteuert werden können. \textcolor{red}{TODO: Funktion H-Brücke und PWM Signal erklären wie bei Encoder, in Anhang ergänzen oder so stehen lassen?} Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die H-Brücke ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} nachgeschlagen werden.
 \newpage
-Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Zunächst sendet der TinyK22 das gewünschte Ziel an den Raspberry Pi. Der Raspberry Pi wertet mit der Kamera aus, welches der nächstbeste Punkt ohne Pylone ist und teilt anschliessend dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um diesen Punkt zu erreichen. Somit dreht sich das Fahrzeug auf die angepeilte Linie, diese wird vom Liniensensor erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalaustausch} visualisiert.
+Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Zunächst sendet der TinyK22 das gewünschte Ziel an den Raspberry Pi. Der Raspberry Pi wertet mit der Kamera aus, welches der nächstbeste Punkt ohne Pylone ist und teilt anschliessend dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um diesen Punkt zu erreichen. Somit dreht sich das Fahrzeug auf die angepeilte Linie, diese wird vom Liniensensor erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalablauf} visualisiert.
 
 \begin{figure}[H]
 \centering
@@ -70,8 +67,8 @@ Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbund
 \begin{figure}[H]
 \centering
 \includegraphics[width=0.7\textwidth]{img/lösungskonzpet/Skizzen/Uart_Signalaustausch.png}
-\caption{\Gls{uart} Signalaustausch}
-\label{img:UART_Signalaustausch}
+\caption{\Gls{uart} Signalablauf}
+\label{img:UART_Signalablauf}
 \end{figure}
 
 
@@ -90,11 +87,11 @@ Je nach neu erhaltener Information werden folgende Anpassungen am Graphen vorgen
 \end{itemize}
 
 \subsubsection{Objekterkennung} \label{sub:Objekterkennung}
-Die Objekterkennung wird mithilfe einer weitwinkligen Raspberry Pi Camera Module 3 Kamera durchgeführt. Dabei werden Pylonen, Hindernisse und Wegpunkte erkannt. Als Software kommt YOLO zum Einsatz (Anhang \ref{a3:Objekterkennung}). Die erkannten Objekte werden für die Wegfindung genutzt. Das Ziel ist es, von Anfang an möglichst viele Objekte zu erfassen und auszuwerten. Da dies jedoch nicht garantiert werden kann, wird die Objekterkennung bei jedem Wegpunkt durchgeführt. 
+Die Objekterkennung wird mithilfe einer weitwinkligen Raspberry Pi Module 3 Kamera durchgeführt. Dabei werden Pylonen, Hindernisse und Wegpunkte erkannt. Als Software kommt YOLO zum Einsatz (Anhang \ref{a3:Objekterkennung}). Die erkannten Objekte werden für die Wegfindung genutzt. Das Ziel ist es, von Anfang an möglichst viele Objekte zu erfassen und auszuwerten. Da dies jedoch nicht garantiert werden kann, wird die Objekterkennung bei jedem Wegpunkt durchgeführt. 
 
 \subsection{Hindernisbewältigung}
-Der Ultraschallsensor überwacht kontinuierlich, ob sich ein Hindernis auf der Linie befindet (siehe Anhang \ref{a3:Objekterkennung_Sensor}). Sobald ein Hindernis in 30 cm Entfernung detektiert wird, verlangsamt sich das Fahrzeug und fährt langsam darauf zu, bis es zwischen den zwei seitlichen Klemmbacken positioniert ist. Diese Distanz ist vorprogrammiert, und das Fahrzeug hält an. Danach wird der Schrittmotor angesteuert, der das Hindernis ergreift und gleichzeitig anhebt (die genauen Details zu dieser Konstruktion befinden sich im Anhang \ref{a3:Hindernisbewältigungsantrieb} und \ref{a3:Aufnahme_Hindernis}).
-Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermessung die Distanz überwacht. Danach dreht es sich um 180 Grad, und der Schrittmotor löst die Klemmen. Das Fahrzeug fährt nun ein Stück zurück, um das Hindernis nicht mehr zwischen den Klemmbacken zu haben, und vollzieht eine weitere 180-Grad-Drehung. Abschliessend fährt das Fahrzeug mithilfe des Liniensensors entlang der Linie zum nächsten Punkt (siehe Abbildung \ref{img:Skizze_Hindernisbewältigung}).
+Der Ultraschallsensor überwacht kontinuierlich, ob sich ein Hindernis auf der Linie befindet (Sensorwahl: Anhang \ref{a3:Objekterkennung_Sensor}). Ab einer Entfernung von 30 cm wird ein Hindernis erkannt. Das Fahrzeug hält an, sobald das Hindernis sich zwischen den zwei seitlichen Klemmbacken befindet. Danach wird der DC-Motor angesteuert, der das Hindernis ergreift und gleichzeitig anhebt. Die genauen Details zu dieser Konstruktion befinden sich im Anhang \ref{a3:Hindernisbewältigungsantrieb} und \ref{a3:Aufnahme_Hindernis}.
+Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermessung die Distanz überwacht. Danach dreht es sich um 180 Grad, und der Schrittmotor löst die Klemmen. Das Fahrzeug entfernt sich nun soweit vom Hindernis, bis es sich ohne Kollisionsgefahr um 180 Grad zurückdrehen kann. Abschliessend fährt das Fahrzeug mithilfe des Liniensensors entlang der Linie zum nächsten Punkt (siehe Abbildung \ref{img:Skizze_Hindernisbewältigung}).
 
 \begin{figure}[H]
 \centering
@@ -104,8 +101,8 @@ Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermess
 \end{figure}
 
 
-\subsubsection{Klemmen}
-Die Klemmen, die in Punkt 3 und 6 in der Abbildung \ref{img:Skizze_Hindernisbewältigung} benötigt werden, erfüllen gleichzeitig mehrere Funktionen.
+\subsubsection{Klemmmechanismus}
+Der Klemmen, die in Punkt 3 und 6 in der Abbildung \ref{img:Skizze_Hindernisbewältigung} benötigt werden, erfüllen gleichzeitig mehrere Funktionen.
 
 \begin{enumerate}
     \item Greifen

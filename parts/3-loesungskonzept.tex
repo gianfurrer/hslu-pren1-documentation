@@ -1,6 +1,7 @@
 \documentclass[../main.tex]{subfiles}
 \graphicspath{{\subfix{../img/}}}
 \include{../glossary}
+
 \begin{document}
 
 \newpage
@@ -102,7 +103,7 @@ Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermess
 
 
 \subsubsection{Klemmmechanismus}
-Der Klemmen, die in Punkt 3 und 6 in der Abbildung \ref{img:Skizze_Hindernisbewältigung} benötigt werden, erfüllen gleichzeitig mehrere Funktionen.
+Der Klemmmechanismus, welcher in Punkt 3 und 6 in der Abbildung \ref{img:Skizze_Hindernisbewältigung} benötigt wird, erfüllt mehrere Funktionen.
 
 \begin{enumerate}
     \item Greifen
@@ -111,14 +112,14 @@ Der Klemmen, die in Punkt 3 und 6 in der Abbildung \ref{img:Skizze_Hindernisbew�
     \item Loslassen
 \end{enumerate}
 
-Alle Funktionen werden mithilfe eines Schrittmotors ausgeübt. Das Design ist in Abbildungen \ref{fig:greifarm_oben} und \ref{fig:greifarm_unten} ersichtlich.
+Alle Funktionen werden mithilfe eines DC-Motors ausgeübt. Das Design ist in Abbildungen \ref{fig:greifarm_oben} und \ref{fig:greifarm_unten} ersichtlich.
 \newline
 
 Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigieren.
 \begin{enumerate}
-    \item Korrektur-Winkel (bis zu 15°, siehe Kapitel \ref{loes:winkel_verschiebung})
-    \item Korrektur Distanz (bis zur Hälfte $b$, was 2.25 cm ist, siehe Kapitel \ref{loes:winkel_verschiebung})
-    \item Korrektur Offset (bis zu 2 cm, siehe Kapitel \ref{loes:abstand_klemmen})
+    \item Korrektur Winkel (bis zu 15°, siehe Anhang \ref{loes:winkel_verschiebung})
+    \item Korrektur Distanz (bis zu 2.25 cm, siehe Anhang \ref{loes:winkel_verschiebung})
+    \item Korrektur Offset (bis zu 2 cm, siehe Anhang \ref{loes:abstand_klemmen})
 \end{enumerate}
 
 \begin{figure}[h!]
@@ -127,7 +128,7 @@ Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigiere
     \begin{minipage}[t]{0.45\textwidth}
         \centering
         \includegraphics[height=6cm]{img/lösungskonzpet/hindernissaufnahme/Greifarm_oben.jpg}
-        \caption{Greifarm von oben}
+        \caption{Klemmmechanismus von oben}
         \label{fig:greifarm_oben}
     \end{minipage}
     \hfill
@@ -135,12 +136,69 @@ Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigiere
     \begin{minipage}[t]{0.45\textwidth}
         \centering
         \includegraphics[height=6cm]{img/lösungskonzpet/hindernissaufnahme/Greifarm_unten.jpg}
-        \caption{Greifarm von unten}
+        \caption{Klemmmechanismus von unten}
         \label{fig:greifarm_unten}
     \end{minipage}
 \end{figure}
 
-Ersichtlich in Abbildung \ref{fig:greifarm_oben} sind die Klemmen, die durch Zahnräder angetrieben werden, welche wiederum von einem linearen Mechanismus bewegt werden, um gleichzeitig den Hebemechanismus auszulösen. Die Feder sorgt dafür, dass, sobald die nötige Griffkraft erreicht ist, weiterhin eine Bewegung für den Hebemechanismus ermöglicht wird. In Abbildung \ref{fig:greifarm_unten} ist der Hebemechanismus zu sehen, der sich von einer Plattform (nicht im Bild sichtbar) abdrückt. An den Rändern befinden sich acht Löcher, von denen vier für Schrauben und die anderen vier für Führungen genutzt werden, um eine kontrollierte Anhebung des Greifarms durch den Mechanismus sicherzustellen.
-Der Schrittmotor, der den ganzen Mechanismus antreibt, würde sich auf dem Gehäuse befinden. Dieser Mechanismus wurde dafür ausgelegt, um von Hand für Tests betrieben zu werden. Die Tests des Mechanismus sind im Kapitel \ref{sec:hardware_greifarm} ersichtlich.
+Ersichtlich in Abbildung \ref{fig:greifarm_oben} ist der Klemmmechanismus. Er wird durch Zahnräder angetrieben, welche wiederum von einem linearen Mechanismus bewegt werden, um gleichzeitig den Hebemechanismus auszulösen. Die Feder sorgt dafür, dass, sobald die nötige Griffkraft erreicht ist, weiterhin eine Bewegung für den Hebemechanismus ermöglicht wird. In Abbildung \ref{fig:greifarm_unten} ist der Hebemechanismus zu sehen, der sich von einer Plattform (nicht im Bild sichtbar) abdrückt. An den Rändern befinden sich acht Löcher, von denen vier für Schrauben und die anderen vier für Führungen genutzt werden, um eine kontrollierte Anhebung des Greifarms durch den Mechanismus sicherzustellen.
+Der DC-Motor, der den ganzen Mechanismus antreibt, würde sich auf dem Gehäuse befinden. Dieser Mechanismus wurde dafür ausgelegt, um von Hand für Tests betrieben zu werden. Die Tests des Mechanismus sind im Anhang \ref{sec:hardware_greifarm} ersichtlich.
+
+\subsection{Prototyping Ergebnisse}
+
+\newpage    
+\subsection{Greifarm} \label{sec:hardware_greifarm}
+Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Greifarm gemacht werden können, wurde ein Prototyp 3D - gedruckt \ref{fig:hardware_test_fertig}. Bei dem Zusammenbau und Funktionalitätstests wurden diverse Erkenntnisse gewonnen:
+
+\begin{enumerate}
+    \item Der Greifarm kann das Hindernis klemmen.
+    \item Zwischen den Klemmen ist nicht genügend Platz $\Rightarrow$ Die Offset Reserve ist nicht vorhanden.
+    \item Der Hebemechanismus funktioniert nicht, weil die Feder nicht geführt ist (Siehe Abbildung \ref{fig:hardware_test_klemmen_gleiten}).
+    \item Der Mechanismus ist allgemein noch nicht robust:
+    \begin{itemize}
+        \item Für die lineare Bewegung fehlt eine geeignete Führung.
+        \item Die Verbinder zwischen Schieber und Zahnrädern müssen verlängert werden.
+    \end{itemize}
+    \item Zahnräder reiben an der Decke (Der Luftspalt ist zu klein und muss vergrössert werden).
+    \item Alle Löcher sind zu klein (Schrumpfungseffekt durch 3D-Druck). (Siehe Abbildung \ref{fig:hardware_test_loecher})
+    \item Führung des Greifarms vergrössern Schrumpfungseffekt durch 3D-Druck, Siehe Abbildung \ref{fig:hardware_test_klemmen_gleiten})
+    \item Für ein besseres Verhalten des gesamten Systems Silikonspray verwenden
+    \item Der Winkel für die Klemmen funktioniert einwandfrei
+\end{enumerate}
+
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_fertig.jpeg}
+        \caption{Prototyp von Aussen}
+        \label{fig:hardware_test_fertig}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_klemmen_gleiten.jpeg}
+        \caption{Führung des Greifarms passt nicht}
+        \label{fig:hardware_test_klemmen_gleiten}
+    \end{minipage}
+\end{figure}
+\newpage
+\begin{figure}[h!]
+    \centering
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_loecher.jpeg}
+        \caption{Alle Löcher sind zu klein}
+        \label{fig:hardware_test_loecher}
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{0.45\textwidth}
+        \centering
+        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_schieber.jpeg}
+        \caption{Feder wurde temporär durch einen Schieber ersetzt.}
+        \label{fig:hardware_test_schieber}
+    \end{minipage}
+\end{figure}
+
 
 \end{document}

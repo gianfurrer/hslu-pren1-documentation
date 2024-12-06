@@ -1,5 +1,6 @@
 \documentclass[../main.tex]{subfiles}
 \graphicspath{{\subfix{../img/}}}
+\include{../glossary}
 
 \begin{document}
 
@@ -7,7 +8,7 @@
 \section{Projektmanagement}
 
 \subsection {Projektorganisation}
-Pren ist eine Zusammenarbeit zwischen drei Studiengängen der Hochschule Luzern - Maschinenbau, Elektrotechnik und Informatik. Das Projektteam ist aus zwei Personen pro Disziplin zusammengesetzt. Die Organisationsform für PREN ist frei wählbar. Das Team entschied sich dafür, keinen Projektleiter zu definieren und im wöchentlichen Austausch die Arbeiten des Projektmanagements, Steuerung und Kontrolle, vorzunehmen und diese Aufgaben auch unter den Projektmitarbeitenden aufzuteilen.
+PREN ist eine Zusammenarbeit zwischen drei Studiengängen der Hochschule Luzern - Maschinenbau, Elektrotechnik und Informatik. Das Projektteam ist aus zwei Personen pro Disziplin zusammengesetzt. Die Organisationsform für PREN ist frei wählbar. Das Team entschied sich dafür, keinen Projektleiter zu definieren und im wöchentlichen Austausch die Arbeiten des Projektmanagements, Steuerung und Kontrolle, vorzunehmen und diese Aufgaben auch unter den Projektmitarbeitenden aufzuteilen.
 
 \subsection{Projektziele des Teams}
 Zu Beginn des Projekts hat sich das Team Gedanken zu möglichen Zielen gemacht, die erreicht werden sollen. Folgende projektumfassende Ziele wurden gewählt:
@@ -17,7 +18,7 @@ Zu Beginn des Projekts hat sich das Team Gedanken zu möglichen Zielen gemacht, 
 \end{itemize}
 
 Diese Ziele bieten die Grundlage für das Fahrzeug inklusive Software.
-Die Positionierung im Wettbewerb in PREN2 ist durch die Zielsetzung klar sekundär. Durch das zuverlässige Lösen der Aufgabe, wird eine Platzierung sichergestellt.
+Die Positionierung im Wettbewerb in \acrshort{pren2} ist durch die Zielsetzung klar sekundär. Durch das zuverlässige Lösen der Aufgabe, wird eine Platzierung sichergestellt.
 
 \subsection{Resultate und Umfang}
 Für PREN1 wurden in der Aufgabenstellung (Anhang \ref{aufgabenstellung}) drei Meilensteine und deren Resultate definiert. Weitere Meilensteine sind aus Semesterterminen abgeleitet.
@@ -83,6 +84,7 @@ Aus Darstellungsgründen wurden die Attribute der Risikos in zwei Reihen aufgete
 
 
 \renewcommand{\arraystretch}{1.5} % Adjust row height for readability
+\setlength{\arrayrulewidth}{0.6pt}
 \begin{longtable}{|c|p{4.5cm}|p{5cm}|c|c|p{4.5cm}|c|c|c|}
 \hline
 \rowcolor{white}
@@ -183,8 +185,8 @@ Visual Studio Code & Simulator-/Software-Entwicklung \\ \hline
 Unreal Engine 5 & Erstellung virtueller Klon \\ \hline
 Blender & Konvertierung 3D Modelle und Texturierung \\ \hline
 Overleaf & Erstellung Dokumentation \\ \hline
-Github & Host für Code Repositories \\ \hline
-Altium Designer & PCB-Layouts \\ \hline
+Github & Host für Code Repositories und Backup Dokumentation \\ \hline
+Altium Designer & Elektronik Schema + PCB-Layouts \\ \hline
 NX Siemens & Zeichnen von 3D Modellen \\ \hline
 Concept & Zeichnen von Skizzen \\ \hline
 Draw.io & Diagramme erstellen \\ \hline
@@ -192,6 +194,7 @@ Roboflow & Bilder für Objekterkennung annotieren \\ \hline
 Microsoft Excel & Projektplan und Risikomatrix \\ \hline
 Microsoft Teams & Dateiablage und Kommunikationshub \\ \hline
 Chat-GPT & Proof-Reading \\ \hline
+KissSoft & Auslegen der Zahnräder \\ \hline
  
 \end{tabular}
 \caption{Tabelle der verwendeten Werkzeuge für PREN}
@@ -205,13 +208,13 @@ Das Projekt hat einen fixen Budgetrahmen von total CHF 500.--, wobei maximal CHF
 \begin{tabular}{|p{6cm}|p{2.5cm}|p{2cm}|p{2.5cm}|}
 \hline
 \textbf{Was} & \textbf{Preis} & \textbf{Gekauft} & \textbf{Wo} \\ \hline
-Raspberry Pi 3 Kamera & CHF 37.30 & 31.10.2024 & Digitec \\ \hline
+Raspberry Pi Module 3 Kamera & CHF 37.30 & 31.10.2024 & Digitec \\ \hline
 Raspberry Pi 5 8GB & CHF 77.90 & 09.11.2024 & Digitec \\ \hline
 Kamera-Kabel & CHF 5.70 & 11.11.2024 & Digitec \\ \hline
 H Brücke A4950 & CHF 3.06 & 22.11.2024 & Mouser \\ \hline
-DC-Motor mit Encoder & CHF 32.10 & & Mouser \\ \hline
-IR-LED & CHF 3.30 & & Mouser \\ \hline
-Phototransistor & CHF 4.30 & & Distrelec \\ \hline
+DC-Motor mit Encoder & CHF 32.10 & 22.11.2024 & Mouser \\ \hline
+IR-LED & CHF 3.30 & 22.11.2024 & Mouser \\ \hline
+Phototransistor & CHF 4.30 & 22.11.2024 & Distrelec \\ \hline
 \hline
 \textbf{Total} & \textbf{CHF 163.66} & & \\ \hline
 \end{tabular}

@@ -7,7 +7,7 @@
 \newpage
 \section{Lösungskonzept}\label{lösungskonzept}
 
-In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel'' (siehe Anhang \ref{a3:loesungsvariante_Simpel}) näher erläutert. Wieso das Lösungskonzept ''Beweglich'' ausgeschieden ist, lese im Anhang \ref{a3:EntscheidLösungsvariante}. Bei dem gewählten Konzept liegt der Schwerpunkt auf einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. In der Abbildung \ref{img:Konzept-Skizze_Fahrzeug} ist eine Skizze von dem gewählten Lösungskonzept zu sehen.
+In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel'' (siehe Anhang \ref{a3:loesungsvariante_Simpel}) näher erläutert. Wieso das Lösungskonzept ''Beweglich'' ausgeschieden ist, steht im Anhang \ref{a3:EntscheidLösungsvariante} beschrieben. Bei dem gewählten Konzept liegt der Schwerpunkt auf einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. In der Abbildung \ref{img:Konzept-Skizze_Fahrzeug} ist eine Skizze von dem gewählten Lösungskonzept zu sehen.
 
 \begin{figure}[H]
 \centering
@@ -61,13 +61,13 @@ Das Ziel des Fahrzeugs muss vor dem Start ausgewählt werden. Die Auswahlmöglic
 
 Neben der Zielauswahl befindet sich der Knopf zum Starten des Fahrzeugs. Dieser funktioniert erst, wenn ein Ziel ausgewählt wurde. Bei einer mehrfachen Zielauswahl wird das zuletzt gewählte Ziel angesteuert.
 
-Sobald das Fahrzeug im Ziel angekommen ist, erleuchtet die LED, welche sich neben dem Start-Knopf befindet. 
+Sobald das Fahrzeug das Ziel erreicht hat, leuchtet die LED neben der Starttaste auf.
 
 \subsection{Fortbewegung} 
 
-Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Es handelt sich dabei um ein ähnliches System, wie es bei Staubsauger-Robotern vorkommt. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Weitere Details dazu befinden sich im Anhang unter \ref{a3:Fortbewegung}.
+Die Fortbewegung wird nach dem Prinzip Roomba realisiert: zwei einzeln angetriebenen Rädern und einem Stützelement. Es handelt sich dabei um ein ähnliches System, wie es bei Staubsauger-Robotern vorkommt. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Weitere Details dazu befinden sich im Anhang unter \ref{a3:Fortbewegung}.
 
-Als Antriebsmotoren werden DC-Motoren verwendet, die als Motorentreiber eine \gls{h-brücke} verwenden. Diese wird für die Geschwindigkeit mit einem \gls{pwm}-Signal angesteuert. \textcolor{red}{TODO: Funktion H-Brücke und PWM Signal erklären wie bei Encoder, in Anhang ergänzen oder so stehen lassen?} Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die \gls{h-brücke} ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} nachgeschlagen werden.
+Als Antriebsmotoren werden DC-Motoren verwendet, die als Motorentreiber eine \gls{h-brücke} verwenden. Diese wird für die Geschwindigkeit mit einem \gls{pwm}-Signal angesteuert. Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen können. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die \gls{h-brücke} ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} nachgeschlagen werden.
 \newpage
 Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Der Raspberry Pi wertet mit der Kamera aus, welches der nächstbeste Punkt ohne Pylone ist und teilt anschliessend dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um diesen Punkt zu erreichen. Somit dreht sich das Fahrzeug auf die angepeilte Linie, die wird vom Liniensensor erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalablauf} visualisiert.
 

@@ -33,7 +33,7 @@ Das Fahrzeug soll zwischen zwei Wegpunkten gerade fahren. Dadurch ist die Linien
 
 Die Bildqualität ist durch die starke Bewegung während der Fahrt gefährdet. Durch das Trainieren der Bildverarbeitung bei Bewegung kann das Risiko minimiert werden. Ebenfalls soll möglichst nur im Stillstand die Bilderkennung stattfinden. 
 
-\subsection{Kosten}
+\subsection{Abschätzung Kosten}
 Die Hardware für die Bildverarbeitung wurde in PREN1 beschaffen. Dazu zählt ein Raspberry Pi 5 8GB eine Raspberry Pi 3 Kamera und das Kabel, um die Kamera mit dem Raspberry Pi zu verbinden. Weiter wurden Motoren, eine H-Brücke, IR-LED und Fototransistoren erworben. Das Raspberry Pi 5 und die Kamera wurden für Test der Bildverarbeitung gekauft. Die Motoren werden ebenfalls in PREN1 getestet. Die IR-LED und die Fototransistoren werden für den Liniensensor benötigt. Die Kosten von PREN1 betragen 163.66 CHF. Die Übersicht über die in PREN1 getätigten Ausgaben ist in der Kostenkontrolle im Projektmanagement \ref{tab:ausgaben_pren1} ersichtlich. 
 
 In PREN2 muss die Sensorik bestellt werden. Solche Elektronik kann sehr kostengünstig erworben werden. Aus Erfahrung schätzen wir die Ausgaben für die elektrischen Bauteile und Baugruppen auf ungefähr 100 CHF. Weiter muss das PCB des Adapterbaords bestellt werden. Das Adapterboad wird in PREN2 entwickelt. Auf dem Adapterboard werden die benötigten Spannungen generiert und es verbindet die benötigte Hardware miteinander. Die Herstellungskosten werden auf 80 CHF geschätzt.
@@ -41,6 +41,35 @@ In PREN2 muss die Sensorik bestellt werden. Solche Elektronik kann sehr kosteng�
 Das komplette Gehäuse, die verwendeten Räder und der Hindernisbewältigungsmechanismus wird in PREN2 hergestellt. Anfallenden Kosten werden auf 100 CHF geschätzt.
 
 Folglich wird 446 CHF des 500 CHF Budget benötigt. Somit ist ein Polster von 54 CHF vorhanden für allfällige Mehrkosten oder Falscheinschätzungen.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|p{5cm}|p{5cm}|p{3cm}|}
+        \hline
+        \multicolumn{3}{|c|}{\textbf{PREN1}} \\
+        \hline
+        \textbf{Komponente} & \textbf{Beschreibung} & \textbf{Kosten (CHF)} \\
+        \hline
+        Raspberry Pi 5 (8GB), \\ Motoren, \\ IR-LED und Fototransistoren & Für Tests der Bildverarbeitung und Liniensensor & 163.66 \\
+        \hline
+        \multicolumn{3}{|c|}{\textbf{PREN2}} \\
+        \hline
+        Elektronische Bauteile und Baugruppen & Sensorik für PREN2 & 100 \\
+        \hline
+        PCB des Adapterboards & Entwicklung und Herstellung in PREN2 & 80 \\
+        \hline
+        Gehäuse, Räder und Mechanismus & Herstellung in PREN2 & 100 \\
+        \hline
+        \textbf{Gesamtkosten} & & \textbf{446} \\
+        \hline
+        \textbf{Budget} & & \textbf{500} \\
+        \hline
+        \textbf{Verfügbarer Puffer} & & \textbf{54} \\
+        \hline
+    \end{tabular}
+    \caption{Abschätzung der Kosten in PREN1 und PREN2.}
+    \label{tab:kostenuebersicht}
+\end{table}
 
 \subsection{Reflexion}
 
@@ -52,6 +81,7 @@ Die Zusammenarbeit in der Gruppe funktioniert sehr gut. Jedes Mitglied hat ähnl
 Die Konzeptentwicklung hat aufgezeigt, dass nicht alles so funktioniert wie geplant und häufig ein anderer Lösungsansatz vorhanden ist. 
 
 Schnell waren Ideen im Raum, die Schwierigkeit ist es, den Fokus nicht zu stark auf einen Lösungsansatz zu legen. Hat man einen Tunnelblick, bleiben andere, möglicherweise bessere, Lösungsansätze unentdeckt. 
+
 
 
 

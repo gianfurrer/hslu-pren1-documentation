@@ -5,7 +5,7 @@
 \newpage
 \section{Konzeptfindung}
 
-Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept zu finden, welches robust ist und fehlerunanfällig funktioniert. Dies möchten wir erreichen, in dem wir vorgängig alle Lösungsansätze aus der Technologierecherche, die mit grossen Risiken verbunden sind, erkennen und ausscheiden. Mit den verbleibenden Ansätzen wird ein Morphologischer-Kasten erstellt, um das Gesamtkonzept zu entwickeln. Damit mit dem Morphologischen Kasten die optimale Variante gefunden werden kann, wird zu einigen Teilfunktionen des Fahrzeuges eine Nutzwertanalyse erstellt.
+Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept zu finden, welches robust ist und fehlerunanfällig funktioniert. Dies wird erreicht, in dem vorgängig alle Lösungsansätze aus der Technologierecherche, die mit grossen Risiken verbunden sind, erkannt und ausgeschieden werden. Mit den verbleibenden Ansätzen wird der Morphologischer-Kasten erstellt, um das Gesamtkonzept zu entwickeln. Damit mit dem Morphologischen Kasten die optimale Variante gefunden werden kann, wird zu einigen Teilfunktionen des Fahrzeuges eine Nutzwertanalyse erstellt.
 
 \subsection{Vorauswahl}
     \subsubsection{Fortbewegung}
@@ -16,7 +16,7 @@ Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept zu fin
 \newpage
 \subsubsection{Hindernis Bewältigung}
     \paragraph{Aufnahme}
-    Weil das Konzept möglichst einfach und zuverlässig gestaltet werden soll, scheiden die Ideen ''Gabelstapler'' und ''Vakuumgreifer'' aus. Der Gabelstapler erfordert eine äusserst präzise und aufwendige Sensorik, um die Löcher für die Aufnahme genau zu treffen. Der Vakuumgreifer dagegen zeigt im Vergleich zu den ''Klemmen'' eine geringere Sicherheit in der Technik. Wir besitzen kein Wissen mit dieser Technologie. Um eine vergleichbare Sicherheit zu erreichen, wären umfangreiche Tests erforderlich. Dabei hat der Vakuumgreifer keine signifikanten Vorteile gegenüber den ''Klemmen''.
+    Weil das Konzept möglichst einfach und zuverlässig gestaltet werden soll, scheiden die Ideen ''Gabelstapler'' und ''Vakuum-Sauggreifer'' aus. Der Gabelstapler erfordert eine äusserst präzise und aufwendige Sensorik, um die Löcher für die Aufnahme genau zu treffen. Der Vakuum-Sauggreifer dagegen zeigt im Vergleich zu den ''Klemmen'' eine geringere Sicherheit in der Technik. Wir besitzen kein Wissen mit dieser Technologie. Um eine vergleichbare Sicherheit zu erreichen, wären umfangreiche Tests erforderlich. Dabei hat der Vakuum-Sauggreifer keine signifikanten Vorteile gegenüber den ''Klemmen''.
         
     \paragraph{Rotation und Translation}
     Ein beweglicher Arm erhöht die Komplexität sowohl mechanisch als auch in den Bereichen Sensorik und Software erheblich. Dabei ist zu beachten, dass die Integration eines Arms die Gesamtkomplexität steigert, ohne in anderen Bereichen nennenswerte Vereinfachungen zu ermöglichen, sodass kein Vorteil gewonnen wird. Dies widerspricht unserem Grundprinzip, eine möglichst einfache und zuverlässige Lösung zu entwickeln. Daher werden alle Optionen mit einem beweglichen Arm ausgeschlossen, sodass lediglich die Option ''Rotation des Fahrzeugs'' verbleibt.
@@ -43,21 +43,22 @@ Da die Erkennung auf einem Raspberry Pi läuft und so viele Bilder pro Sekunde w
 R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste und Ressourcen intensivste, weshalb sie bereits in der Vorauswahl ausscheidet.
 
 
-\subsection{Morphologischer Kasten}
+\subsection{Morphologischer Kasten}\label{morphologischer kasten}
 
     \imageheight{assets/MorphologischerKasten.pdf}{Morphologischer Kasten}{0.88\textheight}
-
+    
 
     \subsubsection{Variantenbeschreibung}
+    Folgend werden die verschiedenen Lösungskonzepte kurz beschrieben und nachfolgend die einzelnen Optionen diskutiert und bewertet.
     \paragraph{Lösungsvariante Simpel (grün)} 
     \label{a3:loesungsvariante_Simpel}
     Bei der Lösungsvariante ''Simpel'' liegt der Schwerpunkt auf der Einfachheit und Zuverlässigkeit des Konzepts. Die Fortbewegung und Lenkung erfolgen nach dem ''Roomba''-Prinzip, bei dem zwei Räder jeweils von einem DC-Motor angetrieben werden. Dieses Konzept ermöglicht eine einfache Steuerung und eine Drehung auf der Stelle.
 
-    Hindernisse werden seitlich geklemmt und aufgenommen, wobei der Antrieb dafür durch einen Schrittmotor realisiert wird. Nach dem Aufnehmen des Hindernisses dreht sich das Fahrzeug um die eigene Achse und setzt es anschliessend wieder ab. Zur Überprüfung der Position der DC-Motoren werden Encoder verwendet. Diese sind aufgrund ihrer einfachen Funktionsweise und ihrer zuverlässigen Ausgabe besonders geeignet.
+    Hindernisse werden seitlich geklemmt und aufgenommen, wobei der Antrieb dafür durch einen DC-Motor realisiert wird. Dieser besizt zwei Mikroschalter als Endanschläge. Nachdem Aufnehmen des Hindernisses dreht sich das Fahrzeug um die eigene Achse und setzt es anschliessend wieder ab. Zur Überprüfung der Position der DC-Motoren werden Encoder verwendet. Diese sind aufgrund ihrer einfachen Funktionsweise und ihrer zuverlässigen Ausgabe besonders geeignet.
 
-    Die Software läuft auf einem Raspberry Pi, während die Hardwaresteuerung durch einen TinyK22 erfolgt. Beide Plattformen sind den Informatikern und Elektrotechnikern aus früheren Projekten vertraut. Hindernisse werden mit einem Ultraschallsensor erkannt. Dieser hat sich für den Anwendungsfall behauptet (siehe \ref{sec:Distanz_Hindernis}. 
+    Die Software läuft auf einem Raspberry Pi, während die Hardwaresteuerung durch einen TinyK22 erfolgt. Beide Plattformen sind den Informatikern und Elektrotechnikern aus früheren Projekten vertraut. Hindernisse werden mit einem Ultraschallsensor erkannt. Dieser hat sich für den Anwendungsfall behauptet (siehe \ref{sec:Distanz_Hindernis}). 
 
-    Pylonen werden mithilfe einer Kamera erkannt, die auch zur allgemeinen Streckenerkennung dient. Für die Erkennung des nächsten Zielpunkts wird eine Kamera verwendet. Ein Liniensensor stellt sicher, dass sich das Fahrzeug korrekt entlang des Klebestreifens bewegt. Der Liniensensor ist dabei die einfachste Lösung zur Linienerkennung. Ähnlich verhält es sich bei der Verifizierung von Wegpunkten, die ebenfalls primär durch den Liniensensor erkannt werden. Dabei wird festgestellt, dass ein Wegpunkt vorliegt, wenn die Linie eine bestimmte Dicke überschreitet. 
+    Pylonen werden mithilfe einer Kamera erkannt. Für die Erkennung des nächsten Zielpunkts wird dieselbe Kamera verwendet. Ein Liniensensor stellt sicher, dass sich das Fahrzeug korrekt entlang des Klebestreifens bewegt. Der Liniensensor ist dabei die einfachste Lösung zur Linienerkennung. Ähnlich verhält es sich bei der Verifizierung von Wegpunkten, die ebenfalls primär durch den Liniensensor erkannt werden. Dabei wird festgestellt, dass ein Wegpunkt vorliegt, wenn die Linie eine bestimmte Dicke überschreitet. 
 
     Die Software für die Objekterkennung basiert auf YOLO, während für die Wegfindung der Dijkstra-Algorithmus eingesetzt wird. Die Energieversorgung erfolgt durch einen Lithium-Polymer-Akku, aufgrund seiner zahlreichen Vorteile (siehe \ref{a3:Energiequelle}).
     
@@ -66,19 +67,19 @@ R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste un
     \paragraph{Lösungsvariante Beweglich (gelb)}
     Bei der Lösungsvariante ''Beweglich'' liegt der Fokus auf der Beweglichkeit des Fahrzeugs. Die Fortbewegung und Lenkung erfolgen mit Mecanum-Rädern, wobei jedes der vier Räder von einem Schrittmotor angetrieben wird. Dadurch kann sich das Fahrzeug in alle vier Richtungen linear bewegen, was es ermöglicht, das Fahrzeug präzise auf ein Hindernis auszurichten.
 
-    Das Hindernis wird von vorne und hinten geklemmt und aufgenommen, wobei der Antrieb durch einen DC-Motor erfolgt, der eine exakte Klemmung ermöglicht. Nachdem das Hindernis aufgenommen wurde, dreht sich das Fahrzeug um die eigene Achse und setzt es wieder ab. Die Position des Fahrzeugs wird mithilfe eines Beschleunigungssensors überwacht. Dies ermöglicht eine präzise Erfassung der Fahrzeugbewegung, obwohl sich das Fahrzeug in alle Richtungen bewegen kann. Zudem werden Schrittfehler der Schrittmotoren abgefangen.
+    Das Hindernis wird von vorne und hinten geklemmt und aufgenommen, wobei der Antrieb durch einen Schrittmotor erfolgt, der eine exakte Klemmung ermöglicht. Nachdem das Hindernis aufgenommen wurde, dreht sich das Fahrzeug um die eigene Achse und setzt es wieder ab. Die Position des Fahrzeugs wird mithilfe eines Beschleunigungssensors überwacht. Dies ermöglicht eine präzise Erfassung der Fahrzeugbewegung, obwohl sich das Fahrzeug in alle Richtungen bewegen kann. Zudem werden Schrittfehler der Schrittmotoren abgefangen.
 
     Die Software läuft auf einem Raspberry Pi, während die Hardwaresteuerung durch einen Arduino erfolgt. Der Vorteil des Arduinos liegt in der grossen Community und der Vielzahl an Hilfestellungen, die im Internet verfügbar sind.
 
-    Die Hindernisse werden mit einem Infrarotsensor erkannt. Zur Sicherstellung der Redundanz wird ein Ultraschallsensor eingesetzt, um zu überprüfen, ob tatsächlich ein Hindernis im Weg steht. Die Pylonen sollen ebenfalls mit einem Infrarotsensor erkannt und durch Ultraschall bestätigt werden. Aufgrund von Messfehlern bei schrägen Objekten werden von dem Ultraschallsensor nur angenäherte Werte erwartet.
+    Die Hindernisse werden mit einem Infrarotsensor erkannt. Zur Sicherstellung der Redundanz wird ein Ultraschallsensor eingesetzt, um zu überprüfen, ob tatsächlich ein Hindernis im Weg steht.
 
-    Die Fahrstrecke wird hauptsächlich mit einem Liniensensor erfasst. Die Kamera gibt an, in welchem Winkel der nächste Wegpunkt liegt. Wegpunkte werden durch Liniensensoren erkannt und mit einem Farbsensor bestätigt. Die Software für die Objekterkennung basiert auf YOLO, während die Wegfindung den A*-Algorithmus nutzt.
+    Die Fahrstrecke wird hauptsächlich mit einem Liniensensor erfasst. Die Kamera gibt an, in welchem Winkel der nächste Wegpunkt liegt. Wegpunkte werden durch den Liniensensoren erkannt und mit einem Farbsensor bestätigt. Die Software für die Objekterkennung basiert auf YOLO, während die Wegfindung den A*-Algorithmus nutzt.
 
     Für die Energieversorgung wird ein Lithium-Ionen-Akku eingesetzt, da hierfür auch eine handelsübliche Powerbank verwendet werden könnte.
 
     \paragraph{Entscheid Lösungsvariante}
     \label{a3:EntscheidLösungsvariante}
-    Umgesetzt wird die Lösungsvariante ''Simpel'' (grün), aufgrund ihrer Einfachheit und Robustheit. Bei der Lösungsvariante ''Beweglichkeit'' (gelb) bestehen zu viele Risiken. Zum Beispiel ist die Ansteuerung der Schrittmotoren mit den Mecanum-Rädern wesentlich komplexer als beim Roomba-Prinzip. Ausserdem reicht für die ''Simpel''-Lösungsvariante die Toleranz von etwa 2 cm beim Zurückstellen des Hindernisses aus. Bei der ''Beweglichkeit''-Lösungsvariante wäre das Hindernis zwar präziser zurückgestellt, jedoch mit zu vielen Unsicherheiten verbunden.
+    Umgesetzt wird die Lösungsvariante ''Simpel'' (grün), aufgrund ihrer Einfachheit und Robustheit. Bei der Lösungsvariante ''Beweglichkeit'' (gelb) bestehen zu viele Risiken. Zum Beispiel ist die Ansteuerung der Schrittmotoren mit den Mecanum-Rädern wesentlich komplexer als beim Roomba-Prinzip. Ausserdem reicht für die ''Simpel''-Lösungsvariante die Toleranz von etwa 2 cm beim Zurückstellen des Hindernisses aus. Bei der ''Beweglichkeit''-Lösungsvariante wäre das Hindernis zwar präziser zurückgestellt, jedoch mit vielen Unsicherheiten verbunden.
 
     Zudem wird der TinyK22 bevorzugt, da die Elektrotechniker bisher keine Erfahrung mit Arduinos haben und der TinyK22 bereits intensiv im Unterricht behandelt wurde. Das Ziel der Gruppe ist es, das Ziel sicher zu erreichen, und dafür eignet sich die ''Simpel''-Lösungsvariante am besten.
     
@@ -137,15 +138,16 @@ beim Drehen nicht verschiebt.
 
 \subsubsection{Fahrantrieb}
 \label{a3:Fahrantrieb}
-Bei der Auslegung des Antriebs ergaben sich drei Varianten. Der Schrittmotor, DC-Motor und der Brushlessmotor. Da die Ansteuerung möglichst einfach gehalten werden soll, ist der Brushlessmotor mit seiner komplexeren Ansteuerung ungeeignet. Der Vorteil des Schrittmotors ist, dass dieser nicht unbedingt auf einen Encoder oder ähnliches angewiesen ist. Dieser kann man genau schrittweise ansteuern und somit seine Position verfolgen. Der Nachteil ist, dass es ein Open-Loop Regelung wäre, also ohne Rückführgrösse. Dies bedeutet bei einer mechanischen Überlastung, würde der Schrittmotor trotz allem die nicht gefahrenen Schritte zurückmelden. Auch dieser Motor hat eine schwierigere Ansteuerung mithilfe von Drivers. Der DC-Motor ist dagegen der einfachste zum Ansteuern. Dieser benötigt eine H-Brücke, die einfach anzusteuern ist. Ausserdem kann man hohe Drehmomente mittels Übersetzungen erreichen. Das macht den DC-Motor zum bevorzugten Antriebsmotor für die Fahrt.
+Bei der Auslegung des Antriebs ergaben sich drei Varianten. Der Schrittmotor, DC-Motor und der Brushlessmotor. Da die Ansteuerung möglichst einfach gehalten werden soll, ist der Brushlessmotor mit seiner komplexeren Ansteuerung ungeeignet. Der Vorteil des Schrittmotors ist, dass dieser nicht unbedingt auf einen Encoder oder ähnliches angewiesen ist. Dieser kann man genau schrittweise ansteuern und somit seine Position verfolgen. Der Nachteil ist, dass es ein Open-Loop Regelung wäre, also ohne Rückführgrösse. Dies bedeutet bei einer mechanischen Überlastung, würde der Schrittmotor trotz allem die nicht gefahrenen Schritte zurückmelden. Auch dieser Motor hat eine schwierigere Ansteuerung mithilfe von Drivers. Ausserdem sind Schrittmotoren relativ schwer. Der DC-Motor ist dagegen der einfachste zum Ansteuern. Dieser benötigt eine einen einfachen Motortreiber (H-Brücke), der einfach anzusteuern ist. Ausserdem kann man hohe Drehmomente mittels Übersetzungen erreichen. Das macht den DC-Motor zum bevorzugten Antriebsmotor für die Fahrt. Bei genügend grosser Auslegung, würde sich der Schrittmotor ebenso eignen. 
 
 \subsubsection{Hindernisbewältigungsantrieb}
 \label{a3:Hindernisbewältigungsantrieb}
-Für die Hindernisbewältigung wird ebenfalls ein Antrieb benötigt. Dafür wird ein Schrittmotor verwendet. Die aufgeführten Nachteile verlieren in der Hindernisbewältigung an Gewichtung. Da ein Motor mit hohem Drehmoment bei niedriger Drehzahl benötigt wird. Somit kann ein Getriebe eingespart werden. Wird das Hindernis geklemmt, ist die minimale Schrittanzahl bekannt. Diese kann überschritten werden. Klemmt der Schrittmotor das Hindernis bereits vor den minimalen Schritten, hat das nicht Erkennen von nicht gemachten Schritten keinen Einfluss. Die Ausgangsposition kann mittels Endschaltern überprüft werden.
+Für die Hindernisbewältigung wird ebenfalls ein Antrieb benötigt. Dafür wird ein DC-Motor verwendet. Dieser braucht keine komplexe Ansteuerung, da der DC-Motor nur Ein- und Ausgeschaltet wird, ohne Geschwindigkeitsregelung. Der DC-Motor muss nur in die zwei Endschalter geklemmt oder gelöst fahren. Der Schrittmotor könnte theoretisch ohne Endschalter auskommen, indem vorher die benötigte Anzahl an Schritten ermittelt werden und dann je nach klemen oder lösen diese Anzahl Schritt gefahren werde. Dies birgt natürlich das Risiko von möglichen Schrittverlusten mit der Zeit.
+
   
 \subsubsection{Sensorik Positionsabfrage}
 \label{a3:Sensorik:Positionsabfrage}
-Zur Auswahl stehen ein Encoder und ein Beschleunigungssensor. Der Encoder liefert genauere Daten und der Aufbau ist einfacher. Daher wird ein Encoder verwendet. Der Encoder kann wichtig sein, um die Fahrtrichtung zu kontrollieren. Sind die verwendeten DC-Motoren nicht identisch, so kann ein anderes Fahrverhalten pro Motor entstehen. Durch einen Encoder kann das Fehlverhalten abgefangen und korrigiert werden.
+Zur Auswahl stehen ein Encoder und ein Beschleunigungssensor. Der Encoder liefert auf Dauer genauere Daten und der Aufbau ist einfacher. Beim Beschleunigungssensor nimmt der Messfehler mit der Zeit zu und muss andauernd wieder kalibriert werden. Dies wäre möglich, diese Werte an jedem Wegpunkt zu kalibrieren, um den Messfehler zurückzusetzen. Der Encoder ist wichtig, dass die Motoren die gleiche Anzahl an Umdrehung absolvieren. Dies ist vor allem bei der Drehung besonders wichtig. Da ansonsten falsche Winkel angefahren werden. 
 
 \subsubsection{Software Steuerung}
 Bei der Softwaresteuerung kommt wegen der Grösse und Leistung nur das Raspberry Pi in Frage.
@@ -197,16 +199,16 @@ Damit man die Aktoren und Sensoren auswerten kann, benötigt es eine Hardware na
 
 \subsubsection{Objekterkennung Sensor}
 \label{a3:Objekterkennung_Sensor}
- Aus dem Kapitel \ref{sec:Distanz_Hindernis}, in welchem die Sensorik getestet wurden, ergab sich, dass der Ultraschallsensor ab einer minimalen Distanz von 3 cm zuverlässige Messwerte erkennt. Er ist ebenso unabhängig der Sonnenlichteinstrahlung. Der Infrarotsensor reagiert stärker auf Sonnenlichteinstrahlung und misst ungefähr die gleichen Werte. 
+ Aus dem Kapitel \ref{sec:Distanz_Hindernis}, in welchem die Sensorik getestet wurden, ergab sich, dass der Ultraschallsensor ab einer minimalen Distanz von 3 cm zuverlässige Messwerte liefert. Er ist ebenso unabhängig der Sonnenlichteinstrahlung. Der Infrarotsensor reagiert stärker auf Sonnenlichteinstrahlung und misst ungefähr die gleichen Werte. 
 
 
 
 \subsubsection{Streckenerkennung}
-Für die Streckenerkennung soll eine Kamera verwendet werden. Die Kamera erkennt Hindernisse und Pylonen auf der Strecke und hilft dem Raspberry Pi so die beste Strecke zu ermitteln. Damit das Fahrzeug auf der Linie bleibt, wird ein Liniensensor eingesetzt.  Im Kapitel \ref{sec:Linienerkennung_Punkterkennung_Test} wurden ebenfalls die Phototransistoren gemessen, welche für den Liniensensor benötigt werden. Diese Messungen ergaben, dass sich die Aufladezeit des Kondensators gegenüber der verschiedenen Untergründe stark unterscheiden. Für weitere Details siehe Kapitel \ref{sec:Linienerkennung_Punkterkennung_Test}. 
+Für die Streckenerkennung soll eine Kamera verwendet werden. Die Kamera erkennt Hindernisse und Pylonen auf der Strecke und hilft dem Raspberry Pi so die beste Strecke zu ermitteln. Damit das Fahrzeug auf der Linie bleibt, wird ein Liniensensor eingesetzt.  Im Kapitel \ref{sec:Linienerkennung_Punkterkennung_Test} wurden ebenfalls der \gls{ir-fototransistor} vermessen, welcher für den Liniensensor eingesetzt wird. Diese Messungen ergaben, dass sich die Aufladezeit des Kondensators gegenüber der verschiedenen Untergründe stark unterscheiden. Für weitere Details siehe Kapitel \ref{sec:Linienerkennung_Punkterkennung_Test}. 
 
 \subsubsection{Punktverifizierung}
-Um zu erkennen, ob das Fahrzeug sich auf einem Punkt befindet, könnte ein Farbsensor genutzt werden. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Dieser scheidet aufgrund von Tests aus (siehe Kapitel \ref{sec:Linienerkennung_Punkterkennung_Test}). Die Variante mit der Kamera scheidet aus, da es zu teuer wäre zwei Kameras zu nutzen. Weil damit je nach Kamera 1/5 des Budgets aufgebraucht wäre. Es würden zwei benötigt, da die eine Kamera, die für die Strecken und Objekterkennung ist, sich auf einer gewissen Höhe befinden muss. Dagegen muss die Linienkamera möglichst nah an der Linie sein.
-Der Liniensensor könnte den Punkt erkennen, indem er auf die Grösse des Durchmessers des Punktes dimensioniert wird. Das bedeutet, wenn der Liniensensor über dem Punkt ist, erkennen alle Phototransistoren die Linie, dies bedeutet es ist ein Punk vorhanden. 
+Um zu erkennen, ob das Fahrzeug sich auf einem Punkt befindet, könnte ein Farbsensor genutzt werden. Dieser gibt die drei Primärfarben in je einem Digitalsignal zurück. Dieser scheidet aufgrund von Tests aus (siehe Kapitel \ref{sec:Linienerkennung_Punkterkennung_Test}) aus. Die Variante mit der Kamera scheidet aus, da sie zu teuer wäre zwei Kameras zu nutzen. Aufgrund, dass je eine Kamera 1/5 des Budgets benötigt. Es würden zwei benötigt, da die eine Kamera, die für die Strecken und Objekterkennung ist, sich auf einer gewissen Höhe befinden muss. Dagegen muss die Linienkamera möglichst nah an der Linie sein.
+Der Liniensensor könnte den Punkt erkennen, indem er auf die Grösse des Durchmessers des Punktes dimensioniert wird. Das bedeutet, wenn der Liniensensor über dem Punkt ist, erkennen alle IR-Fototransistoren die Linie, dies bedeutet es ist ein Punkt vorhanden. 
 
 \newpage
 
@@ -360,8 +362,7 @@ Die Nutzwertanalyse zeigt Dijkstra als deutlichen Gewinner. Dies liegt vor allem
 \subsubsection{Energiequelle}
 \label{a3:Energiequelle}
 Zur Auswahl steht ein Li-Po, Li-Ion oder NiMh Akku. Der Li-Po und Li-Ion Akku haben die höhere Energiedichte als der NiMh Akku. Jedoch benötigt der Li-Po Akku einen Laderegler für die Aufladung und der Li-Ionen Akku benötigt eine elektrische Schutzschaltung. Zwischen dem Li-Ion und dem Li-Po Akku gibt es keine weiteren nennenswerten Unterschiede. 
-Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Ebenso haben sie keinen Memoryeffekt und eine geringere Selbstentladung als der NiMh Akku. Die Lebensdauer eines NiMh Akkus ist dagegen fast fünfmal so lange wie die eines Lipo-Akkus\footnotemark
-\footnotetext{Quelle:\href{https://www.rcteam.com/de/blogs/der-blog-des-rc-modellbaus/nimh-vs-lipo-batterien}{www.rcteam.com}}. Für den Entscheid wurde eine Nutzwertanalyse erstellt:
+Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Ebenso haben sie keinen Memoryeffekt und eine geringere Selbstentladung als der NiMh Akku. Die Lebensdauer eines NiMh Akkus ist dagegen fast fünfmal so lange wie die eines Lipo-Akkus \cite{nimh_vs_lipo_rcteam}. Für den Entscheid wurde eine Nutzwertanalyse erstellt:
 
 
 \begin{table}[H]
@@ -385,9 +386,8 @@ Im Vergleich zu dem NiMh Akku benötigen sie weniger Platz und sind leichter. Eb
         \end{table}
         
 
-Aus der Nutzwertanalyse geht hervor, dass der Li-Po Akku verwendet wird. Diese Akkus werden hauptsächlich für den Modellbau verwendet. Wie gemacht für einen Prototyp. Der NiMh Akku wird nicht verwendet, da dieser eine geringe Leistungsabgabe hat (siehe auch Tabelle \ref{tab:konzept_Akku}).\footnotemark
+Aus der Nutzwertanalyse geht hervor, dass der Li-Po Akku verwendet wird. Diese Akkus werden hauptsächlich für den Modellbau verwendet. Wie gemacht für einen Prototyp. Der NiMh Akku wird nicht verwendet, da dieser eine geringe Leistungsabgabe hat (siehe auch Tabelle \ref{tab:konzept_Akku}) \cite{nimh_vs_lipo_rcrush}.
 Durch die Bildverarbeitung wird ein leistungsstarker Akku benötigt. Der Entscheid ist aufgrund des vorgesehenen Anwendungsbereiches gegen den Li-Ion Akku gefallen. Durch den Modellbauanwendungsbereich des Li-Po Akkus ist es einfacher ähnliche Anwendungen zu finden.
-\footnotetext{Quelle: \url{https://www.rccrush.com/nimh-vs-lipo-batteries/}}
 
 \newpage
 \subsubsection{Aufnahme Hindernis}
@@ -454,7 +454,7 @@ Wie bereits beschrieben wurde das Greifkonzept 'Klemme seitlich' ausgewählt (si
 Damit dieses erfolgreich umgesetzt werden kann, wurden Dimensionen vom Greifer definiert  sowie ein passendes Konzept für den Mechanismus gefunden. Zusätzlich wurde der Hebemechanismus und der Greifmechanismus so konstruiert, dass es mit einem Motor angesteuert werden kann. Dies vereinfacht die Ansteuerung extrem und es werden weniger Sensoren benötigt.
 Das Design, ersichtlich in Abbildung \ref{fig:greifarm_oben} und \ref{fig:greifarm_unten}, besteht aus einer Kombination von Zahnrädern für die Klemmen sowie einer linearen Bewegung für das Anheben der ganzen Konstruktion mit Hindernis.
 
-\paragraph{Dimensionen Greifarm}
+\paragraph{Dimensionen Klemmmechanismus}
 Wie bereits im Kapitel \ref{a3:Präzision} erwähnt, ist die Präzision, die mechanisch gewonnen werden kann, sehr relevant für dieses Konzept. Damit dies auch funktioniert, wurden die passenden Dimensionen der Klemme eruiert. 
 
 \subparagraph{Winkel Verschiebung:} \label{loes:winkel_verschiebung}
@@ -476,17 +476,17 @@ b = 13cm * sin(15) = 3.36cm
 
 Für genügend Sicherheit wurde entschieden das $b = 4.5cm$ ist. Diese Sicherheit hilft ebenfalls Fehler in der Distanzmessung auszugleichen.
 
-$\varphi$ wurde überschlägig 90° definiert. Die Winkeldefinition wurde anschliessend erfolgreich in Kapitel \ref{sec:hardware_greifarm} getestet.
+$\varphi$ wurde als erste näherung 90° definiert. Die Winkeldefinition wurde anschliessend erfolgreich in Kapitel \ref{sec:hardware_greifarm} getestet.
 
 \newpage
 
-\subparagraph{Abstand der Klemmen:} \label{loes:abstand_klemmen}
-Der Abstand der Klemmen wurde anhand der Aufgabenstellung eruiert und ist in Abbildung \ref{img:loes_abstand_klemmen} ersichtlich. Das Hindernis kann 2 cm von der Linie entfernt sein. Das heisst, das Maximale Offset ist 2 cm (in Abbildung Orange). Zusätzlich kommt die Winkel Reserve, die Distanz wurde im Kapitel \ref{loes:winkel_verschiebung} eruiert (In der Abbildung Blau). Ebenfalls in der Abbildung enthalten sind Reserve für Fehlmessungen (Rot), Reserve Festigkeit, die für nötig ist, um die Druckkräfte auszuhalten (Violett) und die Hälfte des Hindernis (Gelb)
+\subparagraph{Abstand der Klemmbacken:} \label{loes:abstand_klemmen}
+Der Abstand der Klemmbacken wurde anhand der Aufgabenstellung eruiert und ist in Abbildung \ref{img:loes_abstand_klemmen} ersichtlich. Das Hindernis kann 2 cm von der Linie entfernt sein. Das heisst, das Maximale Offset ist 2 cm (in Abbildung Orange). Zusätzlich kommt die Winkel Reserve, die Distanz wurde im Kapitel \ref{loes:winkel_verschiebung} eruiert (In der Abbildung Blau). Ebenfalls in der Abbildung enthalten sind Reserve für Fehlmessungen (Rot), Reserve Festigkeit, die für nötig ist, um die Druckkräfte auszuhalten (Violett) und die Hälfte des Hindernis (Gelb)
 
 \begin{figure}[H]
         \centering
         \includegraphics[width=0.48\textwidth]{img/lösungskonzpet/hindernissaufnahme/dimensionen_klemme.jpg}
-        \caption {Abstand zwischen den Klemmen}
+        \caption {Abstand zwischen den Klemmbacken}
         \label{img:loes_abstand_klemmen}
 \end{figure}
 

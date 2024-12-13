@@ -20,12 +20,12 @@
 }
 
 
-\newcommand{\sectionnumbering}[1]{%
-  \setcounter{section}{0}%
-   \renewcommand{\thesection}{\csname #1\endcsname{section}}
-   \renewcommand{\thesubsection}{\thesection.\csname #1\endcsname{subsection}}
-   \renewcommand{\thesubsubsection}{\thesubsection.\csname #1\endcsname{subsubsection}}
-   \renewcommand{\theparagraph}{\thesubsubsection.\csname #1\endcsname{paragraph}}}
+% \newcommand{\sectionnumbering}[1]{%
+%   \setcounter{section}{0}%
+%    \renewcommand{\thesection}{\csname #1\endcsname{section}}
+%    \renewcommand{\thesubsection}{\thesection.\csname #1\endcsname{subsection}}
+%    \renewcommand{\thesubsubsection}{\thesubsection.\csname #1\endcsname{subsubsection}}
+%    \renewcommand{\theparagraph}{\thesubsubsection.\csname #1\endcsname{paragraph}}}
 
 \usepackage{etoc}
 \etocsettocstyle
@@ -43,6 +43,7 @@
 \usepackage{subcaption}   % Für Unterabbildungen in einer Matrix
 \usepackage{caption}      % Für Bildunterschriften
 \usepackage{multirow}      % Für Multirows in Tabellen
+\usepackage{hyperref}      % Für Verlinkung von Zellen in Tabelle
 
 
 \makeatletter
@@ -69,7 +70,7 @@
 
   % Print whole bibliographie
   \nocite{*}
-
+  
   \firstpage
     {Pfadfinder}
     {Hochschule Luzern - Technik und Architektur}
@@ -111,7 +112,7 @@
   \newpage
   \addglossary
 
-  Literaturverzeichnis
+  % Literaturverzeichnis
   \newpage
   \addcontentsline{toc}
     {section}
@@ -121,7 +122,7 @@
     heading=subbibliography
   ]
 
-  Anhang
+  % Anhang
   \addcontentsline{toc}
     {section}
     {Anhang}

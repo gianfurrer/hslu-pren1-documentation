@@ -643,11 +643,9 @@ PREN 1}
 
   \printnomenclature[2cm]
   % Akronyme
-  \addcontentsline{toc}
-    {section}
-    {Akronyme}
-
-
+  % \addcontentsline{toc}
+  %   {section}
+  %   {Akronyme}
   \printglossary[
     title=Akronyme,
     % style=acronymindent,
@@ -655,11 +653,9 @@ PREN 1}
   ]
 
   \newpage
-  \addcontentsline{toc}
-   {section}
-    {Glossar}
-
-
+  % \addcontentsline{toc}
+  %  {section}
+  %   {Glossar}
   \printglossary[
     style=altlist,
     title=Glossar

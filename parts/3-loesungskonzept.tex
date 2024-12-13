@@ -5,30 +5,43 @@
 \begin{document}
 
 \newpage
-\section{Lösungskonzept}
+\section{Lösungskonzept}\label{lösungskonzept}
 
 In diesem Kapitel wird das gewählte Lösungskonzept ''Simpel'' (siehe Anhang \ref{a3:loesungsvariante_Simpel}) näher erläutert. Wieso das Lösungskonzept ''Beweglich'' ausgeschieden ist, lese im Anhang \ref{a3:EntscheidLösungsvariante}. Bei dem gewählten Konzept liegt der Schwerpunkt auf einer möglichst einfachen Lösung, da ein einfach konstruiertes System in der Regel robuster im Einsatz ist. In der Abbildung \ref{img:Konzept-Skizze_Fahrzeug} ist eine Skizze von dem gewählten Lösungskonzept zu sehen.
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\linewidth]{img/lösungskonzpet/Skizzen/Skizze_Konzept_beschriftet.png}
+\includegraphics[width=0.85\linewidth]{Skizze Konzept beschriftet.png}
 \caption{Skizze des Lösungskonzepts}
 \label{img:Konzept-Skizze_Fahrzeug}
 \end{figure}
 
 \subsection{Aufbau}
 
-Der Fahrzeug besitzt zwei Räder, die mit jeweils einem DC-Motor angetrieben werden. Um das Fahrzeug zu balancieren, hat es am hinteren Fahrzeugende eine dritte Auflagefläche.
+Das Fahrzeug besitzt zwei Räder, die mit jeweils einem DC-Motor angetrieben werden. Um das Fahrzeug zu balancieren, hat es am hinteren Fahrzeugende eine dritte Auflagefläche.
 
 Die Raspberry Pi Module 3 Kamera befindet sich auf einem höhenverstellbaren Masten. Die Höhe der Kamera kann zwischen 40 und 60 Zentimeter manuell eingestellt werden. Der Winkel der Kamera kann ebenfalls manuell verändert werden. Somit kann die Kamera-Position im späteren Verlauf des Projektes einfach optimiert werden.
 
-Zur Hindernisbewältigung befindet sich an der Vorderseite des Roboters ein Klemmmechanismus. Ein dritter DC-Motor zieht die beiden Klemmbacken des Mechanismus zusammen und hebt sie an, um das Hindernis aufzuheben. Damit der Abstand zu einem Hindernis erkannt werden kann, befindet sich ein Ultraschallsensor zwischen den beiden Klemmbacken. 
+Zur Hindernisbewältigung befindet sich an der Vorderseite des Fahrzeugs ein Klemmmechanismus. Ein dritter DC-Motor zieht die beiden Klemmbacken des Mechanismus zusammen und hebt sie an, um das Hindernis aufzuheben. Damit der Abstand zu einem Hindernis erkannt werden kann, befindet sich ein Ultraschallsensor zwischen den beiden Klemmbacken. 
 
 Die Motoren und Sensoren werden über das TinyK22 gesteuert.
 Das TinyK22, die Eingabeknöpfe sowie die Kamera sind an einem Raspberry Pi 5 angeschlossen.
 
 Die Energieversorgung für alle Komponenten wird mit einem LiPo-Akku sichergestellt (Begründung im Anhang \ref{a3:Energiequelle}).
 Mit dem Notaus-Knopf kann die Energieversorgung zu allen Komponenten direkt unterbrochen werden.
+\newline
+\newline
+\begin{figure}[H]
+\centering
+\includegraphics[width=1\textwidth]{img/lösungskonzpet/Blockschaltbild.png}
+\caption{Blockschaltbild Aufbau}
+\label{img:Blockschaltbild-Aufbau}
+\end{figure}
+
+{\color{red} TODO(Feedback Gian) zu Blockschaltbild:} \\
+- Sehr klein, entweder versuchen Schriftgrösse zu erhöhen oder in Landscape mode \\
+- TinyK22 sendet Informationen (Gefahrener Weg, Genauer Winkel bei Drehung, Fehlende Linie) an RaspberryPi \\
+
 \newpage
 \subsection{Ablauf}
 
@@ -44,19 +57,19 @@ Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Programmablauf d
 \subsection{Zielauswahl}
 \imagefloat{img/lösungskonzpet/Skizzen/Zielauswahl.png}{Zielauswahl (Ausschnitt Abbildung \ref{img:Konzept-Skizze_Fahrzeug})}{0.3\textwidth}
 
-Das Ziel des Roboters muss vor dem Start ausgewählt werden. Die Auswahlmöglichkeiten sind A, B oder C. Jede dieser Optionen kann über einen physischen Knopf am Roboter festgelegt werden.
+Das Ziel des Fahrzeugs muss vor dem Start ausgewählt werden. Die Auswahlmöglichkeiten sind A, B oder C. Jede dieser Optionen kann über einen physischen Knopf am Fahrzeug festgelegt werden.
 
 Neben der Zielauswahl befindet sich der Knopf zum Starten des Fahrzeugs. Dieser funktioniert erst, wenn ein Ziel ausgewählt wurde. Bei einer mehrfachen Zielauswahl wird das zuletzt gewählte Ziel angesteuert.
 
-Sobald der Roboter im Ziel angekommen ist, erleuchtet die LED, welche sich neben dem Start-Knopf befindet. 
+Sobald das Fahrzeug im Ziel angekommen ist, erleuchtet die LED, welche sich neben dem Start-Knopf befindet. 
 
 \subsection{Fortbewegung} 
 
 Die Fortbewegung wird nach dem Prinzip Roomba realisiert. Es handelt sich dabei um ein ähnliches System, wie es bei Staubsauger-Robotern vorkommt. Das Prinzip besteht aus zwei einzeln angetriebenen Rädern und einem Stützelement. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Weitere Details dazu befinden sich im Anhang unter \ref{a3:Fortbewegung}.
 
-Als Antriebsmotoren werden Brushed-DC-Motoren verwendet, die über eine H-Brücke mit einem PWM-Signal angesteuert werden können. \textcolor{red}{TODO: Funktion H-Brücke und PWM Signal erklären wie bei Encoder, in Anhang ergänzen oder so stehen lassen?} Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die H-Brücke ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} nachgeschlagen werden.
+Als Antriebsmotoren werden DC-Motoren verwendet, die als Motorentreiber eine \gls{h-brücke} verwenden. Diese wird für die Geschwindigkeit mit einem \gls{pwm}-Signal angesteuert. \textcolor{red}{TODO: Funktion H-Brücke und PWM Signal erklären wie bei Encoder, in Anhang ergänzen oder so stehen lassen?} Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die \gls{h-brücke} ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} nachgeschlagen werden.
 \newpage
-Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Zunächst sendet der TinyK22 das gewünschte Ziel an den Raspberry Pi. Der Raspberry Pi wertet mit der Kamera aus, welches der nächstbeste Punkt ohne Pylone ist und teilt anschliessend dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um diesen Punkt zu erreichen. Somit dreht sich das Fahrzeug auf die angepeilte Linie, diese wird vom Liniensensor erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalablauf} visualisiert.
+Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Der Raspberry Pi wertet mit der Kamera aus, welches der nächstbeste Punkt ohne Pylone ist und teilt anschliessend dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um diesen Punkt zu erreichen. Somit dreht sich das Fahrzeug auf die angepeilte Linie, die wird vom Liniensensor erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalablauf} visualisiert.
 
 \begin{figure}[H]
 \centering
@@ -92,7 +105,7 @@ Die Objekterkennung wird mithilfe einer weitwinkligen Raspberry Pi Module 3 Kame
 
 \subsection{Hindernisbewältigung}
 Der Ultraschallsensor überwacht kontinuierlich, ob sich ein Hindernis auf der Linie befindet (Sensorwahl: Anhang \ref{a3:Objekterkennung_Sensor}). Ab einer Entfernung von 30 cm wird ein Hindernis erkannt. Das Fahrzeug hält an, sobald das Hindernis sich zwischen den zwei seitlichen Klemmbacken befindet. Danach wird der DC-Motor angesteuert, der das Hindernis ergreift und gleichzeitig anhebt. Die genauen Details zu dieser Konstruktion befinden sich im Anhang \ref{a3:Hindernisbewältigungsantrieb} und \ref{a3:Aufnahme_Hindernis}.
-Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermessung die Distanz überwacht. Danach dreht es sich um 180 Grad, und der Schrittmotor löst die Klemmen. Das Fahrzeug entfernt sich nun soweit vom Hindernis, bis es sich ohne Kollisionsgefahr um 180 Grad zurückdrehen kann. Abschliessend fährt das Fahrzeug mithilfe des Liniensensors entlang der Linie zum nächsten Punkt (siehe Abbildung \ref{img:Skizze_Hindernisbewältigung}).
+Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermessung die Distanz überwacht. Danach dreht es sich um 180 Grad, und der Motor löst die Klemmen. Das Fahrzeug entfernt sich nun so weit vom Hindernis, bis es sich ohne Kollisionsgefahr um 180 Grad zurückdrehen kann. Abschliessend fährt das Fahrzeug mithilfe des Liniensensors entlang der Linie zum nächsten Punkt (siehe Abbildung \ref{img:Skizze_Hindernisbewältigung}).
 
 \begin{figure}[H]
 \centering
@@ -117,9 +130,9 @@ Alle Funktionen werden mithilfe eines DC-Motors ausgeübt. Das Design ist in Abb
 
 Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigieren.
 \begin{enumerate}
-    \item Korrektur Winkel (bis zu 15°, siehe Anhang \ref{loes:winkel_verschiebung})
-    \item Korrektur Distanz (bis zu 2.25 cm, siehe Anhang \ref{loes:winkel_verschiebung})
-    \item Korrektur Offset (bis zu 2 cm, siehe Anhang \ref{loes:abstand_klemmen})
+    \item Korrektur Winkel (bis zu 15°, siehe Rechnung für Design in Anhang \ref{loes:winkel_verschiebung})
+    \item Korrektur Distanz (bis zu 2.25 cm, siehe Rechnung für Design in Anhang \ref{loes:winkel_verschiebung})
+    \item Korrektur Offset (bis zu 2 cm, siehe Definition für Design in Anhang \ref{loes:abstand_klemmen})
 \end{enumerate}
 
 \begin{figure}[h!]
@@ -128,7 +141,7 @@ Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigiere
     \begin{minipage}[t]{0.45\textwidth}
         \centering
         \includegraphics[height=6cm]{img/lösungskonzpet/hindernissaufnahme/Greifarm_oben.jpg}
-        \caption{Klemmmechanismus von oben}
+        \caption{Klemm- \& Hebemechanismus von oben}
         \label{fig:greifarm_oben}
     \end{minipage}
     \hfill
@@ -136,24 +149,31 @@ Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigiere
     \begin{minipage}[t]{0.45\textwidth}
         \centering
         \includegraphics[height=6cm]{img/lösungskonzpet/hindernissaufnahme/Greifarm_unten.jpg}
-        \caption{Klemmmechanismus von unten}
+        \caption{Klemm- \& Hebemechanismus von unten}
         \label{fig:greifarm_unten}
     \end{minipage}
 \end{figure}
+\newpage
+Ersichtlich in Abbildung \ref{fig:greifarm_oben} ist der Klemmmechanismus. Er wird durch Zahnräder angetrieben, welche wiederum von einem linearen Mechanismus bewegt werden, um gleichzeitig den Hebemechanismus auszulösen. Die Feder sorgt dafür, dass, sobald die nötige Griffkraft erreicht ist, weiterhin eine Bewegung für den Hebemechanismus ermöglicht wird. In Abbildung \ref{fig:greifarm_unten} ist der Hebemechanismus zu sehen, der sich von einer Plattform (nicht im Bild sichtbar) abdrückt. An den Rändern befinden sich acht Löcher, von denen vier für Schrauben und die anderen vier für Führungen genutzt werden, um eine kontrollierte Anhebung des Hindernisses durch den Mechanismus sicherzustellen.
+Der DC-Motor, der den ganzen Mechanismus antreibt, würde sich auf dem Gehäuse befinden. Dieser Mechanismus wurde dafür ausgelegt, um von Hand für Tests betrieben zu werden. Die Tests des Mechanismus sind im Kapitel \ref{sec:hardware_greifarm} ersichtlich.
 
-Ersichtlich in Abbildung \ref{fig:greifarm_oben} ist der Klemmmechanismus. Er wird durch Zahnräder angetrieben, welche wiederum von einem linearen Mechanismus bewegt werden, um gleichzeitig den Hebemechanismus auszulösen. Die Feder sorgt dafür, dass, sobald die nötige Griffkraft erreicht ist, weiterhin eine Bewegung für den Hebemechanismus ermöglicht wird. In Abbildung \ref{fig:greifarm_unten} ist der Hebemechanismus zu sehen, der sich von einer Plattform (nicht im Bild sichtbar) abdrückt. An den Rändern befinden sich acht Löcher, von denen vier für Schrauben und die anderen vier für Führungen genutzt werden, um eine kontrollierte Anhebung des Greifarms durch den Mechanismus sicherzustellen.
-Der DC-Motor, der den ganzen Mechanismus antreibt, würde sich auf dem Gehäuse befinden. Dieser Mechanismus wurde dafür ausgelegt, um von Hand für Tests betrieben zu werden. Die Tests des Mechanismus sind im Anhang \ref{sec:hardware_greifarm} ersichtlich.
+\subsection{Materialwahl}
+Die Materialwahl für den Klemm- \& Hebemechanismus sowie das \enquote{Chassis} ist essenziell. Nicht nur, um die Funktion korrekt zu erfüllen, sondern vor allem, um Gewicht einzusparen. Aufgrund der Komplexität und der genauen Geometrie, jedoch nicht hoher Belastungen, wurde für den Klemm- \& Hebemechanismus entschieden, 3D-Druck zu verwenden. Wahrscheinlich wird PLA-Filament oder, wenn nötig, ein dauerfesteres Filament eingesetzt. Da das gesamte Gewicht der Komponenten auf dem Chassis liegt, wird Aluminium als Material verwendet. Holz, mit einer viermal geringeren Dichte, könnte ebenfalls genutzt werden. Da jedoch die Erfahrungen im Team sowie die Ausstattung der Werkstatt auf Metalle ausgerichtet sind, wird vorläufig Aluminium verwendet. Die Wahl der Materialien wurde vorläufig definiert, muss jedoch zu einem späteren Zeitpunkt getestet werden.
+
+
 
 \subsection{Prototyping Ergebnisse}
+In diesem Kapitel werden die Ergebnisse verschiedener Tests kurz vorgestellt. Diese Ergebnisse sind entscheidend für das entstandene Lösungskonzept.
+Die ausführlichen Berichte zu den durchgeführten Tests befinden sich im Kapitel Prototyping im Anhang \ref{a4 prototyping}.
 
 \newpage    
-\subsection{Greifarm} \label{sec:hardware_greifarm}
-Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Greifarm gemacht werden können, wurde ein Prototyp 3D - gedruckt \ref{fig:hardware_test_fertig}. Bei dem Zusammenbau und Funktionalitätstests wurden diverse Erkenntnisse gewonnen:
+\subsubsection{Klemm- \& Hebemachanismus} \label{sec:hardware_greifarm}
+Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Klemm- und Hebemechanismus gemacht werden können, wurde ein Prototyp 3D - gedruckt (siehe Abbildung \ref{fig:hardware_test_fertig}). Bei dem Zusammenbau und Funktionalitätstests wurden diverse Erkenntnisse gewonnen:
 
 \begin{enumerate}
-    \item Der Greifarm kann das Hindernis klemmen.
-    \item Zwischen den Klemmen ist nicht genügend Platz $\Rightarrow$ Die Offset Reserve ist nicht vorhanden.
-    \item Der Hebemechanismus funktioniert nicht, weil die Feder nicht geführt ist (Siehe Abbildung \ref{fig:hardware_test_klemmen_gleiten}).
+    \item Der Klemmmechanismus kann das Hindernis klemmen.
+    \item Zwischen den Klemmbacken ist nicht genügend Platz $\Rightarrow$ Die Offset Reserve ist nicht vorhanden.
+    \item Der Hebemechanismus funktioniert nicht, weil die Feder nicht geführt ist (siehe Abbildung \ref{fig:hardware_test_klemmen_gleiten}).
     \item Der Mechanismus ist allgemein noch nicht robust:
     \begin{itemize}
         \item Für die lineare Bewegung fehlt eine geeignete Führung.
@@ -161,7 +181,7 @@ Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Greifarm ge
     \end{itemize}
     \item Zahnräder reiben an der Decke (Der Luftspalt ist zu klein und muss vergrössert werden).
     \item Alle Löcher sind zu klein (Schrumpfungseffekt durch 3D-Druck). (Siehe Abbildung \ref{fig:hardware_test_loecher})
-    \item Führung des Greifarms vergrössern Schrumpfungseffekt durch 3D-Druck, Siehe Abbildung \ref{fig:hardware_test_klemmen_gleiten})
+    \item Führung der Klemmbacken vergrössern, Schrumpfungseffekt durch 3D-Druck, siehe Abbildung \ref{fig:hardware_test_klemmen_gleiten})
     \item Für ein besseres Verhalten des gesamten Systems Silikonspray verwenden
     \item Der Winkel für die Klemmen funktioniert einwandfrei
 \end{enumerate}
@@ -178,7 +198,7 @@ Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Greifarm ge
     \begin{minipage}[t]{0.45\textwidth}
         \centering
         \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_klemmen_gleiten.jpeg}
-        \caption{Führung des Greifarms passt nicht}
+        \caption{Führung der Klemmbacken passen nicht}
         \label{fig:hardware_test_klemmen_gleiten}
     \end{minipage}
 \end{figure}
@@ -200,5 +220,12 @@ Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Greifarm ge
     \end{minipage}
 \end{figure}
 
+\subsubsection{Distanzmessung Hindernis}
+Für die Positionierung der Klemmbacken rund um das Hindernis ist eine Distanzmessung erforderlich. Zur Auswahl standen Ultraschall- und \acrshort{tof-sensor}. Der Ultraschallsensor hat sich durchgesetzt, da er bei direkter Sonneneinstrahlung konstante Messwerte liefert. Die Tests ergaben stabile Messwerte ab einer minimalen Distanz von 3 cm und einer getesteten Reichweite bis zu 30 cm (getestete Messwerte siehe \ref{sec:Distanz_Hindernis}). Die minimale Distanz von 3 cm muss beim Einbau berücksichtigt werden.
+
+\newpage
+
+\subsubsection{Linienerkennung / Punkterkennung}
+Um der Linie zu folgen und den Punkt zu erkennen, wird ein geeigneter Sensor benötigt. Aus der Technologierecherche gingen zwei mögliche Sensoren hervor: Farbsensoren oder \gls{ir-fototransistor}. Obwohl der Farbsensor gute Unterschiede zwischen Boden und Linie erkannte, schied er aufgrund seiner relativ langen Belichtungszeit von 100 ms aus. Das bedeutet, dass er alle 100 ms einen Messwert liefert, was für eine Geschwindigkeit von 20 cm/s zu langsam ist. Bei dieser Geschwindigkeit würde er nur alle 2 cm einen Messwert liefern, was nicht ausreichend ist. Im Gegensatz dazu liefert der \gls{ir-fototransistor} Messwerte in einem Intervall von 2 ms. Auch bei diesem Messverfahren ist ein klarer Unterschied zwischen den Oberflächen erkennbar (siehe \ref{a4:Infrarotfototransistor-Array}). Zudem kann der Punkt durch die gemessene Liniendicke mehrerer IR-Fototransistoren erkannt werden. Das Schema und Layout für einen Liniensensor mit IR-Dioden und IR-Fototransistoren ist erstellt (siehe \ref{a4:Schema-Linefollower}).
 
 \end{document}

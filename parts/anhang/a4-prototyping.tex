@@ -3,10 +3,41 @@
 \begin{document}
 
 \newpage
-\section{Prototyping}
+\section{Prototyping} \label{a4 prototyping}
 
 In diesem Abschnitt werden für bestimmte Teilbereiche Prototypen erstellt,  
 um Risiken aus der Risikoanalyse (siehe Kapitel \ref{risikomatrix}) zu minimieren.
+
+\subsection{Digital Twin}
+Ein digitaler Nachbau der in der Aufgabenstellung beschriebenen Gegebenheiten bietet vielfältige Vorteile. Dazu zählt die Möglichkeit, potenzielle Probleme frühzeitig zu identifizieren, noch bevor physische Produkte beschafft werden müssen. Zudem kann eine solche Visualisierung zur Generierung von Trainingsdaten für Bildverarbeitungssysteme beitragen. Die Unreal Engine, ursprünglich als 3D-Spiele-Engine entwickelt, hat sich mittlerweile in zahlreichen Anwendungsbereichen etabliert und ermöglicht die effiziente Erstellung virtueller Umgebungen sowie die dynamische Bewegung von Objekten in diesen Welten. Durch die Verwendung von Bildern des Mensabodens, die präzise Modellierung von Hindernissen und Pylonen sowie den Einsatz einfacher Skripte, kann eine realitätsnahe Testumgebung mit hoher Genauigkeit nachgebildet werden.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{img/unrealengine/overview.png}
+    \caption{Digital Twin der Aufgabenstellung}
+\label{img:Übersicht Unreal Engine}
+\end{figure}
+\subsubsection{Kamera-Konfiguration}
+Der Digital Twin erlaubt das einfache Testen von verschiedenen Kamera-Konfigurationen. Unter anderem Das Kamera-Sichtfeld, sowie verschiedene Neigungswinkel. In folgender Tabelle sind die Ergebnisse unterschiedlicher Kamerakonfigurationen zu sehen.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        & Höhe 30cm & Höhe 50cm & Höhe 75cm \\
+        \hline
+        \parbox[c][2cm][c]{4cm}{\centering Kamera FoV 75°, \\ Kameraneigung 30°} & 
+        \includegraphics[width=4cm]{img/unrealengine/h30_f75_w30.png} & 
+        \includegraphics[width=4cm]{img/unrealengine/h50_f75_w30.png} & 
+        \includegraphics[width=4cm]{img/unrealengine/h75_f75_w30.png} \\
+        \hline
+        \parbox[c][2cm][c]{4cm}{\centering Kamera FoV 120°, \\ Kameraneigung 45°} & 
+        \includegraphics[width=4cm]{img/unrealengine/h30_f120_w45.png} & 
+        \includegraphics[width=4cm]{img/unrealengine/h50_f120_w45.png} & 
+        \includegraphics[width=4cm]{img/unrealengine/h75_f120_w45.png} \\
+        \hline
+    \end{tabular}
+    \caption{Vergleich unterschiedlicher Kamera-Einstellungen und Höhen. Der grüne Kreis eine horizontale Distanz von 4.5m von der Kamera entfernt, und der weisse Kreis eine horizontale Distanz von 2m von der Kamera entfernt dar.}
+\end{table}
 
 \subsection{Objekterkennung}
 
@@ -33,8 +64,8 @@ In Abbildung \ref{img:objectdetection_prototype_images} sind einige Beispiele de
 \end{center}
 \end{figure}
 
-Alle sichtbaren Objekte in rund 90 Bildern wurden mittels Roboflow\footnote{\url{https://app.roboflow.com/}} annotiert und anschließend mit YOLOv11 trainiert\footnote{\url{https://blog.roboflow.com/yolov11-how-to-train-custom-data/}}.  
-In Abbildung \ref{img:objectdetection_prototype_results} sind die Resultate der Objekterkennung sichtbar. In den gezeigten Beispielbildern gab es keine Fehlklassifizierungen. Dies ist sehr wichtig, da bei einer Fehlklassifizierungen die Software falsche Annahmen treffen könnte.
+Alle sichtbaren Objekte in rund 90 Bildern wurden mittels Roboflow\footnote{\url{https://app.roboflow.com/}} annotiert und anschliessend mit YOLOv11 trainiert\footnote{\url{https://blog.roboflow.com/yolov11-how-to-train-custom-data/}}.  
+In Abbildung \ref{img:objectdetection_prototype_results} sind die Resultate der Objekterkennung sichtbar. In den gezeigten Beispielbildern gab es keine Fehlklassifizierungen. Dies ist sehr wichtig, da bei einer Fehlklassifizierung die Software falsche Annahmen treffen könnte.
 
 \begin{figure}[H]
 \begin{center}
@@ -60,7 +91,7 @@ Der Programmcode für die den Objekterkennungs-Prototypen ist auf Github\footnot
 \label{img:objectdetection_prototype_confusion_matrix}
 \end{figure}
 
-\subsubsection{Fazit}
+\subsubsection{Fazit Objekterkennung}
 
 Der Objekterkennungs-Prototyp hat zuversichtliche Resultate geliefert, weshalb dieser Ansatz weiterverfolgt wird. Es gibt noch einige Möglichkeiten, wie das Objekterkennungsmodell verbessert werden kann:
 \begin{itemize}
@@ -70,8 +101,52 @@ Der Objekterkennungs-Prototyp hat zuversichtliche Resultate geliefert, weshalb d
 \end{itemize}
 
 \newpage
-\subsection{Distanz Hindernis} \label{sec:Distanz_Hindernis}
-Um die Bewältigung eines Hindernis erfolgreich durchzuführen, muss die exakte Entfernung vom Fahrzeug zum Hindernis bestimmt werden. Ziel ist es, das Hindernis präzise zwischen den Klemmbacken zu positionieren, ohne dabei mit ihm zu kollidieren. Hierfür stehen zwei bewährte Methoden zur Distanzmessung zur Verfügung: die Messung mittels Schallwellen und die Messung mittels Lichtwellen. In den folgenden Unterkapiteln werden diese Verfahren näher untersucht und getestet.
+\subsection{Licht-Reflexionen}
+Um Reflexionen zu reduzieren, kann im Fotografikbereich mit Polarisationsfiltern gearbeitet werden, die nur Licht mit einer gewissen Polarisierung durchlassen. Mit Hilfe eines solchen Polarisationsfilters wurden Tests gemacht, um zu sehen, inwiefern die Reflexionen tatsächlich reduziert werden können. Dabei wurde darauf geachtet, dieselben Kamera-Einstellungen mit und ohne Polarisationsfilter zu verwenden.
+
+\begin{table}[h!]
+    \centering
+    \begin{tabular}{|c|c|}
+        \hline
+        \parbox[c][1.5cm][c]{4.5cm}{\centering Ohne Polarisationsfilter} &
+        \parbox[c][1.5cm][c]{4.5cm}{\centering Mit Polarisationsfilter} \\
+        \hline
+        \begin{minipage}[c]{5cm}
+            \centering
+            \vspace{3mm} % Adds space at the top
+            \includegraphics[width=6cm,angle=90,origin=c]{img/polarisierungsfilter/pol4_n.jpg}
+            \vspace{3mm} % Adds space at the bottom
+        \end{minipage} &
+        \begin{minipage}[c]{5cm}
+            \centering
+            \vspace{3mm} % Adds space at the top
+            \includegraphics[width=6cm,angle=90,origin=c]{img/polarisierungsfilter/pol4_j.jpg}
+            \vspace{3mm} % Adds space at the bottom
+        \end{minipage} \\
+        \hline 
+        \begin{minipage}[c]{5cm}
+            \centering
+            \vspace{3mm} % Adds space at the top
+            \includegraphics[width=6cm,angle=90,origin=c]{img/polarisierungsfilter/pol5_n.jpg}
+            \vspace{3mm} % Adds space at the bottom
+        \end{minipage} &
+        \begin{minipage}[c]{5cm}
+            \centering
+            \vspace{3mm} % Adds space at the top
+            \includegraphics[width=6cm,angle=90,origin=c]{img/polarisierungsfilter/pol5_j.jpg}
+            \vspace{3mm} % Adds space at the bottom
+        \end{minipage} \\
+        \hline
+    \end{tabular}
+    \caption{Vergleich Polarisationsfilter}
+\end{table}
+
+
+Die Resultate sind eindeutig. Bei gleichen Kamera-Einstellungen reduziert ein Polarisationsfilter die Reflexionen auf den Bodenplatten deutlich.
+\newpage
+\subsection{Distanz Hindernis} 
+\label{sec:Distanz_Hindernis}
+Um die Bewältigung eines Hindernisses erfolgreich durchzuführen, muss die exakte Entfernung vom Fahrzeug zum Hindernis bestimmt werden. Ziel ist es, das Hindernis präzise zwischen den Klemmbacken zu positionieren, ohne dabei mit ihm zu kollidieren. Hierfür stehen zwei bewährte Methoden zur Distanzmessung zur Verfügung: die Messung mittels Schallwellen und die Messung mittels Lichtwellen. In den folgenden Unterkapiteln werden diese Verfahren näher untersucht und getestet.
 
 \subsubsection{Ultraschallsensor}
 Für die Messung wird der Ultraschallsensor HC-SR04 verwendet. Dieser Sensor hat eine Reichweite von 2 cm bis 300 cm\footnotemark und arbeitet mit einer Genauigkeit von ±3 mm. Der Sensor wird mit einer Betriebsspannung von 5 V versorgt. Die Messung wird über den Trigger-Pin gestartet, während der Echo-Pin das vom Trigger ausgesendete Signal nach dessen Rückkehr empfängt. Der Zeitunterschied zwischen dem Senden und Empfangen des Signals wird mithilfe der Schallgeschwindigkeit in die Entfernung umgerechnet. Die Genauigkeit des Sensors wird mithilfe des in Abbildung \ref{fig:Ultraschall1} dargestellten Messaufbaus überprüft.
@@ -186,15 +261,15 @@ Auch bei diesem Experiment wird das Objekt schrittweise um jeweils einen Zentime
 \bottomrule
 \end{tabular}
 \end{minipage}
-\caption{TOF Messwerte}
+\caption{\acrshort{tof-sensor} Messwerte}
 \label{tab:TOFMD}
 \end{table}
 
-Aus der Tabelle \ref{tab:TOFMD} wird ersichtlich, dass die Messwerte des TOF-Sensors bei kurzer Messdistanz ähnlich gute Messungen macht, wie die des Ultraschallsensors. Ebenso liefert der Sensor zuverlässige Ergebnisse in grösserer Entfernung. Tests mit künstlicher Sonneneinstrahlung haben ergeben, dass sich die Zuverlässigkeit stark verändert. In diesem Fall sind die Werte sehr inkonsistent. Daher wird der Ultraschallsensor als zuverlässiger eingeschätzt.
+Aus der Tabelle \ref{tab:TOFMD} wird ersichtlich, dass die Messwerte des \acrshort{tof-sensor} bei kurzer Messdistanz ähnlich gute Messungen macht, wie die des Ultraschallsensors. Ebenso liefert der Sensor zuverlässige Ergebnisse in grösserer Entfernung. Tests mit künstlicher Sonneneinstrahlung haben ergeben, dass sich die Zuverlässigkeit stark verändert. In diesem Fall sind die Werte sehr inkonsistent. Daher wird der Ultraschallsensor als zuverlässiger eingeschätzt.
 
 \subsection{Linienerkennung / Punkterkennung} \label{sec:Linienerkennung_Punkterkennung_Test}
 \subsubsection{Farbsensor}
-Der in diesem Experiment getestete Farbsensor trägt die Typenbezeichnung TCS34725. Er kommuniziert über eine I2C-Schnittstelle und liefert Messwerte für Rot-, Grün- und Blauanteile sowie den Clear-Wert. Darüber hinaus können aus diesen Werten der Farbtemperatur- und der Lux-Wert berechnet werden. Ziel dieses Tests ist es, den Wert zu ermitteln, der auf unterschiedlichen Bodeneigenschaften die grössten Unterschiede zeigt. Um reproduzierbare Messungen zu gewährleisten, wurde ein spezieller Halter angefertigt, der den Sensor in einer konstanten Höhe von 1 cm über dem Boden positioniert (siehe Abbildung \ref{fig:Farbsensorhalter}).
+Der in diesem Experiment getestete Farbsensor trägt die Typenbezeichnung TCS34725. Er kommuniziert über eine \gls{i2c}-Schnittstelle und liefert Messwerte für Rot-, Grün- und Blauanteile sowie den Clear-Wert. Darüber hinaus können aus diesen Werten der Farbtemperatur- und der Lux-Wert berechnet werden. Ziel dieses Tests ist es, den Wert zu ermitteln, der auf unterschiedlichen Bodeneigenschaften die grössten Unterschiede zeigt. Um reproduzierbare Messungen zu gewährleisten, wurde ein spezieller Halter angefertigt, der den Sensor in einer konstanten Höhe von 1 cm über dem Boden positioniert (siehe Abbildung \ref{fig:Farbsensorhalter}).
 
 \begin{figure}[H] % 'h' steht für here, was bedeutet, dass das Bild möglichst an dieser Stelle eingefügt wird
     \centering
@@ -294,12 +369,13 @@ Aus den Messdaten geht hervor, dass der Lux-Wert den grössten Unterschied zwisc
 Ein erheblicher Nachteil ergibt sich jedoch durch die Belichtungszeit. Da alle 101 ms ein neuer Messwert geliefert wird, bedeutet dies, dass bei einer maximalen Geschwindigkeit von 20 cm/s alle 2 cm ein neuer Wert erfasst werden kann. Dies könnte dazu führen, dass der Farbsensor die Linie verliert oder von ihr abweicht, bevor er einen neuen Messwert einlesen kann. Aus diesem Grund scheidet der Farbsensor als Liniensensor aus.
 
 
-\subsubsection{Infrarot-Linien-Array}
-Eine alternative Methode zur Linienerkennung besteht in der Verwendung einer Infrarot- (IR) LED und eines IR-Fototransistors. Auf einer hellen Oberfläche werden die IR-Strahlen stärker reflektiert, wodurch der Fototransistor besser leitet. Dies führt zu niedrigeren Spannungen über dem Fototransistor auf reflektierenden Oberflächen. Mithilfe eines AD-Wandlers (Analog-Digital-Wandler) können diese Spannungen von einem Mikrocontroller ausgelesen werden.
+\subsubsection{IR-Fototransistor-Array}
+\label{a4:Infrarotfototransistor-Array}
+Eine alternative Methode zur Linienerkennung besteht in der Verwendung einer Infrarot(IR)-LED und eines \gls{ir-fototransistor}. Auf einer hellen Oberfläche werden die IR-Strahlen stärker reflektiert, wodurch der \gls{ir-fototransistor} besser leitet. Dies führt zu niedrigeren Spannungen über dem \gls{ir-fototransistor} auf reflektierenden Oberflächen. Mithilfe eines AD-Wandlers (Analog-Digital-Wandler) können diese Spannungen von einem Mikrocontroller ausgelesen werden.
 
-Da viele Mikrocontroller nur eine begrenzte Anzahl an AD-Wandlern besitzen, gibt es eine alternative Lösung mithilfe eines Kondensators. Zunächst wird der Kondensator entladen, indem der entsprechende Pin (im Schema als ''Osci" bezeichnet) auf 3,3 V gesetzt wird (siehe Abbildung \ref{fig:IR_Schema}). Anschliessend wird der Pin auf Input-Capture umgestellt. Der Kondensator lädt sich daraufhin mit dem Strom des Fototransistors auf. Der Mikrocontroller misst die Zeit, bis die Spannung am Eingangs-Pin auf GND gefallen ist.
+Da viele Mikrocontroller nur eine begrenzte Anzahl an AD-Wandlern besitzen, gibt es eine alternative Lösung mithilfe eines Kondensators. Zunächst wird der Kondensator entladen, indem der entsprechende Pin (im Schema als ''Osci" bezeichnet) auf 3,3 V gesetzt wird (siehe Abbildung \ref{fig:IR_Schema}). Anschliessend wird der Pin auf Input-Capture umgestellt. Der Kondensator lädt sich daraufhin mit dem Strom des \gls{ir-fototransistor} auf. Der Mikrocontroller misst die Zeit, bis die Spannung am Eingangs-Pin auf GND gefallen ist.
 
-Da der Strom des Fototransistors bei stärker reflektierenden Oberflächen zunimmt, lässt sich auf diese Weise die Linie erkennen. Um die Erkennung noch zuverlässiger zu gestalten, können mehrere Fototransistoren und IR-Leuchtdioden nebeneinander angeordnet werden. Diese parallele Anordnung ermöglicht es, die Position der Linie präzise zu erfassen, selbst wenn sie sich verschiebt.
+Da der Strom des \gls{ir-fototransistor} bei stärker reflektierenden Oberflächen zunimmt, lässt sich auf diese Weise die Linie erkennen. Um die Erkennung noch zuverlässiger zu gestalten, können mehrere \gls{ir-fototransistor} und IR-Leuchtdioden nebeneinander angeordnet werden. Diese parallele Anordnung ermöglicht es, die Position der Linie präzise zu erfassen, selbst wenn sie sich verschiebt.
 
 
 \begin{figure}[H] % 'h' steht für here, was bedeutet, dass das Bild möglichst an dieser Stelle eingefügt wird
@@ -342,6 +418,13 @@ In der dritten Messung wurde der Sensor ohne Untergrund, also nur auf die Luft g
     \label{fig:IR_Messungen}
 \end{figure}
 
-Aufgrund dieser Ergebnisse wird die Linienerkennung mit Fototransistoren bevorzugt. Mit einem Fototransistor-Array, das mindestens 7 cm breit ist, kann auch der weisse Punkt zuverlässig erkannt werden. Denn auf der Linie wird niemals jeder Fototransistor die Linie gleichzeitig erfassen. Auf dem Punkt hingegen melden alle Fototransistoren die Erkennung der Linie, was darauf hinweist, dass es sich um den Punkt handelt.
-
+Aufgrund dieser Ergebnisse wird die Linienerkennung mit \gls{ir-fototransistor} bevorzugt. Mit einem \gls{ir-fototransistor}-Array, das mindestens 7 cm breit ist, kann auch der weisse Punkt zuverlässig erkannt werden. Denn auf der Linie wird niemals jeder \gls{ir-fototransistor} die Linie gleichzeitig erfassen. Auf dem Punkt hingegen melden alle IR-Fototransistoren die Erkennung der Linie, was darauf hinweist, dass es sich um den Punkt handelt.
+\newpage
+\subsubsection{Schema Linefollower}
+\label{a4:Schema-Linefollower}
+\includepdf[
+  pages={1-},
+  scale=0.9,
+  pagecommand={\pagestyle{fancy}}
+]{assets/Linefollower.pdf}
 \end{document}

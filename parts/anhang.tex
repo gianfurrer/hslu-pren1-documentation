@@ -5,10 +5,12 @@
 \begin{document}
 
 \newpage
-\sectionnumbering{Roman}
+% \sectionnumbering{Roman}
+\appendix
 \chapter*{Anhang}
+\renewcommand{\thesection}{A\arabic{section}}
 \etocdepthtag.toc{mtappendix}
-\etocsettagdepth{mtchapter}{none}
+\etocsettagdepth{mtchapter}{chapter}
 \etocsettagdepth{mtappendix}{subsection}
 \addtableofcontents
 
@@ -17,5 +19,6 @@
 \subfile{anhang/a2-technologierecherche}
 \subfile{anhang/a3-konzeptfindung}
 \subfile{anhang/a4-prototyping}
+\subfile{anhang/a5-redlichkeitserklärung.tex}
 
 \end{document}

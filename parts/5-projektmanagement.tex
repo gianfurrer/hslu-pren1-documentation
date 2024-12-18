@@ -8,7 +8,7 @@
 \section{Projektmanagement}
 
 \subsection {Projektorganisation}
-PREN ist eine Zusammenarbeit zwischen drei Studiengängen der Hochschule Luzern - Maschinenbau, Elektrotechnik und Informatik. Das Projektteam ist aus zwei Personen pro Disziplin zusammengesetzt. Die Organisationsform für PREN ist frei wählbar. Das Team entschied sich, keinen festen Projektleiter zu benennen. Stattdessen wurden Projektmanagement, Steuerung und Kontrolle im wöchentlichen Austausch gemeinsam übernommen und die Aufgaben auf alle Mitglieder verteilt.
+PREN ist eine Zusammenarbeit aus drei Studiengängen der Hochschule Luzern - Maschinenbau, Elektrotechnik und Informatik. Das Projektteam ist aus zwei Personen pro Disziplin zusammengesetzt. Die Organisationsform für PREN ist frei wählbar. Das Team entschied sich, keinen festen Projektleiter zu benennen. Stattdessen wurden Projektmanagement, Steuerung und Kontrolle im wöchentlichen Austausch gemeinsam übernommen und die Aufgaben auf alle Mitglieder verteilt.
 
 \subsection{Projektziele des Teams}
 Das Team formulierte zu Beginn des Projekts klare Ziele. Folgende projektumfassende Ziele wurden gewählt:
@@ -40,7 +40,7 @@ Für PREN1 wurden in der Aufgabenstellung (Anhang \ref{aufgabenstellung}) drei M
 
 \subsection{Risikomatrix} \label{risikomatrix}
 
-Alle bekannten Risiken in Bezug zum Projekt sind in folgender Tabelle aufgelistet. Diese Risiken werden kontinuierlich erweitert und möglichst minimiert. Dies kann beispielsweise anhand von Prototypen, geplanten Backup-Lösungen oder vertieften Recherchen erfolgen.
+Alle bekannten Risiken in Bezug zum Projekt sind in Tabelle \ref{tab:risikotabelle} aufgelistet. Diese Risiken werden kontinuierlich erweitert und möglichst minimiert. Dies kann beispielsweise anhand von Prototypen, geplanten Backup-Lösungen oder vertieften Recherchen erfolgen.
 
 Dabei hat jedes Risiko folgende Attribute:
 \begin{itemize}
@@ -81,7 +81,8 @@ Aus Darstellungsgründen wurden die Attribute der Risikos in zwei Reihen aufgete
 
 \renewcommand{\arraystretch}{1.5} % Adjust row height for readability
 \setlength{\arrayrulewidth}{0.6pt}
-\begin{longtable}{|c|p{4.5cm}|p{5cm}|c|c|p{4.5cm}|c|c|c|}
+\begin{longtable}
+{|c|p{4.5cm}|p{5cm}|c|c|p{4.5cm}|c|c|c|}
 \hline
 \rowcolor{white}
 & \textbf{Titel} & \textbf{Beschreibung} & & & \textbf{Ursachen} & \textbf{EW} & \textbf{AW} & \textbf{BW} \\ 
@@ -141,6 +142,9 @@ Aus Darstellungsgründen wurden die Attribute der Risikos in zwei Reihen aufgete
 
 \rowcolor{white} & \textbf{Blendende Beleuchtung} & Licht stört Kamera & ET & Elektrisch & Kamera sieht Blendung statt Objekt & 4 & 4 & \cellcolor[HTML]{FFC000}16 \\* \cline{2-3} \cline{6-9}
 \rowcolor{white} \multirow{-2}{*}{R17} & LEDs vermeiden & Kameraeinstellung bei wenig Licht & & & Kamera erkennt Objekt trotz Blendung & 2 & 2 & \cellcolor[HTML]{CCFF33}4 \\ \hline
+
+\caption{Risikotabelle}
+\label{tab:risikotabelle}
 
 \end{longtable}
 \normalsize    
@@ -224,12 +228,14 @@ Phototransistor & CHF 4.30 & 22.11.2024 & Distrelec \\ \hline
 \begin{tabular}{|p{6cm}|p{2.5cm}|p{2cm}|p{2.5cm}|}
 \hline
 \textbf{Was} & \textbf{Preis} & \textbf{Gekauft} & \textbf{Wo} \\ \hline
-Elektronische Bauteile und Baugruppen & CHF 50.-- &  &  \\ \hline
-
+Total Ausgaben PREN1 & CHF 163.66.-- &  &  \\ \hline
+Elektronische Bauteile und Baugruppen & CHF 100.-- &  &  \\ \hline
+PCB des Adapterboards & CHF 80.-- &  &  \\ \hline
+Gehäuse, Räder und Mechanismus & CHF 100.-- &  &  \\ \hline
 \hline
-\textbf{Total} & \textbf{CHF 50.--} & & \\ \hline
+\textbf{Total} & \textbf{CHF 443.66} & & \\ \hline
 \end{tabular}
-\caption{Tabelle der bisher geplanten Ausgaben in PREN2}
+\caption{Tabelle der bisher geplanten Ausgaben bis Ende PREN2}
 \label{tab:ausgaben_pren2}
 \end{table}
 

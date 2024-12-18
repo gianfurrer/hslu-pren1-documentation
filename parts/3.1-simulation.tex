@@ -28,6 +28,7 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll. Die An
         7. & Kommandos, die an die Hardware geschickt werden sollen, werden ausgegeben. & Mittel \\ \hline
         8. & Der Simulator analysiert den Graphen anhand von Bildern. & Tief \\ \hline
     \end{tabularx}
+    \caption{Spezifikationen des Simulators}
 \end{table}
 
 \newpage
@@ -159,12 +160,13 @@ Die Informationen, die nicht von der Kamera erkannt werden können, simulieren d
 
 Damit die Simulation weiss, auf welchen Wegpunkten bzw. Linien sich Hindernisse befinden, wird jeder Wegpunkt beschriftet:
 
-\imagewidth{img/simulation/labeled-graph.png}{Beschrifteter Graph}{10cm}
+\imagewidth{img/simulation/labeled-graph.png}{Beschrifteter Graph aus der Aufgabenstellung }{10cm}
 
 \subsubsection{Konfiguration} \label{sim:Konfiguration}
 
 Die Konfiguration wird in einer \acrshort{yaml}-Datei abgespeichert und sieht wie folgt aus.
-
+\begin{figure}[H]
+    \centering
 \begin{minted}[fontsize=\small]{yaml}
 end: B
 weight: 3
@@ -180,6 +182,9 @@ undetectable:
   removed_lines:
     - [D, C]
 \end{minted}
+    \label{fig:Beispielkonfiguration}
+    \caption{Beispielkonfiguration für den Simulator in yaml}
+\end{figure}
 
 In der Beispielkonfiguration wird das Ziel \textbf{B} definiert. Hindernisse auf Linien erhalten eine \textbf{dreifache Gewichtung} im Vergleich zu normalen Linien.
 
@@ -189,7 +194,7 @@ Diese Informationen werden genutzt, um den Graphen dynamisch zu aktualisieren un
 
 \subsubsection{Ablauf}
 
-In diesem Abschnitt wird der Ablauf anhand der Beispielkonfiguration in Kapitel \ref{sim:Konfiguration} erklärt.
+In diesem Abschnitt wird der Ablauf anhand der Beispielkonfiguration in Kapitel \ref{fig:Beispielkonfiguration} erklärt.
 
 Zu Beginn der Simulation hat der Simulator noch keine Informationen und berechnet den schnellsten Weg von S nach B: \textit{[S, E, A, B]}. Das Fahrzeug dreht sich somit zum nächsten Knoten \textit{E}.
 
@@ -248,7 +253,7 @@ Dieser Ablauf wiederholt sich, bis das Fahrzeug im Ziel ankommt:
 \end{minipage}%
 \begin{minipage}{.5\textwidth}
   \centering
-  \imagewidth{img/simulation/SimulatorAblauf-7.png}{Simulator: Fahrzeug fährt nach B erleuchtet Zielsignal}{0.8\textwidth}
+  \imagewidth{img/simulation/SimulatorAblauf-7.png}{Simulator: Fahrzeug fährt nach B und gibt das Zielsignal}{0.8\textwidth}
 \end{minipage}
 
 \paragraph{Ablaufdiagramm}

@@ -49,7 +49,7 @@ Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Programmablauf d
 
 \begin{figure}[H]
 \includegraphics[width=0.9\textwidth]{img/lösungskonzpet/Ablaufdiagramm.png}
-\caption{Ablaufdiagramm}
+\caption{Ablaufdiagramm des Fahrzeug-Programms}
 \label{img:ablaufdiagramm}
 \end{figure}
 
@@ -69,7 +69,7 @@ Die Fortbewegung wird nach dem Prinzip Roomba realisiert: zwei einzeln angetrieb
 
 Als Antriebsmotoren werden DC-Motoren verwendet, die als Motorentreiber eine \gls{h-brücke} verwenden. Diese wird für die Geschwindigkeit mit einem \gls{pwm}-Signal angesteuert. Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen können. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die \gls{h-brücke} ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} (Fahrantrieb) und \ref{a3:Sensorik:Positionsabfrage} (Sensorik Positionsabfrage) nachgeschlagen werden.
 \newpage
-Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Der Raspberry Pi analysiert mit der Kamera den nächstbesten Punkt ohne Pylone. Anschliessend teilt er dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss. Somit dreht sich das Fahrzeug auf die angepeilte Linie, die vom Liniensensor erkannt wird. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalablauf} visualisiert.
+Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). In Abbildung \ref{img:UART_Signalablauf} wird aufgezeigt, wie der Datenaustausch zwischen dem Raspberry und dem TinyK22 ablaufen wird. Als erstes  analysiert der Raspberry Pi mit der Kamera den nächstbesten Punkt ohne Pylone. Anschliessend teilt er dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss. Somit dreht der TinyK22 das Fahrzeug auf die angepeilte Linie, die vom Liniensensor erkannt wird. Wird die Linie nicht erkannt, sucht das System die Linie durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies benötigt das Raspberry, um die relative Position der Kamera bestimmen zu können. Jetzt folgt das Fahrzeug der Linie mithilfe des Liniensensors. Erkennt der Liniensensor eine breitere Linie, also einen Punkt, informiert der TinyK22 den Raspberry Pi und stoppt das Fahrzeug, und der Vorgang beginnt erneut. Sobald das Fahrzeug den Zielpunkt erreicht, signalisiert der Raspberry Pi dies dem TinyK22. Der TinyK22 lässt anschliessend die LED blinken.
 
 \begin{figure}[H]
 \centering
@@ -86,7 +86,7 @@ Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbund
 \end{figure}
 
 
-Das Fahrzeug folgt der Linie mithilfe des Liniensensors. Erkennt der Sensor eine breitere Linie, also einen Punkt, informiert der TinyK22 den Raspberry Pi, stoppt das Fahrzeug, und der Vorgang beginnt erneut. Sobald das Fahrzeug den Zielpunkt erreicht, signalisiert der Raspberry Pi dies dem TinyK22. Der TinyK22 lässt anschliessend die LED blinken.
+
 
 \newpage
 

@@ -27,7 +27,7 @@ Zur Hindernisbewältigung befindet sich an der Vorderseite des Fahrzeugs ein Kle
 Die Motoren und Sensoren werden über das TinyK22 gesteuert.
 Das TinyK22, die Eingabeknöpfe sowie die Kamera sind an einem Raspberry Pi 5 angeschlossen.
 
-Die Energieversorgung für alle Komponenten wird mit einem LiPo-Akku sichergestellt (Begründung im Anhang \ref{a3:Energiequelle}).
+Ein LiPo-Akku stellt die Energieversorgung sicher(Begründung im Anhang \ref{a3:Energiequelle}).
 Mit dem Notaus-Knopf kann die Energieversorgung zu allen Komponenten direkt unterbrochen werden.
 \newline
 \newline
@@ -69,7 +69,7 @@ Die Fortbewegung wird nach dem Prinzip Roomba realisiert: zwei einzeln angetrieb
 
 Als Antriebsmotoren werden DC-Motoren verwendet, die als Motorentreiber eine \gls{h-brücke} verwenden. Diese wird für die Geschwindigkeit mit einem \gls{pwm}-Signal angesteuert. Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen können. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die \gls{h-brücke} ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} nachgeschlagen werden.
 \newpage
-Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Der Raspberry Pi wertet mit der Kamera aus, welches der nächstbeste Punkt ohne Pylone ist und teilt anschliessend dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss, um diesen Punkt zu erreichen. Somit dreht sich das Fahrzeug auf die angepeilte Linie, die wird vom Liniensensor erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalablauf} visualisiert.
+Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). Der Raspberry Pi analysiert mit der Kamera den nächstbesten Punkt ohne Pylone. Anschliessend teilt er dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss. Somit dreht sich das Fahrzeug auf die angepeilte Linie, die wird vom Liniensensor erkannt. Wird die Linie nicht erkannt, sucht das System diese durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies ist in der Abbildung \ref{img:UART_Signalablauf} visualisiert.
 
 \begin{figure}[H]
 \centering
@@ -101,7 +101,7 @@ Je nach neu erhaltener Information werden folgende Anpassungen am Graphen vorgen
 \end{itemize}
 
 \subsubsection{Objekterkennung} \label{sub:Objekterkennung}
-Die Objekterkennung wird mithilfe einer weitwinkligen Raspberry Pi Module 3 Kamera durchgeführt. Dabei werden Pylonen, Hindernisse und Wegpunkte erkannt. Als Software kommt YOLO zum Einsatz (Anhang \ref{a3:Objekterkennung}). Die erkannten Objekte werden für die Wegfindung genutzt. Das Ziel ist es, von Anfang an möglichst viele Objekte zu erfassen und auszuwerten. Da dies jedoch nicht garantiert werden kann, wird die Objekterkennung bei jedem Wegpunkt durchgeführt. 
+Die weitwinklige Raspberry Pi Module 3 Kamera führt die Objekterkennung durch. Dabei werden Pylonen, Hindernisse und Wegpunkte erkannt. Als Software kommt YOLO zum Einsatz (Anhang \ref{a3:Objekterkennung}). Die erkannten Objekte werden für die Wegfindung genutzt. Das Ziel ist es, von Anfang an möglichst viele Objekte zu erfassen und auszuwerten. Da dies jedoch nicht garantiert werden kann, wird die Objekterkennung bei jedem Wegpunkt durchgeführt. 
 
 \subsection{Hindernisbewältigung}
 Der Ultraschallsensor überwacht kontinuierlich, ob sich ein Hindernis auf der Linie befindet (Sensorwahl: Anhang \ref{a3:Objekterkennung_Sensor}). Ab einer Entfernung von 30 cm wird ein Hindernis erkannt. Das Fahrzeug hält an, sobald das Hindernis sich zwischen den zwei seitlichen Klemmbacken befindet. Danach wird der DC-Motor angesteuert, der das Hindernis ergreift und gleichzeitig anhebt. Die genauen Details zu dieser Konstruktion befinden sich im Anhang \ref{a3:Hindernisbewältigungsantrieb} und \ref{a3:Aufnahme_Hindernis}.

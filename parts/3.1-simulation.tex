@@ -30,8 +30,16 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll. Die An
     \end{tabularx}
 \end{table}
 
+Anhand der Spezifikationen wurde ein Lösungskonzept mittels eines Morphologischen Kastens erarbeitet. Details dazu sind im Anhang \ref{sec:sim_Morphologischer_Kasten} zu finden.
+
+
 \newpage
-\subsubsection{Morphologischer Kasten}
+{\color{red} TODO(Gian): Morphologischer Kasten in Anhang schieben}
+\subsubsection{Morphologischer Kasten für Simulator} \label{sec:sim_Morphologischer_Kasten}
+
+In diesem Abschnitt wird ein Morphologischer Kasten für den Simulator erstellt, um die ideale Lösung herauszuarbeiten. Der Morphologische Kasten ist in der Tabelle \ref{tab:sim_Morphologischer_Kasten} abgebildet. In den Unterkapiteln werden die Teilfunktionen im Morphologischen Kasten beschrieben und die gewählte Option begründet.  
+
+Der Lösungsansatz des Morphologischen Kastens ist darauf ausgelegt, einen simplen Simulator zu erstellen, welcher trotzdem viele Anforderungen an die Wegfindung abdecken kann.
 
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 
@@ -95,10 +103,9 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll. Die An
         \includegraphics[width=3cm]{img/simulation/morphologischer-kasten/hindernis-gewicht.png}
         \\ \hline
     \end{tabularx}
+    \label{tab:sim_Morphologischer_Kasten}
     \caption{Morphologischer Kasten - Simulator}
 \end{table}
-
-Der Lösungsansatz des Morphologischen Kastens ist darauf ausgelegt, einen simplen Simulator zu erstellen, welcher trotzdem viele Anforderungen an die Wegfindung abdecken kann.
 
 \paragraph{User Interface}
 
@@ -134,14 +141,14 @@ Im Optimalfall würde der Simulator die gesamte Hardware des autonomen Fahrzeugs
 Der Simulator wird so konzipiert, dass er anhand einer vorgegebenen Konfiguration den optimalen Weg zum Ziel findet. Diese Konfiguration beinhaltet:
 \begin{itemize}
     \item Das Ziel: A, B oder C.
-    \item Die Gewichtung für das Befahren von Linien mit einem Hindernis.
-    \item Informationen die freigeschalten werden, sobald sie im Blinkwinkel der Kamera sind:
+    \item Die Strafe (Gewichtung) für das Befahren von Linien mit einem Hindernis.
+    \item Objekte die dem Simulator freigegeben werden, sobald sie im Blinkwinkel der Kamera ersichtlich sind:
      \begin{itemize}
         \item Wegpunkte mit einem Pylon 
         \item Entfernte Linien
         \item Erkannte Hindernisse
    \end{itemize}
-   \item Informationen (gleich wie oben) die nicht von der Kamera, sondern erst von der Hardware beim Befahren erkannt werden.
+   \item Objekte (gleich wie oben) diInformationene nicht von der Kamera, sondern erst von der Hardware beim Befahren erkannt werden.
 \end{itemize}
 
 Die Informationen, die nicht von der Kamera erkannt werden können, simulieren die realistische Möglichkeit, dass nicht alle Objekte von der Objekterkennung erkannt werden.  
@@ -154,7 +161,7 @@ Damit die Simulation weiss, auf welchen Wegpunkten bzw. Linien sich Hindernisse 
 \subsection{Umsetzung}
 TODO(Gian): Kapitel vervollständigen
 
-\subsubsection{Konfiguration}
+\subsubsection{Konfiguration} \label{sim:Konfiguration}
 
 Die Konfiguration wird in einer \acrshort{yaml}-Datei abgespeichert und sieht wie folgt aus.
 
@@ -176,7 +183,13 @@ undetectable:
 
 In der Beispielkonfiguration wird das Ziel \textbf{B} definiert. Hindernisse auf Linien erhalten eine \textbf{dreifache Gewichtung} im Vergleich zu normalen Linien. 
 
-Zu Beginn der Simulation hat der Simulator noch keine Informationen und berechnet den schnellsten Weg von S nach B: \textit{[S, E, A, B]}. Das Fahrzeug dreht sich somit zum nächsten Knoten \textit{E}. Um zu überprüfen, ob sich Objekte auf der idealen Strecke befindet, schiesst die Kamera ein Bild. In dem Kamerafeld (120° Winkel) sind auf der aktuellen Position \textit{S} mit dem Winkel richtung Wegpunkt \textit{E} folgende Objekte erkennbar:
+\paragraph{Erklärung Ablauf durch Beispielkonfiguration}
+
+In diesem Abschnitt wird der Ablauf wird anhand der Beispielkonfiguration in Kapitel \ref{sim:Konfiguration} genauer erklärt.
+
+Zu Beginn der Simulation hat der Simulator noch keine Informationen und berechnet den schnellsten Weg von S nach B: \textit{[S, E, A, B]}. Das Fahrzeug dreht sich somit zum nächsten Knoten \textit{E}.
+
+Um zu überprüfen, ob sich Objekte auf der idealen Strecke befindet, schiesst die Kamera ein Bild. In dem Kamerafeld (120° Winkel) sind auf der aktuellen Position \textit{S} mit dem Winkel richtung Wegpunkt \textit{E} folgende Objekte erkennbar:
 \begin{itemize}
     \item Auf dem \textbf{Knoten E} befindet sich eine Pylone.
     \item Auf der \textbf{Kante S-F} befindet sich ein Hindernis.
@@ -200,7 +213,12 @@ Deshalb fährt das Fahrzeug nun von Wegpunkt \textit{S} zu \textit{G} und der Ab
     \item Es wird ein neuer Weg berechnet, wobei der Wegpunkt \textit{D} als nächste Option gleich bleibt: \textit{[G, D, C, B]}. Somit wird der Wegpunkt \textit{D} befahren.
     \item Das Fahrzeug dreht sich zu Wegpunkt \textit{C} und entdeckt keine neue Informationen.
     \item Das Fahrzeug versucht loszufahren, aber die Sensoren finden die Linie \textit{[D, C]} nicht.
-    \item Die entfernte Linie \textit{[D, C]} wird zum Graphen hinzugefügt und der schnellste Weg neu berechnet: \textit{[]}
+    \item Die entfernte Linie \textit{[D, C]} wird zum Graphen hinzugefügt und der schnellste Weg neu berechnet: \textit{[D, A, B]}
+    \item Das Fahrzeug dreht sich zu Wegpunkt \textit{A} und entdeckt keine neue Informationen.
+    \item Das Fahrzeug fährt zu Wegpunkt \textit{A}.
+    \item Das Fahrzeug dreht sich zu Wegpunkt \textit{B} und entdeckt keine neue Informationen.
+    \item Das Fahrzeug fährt zu Wegpunkt \textit{B}.
+    \item Das Fahrzeug befindet sich auf dem Ziel, wodurch ein Zielsignal aufleuchetet.
 \end{itemize}
 
 
@@ -212,8 +230,6 @@ Diese Informationen werden genutzt, um den Graphen dynamisch zu aktualisieren un
 In der Abbildung \ref{fig:img/simulation/Simulator_Laufzeitdiagramm.png} ist ein Laufzeitdiagramm des Simulators abgebildet. Darauf werden die wichtigsten Abläufe des Simulators aufgezeigt. 
 
 \imagewidth{img/simulation/Simulator_Laufzeitdiagramm.png}{Simulator Laufzeitdiagramm}{\textwidth}
-
-- Objekte aufdecken: Kamera rechnet anhand von aktueller Position und Winkel aus, welche Wegpunkte gerade in dem Sichtfeld sind. Von allen Wegpunkten (und die Linien dazwischen) im Sichtfeld werden dann die erkennbaren (detectable) Objekte aus der Konfigurationsdatei aufgedeckt und zum Graphen hinzugefügt.
 
 Der Simulator 
 \imagewidth{img/simulation/simulator.png}{Simulator in Aktion}{10cm}

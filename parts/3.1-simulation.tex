@@ -37,7 +37,7 @@ Anhand der Spezifikationen wurde ein Lösungskonzept mittels eines Morphologisch
 {\color{red} TODO(Gian): Morphologischer Kasten in Anhang schieben}
 \subsubsection{Morphologischer Kasten für Simulator} \label{sec:sim_Morphologischer_Kasten}
 
-In diesem Abschnitt wird ein Morphologischer Kasten für den Simulator erstellt, um die ideale Lösung herauszuarbeiten. Der Morphologische Kasten ist in der Tabelle \ref{tab:sim_Morphologischer_Kasten} abgebildet. In den Unterkapiteln werden die Teilfunktionen im Morphologischen Kasten beschrieben und die gewählte Option begründet.  
+Dieser Abschnitt beschreibt die Erstellung eines Morphologischen Kastens für den Simulator. Der Morphologische Kasten ist in der Tabelle \ref{tab:sim_Morphologischer_Kasten} abgebildet. In den Unterkapiteln werden die Teilfunktionen im Morphologischen Kasten beschrieben und die gewählte Option begründet.  
 
 Der Lösungsansatz des Morphologischen Kastens ist darauf ausgelegt, einen simplen Simulator zu erstellen, welcher trotzdem viele Anforderungen an die Wegfindung abdecken kann.
 
@@ -148,7 +148,7 @@ Der Simulator wird so konzipiert, dass er anhand einer vorgegebenen Konfiguratio
         \item Entfernte Linien
         \item Erkannte Hindernisse
    \end{itemize}
-   \item Objekte (gleich wie oben) diInformationene nicht von der Kamera, sondern erst von der Hardware beim Befahren erkannt werden.
+   \item Objekte (gleich wie oben) die Informationen nicht von der Kamera, sondern erst von der Hardware beim Befahren erkannt werden.
 \end{itemize}
 
 Die Informationen, die nicht von der Kamera erkannt werden können, simulieren die realistische Möglichkeit, dass nicht alle Objekte von der Objekterkennung erkannt werden.  
@@ -202,7 +202,7 @@ Das Fahrzeug dreht richtung Wegpunkt \textit{G}, die Kamera schiesst ein Bild un
     \item Die \textbf{Kante G-C} ist nicht vorhanden.
 \end{itemize}
 
-Nach Einbezug der neu erhaltenen Informationen bleibt der schnellste Weg unverändert.
+Der schnellste Weg bleibt unverändert, auch nach Einbezug neuer Informationen.
 Deshalb fährt das Fahrzeug nun von Wegpunkt \textit{S} zu \textit{G} und der Ablauf beginnt von vorne:
 
 \begin{itemize}

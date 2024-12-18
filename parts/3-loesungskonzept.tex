@@ -154,8 +154,9 @@ Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigiere
     \end{minipage}
 \end{figure}
 \newpage
-Abbildung \ref{fig:greifarm_oben} zeigt den Klemmmechanismus. Er wird durch Zahnräder angetrieben, welche wiederum von einem linearen Mechanismus bewegt werden, um gleichzeitig den Hebemechanismus auszulösen. Die Feder sorgt dafür, dass, sobald die nötige Griffkraft erreicht ist, weiterhin eine Bewegung für den Hebemechanismus ermöglicht wird. In Abbildung \ref{fig:greifarm_unten} ist der Hebemechanismus zu sehen, der sich von einer Plattform (nicht im Bild sichtbar) abdrückt. An den Rändern befinden sich acht Löcher, von denen vier für Schrauben und die anderen vier für Führungen genutzt werden, um eine kontrollierte Anhebung des Hindernisses durch den Mechanismus sicherzustellen.
-Der DC-Motor, der den ganzen Mechanismus antreibt, würde sich auf dem Gehäuse befinden. Dieser Mechanismus wurde dafür ausgelegt, um von Hand für Tests betrieben zu werden. Die Tests des Mechanismus sind im Kapitel \ref{sec:hardware_greifarm} ersichtlich.
+Abbildung \ref{fig:greifarm_oben} zeigt den Klemmmechanismus. Er wird durch Zahnräder angetrieben, welche wiederum von einem linearen Mechanismus bewegt werden, um gleichzeitig den Hebemechanismus auszulösen. Die Feder (Gelb in Abbildung \ref{fig:greifarm_oben} ersichtlich) sorgt dafür, dass, sobald die nötige Griffkraft erreicht ist, weiterhin eine Bewegung für den Hebemechanismus ermöglicht wird. In Abbildung \ref{fig:greifarm_unten} ist der Hebemechanismus zu sehen, der sich von einer Plattform (nicht im Bild sichtbar) abdrückt. An den Rändern befinden sich acht Löcher, von denen vier für Schrauben und die anderen vier für Führungen genutzt werden, um eine kontrollierte Anhebung des Hindernisses durch den Mechanismus sicherzustellen.
+Der DC-Motor, der den gesamten Mechanismus antreibt, wäre am Gehäuse angebracht.
+Dieser Mechanismus jedoch wurde dafür ausgelegt, um von Hand für Tests betrieben zu werden. Die Tests des Mechanismus sind im Kapitel \ref{sec:hardware_greifarm} ersichtlich.
 
 \subsection{Materialwahl}
 Die Materialwahl für den Klemm- \& Hebemechanismus sowie das \enquote{Chassis} ist essenziell. Nicht nur, um die Funktion korrekt zu erfüllen, sondern vor allem, um Gewicht einzusparen. Aufgrund der Komplexität und der genauen Geometrie, jedoch nicht hoher Belastungen, wurde für den Klemm- \& Hebemechanismus entschieden, 3D-Druck zu verwenden. Wahrscheinlich wird PLA-Filament oder, wenn nötig, ein dauerfesteres Filament eingesetzt. Da das gesamte Gewicht der Komponenten auf dem Chassis liegt, wird Aluminium als Material verwendet. Holz, mit einer viermal geringeren Dichte, könnte ebenfalls genutzt werden. Da jedoch die Erfahrungen im Team sowie die Ausstattung der Werkstatt auf Metalle ausgerichtet sind, wird vorläufig Aluminium verwendet. Die Wahl der Materialien wurde vorläufig definiert, muss jedoch zu einem späteren Zeitpunkt getestet werden.
@@ -171,55 +172,70 @@ Die ausführlichen Berichte zu den durchgeführten Tests befinden sich im Kapite
 Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Klemm- und Hebemechanismus gemacht werden können, wurde ein Prototyp 3D - gedruckt (siehe Abbildung \ref{fig:hardware_test_fertig}). Bei dem Zusammenbau und Funktionalitätstests wurden diverse Erkenntnisse gewonnen:
 
 \begin{enumerate}
-    \item Der Klemmmechanismus kann das Hindernis klemmen.
-    \item Zwischen den Klemmbacken ist nicht genügend Platz $\Rightarrow$ Die Offset Reserve ist nicht vorhanden.
-    \item Der Hebemechanismus funktioniert nicht, weil die Feder nicht geführt ist (siehe Abbildung \ref{fig:hardware_test_klemmen_gleiten}).
-    \item Der Mechanismus ist allgemein noch nicht robust:
+    \item Funktionalität des Klemmmechanismus:
     \begin{itemize}
+        \item Der Klemmmechanismus kann das Hindernis klemmen.
+        \item Der Winkel für die Klemmbacken funktioniert einwandfrei.
+        \item Die Führung der Klemmbacken muss vergrößert werden, da Schrumpfungseffekte durch 3D-Druck auftreten (siehe Abbildung \ref{fig:hardware_test_klemmen_gleiten}).
+    \end{itemize}
+    \item Platz- und Offset-Probleme:
+    \begin{itemize}
+        \item Zwischen den Klemmbacken ist nicht genügend Platz vorhanden, die Offset-Reserve fehlt.
+    \end{itemize}
+    \item Probleme mit dem Hebemechanismus:
+    \begin{itemize}
+        \item Der Hebemechanismus funktioniert nicht, da die Feder nicht geführt ist (siehe Abbildung \ref{fig:hardware_test_schieber}).
         \item Für die lineare Bewegung fehlt eine geeignete Führung.
+    \end{itemize}
+    \item Probleme mit Zahnrädern und Verbindungen:
+    \begin{itemize}
+        \item Zahnräder reiben an der Decke. Der Luftspalt zwischen Zahnrad und Deckel ist zu klein und muss vergrössert werden.
         \item Die Verbinder zwischen Schieber und Zahnrädern müssen verlängert werden.
     \end{itemize}
-    \item Zahnräder reiben an der Decke (Der Luftspalt ist zu klein und muss vergrössert werden).
-    \item Alle Löcher sind zu klein (Schrumpfungseffekt durch 3D-Druck). (Siehe Abbildung \ref{fig:hardware_test_loecher})
-    \item Führung der Klemmbacken vergrössern, Schrumpfungseffekt durch 3D-Druck, siehe Abbildung \ref{fig:hardware_test_klemmen_gleiten})
-    \item Für ein besseres Verhalten des gesamten Systems Silikonspray verwenden
-    \item Der Winkel für die Klemmen funktioniert einwandfrei
+    \item Fertigungsprobleme:
+    \begin{itemize}
+        \item Alle Löcher sind zu klein aufgrund von Schrumpfungseffekten beim 3D-Druck (siehe Abbildung \ref{fig:hardware_test_loecher}).
+    \end{itemize}
+    \item Allgemeine Verbesserungsvorschläge:
+    \begin{itemize}
+        \item Für ein besseres Verhalten des gesamten Systems sollte Silikonspray verwendet werden.
+    \end{itemize}
 \end{enumerate}
-
+\newpage
 \begin{figure}[h!]
     \centering
     \begin{minipage}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_fertig.jpeg}
+        \includegraphics[height=9cm]{img/greifarmtest/prototyp_test_fertig.jpeg}
         \caption{Prototyp von Aussen}
         \label{fig:hardware_test_fertig}
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_klemmen_gleiten.jpeg}
+        \includegraphics[height=9cm]{img/greifarmtest/prototyp_test_klemmen_gleiten.jpeg}
         \caption{Führung der Klemmbacken passen nicht}
         \label{fig:hardware_test_klemmen_gleiten}
     \end{minipage}
 \end{figure}
-\newpage
+
 \begin{figure}[h!]
     \centering
     \begin{minipage}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_loecher.jpeg}
+        \includegraphics[height=9cm]{img/greifarmtest/prototyp_test_loecher.jpeg}
         \caption{Alle Löcher sind zu klein}
         \label{fig:hardware_test_loecher}
     \end{minipage}%
     \hfill
     \begin{minipage}[t]{0.45\textwidth}
         \centering
-        \includegraphics[height=10cm]{img/greifarmtest/prototyp_test_schieber.jpeg}
+        \includegraphics[height=9cm]{img/greifarmtest/prototyp_test_schieber.jpeg}
         \caption{Feder wurde temporär durch einen Schieber ersetzt.}
         \label{fig:hardware_test_schieber}
     \end{minipage}
 \end{figure}
-
+\newpage
 \subsubsection{Distanzmessung Hindernis}
 Für die Positionierung der Klemmbacken um das Hindernis ist eine Abstandsmessung erforderlich. Im Rahmen der Technologierecherche (siehe Anhang \ref{technologierecherche}) wurden hierfür ein Ultraschallsensor und ein \acrshort{tof-sensor} identifiziert. Der Ultraschallsensor wurde gewählt, da er auch bei direkter Sonneneinstrahlung konstante Messwerte liefert. Die durchgeführten Tests zeigten stabile Messungen ab einem Mindestabstand von 3 cm und einer getesteten Reichweite von 30 cm. Der Mindestabstand von 3 cm ist bei der Installation zu berücksichtigen. Der genaue Versuchsaufbau sowie die Messergebnisse sind im Anhang \ref{sec:Distanz_Hindernis} detailliert beschrieben.
 
@@ -229,5 +245,5 @@ Für die Positionierung der Klemmbacken um das Hindernis ist eine Abstandsmessun
 Um der Linie zu folgen und den Punkt zu erkennen, ist ein geeigneter Sensor erforderlich. In der Technologierecherche (siehe Anhang \ref{technologierecherche}) wurden zwei mögliche Sensoren identifiziert: ein Farbsensor und ein \gls{ir-fototransistor}. Obwohl der Farbsensor zuverlässig Unterschiede zwischen Boden und Linie erkennt, schied er aufgrund seiner relativ langen Belichtungszeit von 100 ms aus. Er liefert nur alle 100 ms einen Messwert, was bei einer Geschwindigkeit von 20 cm/s nur eine Abtastrate von einem Messwert pro 2 cm ergibt und damit nicht ausreicht.
 
 Der \gls{ir-fototransistor} hingegen liefert Messwerte alle 2 ms und erkennt auch deutlich die Unterschiede zwischen den verschiedenen Oberflächen. Darüber hinaus ermöglicht die Analyse der Strichdicke mit mehreren IR-Fototransistoren eine genaue Punkterkennung. Die Details der Versuche und Ergebnisse sind im Anhang \ref{a4:Infrarot-Fototransistor-Array} dokumentiert.
-Das Schema und Layout für den Liniensensor, der mit IR-Dioden und IR-Fototransistoren arbeitet, wurde bereits erstellt (siehe Anhang \ref{}).
+Das Schema und Layout für den Liniensensor, der mit IR-Dioden und IR-Fototransistoren arbeitet, wurde bereits erstellt (siehe Anhang \ref{a5:Schema-Linefollower}).
 \end{document}

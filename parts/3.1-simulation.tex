@@ -135,14 +135,16 @@ Der Simulator wird so konzipiert, dass er anhand einer vorgegebenen Konfiguratio
 \begin{itemize}
     \item Das Ziel: A, B oder C.
     \item Die Gewichtung für das Befahren von Linien mit einem Hindernis.
-    \item Informationen die erst beim Befahren eines neuen Wegpunktes freigeschalten werden:
+    \item Informationen die freigeschalten werden, sobald sie im Blinkwinkel der Kamera sind:
      \begin{itemize}
         \item Wegpunkte mit einem Pylon 
         \item Entfernte Linien
         \item Erkannte Hindernisse
    \end{itemize}
+   \item Informationen (gleich wie oben) die nicht von der Kamera, sondern erst von der Hardware beim Befahren erkannt werden.
 \end{itemize}
 
+Die Informationen, die nicht von der Kamera erkannt werden können, simulieren die realistische Möglichkeit, dass nicht alle Objekte von der Objekterkennung erkannt werden.  
 
 Damit die Simulation weiss, auf welchen Wegpunkten bzw. Linien sich Hindernisse befinden, wird jeder Wegpunkt beschriftet:
 
@@ -150,6 +152,7 @@ Damit die Simulation weiss, auf welchen Wegpunkten bzw. Linien sich Hindernisse 
 
 
 \subsection{Umsetzung}
+TODO(Gian): Kapitel vervollständigen
 
 \subsubsection{Konfiguration}
 
@@ -158,43 +161,62 @@ Die Konfiguration wird in einer \acrshort{yaml}-Datei abgespeichert und sieht wi
 \begin{minted}[fontsize=\small]{yaml}
 end: B
 weight: 3
-S:
+detectable:
   cones: [E]
   obstacles: 
-    - [S, F] 
-  removed:
-    - [E, A]
-D:
-  obstacles:
-    - [D, A]
+    - [S, F]
+    - [F, A]
   removed:
     - [D, B]
+    - [G, C]
+undetectable:
+  removed:
+    - [D, C]
 \end{minted}
 
 In der Beispielkonfiguration wird das Ziel \textbf{B} definiert. Hindernisse auf Linien erhalten eine \textbf{dreifache Gewichtung} im Vergleich zu normalen Linien. 
 
-Zu Beginn der Simulation, am Knoten \textbf{S}, erhält die Software folgende Informationen:
+Zu Beginn der Simulation hat der Simulator noch keine Informationen und berechnet den schnellsten Weg von S nach B: \textit{[S, E, A, B]}. Das Fahrzeug dreht sich somit zum nächsten Knoten \textit{E}. Um zu überprüfen, ob sich Objekte auf der idealen Strecke befindet, schiesst die Kamera ein Bild. In dem Kamerafeld (120° Winkel) sind auf der aktuellen Position \textit{S} mit dem Winkel richtung Wegpunkt \textit{E} folgende Objekte erkennbar:
 \begin{itemize}
     \item Auf dem \textbf{Knoten E} befindet sich eine Pylone.
     \item Auf der \textbf{Kante S-F} befindet sich ein Hindernis.
-    \item Die \textbf{Kante E-A} ist nicht vorhanden.
+    \item Auf der \textbf{Kante F-A} befindet sich ein Hindernis.
 \end{itemize}
 
-Zusätzlich wird beim Befahren vom Wegpunkt \textbf{D} folgendes festgestellt:
+Anhand von diesen Informationen wird der schnellste Weg neu berechnet: \textit{[S, G, D, B]}.
+Das Fahrzeug dreht richtung Wegpunkt \textit{G}, die Kamera schiesst ein Bild und erhält neue Informationen:
 \begin{itemize}
-    \item Auf der \textbf{Kante D-A} befindet sich ein Hindernis.
-    \item Die \textbf{Kante D-B} ist nicht vorhanden.
+    \item Die \textbf{Kante G-C} ist nicht vorhanden.
 \end{itemize}
+
+Nach Einbezug der neu erhaltenen Informationen bleibt der schnellste Weg unverändert.
+Deshalb fährt das Fahrzeug nun von Wegpunkt \textit{S} zu \textit{G} und der Ablauf beginnt von vorne:
+
+\begin{itemize}
+    \item Das Fahrzeug dreht sich zu Wegpunkt \textit{D} und entdeckt neue Informationen:
+    \begin{itemize}
+        \item Die \textbf{Kante D-B} ist nicht vorhanden.
+    \end{itemize}
+    \item Es wird ein neuer Weg berechnet, wobei der Wegpunkt \textit{D} als nächste Option gleich bleibt: \textit{[G, D, C, B]}. Somit wird der Wegpunkt \textit{D} befahren.
+    \item Das Fahrzeug dreht sich zu Wegpunkt \textit{C} und entdeckt keine neue Informationen.
+    \item Das Fahrzeug versucht loszufahren, aber die Sensoren finden die Linie \textit{[D, C]} nicht.
+    \item Die entfernte Linie \textit{[D, C]} wird zum Graphen hinzugefügt und der schnellste Weg neu berechnet: \textit{[]}
+\end{itemize}
+
+
 
 Diese Informationen werden genutzt, um den Graphen dynamisch zu aktualisieren und die optimalen Routen basierend auf den aktuellen Bedingungen neu zu berechnen.
 
 
-\subsubsection{Grapherstellung}
+\subsubsection{Ablauf}
+In der Abbildung \ref{fig:img/simulation/Simulator_Laufzeitdiagramm.png} ist ein Laufzeitdiagramm des Simulators abgebildet. Darauf werden die wichtigsten Abläufe des Simulators aufgezeigt. 
 
-TODO(Gian): Kapitel vervollständigen
+\imagewidth{img/simulation/Simulator_Laufzeitdiagramm.png}{Simulator Laufzeitdiagramm}{\textwidth}
+
+- Objekte aufdecken: Kamera rechnet anhand von aktueller Position und Winkel aus, welche Wegpunkte gerade in dem Sichtfeld sind. Von allen Wegpunkten (und die Linien dazwischen) im Sichtfeld werden dann die erkennbaren (detectable) Objekte aus der Konfigurationsdatei aufgedeckt und zum Graphen hinzugefügt.
 
 Der Simulator 
-\imagewidth{img/simulation/simulator.png}{Screenshot des Simulators in Aktion}{10cm}
+\imagewidth{img/simulation/simulator.png}{Simulator in Aktion}{10cm}
 
 
 Verwendete Bibliotheken:

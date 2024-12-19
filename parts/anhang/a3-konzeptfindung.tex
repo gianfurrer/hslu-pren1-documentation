@@ -4,10 +4,12 @@
 
 \newpage
 \section{Konzeptfindung}
+\label{a3:Konzeptfindung}
 
 Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept zu finden, welches robust ist und fehlerunanfällig funktioniert. Dies wird erreicht, in dem vorgängig alle Lösungsansätze aus der Technologierecherche, die mit grossen Risiken verbunden sind, erkannt und ausgeschieden werden. Mit den verbleibenden Ansätzen wird der Morphologischer-Kasten erstellt, um das Gesamtkonzept zu entwickeln. Damit mit dem Morphologischen Kasten die optimale Variante gefunden werden kann, wird zu einigen Teilfunktionen des Fahrzeuges eine Nutzwertanalyse erstellt.
 
 \subsection{Vorauswahl}
+\label{a3:Vorauswahl}
     \subsubsection{Fortbewegung}
     Das Fahrzeug muss in der Lage sein, sich an Ort und Stelle um die eigene Achse zu drehen. Somit sind die Optionen Knicklenkung, Achsschenkellenkung und Drehschemellenkung nicht geeignet.
     Das Prinzip ''Fahrzeug abbocken und drehen'' ist als alleiniges Lenksystem ungeeignet, weil es zu viel Zeit benötigt für das Lenkmanöver. 
@@ -65,6 +67,7 @@ R-CNN ist von den vier recherchierten Objekterkennungsmethoden die Langsamste un
     \newpage
     
     \paragraph{Lösungsvariante Beweglich (gelb)}
+    \label{a3:loesungsvariante_beweglich}
     Bei der Lösungsvariante ''Beweglich'' liegt der Fokus auf der Beweglichkeit des Fahrzeugs. Die Fortbewegung und Lenkung erfolgen mit Mecanum-Rädern, wobei jedes der vier Räder von einem Schrittmotor angetrieben wird. Dadurch kann sich das Fahrzeug in alle vier Richtungen linear bewegen, was es ermöglicht, das Fahrzeug präzise auf ein Hindernis auszurichten.
 
     Das Hindernis wird von vorne und hinten geklemmt und aufgenommen, wobei der Antrieb durch einen Schrittmotor erfolgt, der eine exakte Klemmung ermöglicht. Nachdem das Hindernis aufgenommen wurde, dreht sich das Fahrzeug um die eigene Achse und setzt es wieder ab. Die Position des Fahrzeugs wird mithilfe eines Beschleunigungssensors überwacht. Dies ermöglicht eine präzise Erfassung der Fahrzeugbewegung, obwohl sich das Fahrzeug in alle Richtungen bewegen kann. Zudem werden Schrittfehler der Schrittmotoren abgefangen.

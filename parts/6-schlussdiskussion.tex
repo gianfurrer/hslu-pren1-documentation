@@ -12,11 +12,11 @@ Zum Abschluss von PREN1 werden die Anforderungen an unser Konzept, die angefalle
 Die Anforderungen werden wie im Kapitel \ref{sec:anforderungsliste} in die Bereiche 'technische Anforderungen', 'Weg- und Wegpunkterkennung' und 'Hindernisbewältigung' aufgeteilt. Hier wird aufgeführt, welche Anforderungen erfüllt werden und welche nicht und weshalb.
 
 \subsubsection{Technische Anforderungen}
-Zum Zeitpunkt der Planung werden die Anforderungen \hyperlink{A2.1}{2.1 - 'Dimensionen'} , \hyperlink{A2.3}{2.3 - 'Hardware-Integration'} und \hyperlink{A2.4}{2.4 - 'Zielerreichungssignal'} erfüllt. Wie viel das komplette Fahrzeug schlussendlich wiegen wird, ist schwer abzuschätzen. Das Gewicht der verwendeten Bauteile hat für den Entscheid Einfluss. Da Design und Material des Gehäuses noch nicht feststehen, kann das Endgewicht und somit das Einhalten der Anforderung \hyperlink{A2.2}{2.2 - 'Maximalgewicht'} derzeit nicht genau bestimmt werden. Die ausgewählten Motoren haben genügend Drehmoment, um die Wunschanforderung \hyperlink{A2.6}{2.6 - 'Minimale Fahrgeschwindigkeit'} zu erfüllen. Ob jedoch mit dieser Geschwindigkeit unter den gegebenen Umständen gefahren werden kann, muss in weiteren Tests herausgefunden werden.
-Die Anforderung \hyperlink{A2.5}{2.5 - 'Erreichen des Ziels'} kann zum Zeit der Planung noch nicht getestet werden. Sobald das Fahrzeug die nötigen Funktionen unterstützt, wird diese Anforderung überprüft.
+Zum Zeitpunkt der Planung werden die Anforderungen \hyperlink{A2.1}{2.1 - Dimensionen} , \hyperlink{A2.3}{2.3 - Hardware-Integration} und \hyperlink{A2.4}{2.4 - Zielerreichungssignal} erfüllt. Wie viel das komplette Fahrzeug schlussendlich wiegen wird, ist schwer abzuschätzen. Das Gewicht der verwendeten Bauteile hat für den Entscheid Einfluss. Da Design und Material des Gehäuses noch nicht feststehen, kann das Endgewicht und somit das Einhalten der Anforderung \hyperlink{A2.2}{2.2 - Maximalgewicht} derzeit nicht genau bestimmt werden. Die ausgewählten Motoren haben genügend Drehmoment, um die Wunschanforderung \hyperlink{A2.6}{2.6 - Minimale Fahrgeschwindigkeit} zu erfüllen. Ob jedoch mit dieser Geschwindigkeit unter den gegebenen Umständen gefahren werden kann, muss in weiteren Tests herausgefunden werden.
+Die Anforderung \hyperlink{A2.5}{2.5 - Erreichen des Ziels} kann zum Zeit der Planung noch nicht getestet werden. Sobald das Fahrzeug die nötigen Funktionen unterstützt, wird diese Anforderung überprüft.
 
 \subsubsection{Weg- und Wegpunkterkennung}
-Die Anforderung \hyperlink{A3.1}{3.1 - 'Befahren des Weges'} kann mit Hilfe des Liniensensors erfüllt werden. Die Anforderung \hyperlink{A3.6}{3.6 - 'Erkennung Wegpunkte'} soll mit anhand Objekterkennung mit dem Raspberry Pi erfüllt werden. Die weiteren Anforderungen für die Weg- und Wegpunkterkennung sind aus der Aufgabenstellung gegeben und legen Rahmenbedingungen für die Aufgabe fest.
+Die Anforderung \hyperlink{A3.1}{3.1 - Befahren des Weges} kann mit Hilfe des Liniensensors erfüllt werden. Die Anforderung \hyperlink{A3.6}{3.6 - Erkennung Wegpunkte} soll mit anhand Objekterkennung mit dem Raspberry Pi erfüllt werden. Die weiteren Anforderungen für die Weg- und Wegpunkterkennung sind aus der Aufgabenstellung gegeben und legen Rahmenbedingungen für die Aufgabe fest.
 
 \subsubsection{Hindernisbewältigung}
 Durch den verwendeten Greifmechanismus und die Sensorik werden die Anforderungen für die Hindernisbewältigung erfüllt.
@@ -25,9 +25,9 @@ Durch den verwendeten Greifmechanismus und die Sensorik werden die Anforderungen
 \subsection{Risiken}
 Die wichtigsten Risiken aus dem Risikomanagement \ref{tab:risikotabelle} werden hier nochmals aufgegriffen.
 
-Die grössten verbleibenden Risiken sind Lieferengpässe, zu wenig Leistung für die Bilderkennung, Wegerkennung und die Bildqualität. 
+Dazu gehören Lieferengpässe (\hyperlink{R6}{R6}), zu wenig Leistung für die Bilderkennung(\hyperlink{R9}{R9}), Wegerkennung (\hyperlink{R2}{R2})und die Bildqualität(\hyperlink{R11}{R11}). 
 
-Damit keine Zeit durch Lieferengpässe verloren geht, werden alle benötigten Baugruppen bereits vor dem Start von PREN2 evaluiert. Weiter sollen alle mechanischen Baugruppen und Elektronik Layouts (PCB) bereits zu Beginn von PREN2 vorhanden sein. Dadurch kann direkt in der ersten Semesterwoche das ganze Material bestellt werden.
+Damit keine Zeit durch Lieferengpässe verloren geht, werden alle benötigten Baugruppen bereits vor dem Start von PREN2 evaluiert. Weiter sollen alle mechanischen Baugruppen und Elektronik Layouts (PCB) bis zur zweiten Woche von PREN2 vorhanden sein. Dadurch kann direkt in der zweiten Semesterwoche das ganze Material bestellt werden.
 
 Falls das Raspberry Pi 5 über zu wenig Leistung verfügen sollte, kann Arbeit an das TinyK22 übergeben werden. Zum Beispiel die Verarbeitung der Sensordaten. 
 

@@ -27,22 +27,24 @@ Die wichtigsten Risiken aus dem Risikomanagement \ref{tab:risikotabelle} werden 
 
 Dazu gehören Lieferengpässe (\hyperlink{R6}{R6}), zu wenig Leistung für die Bilderkennung(\hyperlink{R9}{R9}), Wegerkennung (\hyperlink{R2}{R2})und die Bildqualität(\hyperlink{R11}{R11}). 
 
-Damit keine Zeit durch Lieferengpässe verloren geht, werden alle benötigten Baugruppen bereits vor dem Start von PREN2 evaluiert. Weiter sollen alle mechanischen Baugruppen und Elektronik Layouts (PCB) bis zur zweiten Woche von PREN2 vorhanden sein. Dadurch kann direkt in der zweiten Semesterwoche das ganze Material bestellt werden.
+Um Zeitverluste durch Lieferengpässe zu vermeiden, werden alle benötigten Baugruppen bereits vor Beginn von PREN2 evaluiert. Zudem sollen alle mechanischen Baugruppen sowie die Layouts der Elektronik (PCB) bis zur zweiten Woche von PREN2 verfügbar sein. Dies ermöglicht eine zügige Materialbestellung.
 
-Falls das Raspberry Pi 5 über zu wenig Leistung verfügen sollte, kann Arbeit an das TinyK22 übergeben werden. Zum Beispiel die Verarbeitung der Sensordaten. 
+Sollte das Raspberry Pi 5 nicht genügend Leistung besitzen, um das Fahrzeug bei der geplanten Geschwindigkeit in Echtzeit zu steuern, stehen mehrere Lösungsansätze zur Verfügung. Das TinyK22 könnte beispielsweise einen Teil der Sensordatenverarbeitung übernehmen. Alternativ kann die Geschwindigkeit des Fahrzeugs so angepasst werden, dass sie der Rechenleistung des Computers entspricht.
 
-Das Fahrzeug soll zwischen zwei Wegpunkten gerade fahren. Dadurch ist die Linienerkennung nicht die Hauptfunktion, um auf der Linie zu bleiben. Die Linienerkennung wird als Überprüfung verwendet und um einen Wegpunkt zu erkennen. Das Risiko einen Wegpunkt mit einer Bodenfuge zu verwechseln ist durch den Grössenunterschied sehr gering. 
+Das Fahrzeug soll auf geraden Strecken zwischen zwei Wegpunkten fahren. Dabei ist die Linienerkennung nicht die primäre Methode, um auf Kurs zu bleiben, sondern dient zur Überprüfung und zur Erkennung von Wegpunkten. Das Risiko, einen Wegpunkt mit einer Bodenfuge zu verwechseln, ist aufgrund des Größenunterschieds sehr gering.
 
-Die Bildqualität ist durch die starke Bewegung während der Fahrt gefährdet. Durch das Trainieren der Bildverarbeitung bei Bewegung kann das Risiko minimiert werden. Ebenfalls soll möglichst nur im Stillstand die Bilderkennung stattfinden. 
+Die Bildqualität kann durch starke Bewegungen während der Fahrt beeinträchtigt werden. Dieses Risiko lässt sich durch das Trainieren der Bildverarbeitung unter Bewegungsbedingungen minimieren. Außerdem soll die Bilderkennung nach Möglichkeit nur im Stillstand erfolgen.
 
 \subsection{Abschätzung Kosten}
-Die Hardware für die Bildverarbeitung wurde in PREN1 beschaffen. Dazu zählt ein Raspberry Pi 5 8GB eine Raspberry Pi 3 Kamera und das Kabel, um die Kamera mit dem Raspberry Pi zu verbinden. Weiter wurden Motoren, eine H-Brücke, IR-LED und Fototransistoren erworben. Das Raspberry Pi 5 und die Kamera wurden für Test der Bildverarbeitung gekauft. Die Motoren werden ebenfalls in PREN1 getestet. Die IR-LED und die Fototransistoren werden für den Liniensensor benötigt. Die Kosten von PREN1 betragen 163.66 CHF. Die Übersicht über die in PREN1 getätigten Ausgaben ist in der Kostenkontrolle im Projektmanagement in Tabelle \ref{tab:ausgaben_pren1} ersichtlich. 
+\subsubsection{Kosten PREN1}
+Das Team beschaffte die Hardware für die Bildverarbeitung während PREN1. Dazu gehören ein Raspberry Pi 5 mit 8 GB, eine Raspberry Pi 3 Kamera sowie das Kabel, um die Kamera mit dem Raspberry Pi zu verbinden. Außerdem kaufte das Team Motoren, eine H-Brücke, IR-LEDs und Fototransistoren. Das Raspberry Pi 5 und die Kamera dienen zur Durchführung von Tests für die Bildverarbeitung. Die Motoren werden ebenfalls im Rahmen von PREN1 getestet. Das Team nutzt die IR-LEDs und Fototransistoren für die Entwicklung des Liniensensors. Die Gesamtkosten für PREN1 belaufen sich auf 163,66 CHF. Eine Übersicht der Ausgaben von PREN1 findet sich in der Kostenkontrolle im Projektmanagement in Tabelle \ref{tab:ausgaben_pren1}.
 
-In PREN2 muss die Sensorik bestellt werden. Solche Elektronik kann sehr kostengünstig erworben werden. Aus Erfahrung schätzen wir die Ausgaben für die elektrischen Bauteile und Baugruppen auf ungefähr 100 CHF. Weiter muss das PCB des Adapterbaords bestellt werden. Das Adapterboard wird in PREN2 entwickelt. Auf dem Adapterboard werden die benötigten Spannungen generiert und es verbindet die benötigte Hardware miteinander. Die Herstellungskosten werden auf 80 CHF geschätzt.
+\subsubsection{Kosten PREN2}
+Sensoren und die dazugehörende Elektronik können kostengünstig erworben werden. Aus Erfahrung werden die Ausgaben für die elektrischen Bauteile und Baugruppen auf ungefähr 100 CHF geschätzt. Das Team entwickelt und bestellt das PCB für ein Adapterboard, das die benötigten Spannungen erzeugt und die erforderliche Hardware miteinander verbindet. Die Herstellungskosten werden auf 80 CHF geschätzt.
 
-Das komplette Gehäuse, die verwendeten Räder und der Hindernisbewältigungsmechanismus wird in PREN2 hergestellt. Anfallenden Kosten werden auf 100 CHF geschätzt.
+Die Kosten für das komplette Gehäuse, die verwendeten Räder und den Hindernisbewältigungsmechanismus werden auf 100 CHF geschätzt.
 
-Folglich wird 444 CHF des 500 CHF Budget benötigt. Somit ist ein Polster von 56 CHF vorhanden für allfällige Mehrkosten oder Falscheinschätzungen. Eine detaillierte Auflistung der gesamten PREN Kosten ist im Projektmanagement in Tabelle \ref{tab:ausgaben_pren2} ersichtlich
+Folglich werden 444 CHF des 500 CHF Budget benötigt. 56 CHF sind als Polster für allfällige Mehrkosten oder Falscheinschätzungen vorhanden. Eine detaillierte Auflistung aller Kosten ist im Projektmanagement in Tabelle \ref{tab:ausgaben_pren2} ersichtlich.
 
 \begin{table}[h!]
     \centering
@@ -67,15 +69,21 @@ Folglich wird 444 CHF des 500 CHF Budget benötigt. Somit ist ein Polster von 56
 
 \subsection{Reflexion}
 
-In der PREN Gruppe 5 herrscht Harmonie.
-\newline
-\newline
-Die Zusammenarbeit in der Gruppe funktioniert sehr gut. Jedes Mitglied hat ähnliche Vorstellungen, was im Modul PREN erreicht werden soll. Dadurch gab es keine Probleme bei der Zieldefinition. Es soll ein möglichst einfaches Konzept entwickelt werden, um den Auftrag zu erfüllen. Dabei soll das Erreichen des Zielpunktes im Parcours über der dafür benötigten Zeit stehen. Es werden alle anfallenden Problem in der Gruppe besprochen. Nicht bloss freitags, bei dem wöchentlichen Treffen, sondern auch unter der Woche in unserem Gruppenchat. Einer der wichtigsten Punkte, in dem die Gruppendynamik sich verbessern kann, ist die Effizienz in Diskussionen. In der Gruppe kam es wiederholt zu langen Diskussionen über ein Thema, die jedoch nur wenig Ergebnisse lieferten. Zudem arbeiteten einzelne Mitglieder gelegentlich parallel an anderen Problemen. Dadurch konnten sie nicht an den Diskussionen teilnehmen, obwohl ihre Expertise für die Lösungsfindung wichtig gewesen wäre.
+\subsubsection{Zielsetzung}
+Jedes Mitglied hat ähnliche Vorstellungen, was im Modul PREN erreicht werden soll. Dadurch gab es keine Probleme bei der Zieldefinition. Es soll ein möglichst einfaches und robustes Konzept entwickelt werden, um den Auftrag zu erfüllen. Dabei soll das Erreichen des Zielpunktes im Parcours über der dafür benötigten Zeit stehen.
 
-Die Konzeptentwicklung hat aufgezeigt, dass nicht alles so funktioniert wie geplant und häufig ein anderer Lösungsansatz vorhanden ist. 
+\subsubsection{Problemlösung}
+Alle auftretenden Probleme werden innerhalb der Gruppe besprochen – nicht nur freitags beim wöchentlichen Treffen, sondern auch während der Woche im Gruppenchat. Die Effizienz der Teammeetings hat Verbesserungpotential. So kam es häufig zu langen Diskussionen, die nur wenige konkrete Ergebnisse brachten. Zudem arbeiteten einzelne Mitglieder teilweise parallel an anderen Aufgaben und konnten daher nicht an den Diskussionen teilnehmen, obwohl ihre Expertise für die Lösungsfindung gewinnbringend gewesen wäre.
 
-Schnell waren Ideen im Raum, die Schwierigkeit ist es, den Fokus nicht zu stark auf einen Lösungsansatz zu legen. Hat man einen Tunnelblick, bleiben andere, möglicherweise bessere, Lösungsansätze unentdeckt. 
+\subsubsection{Projektmanagement}
+Die verwendeten Vorlagen für den Projektplan und das Risikomanagement mussten stark angepasst werden, um den Anforderungen von PREN gerecht zu werden. Dafür wurde sehr viel Zeit investiert. Im Nachhinein würde eine bereits etablierte Lösung für Projektmanagement, wie beispielsweise Jira oder Trello zu Beginn aufgesetzt. Dies würde zu Beginn des Projekts mehr Arbeit verursachen, allerdings wäre der Arbeitsaufwand danach wesentlich geringer.
 
+Das Team war ohne Projektleiter organisiert. Ein Nachteil, der sich aus dieser Rollenverteilung ergeben hat, war die fehlende Kontrolle der Einheitlichkeit der Dokumentation und der Arbeit im allgemeinen. Alle haben ihre Arbeit gemacht und in dieser Dokumentation zusammengeführt, allerdings war die Kohärenz nicht gegeben. Das führte zu viel nachträglichem Aufwand.
+
+\subsection{Lösungskonzept}
+
+Die Konzeptentwicklung hat aufgezeigt, dass nicht alles was geplant ist, auf den ersten Anhieb funktioniert.
+Das Prototyping in allen Bereichen hat hier sehr viel Mehrwert gebracht, Fehler früh zu erkennen. 
 
 
 

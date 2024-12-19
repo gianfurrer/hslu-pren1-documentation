@@ -36,15 +36,16 @@ Das Fahrzeug soll auf geraden Strecken zwischen zwei Wegpunkten fahren. Dabei is
 Die Bildqualität kann durch starke Bewegungen während der Fahrt beeinträchtigt werden. Dieses Risiko lässt sich durch das Trainieren der Bildverarbeitung unter Bewegungsbedingungen minimieren. Außerdem soll die Bilderkennung nach Möglichkeit nur im Stillstand erfolgen.
 
 \subsection{Abschätzung Kosten}
+
 \subsubsection{Kosten PREN1}
-Das Team beschaffte die Hardware für die Bildverarbeitung während PREN1. Dazu gehören ein Raspberry Pi 5 mit 8 GB, eine Raspberry Pi 3 Kamera sowie das Kabel, um die Kamera mit dem Raspberry Pi zu verbinden. Außerdem kaufte das Team Motoren, eine H-Brücke, IR-LEDs und Fototransistoren. Das Raspberry Pi 5 und die Kamera dienen zur Durchführung von Tests für die Bildverarbeitung. Die Motoren werden ebenfalls im Rahmen von PREN1 getestet. Das Team nutzt die IR-LEDs und Fototransistoren für die Entwicklung des Liniensensors. Die Gesamtkosten für PREN1 belaufen sich auf 163,66 CHF. Eine Übersicht der Ausgaben von PREN1 findet sich in der Kostenkontrolle im Projektmanagement in Tabelle \ref{tab:ausgaben_pren1}.
+Die Hardware für die Bildverarbeitung wurde während PREN1 beschafft. Dazu gehören ein Raspberry Pi 5 mit 8 GB, eine Raspberry Pi 3 Kamera sowie das Kabel, um die Kamera mit dem Raspberry Pi zu verbinden. Außerdem kaufte das Team Motoren, eine H-Brücke, IR-LEDs und Fototransistoren. Das Raspberry Pi 5 und die Kamera dienen zur Durchführung von Tests für die Bildverarbeitung. Die Motoren werden ebenfalls im Rahmen von PREN1 getestet. Das Team nutzt die IR-LEDs und Fototransistoren für die Entwicklung des Liniensensors. Die Gesamtkosten für PREN1 belaufen sich auf 163,66 CHF. Eine Übersicht der Ausgaben von PREN1 findet sich in der Kostenkontrolle im Projektmanagement in Tabelle \ref{tab:ausgaben_pren1}.
 
 \subsubsection{Kosten PREN2}
 Sensoren und die dazugehörende Elektronik können kostengünstig erworben werden. Aus Erfahrung werden die Ausgaben für die elektrischen Bauteile und Baugruppen auf ungefähr 100 CHF geschätzt. Das Team entwickelt und bestellt das PCB für ein Adapterboard, das die benötigten Spannungen erzeugt und die erforderliche Hardware miteinander verbindet. Die Herstellungskosten werden auf 80 CHF geschätzt.
 
 Die Kosten für das komplette Gehäuse, die verwendeten Räder und den Hindernisbewältigungsmechanismus werden auf 100 CHF geschätzt.
 
-Folglich werden 444 CHF des 500 CHF Budget benötigt. 56 CHF sind als Polster für allfällige Mehrkosten oder Falscheinschätzungen vorhanden. Eine detaillierte Auflistung aller Kosten ist im Projektmanagement in Tabelle \ref{tab:ausgaben_pren2} ersichtlich.
+Folglich werden 444 CHF des 500 CHF Budget benötigt. 56 CHF sind als Reserve für allfällige Mehrkosten oder Fehleinschätzungen vorhanden. Eine detaillierte Auflistung aller Kosten ist im Projektmanagement in Tabelle \ref{tab:ausgaben_pren2} ersichtlich.
 
 \begin{table}[h!]
     \centering
@@ -68,6 +69,7 @@ Folglich werden 444 CHF des 500 CHF Budget benötigt. 56 CHF sind als Polster f�
 \end{table}
 
 \subsection{Reflexion}
+In der Reflexion werden verschiedene Aspekte von PREN1 nochmals aus der Perspektive des Projektteams aufgegriffen und kritisch beurteilt.
 
 \subsubsection{Zielsetzung}
 Jedes Mitglied hat ähnliche Vorstellungen, was im Modul PREN erreicht werden soll. Dadurch gab es keine Probleme bei der Zieldefinition. Es soll ein möglichst einfaches und robustes Konzept entwickelt werden, um den Auftrag zu erfüllen. Dabei soll das Erreichen des Zielpunktes im Parcours über der dafür benötigten Zeit stehen.
@@ -76,15 +78,19 @@ Jedes Mitglied hat ähnliche Vorstellungen, was im Modul PREN erreicht werden so
 Alle auftretenden Probleme werden innerhalb der Gruppe besprochen – nicht nur freitags beim wöchentlichen Treffen, sondern auch während der Woche im Gruppenchat. Die Effizienz der Teammeetings hat Verbesserungpotential. So kam es häufig zu langen Diskussionen, die nur wenige konkrete Ergebnisse brachten. Zudem arbeiteten einzelne Mitglieder teilweise parallel an anderen Aufgaben und konnten daher nicht an den Diskussionen teilnehmen, obwohl ihre Expertise für die Lösungsfindung gewinnbringend gewesen wäre.
 
 \subsubsection{Projektmanagement}
+
 Die verwendeten Vorlagen für den Projektplan und das Risikomanagement mussten stark angepasst werden, um den Anforderungen von PREN gerecht zu werden. Dafür wurde sehr viel Zeit investiert. Im Nachhinein würde eine bereits etablierte Lösung für Projektmanagement, wie beispielsweise Jira oder Trello zu Beginn aufgesetzt. Dies würde zu Beginn des Projekts mehr Arbeit verursachen, allerdings wäre der Arbeitsaufwand danach wesentlich geringer.
 
 Das Team war ohne Projektleiter organisiert. Ein Nachteil, der sich aus dieser Rollenverteilung ergeben hat, war die fehlende Kontrolle der Einheitlichkeit der Dokumentation und der Arbeit im allgemeinen. Alle haben ihre Arbeit gemacht und in dieser Dokumentation zusammengeführt, allerdings war die Kohärenz nicht gegeben. Das führte zu viel nachträglichem Aufwand.
 
-\subsection{Lösungskonzept}
+Bis auf einzelne Arbeitspakete konnte der Zeitplan eingehalten werden und der Abschluss von PREN1 war nie gefährdet.
 
-Die Konzeptentwicklung hat aufgezeigt, dass nicht alles was geplant ist, auf den ersten Anhieb funktioniert.
-Das Prototyping in allen Bereichen hat hier sehr viel Mehrwert gebracht, Fehler früh zu erkennen. 
+\subsection{Konzeptentwicklung}
 
+Der Prozess der Konzeptentwicklung hat aufgezeigt, dass nicht alles was geplant wird, auf den ersten Anhieb funktioniert. Das Prototyping (siehe Anhang \ref{a4 prototyping}) hat in allen Bereichen Mehrwert gebracht. Das Design des Greifmechanismus konnte optimiert werden und auch bei der Sensorik wurden Hindernisse identifiziert, die somit schneller überwunden oder umgangen werden. Der Digital Twin(siehe Anhang \ref{a4 prototyping}) hilft bei der virtuellen Datenbeschaffung und kann in Zukunft potentiell für weitere Zwecke verwendet werden. Viele weitere Tests und Prototyping haben dabei geholfen, das Lösungskonzept von PREN1 robuster zu gestalten.
 
+Das Team musste aufpassen, nicht zu schnell einen Lösungsweg als gegeben anzusehen. Bis zur Zusammenstellung des morpholgischen Kastens (siehe Anhang \ref{morphologischer kasten}) wurde versucht, mit einer offenen Herangehensweise an die verschiedenen Lösungsaspekte heranzutreten. Dies ist uns in den meisten Fällen gut gelungen. Nur bei der Wahl der Simulator-Technologie sowie in der Elektronik gab es teilweise Ideen, die schon früh als gegeben angesehen wurden. Das hat in manchen Fällen zu verspäteten Anpassungen geführt, die allerdings erfolgreich abgeschlossen wurden.
+
+Wir sind sehr zufrieden mit dem erarbeiteten Lösungskonzept und freuen uns darauf, in PREN2 mit der Umsetzung fortzufahren.
 
 \end{document}

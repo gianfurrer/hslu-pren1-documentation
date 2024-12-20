@@ -166,11 +166,17 @@ Der Simulator wird mit Python 3 geschrieben.
 
 In der Tabelle ref werden die verwendeten Python3 Bibliotheken aufgelistet:
 
-% \begin{table}
-%   \begin{tabular}
-%     Bibliothek | Verwendungszweck
-%     NetworkX   | Erstellung vom Graph und berechnung des kürzeste
-%   \end{tabular}
-% \end{table}
+\begin{table}[htbp!]
+    \centering
+    \begin{tabularx}{\textwidth}{| l | X |}
+        \hline
+        \textbf{Bibliothek} & \textbf{Verwendungszweck} \\ \hline
+        PyYAML & Zum Einlesen der YAML-Konfigurationsdateien \\ \hline
+        NetworkX & Zur Erstellung vom Graphen und Berechnung des kürzesten Weges. \\ \hline
+        Matplotlib & Für das Graphische Benutzer Interface \\ \hline
+    \end{tabularx}
+    \caption{Spezifikationen des Simulators}
+\end{table}
+
 
 \end{document}

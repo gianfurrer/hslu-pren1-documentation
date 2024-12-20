@@ -493,7 +493,105 @@ Der Abstand der Klemmbacken wurde anhand der Aufgabenstellung eruiert und ist in
         \label{img:loes_abstand_klemmen}
 \end{figure}
 
+\newpage
+\subsection{Morphologischer Kasten für Simulator} \label{sec:sim_Morphologischer_Kasten}
 
+Dieser Abschnitt beschreibt die Erstellung eines Morphologischen Kastens für den Simulator. Der Morphologische Kasten ist in der Tabelle \ref{tab:sim_Morphologischer_Kasten} abgebildet. In den Unterkapiteln werden die Teilfunktionen im Morphologischen Kasten beschrieben und die gewählte Option begründet.  
+
+Der Lösungsansatz des Morphologischen Kastens ist darauf ausgelegt, einen simplen Simulator zu erstellen, welcher trotzdem viele Anforderungen an die Wegfindung abdecken kann.
+
+\newcolumntype{Y}{>{\centering\arraybackslash}X}
+
+\begin{table}[htbp!]
+    \centering
+    \begin{tabularx}{\textwidth}{| X | Y | Y | Y |}
+        \hline
+
+        \rowcolor{LightGray}
+        \textbf{Funktion} & \textbf{Option 1} & \textbf{Option 2} & \textbf{Option 3} \\ \hline
+        
+        \textbf{User Interface} &     
+        Terminal \newline
+        \includegraphics[width=2.5cm]{img/simulation/morphologischer-kasten/terminal.png}
+        &
+        \cellcolor{LightGreen}
+        Einfaches GUI \newline
+        \includegraphics[width=2.5cm]{img/simulation/morphologischer-kasten/simple-gui.png}
+        &
+        Unreal Engine \newline
+        \includegraphics[width=2.5cm]{img/simulation/morphologischer-kasten/unreal-engine-logo.png}
+        \\ \hline
+        
+        \textbf{Wegfindungs-Algorithmus}  &
+        \cellcolor{LightGreen}
+        Externe Bibliothek &
+        Eigene Implementation &
+        \\ \hline
+        
+        \textbf{Programmiersprache}      &
+        \cellcolor{LightGreen}
+        Python \newline
+        \includegraphics[width=2.5cm]{img/simulation/morphologischer-kasten/python.png} 
+        &
+        JavaScript \newline
+        \includegraphics[width=2.5cm]{img/simulation/morphologischer-kasten/javascript.png}
+        &
+        Java \newline
+        \includegraphics[width=2.5cm]{img/simulation/morphologischer-kasten/java.png}
+        \\ \hline
+        
+        \textbf{Informationen \newline einlesen}  &     
+        Bilder mit Objekterkennung \newline
+        \includegraphics[width=2.5cm]{img/simulation/morphologischer-kasten/ai-logo.jpg}
+        &
+        \cellcolor{LightGreen}
+        Konfigurationsdatei \newline
+        \includegraphics[width=2.5cm]{img/simulation/morphologischer-kasten/yaml.png}
+        &
+        \\ \hline
+        
+        \textbf{Hindernis \newline Bewältigung}   &     
+        Immer umfahren \newline
+        \includegraphics[width=3cm]{img/simulation/morphologischer-kasten/hindernis-umfahren.png}
+        &
+        Keine spezielle Behandlung \newline
+        \includegraphics[width=3cm]{img/simulation/morphologischer-kasten/hindernis-ignoriert.png}
+        &
+        \cellcolor{LightGreen}
+        Gewicht hinzufügen\newline
+        \includegraphics[width=3cm]{img/simulation/morphologischer-kasten/hindernis-gewicht.png}
+        \\ \hline
+    \end{tabularx}
+    \label{tab:sim_Morphologischer_Kasten}
+    \caption{Morphologischer Kasten - Simulator}
+\end{table}
+
+\subsubsection{User Interface}
+
+Obwohl ebenfalls eine virtuelle Umgebung mit der Unreal Engine und dem Pfadfinder-Model existiert, ist der Aufwand zu gross, diese an den Simulator anzubinden. Eine Textbasierte ausgabe auf einem Terminal hingegen ist zu minimal. Deshalb wird das User Interface mit einem einfachen GUI umgesetzt. 
+
+\subsubsection{Wegfindungs-Algorithmus}
+
+Die Umsetzung des Wegfindungs-Algorithmus kann entweder eigenständig oder mithilfe einer externen Bibliothek erfolgen. Da zahlreiche etablierte Bibliotheken für die Graphentheorie verfügbar sind, erscheint eine eigenständige Implementierung nicht sinnvoll. Dies führt zwar zu einer geringeren Flexibilität, reduziert jedoch die Fehleranfälligkeit erheblich.
+
+\subsubsection{Programmiersprache}
+
+Für die Wahl der Programmiersprache wurden Python, JavaScript und Java in Betracht gezogen. Java ist im Informatik-Studium weit verbreitet und wird für zahlreiche Projekte eingesetzt. JavaScript bietet die Möglichkeit, grafische Darstellungen unkompliziert über eine Webseite zu realisieren. Python zeichnet sich durch seine einfache Handhabung aus und wird häufig im Bereich der Künstlichen Intelligenz verwendet, was für die Software des autonomen Roboters wichtig ist.
+
+Python wurde als Programmiersprache gewählt, da innerhalb des Teams umfassendes Know-how vorhanden ist. Darüber hinaus stellt die Bibliothek NetworkX\footnote{https://networkx.org} eine leistungsstarke Lösung für die Arbeit mit Graphen bereit, die optimal für die Anforderungen des Projekts geeignet ist.
+
+\subsubsection{Informationen einlesen}
+
+Damit die Software die Hindernisse auf dem Graphen kennt, müssen entsprechende Informationen eingelesen werden können. Idealerweise erfolgt dies ähnlich wie in der Realität, durch die Auswertung von Bildern mittels Objekterkennung. Um den Simulator jedoch möglichst schnell einsatzfähig zu machen, wird stattdessen eine Konfigurationsdatei verwendet, die die notwendigen Informationen bereitstellt.
+
+Die Konfigurationsdatei ermöglicht eine einfache Anpassung der Szenarien und erlaubt dadurch das effiziente Testen verschiedener Konstellationen. Diese Herangehensweise beschleunigt die Entwicklungsphase und sorgt für Flexibilität beim Simulieren diverser Bedingungen.
+
+\subsubsection{Hindernis Bewältigung}
+
+Der Simulator soll aufzeigen, wie Hindernisse auf der Strecke behandelt werden.
+Dabei wird berücksichtigt, dass Hindernisse unter bestimmten Bedingungen nicht immer umfahren werden können, beispielsweise wenn sämtliche alternativen Wege blockiert sind. Daher stellt die Option `Immer umfahren` keine sinnvolle Strategie dar.
+
+Das Ignorieren von Hindernissen ist ebenfalls suboptimal, da gleich lange Pfade ohne Hindernisse effizienter befahren werden können. Um diesem Problem zu begegnen, wird die Strategie `Gewicht hinzufügen` angewendet. Mit dieser Methode kann flexibel entschieden werden, wie stark ein Hindernis die Wahl eines Pfades beeinflusst. Die Gewichtung erlaubt es, Hindernisse dynamisch in die Berechnung einzubeziehen, ohne zwingend alle Alternativen auszuschliessen.
 
 
 \end{document}

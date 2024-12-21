@@ -7,7 +7,8 @@
 \newpage
 \subsection{Simulator}\label{simulator}
 
-Der Simulator dient dazu, die Funktionalität der Software des autonomen Fahrzeugs zu testen, bevor der physische Prototyp gebaut wird.\\
+Der Simulator dient dazu, die Funktionalität der Software des autonomen Fahrzeugs zu testen, bevor der physische Prototyp gebaut wird.
+Der Sourcecode vom Simulator ist auf Github\footnote{https://github.com/gianfurrer/hslu-pren-simulator} oder im Anhang zu finden.
 
 \subsubsection{Spezifikation}
 
@@ -66,21 +67,21 @@ Damit die Simulation weiss, auf welchen Wegpunkten bzw. Linien sich Hindernisse 
 Die Konfiguration wird in einer \acrshort{yaml}-Datei abgespeichert und sieht wie folgt aus.
 \begin{figure}[H]
     \centering
-\begin{minted}[fontsize=\small]{yaml}
-end: B
-weight: 3
-detectable:
-  cones: [E]
-  obstacles: 
-    - [S, F]
-    - [F, A]
-  removed_lines:
-    - [D, B]
-    - [G, C]
-undetectable:
-  removed_lines:
-    - [D, C]
-\end{minted}
+    \begin{minted}[fontsize=\small]{yaml}
+    end: B
+    weight: 3
+    detectable:
+      cones: [E]
+      obstacles: 
+        - [S, F]
+        - [F, A]
+      removed_lines:
+        - [D, B]
+        - [G, C]
+    undetectable:
+      removed_lines:
+        - [D, C]
+    \end{minted}
     \label{fig:Beispielkonfiguration}
     \caption{Beispielkonfiguration für den Simulator in yaml}
 \end{figure}
@@ -162,20 +163,22 @@ In der Abbildung \ref{fig:img/simulation/Simulator_Laufzeitdiagramm.png} ist ein
 
 \subsubsection{Verwendete Tools und Bibliotheken}
 
-Der Simulator wird mit Python 3 geschrieben.
+Der Simulator wurde mit Python3 umgesetzt.
 
-In der Tabelle ref werden die verwendeten Python3 Bibliotheken aufgelistet:
+In der Tabelle \ref{tab:simulator_bibliotheken} werden die verwendeten Python3 Bibliotheken aufgelistet:
 
 \begin{table}[htbp!]
     \centering
     \begin{tabularx}{\textwidth}{| l | X |}
         \hline
         \textbf{Bibliothek} & \textbf{Verwendungszweck} \\ \hline
+        Poetry & 
         PyYAML & Zum Einlesen der YAML-Konfigurationsdateien \\ \hline
         NetworkX & Zur Erstellung vom Graphen und Berechnung des kürzesten Weges. \\ \hline
         Matplotlib & Für das Graphische Benutzer Interface \\ \hline
     \end{tabularx}
-    \caption{Spezifikationen des Simulators}
+    \label{tab:simulator_bibliotheken}
+    \caption{Verwendete Bibliotheken im Simulator}
 \end{table}
 
 

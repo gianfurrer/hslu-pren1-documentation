@@ -3,7 +3,7 @@
 \begin{document}
 
 \newpage
-\section{Prototyping} \label{a4 prototyping}
+\section{Prototyping} \label{a4:prototyping}
 
 In diesem Abschnitt werden für bestimmte Teilbereiche Prototypen erstellt,  
 um Risiken aus der Risikoanalyse (siehe Kapitel \ref{risikomatrix}) zu minimieren.
@@ -407,19 +407,36 @@ In der dritten Messung wurde der Sensor ohne Untergrund, also nur auf die Luft g
 \end{figure}
 
 Aufgrund dieser Ergebnisse wird die Linienerkennung mit \gls{ir-fototransistor} bevorzugt. Mit einem \gls{ir-fototransistor}-Array, das mindestens 7 cm breit ist, kann auch der weisse Punkt zuverlässig erkannt werden. Denn auf der Linie wird niemals jeder \gls{ir-fototransistor} die Linie gleichzeitig erfassen. Auf dem Punkt hingegen melden alle IR-Fototransistoren die Erkennung der Linie, was darauf hinweist, dass es sich um den Punkt handelt.
-\newpage
 
-\subsection{Schema Linefollower }
-\label{a5:Schema-Linefollower}
+\subsection{Schema Linefollower} 
+\label{a4:Schema-Linefollower}
 
+Auf den folgenden Seiten ist das Schema für den Linefollower ersichtlich.
 
-
-%\imageheight{assets/Linefollower.pdf}{Morphologischer Kasten}{0.88\textheight}
-
+% \includepdf[
+%   pages=1,
+%   scale=0.8,
+%   pagecommand={
+%     \subsection{Schema Linefollower} 
+%     \label{a5:Schema-Linefollower} 
+%     \pagestyle{fancy}
+%   },
+%   fitpaper=true
+% ]{assets/Linefollower.pdf}
 
 \includepdf[
   pages={1-},
   scale=0.8,
-  pagecommand={\pagestyle{fancy}}
+  pagecommand={\pagestyle{fancy}},
+  fitpaper=true
 ]{assets/Linefollower.pdf}
+
+%\imageheight{assets/Linefollower.pdf}{Morphologischer Kasten}{0.88\textheight}
+
+
+% \includepdf[
+%   pages={1-},
+%   scale=0.8,
+%   pagecommand={\pagestyle{fancy}}
+% ]{assets/Linefollower.pdf}
 \end{document}

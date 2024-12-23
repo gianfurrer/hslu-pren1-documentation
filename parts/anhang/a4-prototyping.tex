@@ -36,16 +36,16 @@ Der Digital Twin erlaubt das einfache Testen von verschiedenen Kamera-Konfigurat
         \includegraphics[width=4cm]{img/unrealengine/h75_f120_w45.png} \\
         \hline
     \end{tabular}
-    \caption{Vergleich unterschiedlicher Kamera-Einstellungen und Höhen. Der grüne Kreis hat eine horizontale Distanz von 4.5m zur Kamera. Der weisse Kreis hat eine horizontale Distanz von 2m zur Kamera.}
+    \caption{Vergleich unterschiedlicher Kamera-Einstellungen und Höhen. Der grüne Kreis hat eine horizontale Distanz von 4.5m zur Kamera. Der weisse Kreis hat eine horizontale Distanz von 2m zur Kamera.(FoV: Field of View)}
 \end{table}
 
 \subsection{Objekterkennung}
 
 Das Projektteam hat noch keine Erfahrung mit Bild- beziehungsweise Objekterkennung.  
 Dies ist ein sehr komplexes Thema, weshalb es ein Risiko darstellt.  
-Anhand eines Objekterkennungs-Prototyps wollen sollen erste Erfahrungen damit gesammelt werden.
+Anhand eines Objekterkennungs-Prototyps sollen erste Erfahrungen damit gesammelt werden.
 
-Um ein Objekterkennungsmodell zu trainieren, braucht es viele Bilder von den Objekten, die man erkennen will. In der Aufgabenstellung sind das Wegpunkte, Pylonen und Hindernisse.
+Um ein Objekterkennungsmodell zu trainieren, braucht es viele Bilder der Objekte, die man erkennen will. In der Aufgabenstellung sind das Wegpunkte, Pylonen und Hindernisse.
 
 Deshalb wurde in der Mensa, wo der Wettbewerb stattfinden wird, der Graph mit den spezifizierten Wegpunkten und Klebeband aufgeklebt. Eine Pylone sowie ein Hindernis wurden darauf an verschiedenen Orten platziert. Von diesen Konfigurationen wurden viele Bilder aus ungefähr 30 Zentimetern Höhe erstellt.
 
@@ -354,7 +354,7 @@ Die durchgeführten Tests lieferten die folgenden Messdaten:
 
 Aus den Messdaten geht hervor, dass der Lux-Wert den grössten Unterschied zwischen den getesteten Oberflächen aufweist. Auf der Linie beträgt der Lux-Wert 320, während er auf dem weissen Punkt bei 280 liegt, wodurch die Linie vom Punkt unterschieden werden kann. Die rote Platte hat einen Lux-Wert von 28 und die Fuge einen Wert von 14, die deutlich von den 320 der Linie abweichen. Daher ist es mit dem Farbsensor möglich, die Linie zu erkennen.
 
-Ein erheblicher Nachteil ergibt sich jedoch durch die Belichtungszeit. Da alle 101 ms ein neuer Messwert geliefert wird, bedeutet dies, dass bei einer maximalen Geschwindigkeit von 20 cm/s alle 2 cm ein neuer Wert erfasst werden kann. Dies könnte dazu führen, dass der Farbsensor die Linie verliert oder von ihr abweicht, bevor er einen neuen Messwert einlesen kann. Aus diesem Grund scheidet der Farbsensor als Liniensensor aus.
+Ein erheblicher Nachteil ergibt sich jedoch durch die Belichtungszeit. Da alle 101 ms ein neuer Messwert geliefert wird, bedeutet dies, dass bei einer maximalen Fahrgeschwindigkeit von 20 cm/s alle 2 cm ein neuer Wert erfasst werden kann. Dies könnte dazu führen, dass der Farbsensor die Linie verliert oder von ihr abweicht, bevor er einen neuen Messwert einlesen kann. Aus diesem Grund scheidet der Farbsensor als Liniensensor aus.
 
 \newpage
 \subsubsection{IR-Fototransistor-Array}

@@ -11,7 +11,7 @@ Dabei wird das Projekt in folgende kleinere Teilfunktionen unterteilt:
     \item Wegfindung 
     \item Objekterkennung (Objekterken.)
     \item Fortbewegung
-    \item Hindernisbewältigung (Hindernis)
+    \item Hindernisbewältigung
     \item Antrieb und Orientierung (A \& O)
 \end{itemize}
 
@@ -275,7 +275,7 @@ Eine Erweiterung des A*-Algorithmus, die speziell für dynamische Umgebungen ent
 
 \paragraph{Goal directed shortest path queries using precomputed cluster distances}
 
-Goal directed shortest path queries using precomputed cluster distances ist eine beschleunigte Version von Dijkstra's Algorithmus, wobei für Graphen-Cluster Distanzen vorberechnet werden \cite{goal_directed_queries}.
+''Goal directed shortest path queries using precomputed cluster distances'' ist eine beschleunigte Version von Dijkstra's Algorithmus, wobei für Graphen-Cluster Distanzen vorberechnet werden \cite{goal_directed_queries}.
 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
@@ -571,7 +571,8 @@ Die Idee ist eine nach unten absenkbare Fussplatte, welche das Fahrzeug im Zentr
 \label{a2:Hindernisbewältigung}
 Folgendes sind Ideen für die Hindernisbewältigung, jeweils mit Vor- und Nachteilen sowie einer Skizze oder Bildquelle. Die Aufgabe wurde in die Teilaufgaben Aufnahme und Rotation / Translation des Hindernisses unterteilt. 
 
-\subsubsection{Lösungsprinzipien}
+\subsubsection{Aufnahme}
+Dieses Kapitel beschreibt, wie das Hindernis aufgenommen werden soll.
 \paragraph{Gabelstapler}
 Das Prinzip `Gabelstapler` bedient sich den schon vorhandenen Löcher des Hindernisses.
 
@@ -710,6 +711,8 @@ Das Hindernis wird an der Seite gegriffen, wobei die Verbindung zum Zusammenstec
     \end{items}
 \end{minipage}
 \newpage
+\subsubsection{Rotation / Transaltion}
+Dieses Kapitel beschreibt, wie das Hindernis bewegt werden soll.
 
 \paragraph{Bagger}
 Die Konstruktion ist an einen Bagger angelehnt.

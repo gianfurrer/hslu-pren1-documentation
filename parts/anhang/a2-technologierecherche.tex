@@ -189,7 +189,9 @@ E & A \& O & Akkumulatoren & Nickel-Metallhydrid-Akkus \newline (Batterie) & 7 &
 Dieser Abschnitt enthält detaillierte Rechercheergebnisse über die Bereiche der Wegfindung. Dabei werden Vor- und Nachteile aufgezeigt und die einzelnen Algorithmen erklärt.
 
 Die Topologie des Weges mit Start und Zielmöglichkeiten ist bereits bekannt.
-Somit kann anhand eines Wegfindungsalgorithmus der schnellste Weg berechnet werden.
+Somit kann anhand eines Wegfindungsalgorithmus der schnellste Weg berechnet werden. \\ 
+
+Zum Verständnis der Vor- und Nachteile sind grundlegende Kenntnisse über Wegfindungsalgorithmen erforderlich.
 
 \paragraph{Dijkstra}
 
@@ -669,7 +671,7 @@ Das Hindernis wird durch Einklemmen über den Breitenweg fixiert. Dieses Prinzip
     \begin{items}
           \item [Vorteile]
           \item Ein Arm ist nicht erforderlich, und wenn doch, wird nur geringe Präzision benötigt.
-          \item Berührungssensoren können im Griff verbaut werden
+          \item Berührungssensoren können im Griff verbaut werden.
           \item Sicherer Halt des Hindernisses.
     \end{items}
 \end{minipage}
@@ -726,17 +728,16 @@ Die Konstruktion ist an einen Bagger angelehnt.
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Vorteile]
-          \item Sehr gut ansteuerbar
-          \item Kann mit verschiedenen Greifer-Arten kombiniert werden
-          \item Beispiel vorhanden
-          \item Sensoren auf Gefährt möglich
+          \item Hohe Manövrierfähigkeit durch Aufbau gegeben.
+          \item Kann mit unterschiedlichen Greifertypen kombiniert werden.
+          \item Sensoren können auf der Oberseite des Fahrzeugs installiert werden.
     \end{items}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Nachteile]
-          \item Komplexer Aufbau
+          \item Komplexer Aufbau.
     \end{items}
 \end{minipage}
 \newpage
@@ -754,23 +755,23 @@ Anstatt eines Armes, der sich dreht, dreht sich das ganze Fahrzeug mit dem Hinde
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Vorteile]
-          \item Kann mit vielen Greifmethoden gebraucht werden
-          \item Sehr einfach
-          \item Sensoren auf Gefährt möglich
+          \item Kann mit vielen Greifmethoden gebraucht werden.
+          \item Sehr simple Konstruktion.
+          \item Sensoren können auf der Oberseite des Fahrzeugs installiert werden.
     \end{items}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Nachteile]
-          \item Präzision hängt von Fahrzeug Positionssensoren ab
-          \item Steuerbarkeit kommt auf die Manövrierfähigkeit des Fahrzeuges an 
+          \item Die Präzision ist abhängig von den Positionssensoren des Fahrzeugs.
+          \item Die Steuerbarkeit hängt von der Manövrierfähigkeit des Fahrzeugs ab.
     \end{items}
 \end{minipage}
 \newpage
 %%--------------------------------------------------------
 \paragraph{Kran}
-Diese Konstruktion ist an einen Kran angelegt und greift das Objekt von oben herab. Ein solches Beispiel wurde in der Recherche gefunden.
+Diese Konstruktion ist an einen Kran angelegt und greift das Objekt von oben herab.
 
 \begin{figure}[H]
         \centering
@@ -783,8 +784,7 @@ Diese Konstruktion ist an einen Kran angelegt und greift das Objekt von oben her
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Vorteile]
-          \item Beispiel vorhanden
-          \item Sensoren auf Gefährt möglich
+           \item Sensoren können auf der Oberseite des Fahrzeugs installiert werden.
     \end{items}
 \end{minipage}
 \hfill
@@ -792,7 +792,7 @@ Diese Konstruktion ist an einen Kran angelegt und greift das Objekt von oben her
     \begin{items}
           \item [Nachteile]
           \item Komplexer Aufbau, wenn Arm kleine Korrekturen vornehmen soll
-          \item Präzision hängt ansonsten von Fahrzeug Manövrierfähigkeit ab
+          \item Die Steuerbarkeit hängt von der Manövrierfähigkeit des Fahrzeugs ab.
     \end{items}
 \end{minipage}
 \newpage
@@ -818,14 +818,13 @@ Damit das Hindernis wieder aufrecht steht, wird die Rotation beim Arm durchgefü
     \begin{items}
           \item [Nachteile]
           \item Die über Kopfbewegung schränkt die Platzierung der Sensoren ein
-          \item Umsetzung der Technologie unklar
           \item Unklar wie viele Greifmethoden verwendet werden können bei einer solchen Rotation
     \end{items}
 \end{minipage}
 \newpage
 %%--------------------------------------------------------
 \paragraph{Lagerung am Hindernis}
-Damit das Hindernis wieder aufrecht steht, wird die Rotation des Hindernisses mittels Schwerkraft von alleine durchgeführt.
+Zuerst wird das Hindernis in einer gelagerten Position ergriffen, sodass es während des Translationsvorgangs aufgrund der Schwerkraft aufrecht bleibt.
 
 \begin{figure}[H]
         \centering
@@ -864,25 +863,25 @@ Greifhaken-artige Konstruktion, welche die Löcher des Hindernisses ausnutzt
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Vorteile]
-          \item Sehr einzigartige Methode
+          \item Sehr einzigartige Methode.
     \end{items}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Nachteile]
-          \item Muss Gabelstapler als Aufnahme verwendet werden
-          \item Sehr unklar, ob funktioniert
-          \item Der Motor muss stark genug sein, das Hindernis zu ziehen
-          \item Gehäuse muss genug robust sein → Das Hindernis wird über das Gehäuse gezogen
-          \item Geht über Kopf → dadurch Sensoren Platzierung eingeschränkt
+          \item Der "Gabelstapler" muss als Greifvorrichtung verwendet werden.
+          \item Es ist unklar, ob es umsetzbar ist.
+          \item Der Motor muss stark genug sein, das Hindernis zu ziehen.
+          \item Das Gehäuse muss ausreichend robust sein, da das Hindernis darüber gezogen werden kann.
+          \item Sensorplatzierung wird durch Hindernis-Transport über Fahrzeug hinweg eingeschränkt.
     \end{items}
 \end{minipage}
 \newpage
 %%--------------------------------------------------------
 \subsection{Antrieb und Orientierung}
 \label{a2:Antrieb_Orientierung}
-Im folgenden Abschnitt werden die einzelnen elektrischen Varianten verglichen. Indem zu jeder Variante die Vor- und Nachteile aufgelistet werden. Dies vereinfacht später, beim morphologischen Kasten, die möglichen Lösungswege.
+Im folgenden Abschnitt werden die verschiedenen elektrischen Varianten – ''Antrieb'', ''Orientierung/Sensorik'' und ''Energiequelle'' – miteinander verglichen. Zu jeder Variante werden die Vor- und Nachteile aufgeführt, um die Auswahl der möglichen Lösungsansätze im morphologischen Kasten zu erleichtern.
 
 \subsubsection{Antrieb}
 
@@ -957,7 +956,7 @@ Der Schrittmotor wird vor allem bei genauen Positioniersystem wie Roboter, CNC o
 
 Es wird darauf eingegangen, wie das Fahrzeug seine Umgebung wahrnehmen kann. Dabei werden wieder die einzelnen Vor- und Nachteile aufgelistet.
 
-\paragraph{Linienfolger}
+\paragraph{Liniensensor}
 Ein Liniensensor funktioniert mit mehreren Fotodioden und LEDs. Die LEDs beleuchten den Boden und die in einer Reihe angeordneten Fotodioden nehmen mehr oder weniger von diesem reflektiertem Licht auf. Je nach Untergrund wird es mehr oder weniger reflektiert. So kann man die Linie erkennen und dieser folgen \cite{liniensensor}.
  
 
@@ -1064,7 +1063,7 @@ Der Lithium-Polymer (LiPo) Akku ist ein formbarer Akku, der vor allem im Modellb
   \item [Nachteile]
   \item Empfindlichkeit zu Über- und Tiefenentladung
   \item Empfindlich auf mechanische Schläge
-  \item Sicherheit Feuergefahr
+  \item Sicherheit in Bezug auf Feuergefahr
 \end{items}
 \end{minipage}
 
@@ -1087,7 +1086,7 @@ Lithium-Ionen-Akkumulatoren (Li-Ion-Akkus) stellen eine zuverlässige Energiespe
   \item [Nachteile]
   \item Temperaturempfindlich
   \item Hohe Kosten
-  \item Sicherheit Feuergefahr
+  \item Sicherheit in Bezug auf Feuergefahr.
 \end{items}
 \end{minipage}
  

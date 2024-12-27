@@ -18,7 +18,7 @@ Ein digitaler Nachbau der in der Aufgabenstellung beschriebenen Gegebenheiten bi
 \label{img:Übersicht Unreal Engine}
 \end{figure}
 \subsubsection{Kamera-Konfiguration}
-Der Digital Twin erlaubt das einfache Testen von verschiedenen Kamera-Konfigurationen. Unter anderem Das Kamera-Sichtfeld, sowie verschiedene Neigungswinkel. In folgender Tabelle sind die Ergebnisse unterschiedlicher Kamerakonfigurationen zu sehen.
+Der Digital Twin erlaubt das einfache Testen von verschiedenen Kamera-Konfigurationen. Unter anderem das Kamera-Sichtfeld, sowie verschiedene Neigungswinkel. In folgender Tabelle sind die Ergebnisse unterschiedlicher Kamerakonfigurationen zu sehen.
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|}
@@ -149,7 +149,7 @@ Die Resultate sind eindeutig. Bei gleichen Kamera-Einstellungen reduziert ein Po
 Um die Bewältigung eines Hindernisses erfolgreich durchzuführen, muss die exakte Entfernung vom Fahrzeug zum Hindernis bestimmt werden. Ziel ist es, das Hindernis präzise zwischen den Klemmbacken zu positionieren, ohne dabei mit ihm zu kollidieren. Hierfür stehen zwei bewährte Methoden zur Distanzmessung zur Verfügung: die Messung mittels Schallwellen und die Messung mittels Lichtwellen. In den folgenden Unterkapiteln werden diese Verfahren näher untersucht und getestet.
 
 \subsubsection{Ultraschallsensor}
-Für die Messung wird der Ultraschallsensor HC-SR04 verwendet. Dieser Sensor hat eine Reichweite von 2 cm bis 300 cm\footnotemark und arbeitet mit einer Genauigkeit von ±3 mm. Der Sensor wird mit einer Betriebsspannung von 5 V versorgt. Die Messung wird über den Trigger-Pin gestartet, während der Echo-Pin das vom Trigger ausgesendete Signal nach dessen Rückkehr empfängt. Der Zeitunterschied zwischen dem Senden und Empfangen des Signals wird mithilfe der Schallgeschwindigkeit in die Entfernung umgerechnet. Die Genauigkeit des Sensors wird mithilfe des in Abbildung \ref{fig:Ultraschall1} dargestellten Messaufbaus überprüft.
+Für die Messung wird der Ultraschallsensor HC-SR04 verwendet. Dieser Sensor hat eine Reichweite von 2 cm bis 300 cm\footnotemark und arbeitet mit einer Genauigkeit von ±3 mm. Der Sensor wird mit einer Betriebsspannung von 5 V versorgt. Die Messung wird über den Trigger-Pin gestartet, während der Echo-Pin das vom Trigger-Pin ausgesendete Signal nach dessen Rückkehr empfängt. Der Zeitunterschied zwischen dem Senden und Empfangen des Signals wird mithilfe der Schallgeschwindigkeit in die Entfernung umgerechnet. Die Genauigkeit des Sensors wird mithilfe des in Abbildung \ref{fig:Ultraschall1} dargestellten Messaufbaus überprüft.
 \footnotetext{Quelle: \url{https://www.mikrocontroller.net/attachment/218122/HC-SR04_ultraschallmodul_beschreibung_3.pdf}}
 
 \begin{figure}[h] % 'h' steht für here, was bedeutet, dass das Bild möglichst an dieser Stelle eingefügt wird
@@ -209,7 +209,7 @@ Aus der in Tabelle \ref{tab:UltraschallMD} dargestellten Messwerte wird ersichtl
 
 \newpage
 \subsubsection{Time-of-Flight Sensor}
-Ein \acrfull{tof-sensor} arbeitet nach einem ähnlichen Prinzip wie ein Ultraschallsensor, jedoch sendet er statt Schallwellen einen Lichtstrahl aus. In diesem Experiment wird der \acrshort{tof-sensor} vom Typ VL530L0X getestet. Der Messaufbau entspricht dem des Ultraschallsensors (siehe Abbildung \ref{fig:TOF1}). Die Kommunikation findet über den \gls{i2c} Bus statt.
+Ein \acrfull{tof-sensor} arbeitet nach einem ähnlichen Prinzip wie ein Ultraschallsensor, jedoch sendet er statt Schallwellen Lichtwellen aus. In diesem Experiment wird der \acrshort{tof-sensor} vom Typ VL530L0X getestet. Der Messaufbau entspricht dem des Ultraschallsensors (siehe Abbildung \ref{fig:TOF1}). Die Kommunikation findet über den \gls{i2c} Bus statt.
 
 \begin{figure}[h!] % 'h' steht für here, was bedeutet, dass das Bild möglichst an dieser Stelle eingefügt wird
     \centering
@@ -265,7 +265,7 @@ Auch bei diesem Experiment wird das Objekt schrittweise um jeweils einen Zentime
 \label{tab:TOFMD}
 \end{table}
 
-Aus der Tabelle \ref{tab:TOFMD} wird ersichtlich, dass die Messwerte des \acrshort{tof-sensor} bei kurzer Messdistanz ähnlich gute Messungen macht, wie die des Ultraschallsensors. Ebenso liefert der Sensor zuverlässige Ergebnisse in grösserer Entfernung. Tests mit künstlicher Sonneneinstrahlung haben ergeben, dass sich die Zuverlässigkeit stark verändert. In diesem Fall sind die Werte sehr inkonsistent. Daher wird der Ultraschallsensor als zuverlässiger eingeschätzt.
+Aus der Tabelle \ref{tab:TOFMD} wird ersichtlich, dass die Messwerte des \acrshort{tof-sensor} bei kurzer Messdistanz ähnlich gute Messungen macht, wie die des Ultraschallsensors. Ebenso liefert der Sensor zuverlässige Ergebnisse in grösserer Entfernung. Tests mit künstlicher Sonneneinstrahlung haben ergeben, dass sich die Messgenauigkeit stark verändert. In diesem Fall sind die Werte sehr inkonsistent geworden. Daher wird der Ultraschallsensor als zuverlässiger eingeschätzt.
 
 \subsection{Linienerkennung / Punkterkennung} \label{sec:Linienerkennung_Punkterkennung_Test}
 \subsubsection{Farbsensor}

@@ -6,7 +6,7 @@
 \section{Technologierecherche}\label{a2:technologierecherche}
 
 Dieses Kapitel bietet einen Überblick über die durchgeführte Technologierecherche.
-Dabei wird die Gesamtfunktionalität des Fahrzeugs in folgende kleinere Teilfunktionen unterteilt:
+Dabei wird die Gesamtfunktionalität des Fahrzeugs in folgende Teilfunktionen unterteilt:
 \begin{itemize}
     \item Wegfindung 
     \item Objekterkennung (Objekterken.)
@@ -115,17 +115,7 @@ Fortbewegung & Beweglichkeit & Fahrzeug abbocken und an Stelle auf Drehkranz wen
 \tabularnewline
 
 % Hindernisbewältigung----------------------------------------------------------------------------------------
-Hindernis & Aufnahme & gegen Fahrzeug pressen & 8 &  & 03.10.2024 & Silas
-\tabularnewline
-Hindernis & Aufnahme & Palettengabel in Löcher von Hindernis  & 5 &  & 03.10.2024 & Silas
-\tabularnewline
 Hindernis & Aufnahme & Vakuum-Sauggreifer & 5 & \href{https://www.schmalz.com/de-ch/glossar/vakuumgreifer/}{Link} & 03.10.2024 & Silas
-\tabularnewline
-Hindernis & Transport & ganzes Fahrzeug wenden & 8 &  & 03.10.2024 & Silas
-\tabularnewline
-Hindernis & Transport & über Fahrzeug hinweg mit Ausleger & 6 &  & 03.10.2024 & Silas
-\tabularnewline
-Hindernis & Transport & über Fahrzeug hinweg mit Förderband & 3 &  & 03.10.2024 & Silas
 \tabularnewline
 Hindernis & Aufnahme & Vakuum-Sauggreifer & 8 & \href{https://www.youtube.com/shorts/alxwWgzSVss}{Link}& 03.10.2024 & Silvan
 \tabularnewline
@@ -174,7 +164,7 @@ A \& O & Solarpanel & Run Arduino Offgrid & 6 & \href{https://voltaicsystems.com
 \tabularnewline
 A \& O & Akkumulatoren & Nickel-Metallhydrid-Akkus \newline (Batterie) & 7 & \href{https://www.chemie.de/lexikon/Nickel-Metallhydrid-Akkumulator.html}{Link} & 29.09.2024 & Joel
 \tabularnewline
-\caption{Technologierecherche \u00dcbersicht}
+\caption{Technologierecherche Übersicht}
 \label{tab:technologierecherche}
 \end{longtable}
 \normalsize
@@ -236,7 +226,7 @@ Ein heuristischer Algorithmus, der den kürzesten Pfad von einem Startknoten zu 
 \paragraph{Rapidly-exploring Random Tree (RRT)}
 
 Ein probabilistischer Algorithmus, der vor allem in der Robotik eingesetzt wird,
-um schnell einen Pfad in einem komplexen Raum zu finden.
+um schnell einen Pfad in einem komplexen Raum zu finden \cite{rrt}.
 
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
@@ -282,8 +272,8 @@ Eine Erweiterung des A*-Algorithmus, die speziell für dynamische Umgebungen ent
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
-  \item Vorgenerierte kürzeste Pfade erlauben schnelle Wechsel bei Graph-Anpassungen
-  \item Schnell bei kleinen Graphen
+  \item Vorgenerierte kürzeste Pfade erlauben schnelle Wechsel bei Graph-Anpassungen.
+  \item Schnell bei kleinen Graphen.
 \end{items}
 \end{minipage}
 \hfill
@@ -301,21 +291,21 @@ Findet den kürzesten Weg von allen Knoten zu allen anderen Knoten eines Graphen
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Vorteile]
-  \item Effizient für kleine und dichte Graphen
+  \item Effizient für kleine und dichte Graphen.
 \end{items}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
 \begin{items}
   \item [Nachteile]
-  \item Langsamer bei grossen Graphen als Dijkstra oder A* 
+  \item Langsamer als Dijkstra oder A* bei grossen Graphen.
 \end{items}
 \end{minipage}
 
 \subsection{Objekterkennung}
 \label{a2:Objekterkennung}
 
-Der Weg, die Hindernisse sowie die Pylonen sollen anhand von Software erkannt und kategorisiert werden. Um die beiden Objekte voneinander zu unterscheiden, werden die Objekte anhand von Bildern erkannt \cite{object_detection_ibm}.
+Der Weg, die Hindernisse sowie die Pylonen sollen anhand von Software erkannt und kategorisiert werden. Um die Objekte zu erkennen und kategorisieren, wird Objekterkennung verwendet \cite{object_detection_ibm}.
 
 Dieser Abschnitt fasst die Rechercheergebnisse zusammen und listet Vor- und Nachteile zu unterschiedlichen Varianten.
 
@@ -426,7 +416,7 @@ Je nach Antrieb der Räder kann sich das Fahrzeug in alle Richtungen bewegen und
       \item [Nachteile]
       \item Vier einzeln ansteuerbare Motoren nötig.
       \item Hoher Programmier- und Rechenaufwand.
-      \item kleine Rollen an Rad (Plattenfugen)
+      \item Kleine Rollen an Rad könnten Probleme verursachen (z.B. bei Plattenfugen).
     \end{items}
 \end{minipage}
 
@@ -447,7 +437,7 @@ Omniwheels sind ähnlich aufgebaut wie Mecanum-Räder, jedoch sind die Rollen in
       \item [Nachteile]
       \item Drei einzeln ansteuerbare Motoren nötig.
       \item Hoher Programmier- und Rechenaufwand.
-      \item kleine Rollen an Rad (Plattenfugen)
+       \item Kleine Rollen an Rad könnten Probleme verursachen (z.B. bei Plattenfugen).
     \end{items}
 \end{minipage}
 
@@ -489,7 +479,7 @@ Der Antrieb erfolgt über zwei fest am Fahrzeug montierte Räder, die einzeln an
     \begin{items}
       \item [Nachteile]
       \item Gefahr von Verfangen des kleinen Stützrades in Bodenfugen.
-      \item 3-Punkt Auflage (Kippen mit Hindernis)
+      \item Kippgefahr bei Hindernisaufnahme.)
     \end{items}
 \end{minipage}
 
@@ -595,7 +585,7 @@ Das Prinzip `Gabelstapler` bedient sich der schon vorhandenen Löchern des Hinde
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
-    \item {Nachteile:}
+    \item [Nachteile]
     \item Die Armkonstruktion muss eine hohe Präzision ermöglichen.
     \item Sensorik für den Arm nötig, Fahrzeug muss präzise gesteuert werden können.
     \item Löcher des Hindernisses müssen präzise erkannt werden.
@@ -652,7 +642,7 @@ Das Hindernis wird seitlich eingeklemmt, um einen sicheren Halt zu erzeugen.
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Nachteile]
-          \item Die Konstruktion eines Arms wäre in diesem Fall komplexer.
+          \item Die Konstruktion eines Arms wäre komplex.
     \end{items}
 \end{minipage}
 \newpage
@@ -680,7 +670,7 @@ Das Hindernis wird durch Einklemmen über den Breitenweg fixiert. Dieses Prinzip
     \begin{items}
           \item [Nachteile]
           \item Beim Greifen ist unklar, wo sich anschliessend das Hindernis befindet.
-          \item Die Konstruktion eines Arms wäre in diesem Fall komplexer.
+          \item Die Konstruktion eines Arms wäre komplex.
     \end{items}
 \end{minipage}
 \newpage
@@ -775,7 +765,7 @@ Diese Konstruktion ist an einen Kran angelegt und greift das Objekt von oben her
 
 \begin{figure}[H]
         \centering
-        \includegraphics[width=0.48\textwidth]{img/technologierecherche/Rotation/seitlich_mit_rotation.jpg}
+        \includegraphics[width=0.7\textwidth]{img/technologierecherche/Rotation/seitlich_mit_rotation.jpg}
         \caption[Konstruktion an einen Kran angelehnt]{Konstruktion an einen Kran angelegt \footnotemark} 
         \label{img:tech_seitlich_mit_rotation}
 \end{figure}
@@ -791,7 +781,7 @@ Diese Konstruktion ist an einen Kran angelegt und greift das Objekt von oben her
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Nachteile]
-          \item Komplexer Aufbau, wenn Arm kleine Korrekturen vornehmen soll
+          \item Komplexer Aufbau, wenn Arm kleine Korrekturen vornehmen soll.
           \item Die Steuerbarkeit hängt von der Manövrierfähigkeit des Fahrzeugs ab.
     \end{items}
 \end{minipage}
@@ -810,15 +800,15 @@ Bei dieser Konstruktion bewegt ein Arm das aufgenommene Hindernis über das Fahr
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Vorteile]
-          \item Durch fixe Armlänge kann Präzision gewährleistet werden
+          \item Durch fixe Armlänge kann Präzision gewährleistet werden.
     \end{items}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Nachteile]
-          \item Die über Kopfbewegung schränkt die Platzierung der Sensoren ein
-          \item Unklar wie viele Greifmethoden verwendet werden können bei einer solchen Rotation
+          \item Die über Kopfbewegung schränkt die Platzierung der Sensoren ein.
+          \item Unklar wie viele Greifmethoden bei dieser Rotation verwendet werden können.
     \end{items}
 \end{minipage}
 \newpage
@@ -837,26 +827,26 @@ Zuerst wird das Hindernis in einer gelagerten Position ergriffen, sodass es wäh
     \begin{items}
           \item [Vorteile]
           \item Elegante Lösung, um das aufrecht Stehen des Hindernisses zu gewährleisten.
-          \item Verschiedene Greifmethoden möglich
+          \item Verschiedene Greifmethoden möglich.
     \end{items}
 \end{minipage}
 \hfill
 \begin{minipage}[t]{0.48\textwidth}
     \begin{items}
           \item [Nachteile]
-          \item Sensorplatzierung wird durch Hindernis-Transport über Fahrzeug hinweg eingeschränkt
+          \item Sensorplatzierung wird durch Hindernis-Transport über Fahrzeug hinweg eingeschränkt.
           
     \end{items}
 \end{minipage}
 \newpage
 %%--------------------------------------------------------
 \paragraph{Greifhaken}
-Greifhaken-artige Konstruktion, welche die Löcher des Hindernisses ausnutzt
+Greifhaken-artige Konstruktion, welche die Löcher des Hindernisses ausnutzt.
 
 \begin{figure}[h!]
         \centering
         \includegraphics[width=0.48\textwidth]{img/technologierecherche/Rotation/harponne.jpg}
-        \caption{Eine Greifhakenkonstruktion}
+        \caption{Skizze einer Greifhakenkonstruktion}
         \label{img:tech_harponne}
 \end{figure}
 
@@ -872,7 +862,6 @@ Greifhaken-artige Konstruktion, welche die Löcher des Hindernisses ausnutzt
           \item [Nachteile]
           \item Der Gabelstapler muss als Greifvorrichtung verwendet werden.
           \item Es ist unklar, ob es umsetzbar ist.
-          \item Der Motor muss stark genug sein, das Hindernis zu ziehen.
           \item Das Gehäuse muss ausreichend robust sein, da das Hindernis darüber gezogen werden kann.
           \item Sensorplatzierung wird durch Hindernis-Transport über Fahrzeug hinweg eingeschränkt.
     \end{items}

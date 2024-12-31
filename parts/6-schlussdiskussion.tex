@@ -8,18 +8,28 @@
 \section{Schlussdiskussion}
 
 Zum Abschluss von PREN1 werden die Anforderungen an unser Konzept, die angefallenen und offenen Kosten sowie die Risiken nochmals aufgegriffen und diskutiert.
+
 \subsection{Anforderungen}
-Die Anforderungen werden wie im Kapitel \ref{sec:anforderungsliste} in die Bereiche 'Technische Anforderungen', 'Weg- und Wegpunkterkennung' und 'Hindernisbewältigung' aufgeteilt. Hier wird aufgeführt, welche Anforderungen erfüllt werden und welche nicht und weshalb.
+
+Im Kapitel \ref{sec:anforderungsliste} wurden alle Anforderungen an das Projekt definiert.
+In diesem Abschnitt wird Kategorisiert auf die in \acrshort{pren1}
+bearbeiteten Anforderungen eingegangen. Es wird aufgeführt, welche Anforderungen erfüllt werden, welche nicht und weshalb.
 
 \subsubsection{Technische Anforderungen}
-Zum Zeitpunkt der Planung werden die Anforderungen \hyperlink{A2.1}{2.1 - Dimensionen} , \hyperlink{A2.3}{2.3 - Hardware-Integration} und \hyperlink{A2.4}{2.4 - Zielerreichungssignal} erfüllt. Wie viel das komplette Fahrzeug schlussendlich wiegen wird, ist schwer abzuschätzen. Das Gewicht der verwendeten Bauteile hat für den Entscheid Einfluss. Da das Design des Gehäuses noch nicht feststeht, kann das Endgewicht und somit das Einhalten der Anforderung \hyperlink{A2.2}{2.2 - Maximalgewicht} derzeit nicht genau bestimmt werden. Die ausgewählten Motoren haben genügend Drehmoment, um die Wunschanforderung \hyperlink{A2.6}{2.6 - Minimale Fahrgeschwindigkeit} zu erfüllen. Ob jedoch mit dieser Geschwindigkeit unter den gegebenen Umständen gefahren werden kann, muss in weiteren Tests herausgefunden werden.
-Die Anforderung \hyperlink{A2.5}{2.5 - Erreichen des Ziels} kann zum Zeit der Planung noch nicht getestet werden. Sobald das Fahrzeug die nötigen Funktionen unterstützt, wird diese Anforderung überprüft.
+Zum Zeitpunkt der Planung werden die Anforderungen \hyperlink{A2.1}{'2.1 - Dimensionen'} , \hyperlink{A2.3}{'2.3 - Hardware-Integration'} und \hyperlink{A2.4}{'2.4 - Zielerreichungssignal'} erfüllt. Wie viel das komplette Fahrzeug schlussendlich wiegen wird, ist schwer abzuschätzen. Das Gewicht der verwendeten Bauteile hat für den Entscheid Einfluss. Da das Design des Gehäuses noch nicht feststeht, kann das Endgewicht und somit das Einhalten der Anforderung \hyperlink{A2.2}{'2.2 - Maximalgewicht'} derzeit nicht genau bestimmt werden. Die ausgewählten Motoren haben genügend Drehmoment, um die Wunschanforderung \hyperlink{A2.6}{'2.6 - Minimale Fahrgeschwindigkeit'} zu erfüllen. Ob jedoch mit dieser Geschwindigkeit unter den gegebenen Umständen gefahren werden kann, muss in weiteren Tests herausgefunden werden.
+Die Anforderung \hyperlink{A2.5}{'2.5 - Erreichen des Ziels'} kann zum Zeit der Planung noch nicht getestet werden. Sobald das Fahrzeug die nötigen Funktionen unterstützt, wird diese Anforderung überprüft.
 
 \subsubsection{Weg- und Wegpunkterkennung}
-Die Anforderung \hyperlink{A3.1}{3.1 - Befahren des Weges} kann mit Hilfe des Liniensensors erfüllt werden. Die Anforderung \hyperlink{A3.6}{3.6 - Erkennung Wegpunkte} soll mit anhand Objekterkennung mit dem Raspberry Pi erfüllt werden. Die weiteren Anforderungen für die Weg- und Wegpunkterkennung sind aus der Aufgabenstellung gegeben und legen Rahmenbedingungen für die Aufgabe fest.
+
+Die Anforderung \hyperlink{A3.1}{'3.1 - Befahren des Weges'} kann mit Hilfe des Liniensensors erfüllt werden. Die Anforderung \hyperlink{A3.6}{'3.6 - Erkennung Wegpunkte'} soll mit anhand Objekterkennung mit dem Raspberry Pi erfüllt werden. Die weiteren Anforderungen für die Weg- und Wegpunkterkennung sind aus der Aufgabenstellung gegeben und legen Rahmenbedingungen für die Aufgabe fest.
 
 \subsubsection{Hindernisbewältigung}
+
 Durch den verwendeten Klemmmechanismus und die Sensorik werden die Anforderungen für die Hindernisbewältigung erfüllt.
+
+\subsubsection{Simulator}
+
+Es wurde wie in der Anforderung \hyperlink{A6.1}{'6.1 - Simulator'} verlangt erfolgreich ein Simulator konzipiert und umgesetzt.
 
 \newpage
 \subsection{Risiken}
@@ -27,7 +37,7 @@ Die wichtigsten Risiken aus dem Risikomanagement (siehe Tabelle \ref{tab:risikot
 
 Dazu gehören Lieferengpässe (\hyperlink{R6}{R6}), zu wenig Leistung für die Bilderkennung (\hyperlink{R9}{R9}), Wegerkennung (\hyperlink{R2}{R2}) und die Bildqualität(\hyperlink{R11}{R11}). 
 
-Um Zeitverluste durch Lieferengpässe zu vermeiden, werden alle benötigten Baugruppen bereits vor Beginn von PREN2 evaluiert. Zudem sollen alle mechanischen Baugruppen sowie die Layouts der Elektronik (PCB) bis zur zweiten Woche von PREN2 verfügbar sein. Dies ermöglicht eine zügige Materialbestellung.
+Um Zeitverluste durch Lieferengpässe zu vermeiden, werden alle benötigten Baugruppen bereits vor Beginn von PREN2 evaluiert. Zudem sollen alle mechanischen Baugruppen sowie die Layouts der Elektronik (\acrshort{pcb}) bis zur zweiten Woche von PREN2 verfügbar sein. Dies ermöglicht eine zügige Materialbestellung.
 
 Sollte das Raspberry Pi 5 nicht genügend Leistung besitzen, um das Fahrzeug bei der geplanten Geschwindigkeit in Echtzeit zu steuern, stehen mehrere Lösungsansätze zur Verfügung. Das TinyK22 könnte beispielsweise einen Teil der Sensordatenverarbeitung übernehmen. Alternativ kann die Geschwindigkeit des Fahrzeugs so angepasst werden, dass sie der Rechenleistung des Computers entspricht.
 
@@ -41,7 +51,7 @@ Die Bildqualität kann durch starke Bewegungen während der Fahrt beeinträchtig
 Die Hardware für die Bildverarbeitung wurde während PREN1 beschafft. Dazu gehören ein Raspberry Pi 5 mit 8 GB, eine Raspberry Pi 3 Kamera sowie das Kabel, um die Kamera mit dem Raspberry Pi zu verbinden. Außerdem kaufte das Team Motoren, eine H-Brücke, IR-LEDs und Fototransistoren. Das Raspberry Pi 5 und die Kamera dienen zur Durchführung von Tests für die Bildverarbeitung. Die Motoren werden ebenfalls im Rahmen von PREN1 getestet. Das Team nutzt die IR-LEDs und Fototransistoren für die Entwicklung des Liniensensors. Die Gesamtkosten für PREN1 belaufen sich auf 163,66 CHF. Eine Übersicht der Ausgaben von PREN1 findet sich in der Kostenkontrolle im Projektmanagement in Tabelle \ref{tab:ausgaben_pren1}.
 
 \subsubsection{Kosten PREN2}
-Sensoren und die dazugehörende Elektronik können kostengünstig erworben werden. Aus Erfahrung werden die Ausgaben für die elektrischen Bauteile und Baugruppen auf ungefähr 100 CHF geschätzt. Das Team entwickelt und bestellt das PCB für ein Adapterboard, das die benötigten Spannungen erzeugt und die erforderliche Hardware miteinander verbindet. Die Herstellungskosten werden auf 80 CHF geschätzt.
+Sensoren und die dazugehörende Elektronik können kostengünstig erworben werden. Aus Erfahrung werden die Ausgaben für die elektrischen Bauteile und Baugruppen auf ungefähr 100 CHF geschätzt. Das Team entwickelt und bestellt das \acrshort{pcb} für ein Adapterboard, das die benötigten Spannungen erzeugt und die erforderliche Hardware miteinander verbindet. Die Herstellungskosten werden auf 80 CHF geschätzt.
 
 Die Kosten für das komplette Gehäuse, die verwendeten Räder und den Hindernisbewältigungsmechanismus werden auf 100 CHF geschätzt.
 

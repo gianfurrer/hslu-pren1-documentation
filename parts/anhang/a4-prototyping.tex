@@ -9,7 +9,7 @@ In diesem Abschnitt werden für bestimmte Teilbereiche Prototypen erstellt und g
 um Risiken aus der Risikoanalyse (siehe Kapitel \ref{risikomatrix}) zu minimieren.
 
 \subsection{Digital Twin}
-Ein digitaler Nachbau der in der Aufgabenstellung beschriebenen Gegebenheiten bietet vielfältige Vorteile. Dazu zählt die Möglichkeit, potenzielle Probleme frühzeitig zu identifizieren, noch bevor physische Produkte beschafft werden müssen. Zudem kann eine solche Visualisierung zur Generierung von Trainingsdaten für Bildverarbeitungssysteme beitragen. Die Unreal Engine, ursprünglich als 3D-Spiele-Engine entwickelt, hat sich mittlerweile in zahlreichen Anwendungsbereichen etabliert und ermöglicht die effiziente Erstellung virtueller Umgebungen sowie die dynamische Bewegung von Objekten in diesen Welten. Durch die Verwendung von Bildern des Mensabodens, die präzise Modellierung von Hindernissen und Pylonen sowie den Einsatz einfacher Skripte, kann eine realitätsnahe Testumgebung mit hoher Genauigkeit nachgebildet werden.
+Ein digitaler Nachbau der in der Aufgabenstellung beschriebenen Umgebung bietet viele Vorteile. Er ermöglicht es, potenzielle Probleme frühzeitig zu erkennen, bevor physische Produkte angeschafft werden müssen. Ausserdem kann eine solche Simulation genutzt werden, um Trainingsdaten für Bildverarbeitungssysteme zu erstellen. Die Unreal Engine, ursprünglich für 3D-Spiele entwickelt, wird inzwischen in vielen Bereichen eingesetzt. Sie erlaubt es, virtuelle Umgebungen effizient zu erstellen und Objekte darin dynamisch zu bewegen. Mit Fotos des Mensabodens, einer genauen Modellierung der Hindernisse und Pylonen lässt sich eine realistische und präzise Testumgebung nachbilden.
 
 \begin{figure}[H]
     \centering
@@ -18,7 +18,7 @@ Ein digitaler Nachbau der in der Aufgabenstellung beschriebenen Gegebenheiten bi
 \label{img:Übersicht Unreal Engine}
 \end{figure}
 \subsubsection{Kamera-Konfiguration}
-Der Digital Twin erlaubt das einfache Testen von verschiedenen Kamera-Konfigurationen. Unter anderem das Kamera-Sichtfeld, sowie verschiedene Neigungswinkel. In folgender Tabelle sind die Ergebnisse unterschiedlicher Kamerakonfigurationen zu sehen.
+Der Digital Twin erlaubt das einfache Testen von Kamera-Konfigurationen. So konnten verschiedene Kamera-Sichtfelder sowie Neigungswinkel getestet werden. In folgender Tabelle sind die Ergebnisse unterschiedlicher Kamerakonfigurationen zu sehen.
 \begin{table}[H]
     \centering
     \begin{tabular}{|c|c|c|c|}
@@ -36,7 +36,7 @@ Der Digital Twin erlaubt das einfache Testen von verschiedenen Kamera-Konfigurat
         \includegraphics[width=4cm]{img/unrealengine/h75_f120_w45.png} \\
         \hline
     \end{tabular}
-    \caption{Vergleich unterschiedlicher Kamera-Einstellungen und Höhen. Der grüne Kreis hat eine horizontale Distanz von 4.5m zur Kamera. Der weisse Kreis hat eine horizontale Distanz von 2m zur Kamera.(FoV: Field of View)}
+    \caption{Vergleich unterschiedlicher Kamera-Einstellungen und Höhen. Der grüne Kreis hat eine horizontale Distanz von 4.5m zur Kamera. Der hellblaue Kreis hat eine horizontale Distanz von 2m zur Kamera.(FoV: Field of View)}
 \end{table}
 
 \subsection{Objekterkennung}
@@ -142,7 +142,7 @@ Um Reflexionen zu reduzieren, kann im Fotografikbereich mit Polarisationsfiltern
 \end{table}
 
 
-Die Resultate sind eindeutig. Bei gleichen Kamera-Einstellungen reduziert ein Polarisationsfilter die Reflexionen auf den Bodenplatten deutlich.
+Die Resultate sind gemischt. Bei gleichen Kamera-Einstellungen reduziert ein Polarisationsfilter die Reflexionen auf den Bodenplatten im unteren Bild deutlich, wobei die Reduktion der Spiegelung im oberen Vergleich rein auf die Reduktion der Überbelichtung und nicht auf eine Reduktion von Spiegelung zurückzuführen ist. Polarisierungsfilter reduzieren das von der Kamera aufgenommene unpolarisierte Licht. Hier müssten weitere Tests durchgeführt werden.
 \newpage
 \subsection{Distanz Hindernis} 
 \label{sec:Distanz_Hindernis}

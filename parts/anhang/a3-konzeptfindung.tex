@@ -6,36 +6,31 @@
 \section{Konzeptfindung}
 \label{a3:Konzeptfindung}
 
-Das Endziel ist ein möglichst einfaches und zuverlässiges Gesamtkonzept zu finden, welches robust ist und fehlerunanfällig funktioniert. Dies wird erreicht, in dem vorgängig alle Lösungsansätze aus der Technologierecherche, die mit grossen Risiken verbunden sind, erkannt und ausgeschieden werden. Mit den verbleibenden Ansätzen wird der Morphologischer-Kasten erstellt, um das Gesamtkonzept zu entwickeln. Damit mit dem Morphologischen Kasten die optimale Variante gefunden werden kann, wird zu einigen Teilfunktionen des Fahrzeuges eine Nutzwertanalyse erstellt.
+Das Projektteam hat sich als Ziel gesetzt, ein möglichst einfaches und zuverlässiges Gesamtkonzept zu finden, welches robust ist und fehlerunanfällig funktioniert. Dies wird erreicht, in dem vorgängig alle Lösungsansätze aus der Technologierecherche, die mit grossen Risiken verbunden sind, erkannt und herausgefiltert werden. Mit den verbleibenden Ansätzen wird ein Morphologischer Kasten erstellt, um das Gesamtkonzept zu entwickeln. Damit mit dem Morphologischen Kasten die optimale Variante gefunden werden kann, wird zu einigen Teilfunktionen des Fahrzeuges eine Nutzwertanalyse erstellt.
 
 \subsection{Vorauswahl}
 \label{a3:Vorauswahl}
     \subsubsection{Fortbewegung}
     Das Fahrzeug muss in der Lage sein, sich an Ort und Stelle um die eigene Achse zu drehen. Somit sind die Optionen Knicklenkung, Achsschenkellenkung und Drehschemellenkung nicht geeignet.
     Das Prinzip ''Fahrzeug abbocken und drehen'' ist als alleiniges Lenksystem ungeeignet, weil es zu viel Zeit benötigt für das Lenkmanöver. 
-    Omniwheels und Mecanum-Räder sind sehr ähnlich, nur die Form und Anordnung der Rollen auf den Rädern ist unterschiedlich. Bei Omniwheels sind die Rollen in einem Winkel von 90° an den Rädern befestigt, wobei sie bei Mecanum-Rädern in 45° angeordnet sind und eine Tonnenform aufweisen. Dadurch versprechen die Mecanum-Räder eine geringere Anfälligkeit, sich in den Plattenfugen zu verfangen. Die 4-Rad Differenzial Lenkung und das Prinzip Roomba sind von der Wendigkeit und dem konstruktiven Aufwand vergleichbar, jedoch besteht bei der 4-Rad Variante die Gefahr von Aufschaukeln bei einer Drehung an Ort und Stelle, sowie die Gefahr von Schieben der langsameren Räder bei Kurvenfahrt. Mit diesen Erkenntnissen kommen nur noch die Mecanum-Räder und das Prinzip Roomba in Frage. Die beiden Systeme werden in einer Nutzwertanalyse (Tabelle \ref{tab:nutzwertanalyse_fortbewegung}) unterhalb vom Morphologischen Kasten genauer verglichen und bewertet.
+    Omniwheels und Mecanum-Räder sind sehr ähnlich, nur die Form und Anordnung der Rollen auf den Rädern ist unterschiedlich. Bei Omniwheels sind die Rollen in einem Winkel von 90° an den Rädern befestigt, wobei sie bei Mecanum-Rädern in 45° angeordnet sind und eine Tonnenform aufweisen. Dadurch versprechen die Mecanum-Räder eine geringere Anfälligkeit, sich in den Plattenfugen zu verfangen. Die 4-Rad Differenzial Lenkung und das Prinzip Roomba sind von der Wendigkeit und dem konstruktiven Aufwand vergleichbar, jedoch besteht bei der 4-Rad Variante die Gefahr von Aufschaukeln bei einer Drehung an Ort und Stelle, sowie die Gefahr von Schieben der langsameren Räder bei Kurvenfahrt. Mit diesen Erkenntnissen kommen nur noch die Mecanum-Räder und das Prinzip Roomba in Frage. Die beiden Systeme werden in einer Nutzwertanalyse (Tabelle \ref{tab:nutzwertanalyse_fortbewegung}) genauer verglichen und bewertet.
         
 \newpage
 \subsubsection{Hindernis Bewältigung}
     \paragraph{Aufnahme}
-    Weil das Konzept möglichst einfach und zuverlässig gestaltet werden soll, scheiden die Ideen ''Gabelstapler'' und ''Vakuum-Sauggreifer'' aus. Der Gabelstapler erfordert eine äusserst präzise und aufwendige Sensorik, um die Löcher für die Aufnahme genau zu treffen. Der Vakuum-Sauggreifer dagegen zeigt im Vergleich zu den ''Klemmen'' eine geringere Sicherheit in der Technik. Wir besitzen kein Wissen mit dieser Technologie. Um eine vergleichbare Sicherheit zu erreichen, wären umfangreiche Tests erforderlich. Dabei hat der Vakuum-Sauggreifer keine signifikanten Vorteile gegenüber den ''Klemmen''.
+    Weil das Konzept möglichst einfach und zuverlässig gestaltet werden soll, scheiden die Ideen ''Gabelstapler'' und ''Vakuum-Sauggreifer'' aus. Der Gabelstapler erfordert eine äusserst präzise und aufwendige Sensorik, um die Löcher für die Aufnahme genau zu treffen. Der ''Vakuum-Sauggreifer'' weist im Vergleich zu den ''Klemmen'' eine geringere technische Zuverlässigkeit auf. Da wir keine Erfahrung mit dieser Technologie haben, wären umfangreiche Tests notwendig, um eine vergleichbare Sicherheit zu erreichen. Zudem bietet der ''Vakuum-Sauggreifer'' keine wesentlichen Vorteile gegenüber den ''Klemmen''.
+
         
     \paragraph{Rotation und Translation}
-    Ein beweglicher Arm erhöht die Komplexität sowohl mechanisch als auch in den Bereichen Sensorik und Software erheblich. Dabei ist zu beachten, dass die Integration eines Arms die Gesamtkomplexität steigert, ohne in anderen Bereichen nennenswerte Vereinfachungen zu ermöglichen, sodass kein Vorteil gewonnen wird. Dies widerspricht unserem Grundprinzip, eine möglichst einfache und zuverlässige Lösung zu entwickeln. Daher werden alle Optionen mit einem beweglichen Arm ausgeschlossen, sodass lediglich die Option ''Rotation des Fahrzeugs'' verbleibt.
+    Ein beweglicher Arm erhöht die Komplexität sowohl mechanisch als auch in den Bereichen Sensorik und Software erheblich. Dabei ist zu beachten, dass die Integration eines Arms die Gesamtkomplexität steigert, ohne in anderen Bereichen nennenswerte Vereinfachungen zu ermöglichen. Dies widerspricht unserem Grundprinzip, eine möglichst einfache und zuverlässige Lösung zu entwickeln. Daher werden alle Optionen mit einem beweglichen Arm ausgeschlossen, sodass lediglich die Option ''Rotation des Fahrzeugs'' verbleibt.
 
 
 \newpage
 \subsubsection{Wegfindung}
 
 Der zu befahrende Graph ist bereits vorgegeben. Er hat acht Knoten und 15 Kanten, was 
-für einen Algorithmus relativ klein ist. Die Effizienz und Dynamik des Algorithmus spielt keine grosse Rolle, weil der Zeitunterschied der Algorithmen bei einer Neuberechnung nur minimal ist. Dafür werden Kriterien wie geringer Speicherbedarf und niedrige Komplexität höher gewertet.
+für einen Algorithmus relativ klein ist. Die Effizienz und Dynamik des Algorithmus spielt keine grosse Rolle, weil der Zeitunterschied der Algorithmen bei einer Neuberechnung nur minimal ist. Dafür werden Kriterien wie geringer Speicherbedarf und niedrige Komplexität höher gewertet. Ausgeschlossen wurden folgende Algorithmen: Der Algorithmus ''Goal directed shortest path queries using precomputed cluster distances'' wird aufgrund der hohen Komplexität und des hohen Speicherbedarfs nicht weiter analysiert. Der Floyd Warshall-Algorithmus, der sich auf die Berechnung aller kürzesten Pfade in einem Graphen fokussiert, entspricht nicht unserem Anwendungsbereich und wird ebenfalls nicht weiter betrachtet.
 
-\textbf{Ausgeschiedene Algorithmen:}
-
-\begin{itemize}
-    \item \textbf{Goal directed shortest path queries using precomputed cluster distances}: Aufgrund der hohen Komplexität und Speicherbedarf wird dieser Algorithmus nicht weiter analysiert.
-    \item \textbf{Floyd Warshall}: Der Algorithmus fokussiert sich auf die Berechnung von allen kürzesten Pfaden in einem Graphen. Dies entspricht nicht unserem Anwendungsbereich und wird deshalb nicht weiter analysiert.
-\end{itemize}
 
 \subsubsection{Objekterkennung}
 

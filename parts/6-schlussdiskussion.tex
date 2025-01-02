@@ -14,7 +14,7 @@ Zum Abschluss von PREN1 werden die Anforderungen an unser Konzept, die angefalle
 Im Kapitel \ref{sec:anforderungsliste} wurden alle Anforderungen an das Projekt definiert.
 In diesem Abschnitt wird Kategorisiert auf die in \acrshort{pren1}
 bearbeiteten Anforderungen eingegangen. Es wird aufgeführt, welche Anforderungen erfüllt werden und welche nicht.
-Die Kapitel \hyperlink{A5}{''5 - Steuerung \& Bedienung''} und \hyperlink{A9}{''9 - Zeit''} werden noch nicht, behandelt, da diese erst in PREN 2 überprüft werden können
+Die Kapitel \hyperlink{A5}{''5 - Steuerung \& Bedienung''} und \hyperlink{A9}{''9 - Zeit''} werden noch nicht, behandelt, da diese erst in PREN 2 überprüft werden können.
 
 \subsubsection{Allgemeine Anforderungen}
 Alle Ziele der \hyperlink{A1}{''1 - Allgemeine Anforderungen''} sind auf einem guten Weg, jedoch noch nicht vollständig erreicht, da es sich um übergeordnete Ziele handelt. Die Fertigstellung dieser Ziele ist für PREN 2 geplant.
@@ -34,13 +34,13 @@ Das Ziel \hyperlink{A4.1}{''4.1 Erkennung und Handling von Hindernissen''} wird 
 
 \subsubsection{Simulator}
 
-Es wurde wie in der Anforderung \hyperlink{A6.1}{'6.1 - Simulator'} verlangt erfolgreich ein Simulator konzipiert und umgesetzt.
+Es wurde wie in der Anforderung \hyperlink{A6.1}{''6.1 - Simulator''} verlangt erfolgreich ein Simulator konzipiert und umgesetzt.
 
 \subsubsection{Nachhaltigkeit}
-
+Das Ziel \hyperlink{A7.1}{''7.1 - Umsetzung''} wurde so gut wie möglich erreicht. Siehe weitere Infos in Kapitel \ref{sec:nachhaltigkeit}
 
 \subsubsection{Kosten}
-Das Ziel wurde  \hyperlink{A8.1}{'8.1 - Budget'} wurde für PREN 1 erreicht, siehe Kapitel \ref{}
+Das Ziel wurde  \hyperlink{A8.1}{''8.1 - Budget''} wurde für PREN 1 erreicht und für PREN 2 wurde eine abschätzung gemacht, siehe auch Tabelle \ref{tab:kostenuebersicht}
 
 \newpage
 \subsection{Risiken}
@@ -48,21 +48,22 @@ Die wichtigsten Risiken aus dem Risikomanagement (siehe Tabelle \ref{tab:risikot
 
 Dazu gehören Lieferengpässe (\hyperlink{R6}{R6}), zu wenig Leistung für die Bilderkennung (\hyperlink{R9}{R9}), Wegerkennung (\hyperlink{R2}{R2}) und die Bildqualität(\hyperlink{R11}{R11}). 
 
-Um Zeitverluste durch Lieferengpässe zu vermeiden, werden alle benötigten Baugruppen bereits vor Beginn von PREN2 evaluiert. Zudem sollen alle mechanischen Baugruppen sowie die Layouts der Elektronik (\acrshort{pcb}) bis zur zweiten Woche von PREN2 verfügbar sein. Dies ermöglicht eine zügige Materialbestellung.
+\textbf{Lieferengpässe (\hyperlink{R6}{R6}):} Um Zeitverluste durch Lieferengpässe zu vermeiden, werden alle benötigten Baugruppen bereits vor Beginn von PREN2 evaluiert. Zudem sollen alle mechanischen Baugruppen sowie die Layouts der Elektronik (\acrshort{pcb}) bis zur zweiten Woche von PREN2 verfügbar sein. Dies ermöglicht eine zügige Materialbestellung.
 
-Sollte das Raspberry Pi 5 nicht genügend Leistung besitzen, um das Fahrzeug bei der geplanten Geschwindigkeit in Echtzeit zu steuern, stehen mehrere Lösungsansätze zur Verfügung. Das TinyK22 könnte beispielsweise einen Teil der Sensordatenverarbeitung übernehmen. Alternativ kann die Geschwindigkeit des Fahrzeugs so angepasst werden, dass sie der Rechenleistung des Computers entspricht.
+\textbf{Leistung für die Bilderkennung (\hyperlink{R9}{R9}):} Sollte das Raspberry Pi 5 nicht genügend Leistung besitzen, um das Fahrzeug bei der geplanten Geschwindigkeit in Echtzeit zu steuern, stehen mehrere Lösungsansätze zur Verfügung. Das TinyK22 könnte beispielsweise einen Teil der Sensordatenverarbeitung übernehmen. Alternativ kann die Geschwindigkeit des Fahrzeugs so angepasst werden, dass sie der Rechenleistung des Computers entspricht.
 
-Das Fahrzeug soll auf geraden Strecken zwischen zwei Wegpunkten fahren. Dabei ist die Linienerkennung nicht die primäre Methode, um auf Kurs zu bleiben, sondern dient zur Überprüfung und zur Erkennung von Wegpunkten. Das Risiko, einen Wegpunkt mit einer Bodenfuge zu verwechseln, ist aufgrund des Größenunterschieds sehr gering.
+\textbf{Wegerkennung (\hyperlink{R2}{R2}):} Das Fahrzeug soll auf geraden Strecken zwischen zwei Wegpunkten fahren. Dabei ist die Linienerkennung nicht die primäre Methode, um auf Kurs zu bleiben, sondern dient zur Überprüfung und zur Erkennung von Wegpunkten. Das Risiko, einen Wegpunkt mit einer Bodenfuge zu verwechseln, ist aufgrund des Größenunterschieds sehr gering.
 
-Die Bildqualität kann durch starke Bewegungen während der Fahrt beeinträchtigt werden. Dieses Risiko lässt sich durch das Trainieren der Bildverarbeitung unter Bewegungsbedingungen minimieren. Außerdem soll die Bilderkennung nach Möglichkeit nur im Stillstand erfolgen.
+\textbf{Bildqualität(\hyperlink{R11}{R11}):} Die Bildqualität kann durch starke Bewegungen während der Fahrt beeinträchtigt werden. Dieses Risiko lässt sich durch das Trainieren der Bildverarbeitung unter Bewegungsbedingungen minimieren. Außerdem soll die Bilderkennung nach Möglichkeit nur im Stillstand erfolgen.
 
 \subsection{Abschätzung Kosten}
 
 \subsubsection{Kosten PREN1}
-Die Hardware für die Bildverarbeitung wurde während PREN1 beschafft. Dazu gehören ein Raspberry Pi 5 mit 8 GB, eine Raspberry Pi 3 Kamera sowie das Kabel, um die Kamera mit dem Raspberry Pi zu verbinden. Außerdem kaufte das Team Motoren, eine H-Brücke, IR-LEDs und Fototransistoren. Das Raspberry Pi 5 und die Kamera dienen zur Durchführung von Tests für die Bildverarbeitung. Die Motoren werden ebenfalls im Rahmen von PREN1 getestet. Das Team nutzt die IR-LEDs und Fototransistoren für die Entwicklung des Liniensensors. Die Gesamtkosten für PREN1 belaufen sich auf 163,66 CHF. Eine Übersicht der Ausgaben von PREN1 findet sich in der Kostenkontrolle im Projektmanagement in Tabelle \ref{tab:ausgaben_pren1}.
+Die Hardware für die Bildverarbeitung wurde während PREN1 beschafft. Dazu gehören ein Raspberry Pi 5 mit 8 GB, eine Raspberry Pi 3 Kamera sowie das Kabel, um die Kamera mit dem Raspberry Pi zu verbinden. Außerdem kaufte das Team Motoren, eine H-Brücke, IR-LEDs und Fototransistoren. Das Raspberry Pi 5 und die Kamera dienen zur Durchführung von Tests für die Bildverarbeitung. Die Motoren wurden ebenfalls im Rahmen von PREN1 getestet. Das Team nutzt die IR-LEDs und Fototransistoren für die Entwicklung des Liniensensors. Die Gesamtkosten für PREN1 belaufen sich auf 163,66 CHF. Eine Übersicht der Ausgaben von PREN1 findet sich in der Kostenkontrolle im Projektmanagement in Tabelle \ref{tab:ausgaben_pren1}.
 
 \subsubsection{Kosten PREN2}
-Sensoren und die dazugehörende Elektronik können kostengünstig erworben werden. Aus Erfahrung werden die Ausgaben für die elektrischen Bauteile und Baugruppen auf ungefähr 100 CHF geschätzt. Das Team entwickelt und bestellt das \acrshort{pcb} für ein Adapterboard, das die benötigten Spannungen erzeugt und die erforderliche Hardware miteinander verbindet. Die Herstellungskosten werden auf 80 CHF geschätzt.
+Für PREN 2 können
+Sensoren und die dazugehörende Elektronik kostengünstig erworben werden. Aus Erfahrung werden die Ausgaben für die elektrischen Bauteile und Baugruppen auf ungefähr 100 CHF geschätzt. Das Team entwickelt und bestellt das \acrshort{pcb} für ein Adapterboard, das die benötigten Spannungen erzeugt und die erforderliche Hardware miteinander verbindet. Die Herstellungskosten werden auf 80 CHF geschätzt.
 
 Die Kosten für das komplette Gehäuse, die verwendeten Räder und den Hindernisbewältigungsmechanismus werden auf 100 CHF geschätzt.
 
@@ -108,7 +109,7 @@ Bis auf einzelne Arbeitspakete konnte der Zeitplan eingehalten werden und der Ab
 
 \subsection{Konzeptentwicklung}
 
-Der Prozess der Konzeptentwicklung hat aufgezeigt, dass nicht alles was geplant wird, auf den ersten Anhieb funktioniert. Das Prototyping (siehe Anhang \ref{a4 prototyping}) hat in allen Bereichen Mehrwert gebracht. Das Design des Greifmechanismus konnte optimiert werden und auch bei der Sensorik wurden Hindernisse identifiziert, die somit schneller überwunden oder umgangen werden. Der Digital Twin(siehe Anhang \ref{a4 prototyping}) hilft bei der virtuellen Datenbeschaffung und kann in Zukunft potentiell für weitere Zwecke verwendet werden. Viele weitere Tests und Prototyping haben dabei geholfen, das Lösungskonzept von PREN1 robuster zu gestalten.
+Der Prozess der Konzeptentwicklung hat aufgezeigt, dass nicht alles was geplant wird, auf den ersten Anhieb funktioniert. Das Prototyping (siehe Anhang \ref{a4 prototyping}) hat in allen Bereichen Mehrwert gebracht. Das Design des Greifmechanismus konnte optimiert werden und auch bei der Sensorik wurden Hindernisse identifiziert, die somit schneller überwunden oder umgangen werden. Der Digital Twin(siehe Anhang \ref{a4:prototyping}) hilft bei der virtuellen Datenbeschaffung und kann in Zukunft potentiell für weitere Zwecke verwendet werden. Viele weitere Tests und Prototyping haben dabei geholfen, das Lösungskonzept von PREN1 robuster zu gestalten.
 
 Das Team musste aufpassen, nicht zu schnell einen Lösungsweg als gegeben anzusehen. Bis zur Zusammenstellung des morpholgischen Kastens (siehe Anhang \ref{morphologischer kasten}) wurde versucht, mit einer offenen Herangehensweise an die verschiedenen Lösungsaspekte heranzutreten. Dies ist uns in den meisten Fällen gut gelungen. Nur bei der Wahl der Simulator-Technologie sowie in der Elektronik gab es teilweise Ideen, die schon früh als gegeben angesehen wurden. Das hat in manchen Fällen zu verspäteten Anpassungen geführt, die allerdings erfolgreich abgeschlossen wurden.
 

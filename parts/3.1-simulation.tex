@@ -7,7 +7,7 @@
 \newpage
 \subsection{Simulator}\label{simulator}
 
-Der Simulator dient dazu, die Funktionalität der Software des autonomen Fahrzeugs zu testen, bevor der physische Prototyp gebaut wird.
+Der Simulator dient dazu, die Funktionalität der Software des autonomen Fahrzeugs zu testen, bevor der physische Prototyp gebaut ist.
 Der Sourcecode vom Simulator ist auf Github\footnote{https://github.com/gianfurrer/hslu-pren-simulator} oder im Anhang zu finden.
 
 \subsubsection{Spezifikation}
@@ -36,9 +36,9 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll. Die An
 
 Das Konzept basiert auf dem Morphologischen Kasten, welcher anhand der definierten Spezifikationen erarbeitet wurde. Details dazu sind im Anhang \ref{sec:sim_Morphologischer_Kasten} zu finden.
 
-Im Optimalfall würde der Simulator die gesamte Hardware des autonomen Fahrzeugs nachbilden. Dadurch könnte die Fahrzeugsoftware direkt im Simulator getestet werden, ohne Anpassungen vornehmen zu müssen. Diese Herangehensweise würde eine nahtlose Integration zwischen Softwareentwicklung und Simulation ermöglichen. Allerdings ist die vollständige Simulation der Hardware mit erheblichem Aufwand verbunden und übersteigt den Rahmen des Simulators.
+Im Optimalfall bildet der Simulator die gesamte Hardware des autonomen Fahrzeugs nach. Dadurch könnte die Fahrzeugsoftware direkt im Simulator getestet werden, ohne Anpassungen vornehmen zu müssen. Diese Herangehensweise ermöglicht eine nahtlose Integration zwischen Softwareentwicklung und Simulation. Allerdings ist die vollständige Simulation der Hardware mit erheblichem Aufwand verbunden und übersteigt den Rahmen des Simulators.
 
-Der Simulator wird so konzipiert, dass er anhand einer vorgegebenen Konfiguration den optimalen Weg zum Ziel findet. Diese Konfiguration beinhaltet:
+Der Simulator ist so konzipiert, dass er anhand einer vorgegebenen Konfiguration den optimalen Weg zum Ziel findet. Diese Konfiguration beinhaltet:
 \begin{itemize}
     \item Das Ziel: A, B oder C.
     \item Die Strafe (Gewichtung) für das Befahren von Linien mit einem Hindernis.
@@ -56,7 +56,7 @@ Der Simulator wird so konzipiert, dass er anhand einer vorgegebenen Konfiguratio
     \end{itemize}
 \end{itemize}
 
-Die Informationen, die nicht von der Kamera erkannt werden können, simulieren die realistische Möglichkeit, dass nicht alle Objekte von der Objekterkennung erkannt werden.  
+Die Informationen, die nicht von der Kamera erkannt werden, simulieren die realistische Möglichkeit, dass nicht alle Objekte von der Objekterkennung erkannt werden.  
 
 Damit die Simulation weiss, auf welchen Wegpunkten bzw. Linien sich Hindernisse befinden, wird jeder Wegpunkt beschriftet:
 

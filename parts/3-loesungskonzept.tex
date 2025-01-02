@@ -70,21 +70,21 @@ Im Ablaufdiagramm (Abbildung \ref{img:ablaufdiagramm}) wird der Programmablauf d
 \subsection{Zielauswahl}
 \imagefloat{img/lösungskonzpet/Skizzen/Zielauswahl.png}{Zielauswahl (Ausschnitt aus Abbildung \ref{img:Konzept-Skizze_Fahrzeug})}{0.3\textwidth}
 
-Das Ziel des Fahrzeugs muss vor dem Start ausgewählt werden. Die Auswahlmöglichkeiten sind A, B oder C. Jede dieser Optionen kann über einen physischen Knopf am Fahrzeug festgelegt werden.
+Das Ziel des Fahrzeugs muss vor dem Start ausgewählt werden. Die Auswahlmöglichkeiten sind A, B oder C. Jede dieser Optionen ist über einen physischen Knopf am Fahrzeug wählbar ist.
 
-Neben der Zielauswahl befindet sich der Knopf zum Starten des Fahrzeugs. Dieser funktioniert erst, wenn ein Ziel ausgewählt wurde. Bei einer mehrfachen Zielauswahl wird das zuletzt gewählte Ziel angesteuert.
+Neben der Zielauswahl befindet sich der Startknopf des Fahrzeugs. Dieser funktioniert bloss, falls eine Zielauswahl vorliegt. Bei einer mehrfachen Zielauswahl wird das zuletzt gewählte Ziel angesteuert.
 
-Sobald das Fahrzeug das Ziel erreicht hat, leuchtet die LED neben der Starttaste auf.
+Sobald das Fahrzeug das Ziel erreicht, leuchtet die LED neben der Starttaste auf.
 
 \subsection{Fortbewegung} 
 
-Die Fortbewegung wird nach dem Prinzip Roomba realisiert: zwei einzeln angetriebene Räder mit einem Stützelement. Es handelt sich dabei um ein ähnliches System, wie es bei Staubsauger-Robotern vorkommt. Die angetriebenen Räder können unabhängig in beide Drehrichtungen angetrieben werden, wodurch ein Wenden an Ort und Stelle ermöglicht wird. Die beiden Räder sind in Längsrichtung zentrisch angeordnet, damit sich das Fahrzeug um den eigenen Mittelpunkt drehen kann, ohne dass ein Versatz entsteht. Weitere Details dazu befinden sich im Anhang unter \ref{a3:Fortbewegung}.
+Die Fortbewegung wird nach dem Prinzip Roomba realisiert: zwei einzeln angetriebene Räder mit einem Stützelement. Es handelt sich dabei um ein ähnliches System, wie es bei Staubsauger-Robotern vorkommt. Die beiden Räder können unabhängig in beide Drehrichtungen angesteuert werden. Das ermöglicht eine Wendung an Ort und Stelle. Die beiden Räder sind in Längsrichtung zentrisch angeordnet. Dadurch kann sich das Fahrzeug um den eigenen Mittelpunkt drehen, ohne dass ein Versatz entsteht(siehe Anhang \ref{a3:Fortbewegung}).
 
-Als Antriebsmotoren werden DC-Motoren verwendet, die als Motorentreiber eine \gls{h-brücke} verwenden. Diese wird für die Geschwindigkeit mit einem \gls{pwm}-Signal angesteuert. Jeder Motor verfügt über einen Encoder, der überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen können. Gesteuert werden die Motoren von einem TinyK22 (wieso der TinyK22 gewählt wurde, siehe Anhang \ref{a3:Hardware Steuerung}), der die \gls{h-brücke} ansteuert. Weitere Details können im Anhang, unter \ref{a3:Fahrantrieb} (Fahrantrieb) und \ref{a3:Sensorik:Positionsabfrage} (Sensorik Positionsabfrage) nachgeschlagen werden.
+Als Antriebsmotoren werden DC-Motoren verwendet. Eine \gls{h-brücke} dient als Motorentreiber. Die Geschwindigkeit ist über ein \gls{pwm}-Signal ansteuerbar. Jeder Motor verfügt über einen Encoder. Er überwacht, dass beide Motoren die gleiche Anzahl an Umdrehungen ausführen. Das TinyK22 steuert die Motoren über die \gls{h-brücke} (siehe Anhang \ref{a3:Hardware Steuerung}). Weitere Details sind im Anhang \ref{a3:Fahrantrieb} und \ref{a3:Sensorik:Positionsabfrage} vorhanden.
 
-Die Steuerung des Fahrzeugs erfordert eine präzise Kommunikation zwischen den Steuerungseinheiten. Während die Motoren und die H-Brücke die Fortbewegung des Fahrzeugs sicherstellen, übernimmt das TinyK22 die Steuerung der Antriebssysteme und die Verarbeitung der Sensordaten. Um eine koordinierte Navigation zu ermöglichen, kommuniziert der TinyK22 kontinuierlich mit dem Raspberry Pi, der die übergeordnete Planung und die Bildverarbeitung übernimmt.
+Die Steuerung des Fahrzeugs erfordert eine präzise Kommunikation zwischen den Baugruppen. Während die Motoren und die H-Brücke die Fortbewegung des Fahrzeugs sicherstellen, übernimmt das TinyK22 die Steuerung der Antriebssysteme und die Verarbeitung der Sensordaten. Um eine koordinierte Navigation zu ermöglichen, kommuniziert der TinyK22 kontinuierlich mit dem Raspberry Pi, der die übergeordnete Planung und die Bildverarbeitung übernimmt.
 \newpage
-Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). In Abbildung \ref{img:UART_Signalablauf} wird aufgezeigt, wie der Datenaustausch zwischen dem Raspberry und dem TinyK22 ablaufen wird. Als erstes  analysiert der Raspberry Pi mit der Kamera den nächstbesten Punkt ohne Pylone. Anschliessend teilt er dem TinyK22 mit, um welchen Winkel das Fahrzeug ausgerichtet werden muss. Somit dreht der TinyK22 das Fahrzeug auf die angepeilte Linie, die vom Liniensensor erkannt wird. Wird die Linie nicht erkannt, sucht das System die Linie durch Drehungen im Bereich von ±15 Grad. Sobald die Linie gefunden wird, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies benötigt das Raspberry, um die relative Position der Kamera bestimmen zu können. Jetzt folgt das Fahrzeug der Linie mithilfe des Liniensensors. Erkennt der Liniensensor eine breitere Linie, also einen Punkt, informiert der TinyK22 den Raspberry Pi und stoppt das Fahrzeug, und der Vorgang beginnt erneut. Sobald das Fahrzeug den Zielpunkt erreicht, signalisiert der Raspberry Pi dies dem TinyK22. Der TinyK22 lässt anschliessend die LED blinken.
+Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbunden (siehe Abbildung \ref{img:UART_Physisch}). In der Abbildung \ref{img:UART_Signalablauf} ist der Datenaustausch zwischen dem Raspberry und dem TinyK22 ersichtlich. Als erstes  analysiert der Raspberry Pi mit der Kamera den besten Punkt. Anschliessend teilt er dem TinyK22 mit, um welchen Winkel das Fahrzeug sich drehen muss. Der Liniensensor verifiziert den korrekten Sandort über einer Linie. Wird die Linie nicht erkannt, sucht das System die Linie durch Drehungen im Bereich von ±15 Grad. Sobald die Linie verifiziert ist, meldet der TinyK22 dem Raspberry Pi, wie weit sich das Fahrzeug gedreht hat. Dies benötigt das Raspberry Pi, um die relative Position der Kamera zu bestimmen. Jetzt folgt das Fahrzeug der Linie mithilfe des Liniensensors. Erkennt der Liniensensor eine breitere Linie, also einen Punkt, informiert der TinyK22 den Raspberry Pi und stoppt das Fahrzeug. Der Vorgang beginnt erneut. Sobald das Fahrzeug den Zielpunkt erreicht, signalisiert der Raspberry Pi dies dem TinyK22. Der TinyK22 lässt anschliessend die LED blinken.
 
 \begin{figure}[H]
 \centering
@@ -107,7 +107,7 @@ Der TinyK22 ist über eine \Gls{uart}-Schnittstelle mit dem Raspberry Pi verbund
 
 \subsection{Wegfindung}
 
-Der schnellste Weg ins Ziel wird, wie in der Konzeptfindung festgelegt (siehe Anhang \ref{a3:Wegfindung}), mithilfe des Dijkstra-Algorithmus berechnet. Dabei wird das vorgegebene Liniennetz als gewichteter Graph in der Software gespeichert. Dabei werden die Wegpunkte als Knoten und die Linien als Kanten betrachtet. Ursprünglich besitzen alle Kanten eine einheitliche Gewichtung. Sobald die Kamera neue Informationen über die Strecke erfasst (siehe \ref{sub:Objekterkennung}), wird der Graph entsprechend aktualisiert, und der kürzeste Weg wird basierend auf der aktuellen Position neu berechnet.
+Der schnellste Weg ins Ziel wird, wie in der Konzeptfindung festgelegt (siehe Anhang \ref{a3:Wegfindung}), mithilfe des Dijkstra-Algorithmus berechnet. Dabei wird das vorgegebene Liniennetz als gewichteter Graph in der Software gespeichert. Dabei werden die Wegpunkte als Knoten und die Linien als Kanten betrachtet. Ursprünglich besitzen alle Kanten eine einheitliche Gewichtung. Sobald die Kamera neue Informationen über die Strecke erfasst (siehe Kapitel \ref{sub:Objekterkennung}), wird der Graph entsprechend aktualisiert. Der kürzeste Weg wird basierend auf der aktuellen Position neu berechnet.
 
 Je nach neu erhaltener Information werden folgende Anpassungen am Graphen vorgenommen: \begin{itemize} 
   \item Pylon auf Wegpunkt erkannt: Der Wegpunkt (Knoten) wird aus dem Graphen entfernt.
@@ -116,11 +116,11 @@ Je nach neu erhaltener Information werden folgende Anpassungen am Graphen vorgen
 \end{itemize}
 
 \subsubsection{Objekterkennung} \label{sub:Objekterkennung}
-Die weitwinklige Raspberry Pi Module 3 Kamera führt die Objekterkennung durch. Dabei werden Pylonen, Hindernisse und Wegpunkte erkannt. Als Software kommt YOLO zum Einsatz (Anhang \ref{a3:Objekterkennung}). Die erkannten Objekte werden für die Wegfindung genutzt. Das Ziel ist es, von Anfang an möglichst viele Objekte zu erfassen und auszuwerten. Da dies jedoch nicht garantiert werden kann, wird die Objekterkennung bei jedem Wegpunkt durchgeführt. 
+Die weitwinklige Raspberry Pi Module 3 Kamera führt die Objekterkennung durch. Dabei werden Pylonen, Hindernisse und Wegpunkte erkannt. Als Software kommt YOLO zum Einsatz (siehe Anhang \ref{a3:Objekterkennung}). Die erkannten Objekte werden für die Wegfindung genutzt. Das Ziel ist es, von Anfang an möglichst viele Objekte zu erfassen und auszuwerten. Da dies jedoch nicht garantiert ist, wird die Objekterkennung bei jedem Wegpunkt durchgeführt. 
 
 \subsection{Hindernisbewältigung}
-Der Ultraschallsensor überwacht kontinuierlich, ob sich ein Hindernis auf der Linie befindet (Sensorwahl: Anhang \ref{a3:Objekterkennung_Sensor}). Ab einer Entfernung von 30 cm wird ein Hindernis erkannt. Das Fahrzeug hält an, sobald das Hindernis sich zwischen den zwei seitlichen Klemmbacken befindet. Danach wird der DC-Motor angesteuert, der das Hindernis ergreift und gleichzeitig anhebt. Die genauen Details zu dieser Konstruktion befinden sich im Anhang \ref{a3:Hindernisbewältigungsantrieb} und \ref{a3:Aufnahme_Hindernis}.
-Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encodermessung die Distanz überwacht. Danach dreht es sich um 180 Grad, und der Motor löst die Klemmen. Das Fahrzeug entfernt sich nun so weit vom Hindernis, bis es sich ohne Kollisionsgefahr um 180 Grad zurückdrehen kann. Abschliessend fährt das Fahrzeug mithilfe des Liniensensors entlang der Linie zum nächsten Punkt (siehe Abbildung \ref{img:Skizze_Hindernisbewältigung}).
+Der Ultraschallsensor überwacht kontinuierlich, ob sich ein Hindernis auf der Linie befindet (siehe Anhang \ref{a3:Objekterkennung_Sensor}). Ab einer Entfernung von 30 cm ist ein Hindernis erkennbar. Das Fahrzeug hält an, sobald das Hindernis sich zwischen den zwei seitlichen Klemmbacken befindet. Danach wird der DC-Motor angesteuert, welcher das Hindernis ergreift und gleichzeitig anhebt. Die genauen Details zu dieser Konstruktion befinden sich im Anhang \ref{a3:Hindernisbewältigungsantrieb} und \ref{a3:Aufnahme_Hindernis}.
+Das Fahrzeug fährt anschliessend eine Fahrzeuglänge vor, wobei die Encoder die Fahrdistanz überwacht. Danach dreht sich das Fahrzeug um 180 Grad, und der Motor löst die Klemmen. Das Fahrzeug entfernt sich nun so weit vom Hindernis, bis es sich ohne Kollisionsgefahr um 180 Grad zurückdrehen kann. Abschliessend fährt das Fahrzeug mithilfe des Liniensensors entlang der Linie zum nächsten Punkt (siehe Abbildung \ref{img:Skizze_Hindernisbewältigung}).
 
 \begin{figure}[H]
 \centering
@@ -143,7 +143,7 @@ Der Klemmmechanismus, welcher in Punkt 3 und 6 in der Abbildung \ref{img:Skizze_
     \item Loslassen
 \end{enumerate}
 
-Alle Funktionen werden mithilfe eines DC-Motors ausgeübt. Das Design ist in Abbildungen \ref{fig:greifarm_oben} und \ref{fig:greifarm_unten} ersichtlich.
+Alle Funktionen werden mithilfe eines DC-Motors ausgeführt. Das Design ist in der Abbildungen \ref{fig:greifarm_oben} und \ref{fig:greifarm_unten} ersichtlich.
 \newline
 
 Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigieren.
@@ -172,21 +172,21 @@ Zusätzlich soll die Konstruktion helfen, Fehler bei der Messung auszukorrigiere
     \end{minipage}
 \end{figure}
 \newpage
-Abbildung \ref{fig:greifarm_oben} zeigt den Klemmmechanismus. Er wird durch Zahnräder angetrieben, welche wiederum von einem linearen Mechanismus bewegt werden, um gleichzeitig den Hebemechanismus auszulösen. Die Feder (Gelb in Abbildung \ref{fig:greifarm_oben} ersichtlich) sorgt dafür, dass, sobald die nötige Griffkraft erreicht ist, weiterhin eine Bewegung für den Hebemechanismus ermöglicht wird. In Abbildung \ref{fig:greifarm_unten} ist der Hebemechanismus zu sehen, der sich von einer Plattform (nicht im Bild sichtbar) abdrückt. An den Rändern befinden sich acht Löcher, von denen vier für Schrauben und die anderen vier für Führungen genutzt werden, um eine kontrollierte Anhebung des Hindernisses durch den Mechanismus sicherzustellen.
-Der DC-Motor, der den gesamten Mechanismus antreibt, wäre am Gehäuse angebracht.
-Der abgebildete Mechanismus wurde zu Testzwecken für die händische Bedienung ausgelegt. Die Tests des Mechanismus sind im Kapitel \ref{sec:hardware_greifarm} ersichtlich.
+Die Abbildung \ref{fig:greifarm_oben} zeigt den Klemmmechanismus. Er wird durch Zahnräder angetrieben, welche wiederum von einem linearen Mechanismus bewegt werden, um gleichzeitig den Hebemechanismus auszulösen. Die Feder (Gelb in Abbildung \ref{fig:greifarm_oben} ersichtlich) sorgt dafür, dass sobald die nötige Griffkraft erreicht ist, weiterhin die Bewegung für den Hebemechanismus machbar ist. In der Abbildung \ref{fig:greifarm_unten} ist der Hebemechanismus zu sehen. Er drückt sich von einer nicht im Bild sichtbaren Plattform ab. An den Rändern befinden sich acht Löcher, von denen werden vier für Schrauben und die anderen vier für Führungen genutzt. Damit ist eine kontrollierte Anhebung des Hindernisses durch den Mechanismus sichergestellt.
+Der DC-Motor, der den gesamten Mechanismus antreibt, ist am Gehäuse angebracht.
+Der abgebildete Mechanismus ist zu Testzwecken für die Bedienung von Hand ausgelegt. Die Tests des Mechanismus sind im Kapitel \ref{sec:hardware_greifarm} ersichtlich.
 
 \subsection{Materialwahl}
-Die Materialwahl für den Klemm- \& Hebemechanismus sowie das \enquote{Chassis} ist essenziell. Nicht nur, um die Funktion korrekt zu erfüllen, sondern vor allem, um Gewicht einzusparen. Aufgrund der Komplexität, der genauen Geometrie und geringer Belastungen, wurde für den Klemm- \& Hebemechanismus 3D-Druck ausgewählt. Wahrscheinlich wird PLA-Filament oder, wenn nötig, ein dauerfesteres Filament eingesetzt. Da das gesamte Gewicht der Komponenten auf dem Chassis liegt, wird Aluminium als Material verwendet. Holz hat eine viermal geringeren Dichte und könnte ebenfalls genutzt werden. Da jedoch die Erfahrungen im Team sowie die Ausstattung der Werkstatt auf Metalle ausgerichtet sind, wird vorläufig Aluminium verwendet. Die Wahl der Materialien wurde vorläufig definiert, muss jedoch zu einem späteren Zeitpunkt getestet werden.
+Die Materialwahl für den Klemm- \& Hebemechanismus sowie das \enquote{Chassis} ist essenziell. Nicht nur, um die Funktion korrekt zu erfüllen, sondern überwiegend, um Gewicht einzusparen. Aufgrund der Komplexität, der genauen Geometrie und geringer Belastungen, wurde für den Klemm- \& Hebemechanismus 3D-Druck ausgewählt. Voraussichtlich wird PLA-Filament oder ein festeres Filament eingesetzt. Da das Gewicht der Komponenten auf dem Chassis liegt, wird Aluminium verwendet. Holz hat eine viermal geringeren Dichte und ist ebenfalls geeignet. Da jedoch die Erfahrungen im Team sowie die Ausstattung der Werkstatt auf Metalle ausgerichtet sind, ist die Entscheidung auf Aluminium gefallen. Die Wahl der Materialien ist vorläufig definiert, muss jedoch zu einem späteren Zeitpunkt getestet werden.
 
 
 
 \subsection{Prototyping Ergebnisse}
-In diesem Kapitel werden die Ergebnisse verschiedener Tests kurz vorgestellt. Diese Ergebnisse sind entscheidend für das entstandene Lösungskonzept.
-Die ausführlichen Berichte zu den durchgeführten Tests befinden sich im Kapitel Prototyping im Anhang \ref{a4 prototyping}.
+In diesem Kapitel werden die Ergebnisse verschiedener Tests vorgestellt. Die Ergebnisse sind entscheidend für das entstandene Lösungskonzept.
+Die ausführlichen Berichte zu den durchgeführten Tests befinden sich im Anhang \ref{a4 prototyping}.
 
 \subsubsection{Klemm- \& Hebemachanismus} \label{sec:hardware_greifarm}
-Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Klemm- und Hebemechanismus gemacht werden können, wurde ein Prototyp 3D - gedruckt (siehe Abbildung \ref{fig:hardware_test_fertig}). Bei dem Zusammenbau und Funktionalitätstests wurden diverse Erkenntnisse gewonnen:
+Um das allgemeine Funktionsprinzip zu testen und Verbesserungen am Klemm- und Hebemechanismus vorzunehmen, wurde ein Prototyp mit dem 3D-Drucker hergestellt (siehe Abbildung \ref{fig:hardware_test_fertig}). Bei dem Zusammenbau und Funktionstest wurden diverse Erkenntnisse gewonnen:
 
 \begin{enumerate}
     \item Funktionalität des Klemmmechanismus:
@@ -201,13 +201,13 @@ Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Klemm- und 
     \end{itemize}
     \item Probleme mit dem Hebemechanismus:
     \begin{itemize}
-        \item Der Hebemechanismus funktioniert nicht, da die Feder nicht geführt ist (siehe Abbildung \ref{fig:hardware_test_schieber}).
+        \item Der Hebemechanismus funktioniert nicht, da keine Führung für die Feder vorhanden ist (siehe Abbildung \ref{fig:hardware_test_schieber}).
         \item Für die lineare Bewegung fehlt eine geeignete Führung.
     \end{itemize}
     \item Probleme mit Zahnrädern und Verbindungen:
     \begin{itemize}
-        \item Zahnräder reiben an der Decke. Der Luftspalt zwischen Zahnrad und Deckel ist zu klein und muss vergrössert werden.
-        \item Die Verbinder zwischen Schieber und Zahnrädern müssen verlängert werden.
+        \item Die Zahnräder reiben am Gehäuse. Der Luftspalt zwischen Zahnrad und dem Gehäuse muss vergrössert werden.
+        \item Die Verbindungsstücke zwischen Schieber und Zahnrädern müssen länger sein.
     \end{itemize}
     \item Fertigungsprobleme:
     \begin{itemize}
@@ -215,7 +215,7 @@ Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Klemm- und 
     \end{itemize}
     \item Allgemeine Verbesserungsvorschläge:
     \begin{itemize}
-        \item Für ein besseres Verhalten des gesamten Systems sollte Silikonspray verwendet werden.
+        \item Für ein besseres Verhalten des gesamten Systems muss Silikonspray zum Einsatz kommen.
     \end{itemize}
 \end{enumerate}
 \newpage
@@ -254,11 +254,11 @@ Damit das allgemeine Funktionsprinzip getestet und Verbesserungen am Klemm- und 
 \end{figure}
 \newpage
 \subsubsection{Distanzmessung Hindernis}
-Für die Positionierung der Klemmbacken um das Hindernis ist eine Abstandsmessung erforderlich. Im Rahmen der Technologierecherche (siehe Anhang \ref{a4:technologierecherche}) wurden hierfür ein Ultraschallsensor und ein \acrshort{tof-sensor} identifiziert. Der Ultraschallsensor wurde gewählt, da er auch bei direkter Sonneneinstrahlung konstante Messwerte liefert. Die durchgeführten Tests zeigten stabile Messungen ab einem Mindestabstand von 3 cm und einer getesteten Reichweite von 30 cm. Der Mindestabstand von 3 cm ist bei der Installation zu berücksichtigen. Der genaue Versuchsaufbau sowie die Messergebnisse sind im Anhang \ref{sec:Distanz_Hindernis} detailliert beschrieben.
+Für die Positionierung der Klemmbacken um das Hindernis ist eine Abstandsmessung erforderlich. Im Rahmen der Technologierecherche (siehe Anhang \ref{a4:technologierecherche}) sind hierfür ein Ultraschallsensor und ein \acrshort{tof-sensor} identifiziert. Die Wahl fällt auf den Ultraschallsensor, da er bei direkter Sonneneinstrahlung konstante Messwerte liefert. Die durchgeführten Tests zeigten stabile Messungen ab einem Mindestabstand von 3 cm und einer getesteten Reichweite von 30 cm. Der Mindestabstand von 3 cm ist bei der Installation zu berücksichtigen. Der genaue Versuchsaufbau sowie die Messergebnisse sind im Anhang \ref{sec:Distanz_Hindernis} detailliert beschrieben.
 
 \subsubsection{Linienerkennung / Punkterkennung}
-Um der Linie zu folgen und den Punkt zu erkennen, ist ein geeigneter Sensor erforderlich. In der Technologierecherche (siehe Anhang \ref{a4:technologierecherche}) wurden zwei mögliche Sensoren identifiziert: ein Farbsensor und ein \gls{ir-fototransistor}. Obwohl der Farbsensor zuverlässig Unterschiede zwischen Boden und Linie erkennt, schied er aufgrund seiner relativ langen Belichtungszeit von 100 ms aus. Er liefert nur alle 100 ms einen Messwert, was bei einer Geschwindigkeit von 20 cm/s nur eine Abtastrate von einem Messwert pro 2 cm ergibt und damit nicht ausreicht.
+Um der Linie zu folgen und den Punkt zu erkennen, ist ein geeigneter Sensor erforderlich. In der Technologierecherche (siehe Anhang \ref{a4:technologierecherche}) wurden zwei mögliche Sensoren identifiziert: ein Farbsensor und ein \gls{ir-fototransistor}. Obwohl der Farbsensor zuverlässig Unterschiede zwischen Boden und Linie erkennt, schied er aufgrund seiner relativ langen Belichtungszeit von 100 ms aus. Er liefert alle 100 ms einen Messwert, was bei einer Geschwindigkeit von 20 cm/s einen Messwert alle 2 cm ergibt. Diese Abtastrate ist nicht ausreichend.
 
-Der \gls{ir-fototransistor} hingegen liefert Messwerte alle 2 ms und erkennt auch deutlich die Unterschiede zwischen den verschiedenen Oberflächen. Darüber hinaus ermöglicht die Analyse der Strichdicke mit mehreren IR-Fototransistoren eine genaue Punkterkennung. Die Details der Versuche und Ergebnisse sind im Anhang \ref{a4:Infrarotfototransistor-Array} dokumentiert.
-Das Schema und Layout für den Liniensensor, der mit IR-Dioden und IR-Fototransistoren arbeitet, wurde bereits erstellt (siehe Anhang \ref{a4:Schema-Linefollower}).
+Der \gls{ir-fototransistor} hingegen liefert Messwerte alle 2 ms und erkennt deutliche Unterschiede zwischen den verschiedenen Oberflächen. Darüber hinaus ermöglicht die Analyse der Strichdicke mit mehreren IR-Fototransistoren eine genaue Punkterkennung. Die Details der Versuche und Ergebnisse sind im Anhang \ref{a4:Infrarotfototransistor-Array} dokumentiert.
+Das Schema und Layout für den Liniensensor, der mit IR-Dioden und IR-Fototransistoren arbeitet, ist bereits erstellt (siehe Anhang \ref{a4:Schema-Linefollower}).
 \end{document}

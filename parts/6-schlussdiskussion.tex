@@ -14,10 +14,10 @@ Zum Abschluss von PREN1 werden die Anforderungen an unser Konzept, die angefalle
 Im Kapitel \ref{sec:anforderungsliste} wurden alle Anforderungen an das Projekt definiert.
 In diesem Abschnitt wird Kategorisiert auf die in \acrshort{pren1}
 bearbeiteten Anforderungen eingegangen. Es wird aufgeführt, welche Anforderungen erfüllt werden und welche nicht.
-Die Kapitel \hyperlink{A5}{''5 - Steuerung \& Bedienung''} und \hyperlink{A9}{''9 - Zeit''} werden noch nicht, behandelt, da diese erst in PREN 2 überprüft werden können.
+Die Kapitel \hyperlink{A5}{''5 - Steuerung \& Bedienung''} und \hyperlink{A9}{''9 - Zeit''} werden noch nicht behandelt, da diese erst in \acrshort{pren2} überprüft werden können.
 
 \subsubsection{Allgemeine Anforderungen}
-Alle Ziele der \hyperlink{A1}{''1 - Allgemeine Anforderungen''} sind auf einem guten Weg, jedoch noch nicht vollständig erreicht, da es sich um übergeordnete Ziele handelt. Die Fertigstellung dieser Ziele ist für PREN 2 geplant.
+Alle Ziele der \hyperlink{A1}{''1 - Allgemeine Anforderungen''} sind auf einem guten Weg, jedoch noch nicht vollständig erreicht, da es sich um übergeordnete Ziele handelt. Die Fertigstellung dieser Anforderungen ist für \acrshort{pren2} geplant.
 
 \subsubsection{Technische Anforderungen}
 Zum Zeitpunkt der Planung werden die Anforderungen \hyperlink{A2.1}{''2.1 - Dimensionen''} , \hyperlink{A2.3}{''2.3 - Hardware-Integration''} und \hyperlink{A2.4}{''2.4 - Zielerreichungssignal''} erfüllt. Wie viel das komplette Fahrzeug schlussendlich wiegen wird, ist schwer abzuschätzen. Das Gewicht der verwendeten Bauteile hat für den Entscheid Einfluss. Da das Design des Gehäuses noch nicht feststeht, kann das Endgewicht und somit das Einhalten der Anforderung \hyperlink{A2.2}{''2.2 - Maximalgewicht''} derzeit nicht genau bestimmt werden. Die ausgewählten Motoren haben genügend Drehmoment, um die Wunschanforderung \hyperlink{A2.6}{''2.6 - Minimale Fahrgeschwindigkeit''} zu erfüllen. Ob jedoch mit dieser Geschwindigkeit unter den gegebenen Umständen gefahren werden kann, muss in weiteren Tests herausgefunden werden.
@@ -29,18 +29,19 @@ Die Anforderung \hyperlink{A3.1}{''3.1 - Befahren des Weges''} kann mit Hilfe de
 
 \subsubsection{Hindernisse}
 
-Das Ziel \hyperlink{A4.1}{''4.1 Erkennung und Handling von Hindernissen''} wird in Pren 2 durch den eingesetzten Klemmmechanismus und die verwendete Sensorik überprüft.Die weiteren Anforderungen für die ''Hindernisse'' sind aus der Aufgabenstellung gegeben und legen Rahmenbedingungen für die Aufgabe fest.
-
+Das Ziel \hyperlink{A4.1}{''4.1 Erkennung und Handling von Hindernissen''} wird in \acrshort{pren2} durch den eingesetzten Klemmmechanismus und die verwendete Sensorik überprüft. Die weiteren Anforderungen für die ''Hindernisse'' sind aus der Aufgabenstellung gegeben und legen Rahmenbedingungen für die Aufgabe fest.
 
 \subsubsection{Simulator}
 
 Es wurde wie in der Anforderung \hyperlink{A6.1}{''6.1 - Simulator''} verlangt erfolgreich ein Simulator konzipiert und umgesetzt.
 
 \subsubsection{Nachhaltigkeit}
-Das Ziel \hyperlink{A7.1}{''7.1 - Umsetzung''} wurde so gut wie möglich erreicht. Siehe weitere Infos in Kapitel \ref{sec:nachhaltigkeit}
+
+Das Ziel \hyperlink{A7.1}{''7.1 - Umsetzung''} wurde so gut wie möglich erreicht. Siehe weitere Infos in Kapitel \ref{sec:nachhaltigkeit}.
 
 \subsubsection{Kosten}
-Das Ziel wurde  \hyperlink{A8.1}{''8.1 - Budget''} wurde für PREN 1 erreicht und für PREN 2 wurde eine abschätzung gemacht, siehe auch Tabelle \ref{tab:kostenuebersicht}
+
+Das Ziel wurde  \hyperlink{A8.1}{''8.1 - Budget''} wurde für \acrshort{pren1} erreicht und für \acrshort{pren2} wurde eine Abschätzung gemacht, welche in der Tabelle \ref{tab:kostenuebersicht} ersichtlich ist.
 
 \newpage
 \subsection{Risiken}
@@ -48,21 +49,21 @@ Die wichtigsten Risiken aus dem Risikomanagement (siehe Tabelle \ref{tab:risikot
 
 Dazu gehören Lieferengpässe (\hyperlink{R6}{R6}), zu wenig Leistung für die Bilderkennung (\hyperlink{R9}{R9}), Wegerkennung (\hyperlink{R2}{R2}) und die Bildqualität(\hyperlink{R11}{R11}). 
 
-\textbf{Lieferengpässe (\hyperlink{R6}{R6}):} Um Zeitverluste durch Lieferengpässe zu vermeiden, werden alle benötigten Baugruppen bereits vor Beginn von PREN2 evaluiert. Zudem sollen alle mechanischen Baugruppen sowie die Layouts der Elektronik (\acrshort{pcb}) bis zur zweiten Woche von PREN2 verfügbar sein. Dies ermöglicht eine zügige Materialbestellung.
+\textbf{Lieferengpässe (\hyperlink{R6}{R6}):} Um Zeitverluste durch Lieferengpässe zu vermeiden, werden alle benötigten Baugruppen bereits vor Beginn von \acrshort{pren2} evaluiert. Zudem sollen alle mechanischen Baugruppen sowie die Layouts der Elektronik (\acrshort{pcb}) bis zur zweiten Woche von \acrshort{pren2} verfügbar sein. Dies ermöglicht eine zügige Materialbestellung.
 
 \textbf{Leistung für die Bilderkennung (\hyperlink{R9}{R9}):} Sollte das Raspberry Pi 5 nicht genügend Leistung besitzen, um das Fahrzeug bei der geplanten Geschwindigkeit in Echtzeit zu steuern, stehen mehrere Lösungsansätze zur Verfügung. Das TinyK22 könnte beispielsweise einen Teil der Sensordatenverarbeitung übernehmen. Alternativ kann die Geschwindigkeit des Fahrzeugs so angepasst werden, dass sie der Rechenleistung des Computers entspricht.
 
-\textbf{Wegerkennung (\hyperlink{R2}{R2}):} Das Fahrzeug soll auf geraden Strecken zwischen zwei Wegpunkten fahren. Dabei ist die Linienerkennung nicht die primäre Methode, um auf Kurs zu bleiben, sondern dient zur Überprüfung und zur Erkennung von Wegpunkten. Das Risiko, einen Wegpunkt mit einer Bodenfuge zu verwechseln, ist aufgrund des Größenunterschieds sehr gering.
+\textbf{Wegerkennung (\hyperlink{R2}{R2}):} Das Fahrzeug soll auf geraden Strecken zwischen zwei Wegpunkten fahren. Dabei ist die Linienerkennung nicht die primäre Methode, um auf Kurs zu bleiben, sondern dient zur Überprüfung und zur Erkennung von Wegpunkten. Das Risiko, einen Wegpunkt mit einer Bodenfuge zu verwechseln, ist aufgrund des Grössenunterschieds sehr gering.
 
-\textbf{Bildqualität(\hyperlink{R11}{R11}):} Die Bildqualität kann durch starke Bewegungen während der Fahrt beeinträchtigt werden. Dieses Risiko lässt sich durch das Trainieren der Bildverarbeitung unter Bewegungsbedingungen minimieren. Außerdem soll die Bilderkennung nach Möglichkeit nur im Stillstand erfolgen.
+\textbf{Bildqualität(\hyperlink{R11}{R11}):} Die Bildqualität kann durch starke Bewegungen während der Fahrt beeinträchtigt werden. Dieses Risiko lässt sich durch das Trainieren der Bildverarbeitung unter Bewegungsbedingungen minimieren. Ausserdem soll die Bilderkennung nach Möglichkeit nur im Stillstand erfolgen.
 
 \subsection{Abschätzung Kosten}
 
-\subsubsection{Kosten PREN1}
-Die Hardware für die Bildverarbeitung wurde während PREN1 beschafft. Dazu gehören ein Raspberry Pi 5 mit 8 GB, eine Raspberry Pi 3 Kamera sowie das Kabel, um die Kamera mit dem Raspberry Pi zu verbinden. Außerdem kaufte das Team Motoren, eine H-Brücke, IR-LEDs und Fototransistoren. Das Raspberry Pi 5 und die Kamera dienen zur Durchführung von Tests für die Bildverarbeitung. Die Motoren wurden ebenfalls im Rahmen von PREN1 getestet. Das Team nutzt die IR-LEDs und Fototransistoren für die Entwicklung des Liniensensors. Die Gesamtkosten für PREN1 belaufen sich auf 163,66 CHF. Eine Übersicht der Ausgaben von PREN1 findet sich in der Kostenkontrolle im Projektmanagement in Tabelle \ref{tab:ausgaben_pren1}.
+\subsubsection{Kosten \acrshort{pren1}}
+Die Hardware für die Bildverarbeitung wurde während \acrshort{pren1} beschafft. Dazu gehören ein Raspberry Pi 5 mit 8 GB, eine Raspberry Pi 3 Kamera sowie das Kabel, um die Kamera mit dem Raspberry Pi zu verbinden. Ausserdem kaufte das Team Motoren, eine \gls{h-brücke}, IR-LEDs und Fototransistoren. Das Raspberry Pi 5 und die Kamera dienen zur Durchführung von Tests für die Bildverarbeitung. Die Motoren wurden ebenfalls im Rahmen von \acrshort{pren1} getestet. Das Team nutzt die IR-LEDs und Fototransistoren für die Entwicklung des Liniensensors. Die Gesamtkosten für \acrshort{pren1} belaufen sich auf 163,66 CHF. Eine Übersicht der Ausgaben von \acrshort{pren1} findet sich in der Kostenkontrolle im Projektmanagement in Tabelle \ref{tab:ausgaben_pren1}.
 
-\subsubsection{Kosten PREN2}
-Für PREN 2 können
+\subsubsection{Kosten \acrshort{pren2}}
+Für \acrshort{pren2} können
 Sensoren und die dazugehörende Elektronik kostengünstig erworben werden. Aus Erfahrung werden die Ausgaben für die elektrischen Bauteile und Baugruppen auf ungefähr 100 CHF geschätzt. Das Team entwickelt und bestellt das \acrshort{pcb} für ein Adapterboard, das die benötigten Spannungen erzeugt und die erforderliche Hardware miteinander verbindet. Die Herstellungskosten werden auf 80 CHF geschätzt.
 
 Die Kosten für das komplette Gehäuse, die verwendeten Räder und den Hindernisbewältigungsmechanismus werden auf 100 CHF geschätzt.
@@ -75,9 +76,9 @@ Folglich werden 444 CHF des 500 CHF Budget benötigt. 56 CHF sind als Reserve f�
         \hline
         \textbf{Beschreibung} & \textbf{Kosten (CHF)} \\
         \hline
-        PREN1 & 164 \\
+        \acrshort{pren1} & 164 \\
         \hline
-        PREN2 & 280 \\
+        \acrshort{pren2} & 280 \\
         \hline
         \textbf{Gesamtkosten PREN} & \textbf{444} \\
         \hline
@@ -91,7 +92,7 @@ Folglich werden 444 CHF des 500 CHF Budget benötigt. 56 CHF sind als Reserve f�
 \end{table}
 
 \subsection{Reflexion}
-In der Reflexion werden verschiedene Aspekte von PREN1 nochmals aus der Perspektive des Projektteams aufgegriffen und kritisch beurteilt.
+In der Reflexion werden verschiedene Aspekte von \acrshort{pren1} nochmals aus der Perspektive des Projektteams aufgegriffen und kritisch beurteilt.
 
 \subsubsection{Zielsetzung}
 Jedes Mitglied hat ähnliche Vorstellungen, was im Modul PREN erreicht werden soll. Dadurch gab es keine Probleme bei der Zieldefinition. Es soll ein möglichst einfaches und robustes Konzept entwickelt werden, um den Auftrag zu erfüllen. Dabei soll das Erreichen des Zielpunktes im Parcours über der dafür benötigten Zeit stehen.
@@ -105,14 +106,14 @@ Die verwendeten Vorlagen für den Projektplan und das Risikomanagement mussten s
 
 Das Team war ohne Projektleiter organisiert. Ein Nachteil, der sich aus dieser Rollenverteilung ergeben hat, war die fehlende Kontrolle der Einheitlichkeit der Dokumentation und der Arbeit im allgemeinen. Alle haben ihre Arbeit gemacht und in dieser Dokumentation zusammengeführt, allerdings war die Kohärenz nicht gegeben. Das führte zu viel nachträglichem Aufwand.
 
-Bis auf einzelne Arbeitspakete konnte der Zeitplan eingehalten werden und der Abschluss von PREN1 war nie gefährdet.
+Bis auf einzelne Arbeitspakete konnte der Zeitplan eingehalten werden und der Abschluss von \acrshort{pren1} war nie gefährdet.
 
 \subsection{Konzeptentwicklung}
 
-Der Prozess der Konzeptentwicklung hat aufgezeigt, dass nicht alles was geplant wird, auf den ersten Anhieb funktioniert. Das Prototyping (siehe Anhang \ref{a4 prototyping}) hat in allen Bereichen Mehrwert gebracht. Das Design des Greifmechanismus konnte optimiert werden und auch bei der Sensorik wurden Hindernisse identifiziert, die somit schneller überwunden oder umgangen werden. Der Digital Twin(siehe Anhang \ref{a4:prototyping}) hilft bei der virtuellen Datenbeschaffung und kann in Zukunft potentiell für weitere Zwecke verwendet werden. Viele weitere Tests und Prototyping haben dabei geholfen, das Lösungskonzept von PREN1 robuster zu gestalten.
+Der Prozess der Konzeptentwicklung hat aufgezeigt, dass nicht alles was geplant wird, auf den ersten Anhieb funktioniert. Das Prototyping (siehe Anhang \ref{a4 prototyping}) hat in allen Bereichen Mehrwert gebracht. Das Design des Greifmechanismus konnte optimiert werden und auch bei der Sensorik wurden Hindernisse identifiziert, die somit schneller überwunden oder umgangen werden. Der Digital Twin(siehe Anhang \ref{a4:prototyping}) hilft bei der virtuellen Datenbeschaffung und kann in Zukunft potentiell für weitere Zwecke verwendet werden. Viele weitere Tests und Prototyping haben dabei geholfen, das Lösungskonzept von \acrshort{pren1} robuster zu gestalten.
 
 Das Team musste aufpassen, nicht zu schnell einen Lösungsweg als gegeben anzusehen. Bis zur Zusammenstellung des morpholgischen Kastens (siehe Anhang \ref{morphologischer kasten}) wurde versucht, mit einer offenen Herangehensweise an die verschiedenen Lösungsaspekte heranzutreten. Dies ist uns in den meisten Fällen gut gelungen. Nur bei der Wahl der Simulator-Technologie sowie in der Elektronik gab es teilweise Ideen, die schon früh als gegeben angesehen wurden. Das hat in manchen Fällen zu verspäteten Anpassungen geführt, die allerdings erfolgreich abgeschlossen wurden.
 
-Wir sind sehr zufrieden mit dem erarbeiteten Lösungskonzept und freuen uns darauf, in PREN2 mit der Umsetzung fortzufahren.
+Wir sind sehr zufrieden mit dem erarbeiteten Lösungskonzept und freuen uns darauf, in \acrshort{pren2} mit der Umsetzung fortzufahren.
 
 \end{document}

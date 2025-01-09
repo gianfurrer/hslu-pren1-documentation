@@ -34,7 +34,7 @@ In diesem Abschnitt wird definiert, was der Simulator genau leisten soll. Die An
 
 \subsubsection{Konzept}
 
-Das Konzept basiert auf dem Morphologischen Kasten, welcher anhand der definierten Spezifikationen erarbeitet wurde. Details dazu sind im Anhang \ref{sec:sim_Morphologischer_Kasten} zu finden.
+Das Konzept basiert auf dem morphologischen Kasten, welcher anhand der definierten Spezifikationen erarbeitet wurde. Details dazu sind im Anhang \ref{sec:sim_Morphologischer_Kasten} zu finden.
 
 Im Optimalfall bildet der Simulator die gesamte Hardware des autonomen Fahrzeugs nach. Dadurch könnte die Fahrzeugsoftware direkt im Simulator getestet werden, ohne Anpassungen vornehmen zu müssen. Diese Herangehensweise ermöglicht eine nahtlose Integration zwischen Softwareentwicklung und Simulation. Allerdings ist die vollständige Simulation der Hardware mit erheblichem Aufwand verbunden und übersteigt den Rahmen des Simulators.
 
@@ -94,9 +94,9 @@ Diese Informationen werden genutzt, um den Graphen dynamisch zu aktualisieren un
 
 \subsubsection{Ablauf}
 
-In diesem Abschnitt wird der Ablauf anhand der Beispielkonfiguration in Kapitel \ref{fig:Beispielkonfiguration} erklärt.
+In diesem Abschnitt wird der Ablauf anhand der Beispielkonfiguration in Abbildung \ref{fig:Beispielkonfiguration} erklärt.
 
-Zu Beginn der Simulation hat der Simulator noch keine Informationen und berechnet den schnellsten Weg von S nach B: \textit{[S, E, A, B]}. Das Fahrzeug dreht sich somit zum nächsten Knoten \textit{E}.
+Zu Beginn der Simulation hat der Simulator noch keine Informationen und berechnet den schnellsten Weg von S nach B: \textit{[S, E, A, B]}. Das Fahrzeug dreht sich somit zum nächsten Knoten \textit{E} (siehe Abbildung \ref{fig:img/simulation/SimulatorAblauf-1.png}).
 
 \imagewidth{img/simulation/SimulatorAblauf-1.png}{Simulator: Fahrzeug schaut zu Wegpunkt E}{0.7\textwidth}
 
@@ -107,7 +107,7 @@ Um zu überprüfen, ob sich Objekte auf der idealen Strecke befindet, schiesst d
     \item Auf der \textbf{Kante F-A} befindet sich ein Hindernis.
 \end{itemize}
 
-Anhand von diesen Informationen wird der schnellste Weg neu berechnet: \textit{[S, G, D, B]}. Das Fahrzeug dreht sicher somit zu Wegpunkt \textit{G}. 
+Anhand von diesen Informationen wird der schnellste Weg neu berechnet: \textit{[S, G, D, B]}. Das Fahrzeug dreht sicher somit zu Wegpunkt \textit{G} (siehe Abbildung \ref{fig:img/simulation/SimulatorAblauf-2.png}). 
 
 \imagewidth{img/simulation/SimulatorAblauf-2.png}{Simulator: Fahrzeug dreht sich zu Wegpunkt G}{0.7\textwidth}
 
@@ -117,7 +117,7 @@ Die Kamera schiesst erneut ein Bild und erhält neue Informationen:
 \end{itemize}
 
 Der schnellste Weg bleibt unverändert, auch nach Einbezug neuer Informationen.
-Deshalb fährt das Fahrzeug nun von Wegpunkt \textit{S} zu \textit{G}.
+Deshalb fährt das Fahrzeug nun von Wegpunkt \textit{S} zu \textit{G} (siehe Abbildung \ref{fig:img/simulation/SimulatorAblauf-3.png}).
 
 \imagewidth{img/simulation/SimulatorAblauf-3.png}{Simulator: Fahrzeug fährt zu Wegpunkt G}{0.7\textwidth}
 

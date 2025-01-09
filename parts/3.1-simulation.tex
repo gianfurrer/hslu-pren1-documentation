@@ -8,7 +8,7 @@
 \subsection{Simulator}\label{simulator}
 
 Der Simulator dient dazu, die Funktionalität der Software des autonomen Fahrzeugs zu testen, bevor der physische Prototyp gebaut ist.
-Der Sourcecode vom Simulator ist auf Github\footnote{https://github.com/gianfurrer/hslu-pren-simulator} oder im Anhang zu finden.
+Der Sourcecode vom Simulator ist auf Github\footnote{https://github.com/gianfurrer/hslu-pren-simulator} oder in dem elektronischen Anhang unter ``pren-simulator.zip`` zu finden.
 
 \subsubsection{Spezifikation}
 
@@ -82,7 +82,7 @@ Die Konfiguration wird in einer \acrshort{yaml}-Datei abgespeichert und sieht wi
       removed_lines:
         - [D, C]
     \end{minted}
-    \caption{Beispielkonfiguration für den Simulator in yaml}
+    \caption{Beispielkonfiguration für den Simulator in YAML}
     \label{fig:Beispielkonfiguration}
 \end{figure}
 
@@ -161,11 +161,20 @@ In der Abbildung \ref{fig:img/simulation/Simulator_Laufzeitdiagramm.png} ist ein
 
 \imagewidth{img/simulation/Simulator_Laufzeitdiagramm.png}{Laufzeitdiagramm des Simulators}{\textwidth}
 
-\subsubsection{Verwendete Tools und Bibliotheken}
+\newpage
+\subsubsection{Aufbau}
 
-Der Simulator wurde mit Python3 umgesetzt.
+Der Simulator wurde mit Python3 mittels Objektorientierter Programmierung umgesetzt.
 
-In der Tabelle \ref{tab:SimulatorBibliotheken} werden die verwendeten Python3 Bibliotheken aufgelistet:
+In der Abbildung \ref{fig:img/simulation/Simulator_Klassendiagramm.png} ist das Klassendiagramm des Simulators abgebildet. Darauf sind alle Klassen zusammen mit den wichtigsten Methoden und Attributen abgebildet.
+Ebenfalls ist ersichtlich, bei welchen Klassen welche Bibliotheken zum Einsatz kommen.
+
+\imagewidth{img/simulation/Simulator_Klassendiagramm.png}{Klassendiagramm des Simulators}{\textwidth}
+
+\newpage
+\paragraph{Verwendete Tools und Bibliotheken}
+
+In der Tabelle \ref{tab:SimulatorBibliotheken} werden die verwendeten Bibliotheken aufgelistet:
 
 \begin{table}[htbp!]
     \centering
